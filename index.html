@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nuri Kağan Kurubaş | Portfolio</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      background-color: #0f1117;
+      color: #e2e8f0;
+      font-family: 'Courier New', Courier, monospace;
+      display: flex;
+      justify-content: center;
+      padding: 40px 20px;
+    }
+    .card {
+      background-color: #161922;
+      border: 1px solid #2e3545;
+      border-radius: 16px;
+      max-width: 720px;
+      width: 100%;
+      padding: 40px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+    }
+    .profile-img-container {
+      position: relative;
+      width: 130px;
+      height: 130px;
+      margin: 0 auto 20px auto;
+    }
+    .profile-img {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid #a855f7; /* Mor Dış Çerçeve Accent */
+      box-shadow: 0 0 15px rgba(168, 85, 247, 0.25);
+    }
+    h1 {
+      text-align: center;
+      letter-spacing: 2px;
+      font-size: 1.8rem;
+      color: #ffffff;
+      margin-bottom: 8px;
+    }
+    .subtitle {
+      text-align: center;
+      font-size: 0.85rem;
+      color: #fbbf24; /* Sarı / Amber Vurgu */
+      letter-spacing: 1.5px;
+      margin-bottom: 25px;
+      font-weight: bold;
+    }
+    .contact-bar {
+      border-top: 1px solid #2e3545;
+      border-bottom: 1px solid #2e3545;
+      padding: 14px 0;
+      text-align: center;
+      font-size: 0.85rem;
+      color: #94a3b8;
+      margin-bottom: 30px;
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    .contact-bar span.bullet {
+      color: #a855f7; /* İnce Mor Noktalar */
+    }
+    .section-title {
+      font-size: 0.95rem;
+      font-weight: bold;
+      letter-spacing: 1.5px;
+      color: #c084fc; /* Yumuşak Mor Başlıklar */
+      margin-bottom: 15px;
+      text-transform: uppercase;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .section-title::before {
+      content: '>';
+      color: #f59e0b; /* Sarı Terminal İstemi */
+    }
+    .content-block {
+      border-bottom: 1px solid #2e3545;
+      padding-bottom: 25px;
+      margin-bottom: 25px;
+    }
+    p.bullet-item {
+      font-size: 0.9rem;
+      line-height: 1.6;
+      margin-bottom: 12px;
+      color: #cbd5e1;
+    }
+    p.bullet-item strong {
+      color: #f59e0b; /* Önemli Etiketlerde Sarı Vurgu */
+    }
+    a {
+      color: #fbbf24;
+      text-decoration: none;
+      border-bottom: 1px dashed #fbbf24;
+      transition: all 0.2s ease;
+    }
+    a:hover {
+      color: #c084fc;
+      border-bottom-color: #c084fc;
+    }
+    .badge {
+      background-color: #232734;
+      color: #e2e8f0;
+      padding: 2px 8px;
+      border-radius: 4px;
+      border: 1px solid #3b4254;
+      font-size: 0.8rem;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="card">
+    <!-- Pixel Art Avatar Görseli -->
+    <div class="profile-img-container">
+      <img src="avatar.png" alt="Nuri Kağan Kurubaş" class="profile-img">
+    </div>
+
+    <h1>NURİ KAĞAN KURUBAŞ</h1>
+    <p class="subtitle">COMPUTER ENGINEER &bull; GAME DEVELOPER &bull; MUSICIAN</p>
+
+    <!-- İletişim Şeridi -->
+    <div class="contact-bar">
+      <span>nurikagankurubas@gmail.com</span>
+      <span class="bullet">&bull;</span>
+      <span>Bursa, Turkey</span>
+      <span class="bullet">&bull;</span>
+      <span><a href="https://github.com/kagankurubas" target="_blank">github.com/kagankurubas</a></span>
+    </div>
+
+    <!-- Executive Summary -->
+    <div class="content-block">
+      <h2 class="section-title">EXECUTIVE SUMMARY</h2>
+      <p class="bullet-item">&gt; Computer Engineering graduate from Balıkesir University, focused on game development, audio design, and system architecture.</p>
+      <p class="bullet-item">&gt; Experienced in developing mobile and desktop games with <span class="badge">Unity</span>; currently deep-diving into <span class="badge">Unreal Engine 5</span> & <span class="badge">C++</span>.</p>
+      <p class="bullet-item">&gt; Hands-on experience with <span class="badge">C#</span>, <span class="badge">.NET</span>, and <span class="badge">SQLite</span> for custom enterprise database & ERP solutions.</p>
+      <p class="bullet-item">&gt; Lifelong musician and guitarist, combining technical programming logic with creative sound design.</p>
+      <p class="bullet-item">&gt; <strong>Status:</strong> Open to work (Remote / Hybrid / On-site opportunities).</p>
+    </div>
+
+    <!-- Information & Core Stack -->
+    <div>
+      <h2 class="section-title">INFORMATION & SKILLS</h2>
+      <p class="bullet-item">&gt; <strong>education:</strong> B.S. in Computer Engineering — Balıkesir University</p>
+      <p class="bullet-item">&gt; <strong>game dev:</strong> Unreal Engine 5, Unity, C++, C#, Blueprints</p>
+      <p class="bullet-item">&gt; <strong>software & db:</strong> .NET, SQLite, Git, GitHub</p>
+      <p class="bullet-item">&gt; <strong>audio & music:</strong> Guitarist, Cubase, Audio Design</p>
+      <p class="bullet-item">&gt; <strong>github:</strong> <a href="https://github.com/kagankurubas" target="_blank">github.com/kagankurubas</a></p>
+    </div>
+  </div>
+
+</body>
+</html>
