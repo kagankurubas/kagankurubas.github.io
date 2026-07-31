@@ -3,164 +3,1460 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Nuri Kağan Kurubaş | Portfolio</title>
+  <meta name="description" content="Portfolio of Nuri Kağan Kurubaş — Computer Engineer, Game Developer, and Musician building gameplay systems and cross-platform applications.">
+  <meta name="theme-color" content="#080b12">
+  <meta property="og:title" content="Nuri Kağan Kurubaş | Portfolio">
+  <meta property="og:description" content="Computer Engineer, Game Developer, and Musician building gameplay systems and cross-platform applications.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://kagankurubas.github.io/">
+  <meta property="og:image" content="https://kagankurubas.github.io/avatar.png">
+
+  <title>Nuri Kağan Kurubaş | Computer Engineer & Game Developer</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
+
   <style>
+    :root {
+      --bg: #080b12;
+      --bg-elevated: #0d111b;
+      --surface: rgba(19, 25, 39, 0.74);
+      --surface-solid: #121827;
+      --surface-hover: #171f31;
+      --text: #f5f7fb;
+      --text-muted: #9da8bb;
+      --text-soft: #cbd3df;
+      --border: rgba(148, 163, 184, 0.16);
+      --border-strong: rgba(148, 163, 184, 0.28);
+      --purple: #9b7cff;
+      --purple-bright: #b69cff;
+      --amber: #f4b942;
+      --green: #39d98a;
+      --blue: #65b8ff;
+      --danger: #ff6b88;
+      --shadow: 0 24px 80px rgba(0, 0, 0, 0.42);
+      --radius-lg: 28px;
+      --radius-md: 20px;
+      --radius-sm: 14px;
+      --max-width: 1160px;
+    }
+
     * {
       box-sizing: border-box;
       margin: 0;
       padding: 0;
     }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 96px;
+    }
+
     body {
-      background-color: #0f1117;
-      color: #e2e8f0;
-      font-family: 'Courier New', Courier, monospace;
-      display: flex;
-      justify-content: center;
-      padding: 40px 20px;
+      min-height: 100vh;
+      overflow-x: hidden;
+      background:
+        radial-gradient(circle at 14% 10%, rgba(155, 124, 255, 0.15), transparent 28%),
+        radial-gradient(circle at 86% 8%, rgba(244, 185, 66, 0.08), transparent 23%),
+        radial-gradient(circle at 56% 82%, rgba(57, 217, 138, 0.06), transparent 30%),
+        var(--bg);
+      color: var(--text);
+      font-family: "Inter", sans-serif;
+      line-height: 1.65;
     }
-    .card {
-      background-color: #161922;
-      border: 1px solid #2e3545;
-      border-radius: 16px;
-      max-width: 720px;
-      width: 100%;
-      padding: 40px;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      z-index: -2;
+      pointer-events: none;
+      background-image:
+        linear-gradient(rgba(255, 255, 255, 0.016) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.016) 1px, transparent 1px);
+      background-size: 44px 44px;
+      mask-image: linear-gradient(to bottom, black, transparent 82%);
     }
-    .profile-img-container {
-      position: relative;
-      width: 130px;
-      height: 130px;
-      margin: 0 auto 20px auto;
+
+    a {
+      color: inherit;
+      text-decoration: none;
     }
-    .profile-img {
-      width: 100%;
-      height: 100%;
-      border-radius: 50%;
-      object-fit: cover;
-      border: 3px solid #a855f7; /* Mor Dış Çerçeve Accent */
-      box-shadow: 0 0 15px rgba(168, 85, 247, 0.25);
+
+    button,
+    a {
+      -webkit-tap-highlight-color: transparent;
     }
-    h1 {
-      text-align: center;
-      letter-spacing: 2px;
-      font-size: 1.8rem;
-      color: #ffffff;
-      margin-bottom: 8px;
+
+    img {
+      display: block;
+      max-width: 100%;
     }
-    .subtitle {
-      text-align: center;
-      font-size: 0.85rem;
-      color: #fbbf24; /* Sarı / Amber Vurgu */
-      letter-spacing: 1.5px;
-      margin-bottom: 25px;
-      font-weight: bold;
+
+    .container {
+      width: min(calc(100% - 40px), var(--max-width));
+      margin-inline: auto;
     }
-    .contact-bar {
-      border-top: 1px solid #2e3545;
-      border-bottom: 1px solid #2e3545;
-      padding: 14px 0;
-      text-align: center;
-      font-size: 0.85rem;
-      color: #94a3b8;
-      margin-bottom: 30px;
-      display: flex;
-      justify-content: center;
-      gap: 12px;
-      flex-wrap: wrap;
-    }
-    .contact-bar span.bullet {
-      color: #a855f7; /* İnce Mor Noktalar */
-    }
-    .section-title {
-      font-size: 0.95rem;
-      font-weight: bold;
-      letter-spacing: 1.5px;
-      color: #c084fc; /* Yumuşak Mor Başlıklar */
-      margin-bottom: 15px;
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      color: var(--purple-bright);
+      font-family: "JetBrains Mono", monospace;
+      font-size: 0.77rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
       text-transform: uppercase;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 8px;
+      height: 8px;
+      border-radius: 999px;
+      background: var(--green);
+      box-shadow: 0 0 18px rgba(57, 217, 138, 0.8);
+    }
+
+    .section {
+      padding: 110px 0;
+    }
+
+    .section-heading {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(260px, 0.7fr);
+      align-items: end;
+      gap: 28px;
+      margin-bottom: 42px;
+    }
+
+    .section-heading h2 {
+      margin-top: 12px;
+      max-width: 760px;
+      font-size: clamp(2rem, 4.6vw, 3.9rem);
+      line-height: 1.05;
+      letter-spacing: -0.045em;
+    }
+
+    .section-heading p {
+      color: var(--text-muted);
+      font-size: 1rem;
+    }
+
+    .muted {
+      color: var(--text-muted);
+    }
+
+    .mono {
+      font-family: "JetBrains Mono", monospace;
+    }
+
+    .accent {
+      color: var(--purple-bright);
+    }
+
+    .button-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 48px;
+      padding: 0 20px;
+      border: 1px solid transparent;
+      border-radius: 999px;
+      font-size: 0.93rem;
+      font-weight: 700;
+      transition: transform 160ms ease, border-color 160ms ease, background 160ms ease, color 160ms ease;
+    }
+
+    .button:hover {
+      transform: translateY(-2px);
+    }
+
+    .button-primary {
+      background: linear-gradient(135deg, var(--purple), #7557e7);
+      color: white;
+      box-shadow: 0 14px 35px rgba(123, 91, 226, 0.26);
+    }
+
+    .button-secondary {
+      border-color: var(--border-strong);
+      background: rgba(255, 255, 255, 0.025);
+      color: var(--text-soft);
+    }
+
+    .button-secondary:hover {
+      border-color: rgba(182, 156, 255, 0.58);
+      color: white;
+    }
+
+    .button-small {
+      min-height: 42px;
+      padding: 0 16px;
+      font-size: 0.86rem;
+    }
+
+    .site-header {
+      position: fixed;
+      inset: 0 0 auto;
+      z-index: 50;
+      padding: 18px 0;
+      transition: background 180ms ease, border-color 180ms ease, backdrop-filter 180ms ease;
+    }
+
+    .site-header.scrolled {
+      border-bottom: 1px solid var(--border);
+      background: rgba(8, 11, 18, 0.82);
+      backdrop-filter: blur(20px);
+    }
+
+    .nav {
       display: flex;
       align-items: center;
-      gap: 8px;
+      justify-content: space-between;
+      gap: 24px;
     }
-    .section-title::before {
-      content: '>';
-      color: #f59e0b; /* Sarı Terminal İstemi */
-    }
-    .content-block {
-      border-bottom: 1px solid #2e3545;
-      padding-bottom: 25px;
-      margin-bottom: 25px;
-    }
-    p.bullet-item {
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 11px;
+      font-family: "JetBrains Mono", monospace;
       font-size: 0.9rem;
-      line-height: 1.6;
-      margin-bottom: 12px;
-      color: #cbd5e1;
+      font-weight: 600;
     }
-    p.bullet-item strong {
-      color: #f59e0b; /* Önemli Etiketlerde Sarı Vurgu */
+
+    .brand-mark {
+      display: grid;
+      width: 34px;
+      height: 34px;
+      place-items: center;
+      border: 1px solid rgba(182, 156, 255, 0.36);
+      border-radius: 11px;
+      background: rgba(155, 124, 255, 0.12);
+      color: var(--purple-bright);
     }
-    a {
-      color: #fbbf24;
-      text-decoration: none;
-      border-bottom: 1px dashed #fbbf24;
-      transition: all 0.2s ease;
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 26px;
+      list-style: none;
     }
-    a:hover {
-      color: #c084fc;
-      border-bottom-color: #c084fc;
+
+    .nav-links a {
+      color: var(--text-muted);
+      font-size: 0.88rem;
+      font-weight: 600;
+      transition: color 160ms ease;
     }
-    .badge {
-      background-color: #232734;
-      color: #e2e8f0;
-      padding: 2px 8px;
-      border-radius: 4px;
-      border: 1px solid #3b4254;
+
+    .nav-links a:hover {
+      color: white;
+    }
+
+    .nav-menu-button {
+      display: none;
+      width: 42px;
+      height: 42px;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      background: var(--surface);
+      color: white;
+      cursor: pointer;
+    }
+
+    .hero {
+      display: flex;
+      min-height: 100svh;
+      align-items: center;
+      padding: 142px 0 76px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.2fr) minmax(320px, 0.8fr);
+      align-items: center;
+      gap: 70px;
+    }
+
+    .hero h1 {
+      margin: 20px 0 24px;
+      max-width: 860px;
+      font-size: clamp(3.1rem, 7vw, 6.9rem);
+      line-height: 0.94;
+      letter-spacing: -0.072em;
+    }
+
+    .hero h1 span {
+      display: block;
+      color: transparent;
+      background: linear-gradient(120deg, #ffffff 5%, #cbbdff 55%, #f4c66f 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+    }
+
+    .hero-description {
+      max-width: 720px;
+      color: var(--text-muted);
+      font-size: clamp(1.02rem, 1.7vw, 1.2rem);
+    }
+
+    .hero-description strong {
+      color: var(--text-soft);
+      font-weight: 600;
+    }
+
+    .hero .button-row {
+      margin-top: 32px;
+    }
+
+    .hero-proof {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 30px;
+    }
+
+    .proof-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 9px 12px;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.025);
+      color: var(--text-muted);
+      font-size: 0.78rem;
+      font-weight: 600;
+    }
+
+    .proof-pill::before {
+      content: "";
+      width: 7px;
+      height: 7px;
+      border-radius: 999px;
+      background: var(--green);
+    }
+
+    .profile-panel {
+      position: relative;
+      isolation: isolate;
+    }
+
+    .profile-panel::before {
+      content: "";
+      position: absolute;
+      inset: 8% -8% -8% 12%;
+      z-index: -1;
+      border-radius: 40px;
+      background: linear-gradient(145deg, rgba(155, 124, 255, 0.2), rgba(244, 185, 66, 0.07));
+      filter: blur(18px);
+    }
+
+    .profile-card {
+      overflow: hidden;
+      border: 1px solid var(--border-strong);
+      border-radius: 34px;
+      background: linear-gradient(155deg, rgba(25, 32, 50, 0.94), rgba(12, 16, 27, 0.96));
+      box-shadow: var(--shadow);
+    }
+
+    .profile-visual {
+      position: relative;
+      min-height: 420px;
+      overflow: hidden;
+      background:
+        radial-gradient(circle at 50% 32%, rgba(155, 124, 255, 0.34), transparent 30%),
+        linear-gradient(160deg, #151b2a, #090c14);
+    }
+
+    .profile-visual::after {
+      content: "";
+      position: absolute;
+      inset: auto 0 0;
+      height: 42%;
+      background: linear-gradient(to top, rgba(9, 12, 20, 0.96), transparent);
+    }
+
+    .profile-visual img {
+      width: 100%;
+      height: 100%;
+      min-height: 420px;
+      object-fit: cover;
+      object-position: center;
+      filter: saturate(0.88) contrast(1.04);
+    }
+
+    .profile-status {
+      position: absolute;
+      right: 18px;
+      bottom: 18px;
+      left: 18px;
+      z-index: 2;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 15px 16px;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 17px;
+      background: rgba(8, 11, 18, 0.72);
+      backdrop-filter: blur(14px);
+    }
+
+    .profile-status strong {
+      display: block;
+      font-size: 0.9rem;
+    }
+
+    .profile-status span {
+      color: var(--text-muted);
+      font-size: 0.74rem;
+    }
+
+    .status-dot {
+      width: 11px;
+      height: 11px;
+      flex: 0 0 auto;
+      border-radius: 999px;
+      background: var(--green);
+      box-shadow: 0 0 17px rgba(57, 217, 138, 0.85);
+    }
+
+    .profile-meta {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      border-top: 1px solid var(--border);
+    }
+
+    .profile-meta div {
+      padding: 18px 14px;
+      text-align: center;
+    }
+
+    .profile-meta div + div {
+      border-left: 1px solid var(--border);
+    }
+
+    .profile-meta strong {
+      display: block;
+      font-size: 0.85rem;
+    }
+
+    .profile-meta span {
+      color: var(--text-muted);
+      font-size: 0.71rem;
+    }
+
+    .project-card {
+      overflow: hidden;
+      border: 1px solid var(--border-strong);
+      border-radius: var(--radius-lg);
+      background: linear-gradient(145deg, rgba(19, 25, 39, 0.96), rgba(11, 15, 25, 0.96));
+      box-shadow: var(--shadow);
+    }
+
+    .project-top {
+      display: grid;
+      grid-template-columns: minmax(0, 0.86fr) minmax(0, 1.14fr);
+      min-height: 560px;
+    }
+
+    .project-copy {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: clamp(32px, 5vw, 62px);
+    }
+
+    .project-label {
+      display: inline-flex;
+      width: fit-content;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 18px;
+      padding: 7px 10px;
+      border: 1px solid rgba(57, 217, 138, 0.22);
+      border-radius: 999px;
+      background: rgba(57, 217, 138, 0.07);
+      color: #84efb8;
+      font-size: 0.74rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    .project-copy h3 {
+      font-size: clamp(2.3rem, 5vw, 4.8rem);
+      line-height: 0.98;
+      letter-spacing: -0.055em;
+    }
+
+    .project-copy > p {
+      margin: 22px 0 24px;
+      color: var(--text-muted);
+      font-size: 1rem;
+    }
+
+    .feature-list {
+      display: grid;
+      gap: 12px;
+      margin-bottom: 26px;
+      list-style: none;
+    }
+
+    .feature-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 11px;
+      color: var(--text-soft);
+      font-size: 0.9rem;
+    }
+
+    .feature-list li::before {
+      content: "✓";
+      color: var(--green);
+      font-family: "JetBrains Mono", monospace;
+      font-weight: 700;
+    }
+
+    .tag-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 30px;
+    }
+
+    .tag {
+      padding: 7px 10px;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.024);
+      color: var(--text-muted);
+      font-family: "JetBrains Mono", monospace;
+      font-size: 0.72rem;
+    }
+
+    .project-showcase {
+      position: relative;
+      display: grid;
+      min-height: 560px;
+      padding: 30px 28px;
+      place-items: center;
+      overflow: hidden;
+      border-left: 1px solid var(--border);
+      background:
+        radial-gradient(circle at 45% 38%, rgba(57, 217, 138, 0.16), transparent 28%),
+        radial-gradient(circle at 72% 68%, rgba(155, 124, 255, 0.16), transparent 34%),
+        #0b1119;
+    }
+
+    .phone-stage {
+      position: relative;
+      width: min(100%, 680px);
+      height: 500px;
+    }
+
+    .phone {
+      position: absolute;
+      top: 50%;
+      width: min(29%, 172px);
+      padding: 7px;
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      border-radius: 27px;
+      background: #090b10;
+      box-shadow: 0 28px 55px rgba(0, 0, 0, 0.42);
+      transform: translateY(-50%);
+    }
+
+    .phone img {
+      display: block;
+      width: 100%;
+      height: auto;
+      aspect-ratio: auto;
+      border-radius: 20px;
+      object-fit: contain;
+    }
+
+    .phone-left {
+      left: 2%;
+      z-index: 1;
+      opacity: 0.8;
+      transform: translateY(-50%) rotate(-5deg) scale(0.94);
+      transform-origin: center;
+    }
+
+    .phone-center {
+      left: 50%;
+      z-index: 3;
+      width: min(32%, 190px);
+      transform: translate(-50%, -50%);
+    }
+
+    .phone-right {
+      right: 2%;
+      z-index: 2;
+      opacity: 0.82;
+      transform: translateY(-50%) rotate(5deg) scale(0.94);
+      transform-origin: center;
+    }
+
+    .project-bottom {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      border-top: 1px solid var(--border);
+    }
+
+    .project-metric {
+      padding: 24px 28px;
+    }
+
+    .project-metric + .project-metric {
+      border-left: 1px solid var(--border);
+    }
+
+    .project-metric strong {
+      display: block;
+      margin-bottom: 3px;
+      font-size: 1rem;
+    }
+
+    .project-metric span {
+      color: var(--text-muted);
       font-size: 0.8rem;
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
+      gap: 26px;
+    }
+
+    .panel {
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      background: var(--surface);
+      backdrop-filter: blur(12px);
+    }
+
+    .about-copy {
+      padding: clamp(28px, 4vw, 44px);
+    }
+
+    .about-copy h3 {
+      margin-bottom: 18px;
+      font-size: clamp(1.6rem, 3vw, 2.45rem);
+      line-height: 1.15;
+      letter-spacing: -0.035em;
+    }
+
+    .about-copy p + p {
+      margin-top: 16px;
+    }
+
+    .about-copy p {
+      color: var(--text-muted);
+    }
+
+    .about-copy strong {
+      color: var(--text-soft);
+    }
+
+    .experience-list {
+      display: grid;
+      gap: 14px;
+      padding: 18px;
+    }
+
+    .experience-card {
+      padding: 22px;
+      border: 1px solid transparent;
+      border-radius: 16px;
+      background: rgba(255, 255, 255, 0.025);
+      transition: border-color 160ms ease, background 160ms ease, transform 160ms ease;
+    }
+
+    .experience-card:hover {
+      transform: translateY(-2px);
+      border-color: var(--border-strong);
+      background: rgba(255, 255, 255, 0.038);
+    }
+
+    .experience-card header {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 18px;
+      margin-bottom: 10px;
+    }
+
+    .experience-card h3 {
+      font-size: 1rem;
+    }
+
+    .experience-card time {
+      color: var(--purple-bright);
+      font-family: "JetBrains Mono", monospace;
+      font-size: 0.7rem;
+      white-space: nowrap;
+    }
+
+    .experience-card p {
+      color: var(--text-muted);
+      font-size: 0.86rem;
+    }
+
+    .now-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .now-card {
+      min-height: 252px;
+      padding: 26px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      background: linear-gradient(150deg, rgba(20, 27, 42, 0.82), rgba(11, 15, 24, 0.86));
+    }
+
+    .now-card-number {
+      display: grid;
+      width: 40px;
+      height: 40px;
+      margin-bottom: 34px;
+      place-items: center;
+      border: 1px solid rgba(182, 156, 255, 0.26);
+      border-radius: 12px;
+      background: rgba(155, 124, 255, 0.08);
+      color: var(--purple-bright);
+      font-family: "JetBrains Mono", monospace;
+      font-size: 0.78rem;
+      font-weight: 700;
+    }
+
+    .now-card h3 {
+      margin-bottom: 10px;
+      font-size: 1.2rem;
+      letter-spacing: -0.02em;
+    }
+
+    .now-card p {
+      color: var(--text-muted);
+      font-size: 0.88rem;
+    }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 18px;
+    }
+
+    .skill-group {
+      padding: 27px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      background: rgba(16, 22, 35, 0.72);
+    }
+
+    .skill-group h3 {
+      margin-bottom: 18px;
+      font-size: 1rem;
+    }
+
+    .skill-group .tag-list {
+      margin-bottom: 0;
+    }
+
+    .contact-card {
+      position: relative;
+      overflow: hidden;
+      padding: clamp(34px, 7vw, 78px);
+      border: 1px solid var(--border-strong);
+      border-radius: 32px;
+      background:
+        radial-gradient(circle at 85% 20%, rgba(244, 185, 66, 0.1), transparent 25%),
+        radial-gradient(circle at 20% 85%, rgba(155, 124, 255, 0.2), transparent 32%),
+        linear-gradient(145deg, #161d2e, #0d111b);
+      box-shadow: var(--shadow);
+    }
+
+    .contact-card h2 {
+      max-width: 840px;
+      margin: 16px 0 20px;
+      font-size: clamp(2.45rem, 6vw, 5.5rem);
+      line-height: 0.98;
+      letter-spacing: -0.06em;
+    }
+
+    .contact-card > p {
+      max-width: 690px;
+      margin-bottom: 30px;
+      color: var(--text-muted);
+      font-size: 1rem;
+    }
+
+    .contact-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 32px;
+    }
+
+    .contact-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      padding: 11px 14px;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      color: var(--text-soft);
+      font-size: 0.82rem;
+      font-weight: 600;
+      transition: border-color 160ms ease, color 160ms ease, transform 160ms ease;
+    }
+
+    .contact-link:hover {
+      transform: translateY(-2px);
+      border-color: rgba(182, 156, 255, 0.58);
+      color: white;
+    }
+
+    footer {
+      padding: 34px 0 46px;
+      color: var(--text-muted);
+      font-size: 0.77rem;
+    }
+
+    .footer-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      padding-top: 24px;
+      border-top: 1px solid var(--border);
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(18px);
+      transition: opacity 600ms ease, transform 600ms ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: none;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      *,
+      *::before,
+      *::after {
+        scroll-behavior: auto !important;
+        transition-duration: 0.01ms !important;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+      }
+
+      .reveal {
+        opacity: 1;
+        transform: none;
+      }
+    }
+
+    @media (max-width: 980px) {
+      .hero-grid,
+      .project-top,
+      .about-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        min-height: auto;
+        padding-top: 150px;
+      }
+
+      .profile-panel {
+        width: min(100%, 520px);
+      }
+
+      .project-showcase {
+        min-height: 520px;
+        border-top: 1px solid var(--border);
+        border-left: 0;
+      }
+
+      .section-heading {
+        grid-template-columns: 1fr;
+      }
+
+      .now-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 760px) {
+      .container {
+        width: min(calc(100% - 28px), var(--max-width));
+      }
+
+      .site-header {
+        padding: 13px 0;
+      }
+
+      .nav-menu-button {
+        display: grid;
+        place-items: center;
+      }
+
+      .nav-links {
+        position: absolute;
+        top: 68px;
+        right: 14px;
+        left: 14px;
+        display: none;
+        align-items: stretch;
+        flex-direction: column;
+        gap: 0;
+        padding: 12px;
+        border: 1px solid var(--border);
+        border-radius: 18px;
+        background: rgba(10, 14, 23, 0.96);
+        box-shadow: var(--shadow);
+        backdrop-filter: blur(18px);
+      }
+
+      .nav-links.open {
+        display: flex;
+      }
+
+      .nav-links li:last-child {
+        margin-top: 7px;
+      }
+
+      .nav-links a {
+        display: block;
+        padding: 12px;
+      }
+
+      .nav-links .button {
+        text-align: center;
+      }
+
+      .hero {
+        padding-top: 130px;
+      }
+
+      .hero-grid {
+        gap: 42px;
+      }
+
+      .profile-visual,
+      .profile-visual img {
+        min-height: 360px;
+      }
+
+      .project-copy {
+        padding: 30px 22px;
+      }
+
+      .project-showcase {
+        min-height: 450px;
+        padding: 24px 18px;
+      }
+
+      .phone-stage {
+        height: 410px;
+      }
+
+      .phone {
+        width: min(28%, 148px);
+      }
+
+      .phone-center {
+        width: min(32%, 168px);
+      }
+
+      .project-bottom,
+      .profile-meta,
+      .skills-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .project-metric + .project-metric,
+      .profile-meta div + div {
+        border-top: 1px solid var(--border);
+        border-left: 0;
+      }
+
+      .section {
+        padding: 84px 0;
+      }
+
+      .footer-inner {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+    }
+
+    @media (max-width: 520px) {
+      .hero h1 {
+        font-size: clamp(3rem, 16vw, 4.6rem);
+      }
+
+      .profile-visual,
+      .profile-visual img {
+        min-height: 320px;
+      }
+
+      .project-showcase {
+        min-height: 390px;
+        padding: 20px 8px;
+      }
+
+      .phone-stage {
+        width: 100%;
+        height: 350px;
+      }
+
+      .phone {
+        width: min(29%, 108px);
+        padding: 5px;
+        border-radius: 20px;
+      }
+
+      .phone img {
+        border-radius: 15px;
+      }
+
+      .phone-left {
+        left: 1%;
+        transform: translateY(-50%) rotate(-4deg) scale(0.94);
+      }
+
+      .phone-right {
+        right: 1%;
+        transform: translateY(-50%) rotate(4deg) scale(0.94);
+      }
+
+      .phone-center {
+        width: min(34%, 126px);
+        transform: translate(-50%, -50%);
+      }
     }
   </style>
 </head>
 <body>
+  <header class="site-header" id="siteHeader">
+    <div class="container nav">
+      <a class="brand" href="#top" aria-label="Go to the top of the page">
+        <span class="brand-mark">NK</span>
+        <span>kagankurubas.dev</span>
+      </a>
 
-  <div class="card">
-    <!-- Pixel Art Avatar Görseli -->
-    <div class="profile-img-container">
-      <img src="avatar.png" alt="Nuri Kağan Kurubaş" class="profile-img">
+      <button class="nav-menu-button" id="menuButton" type="button" aria-label="Toggle navigation" aria-expanded="false">
+        <span aria-hidden="true">☰</span>
+      </button>
+
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#work">Work</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#now">Now</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a class="button button-secondary button-small" href="#contact">Contact</a></li>
+      </ul>
     </div>
+  </header>
 
-    <h1>NURİ KAĞAN KURUBAŞ</h1>
-    <p class="subtitle">COMPUTER ENGINEER &bull; GAME DEVELOPER &bull; MUSICIAN</p>
+  <main id="top">
+    <section class="hero">
+      <div class="container hero-grid">
+        <div class="hero-copy reveal">
+          <span class="eyebrow">Computer Engineer · Game Developer · Musician</span>
+          <h1>
+            I build systems where
+            <span>logic meets creativity.</span>
+          </h1>
+          <p class="hero-description">
+            I develop <strong>gameplay systems</strong> and <strong>cross-platform applications</strong>, combining software engineering, interaction design, and sound into focused digital experiences.
+          </p>
 
-    <!-- İletişim Şeridi -->
-    <div class="contact-bar">
-      <span>nurikagankurubas@gmail.com</span>
-      <span class="bullet">&bull;</span>
-      <span>Bursa, Turkey</span>
-      <span class="bullet">&bull;</span>
-      <span><a href="https://github.com/kagankurubas" target="_blank">github.com/kagankurubas</a></span>
+          <div class="button-row">
+            <a class="button button-primary" href="#work">View selected work</a>
+            <a class="button button-secondary" href="https://github.com/kagankurubas" target="_blank" rel="noreferrer">GitHub profile ↗</a>
+          </div>
+
+          <div class="hero-proof" aria-label="Current portfolio highlights">
+            <span class="proof-pill">Habitto v1.0.0 released</span>
+            <span class="proof-pill">Automated Flutter CI</span>
+            <span class="proof-pill">Based in Bursa, Türkiye</span>
+          </div>
+        </div>
+
+        <aside class="profile-panel reveal" aria-label="Profile overview">
+          <div class="profile-card">
+            <div class="profile-visual">
+              <img src="avatar.png" alt="Illustrated portrait of Nuri Kağan Kurubaş">
+              <div class="profile-status">
+                <div>
+                  <strong>Open to opportunities</strong>
+                  <span>Remote · Hybrid · On-site</span>
+                </div>
+                <span class="status-dot" aria-hidden="true"></span>
+              </div>
+            </div>
+            <div class="profile-meta">
+              <div>
+                <strong>Flutter</strong>
+                <span>Product development</span>
+              </div>
+              <div>
+                <strong>UE5</strong>
+                <span>Current focus</span>
+              </div>
+              <div>
+                <strong>Audio</strong>
+                <span>Creative practice</span>
+              </div>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section" id="work">
+      <div class="container">
+        <div class="section-heading reveal">
+          <div>
+            <span class="eyebrow">Selected work</span>
+            <h2>One finished product says more than ten unfinished demos.</h2>
+          </div>
+          <p>
+            Habitto is my current flagship public project: designed, developed, tested, signed, and distributed as a real Android release.
+          </p>
+        </div>
+
+        <article class="project-card reveal">
+          <div class="project-top">
+            <div class="project-copy">
+              <span class="project-label">Public Android release · v1.0.0</span>
+              <h3>Habitto</h3>
+              <p>
+                A customizable, local-first habit and routine tracker built to make consistency visible, motivating, and private.
+              </p>
+
+              <ul class="feature-list">
+                <li>Flexible habit scheduling, reminders, streaks, and statistics</li>
+                <li>Achievement system, themes, local JSON backup, and restore</li>
+                <li>Automated formatting, analysis, tests, and Android build validation</li>
+              </ul>
+
+              <div class="tag-list" aria-label="Habitto technologies">
+                <span class="tag">Flutter</span>
+                <span class="tag">Dart</span>
+                <span class="tag">Hive</span>
+                <span class="tag">Local Notifications</span>
+                <span class="tag">GitHub Actions</span>
+              </div>
+
+              <div class="button-row">
+                <a class="button button-primary" href="https://github.com/kagankurubas/habitto/releases/latest" target="_blank" rel="noreferrer">Download Android APK ↗</a>
+                <a class="button button-secondary" href="https://github.com/kagankurubas/habitto" target="_blank" rel="noreferrer">View source ↗</a>
+              </div>
+            </div>
+
+            <div class="project-showcase" aria-label="Habitto application screenshots">
+              <div class="phone-stage">
+                <figure class="phone phone-left">
+                  <img src="https://raw.githubusercontent.com/kagankurubas/habitto/main/assets/readme/home1.jpg" alt="Habitto light theme home screen">
+                </figure>
+                <figure class="phone phone-center">
+                  <img src="https://raw.githubusercontent.com/kagankurubas/habitto/main/assets/readme/home2.jpg" alt="Habitto dark theme home screen">
+                </figure>
+                <figure class="phone phone-right">
+                  <img src="https://raw.githubusercontent.com/kagankurubas/habitto/main/assets/readme/statistics.jpg" alt="Habitto statistics screen">
+                </figure>
+              </div>
+            </div>
+          </div>
+
+          <div class="project-bottom">
+            <div class="project-metric">
+              <strong>Local-first</strong>
+              <span>No account and no automatic personal-data upload</span>
+            </div>
+            <div class="project-metric">
+              <strong>Release-ready</strong>
+              <span>Signed APK distributed through GitHub Releases</span>
+            </div>
+            <div class="project-metric">
+              <strong>Continuously verified</strong>
+              <span>Formatting, analysis, tests, and debug build in CI</span>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="about">
+      <div class="container">
+        <div class="section-heading reveal">
+          <div>
+            <span class="eyebrow">About me</span>
+            <h2>Engineering discipline with a creative point of view.</h2>
+          </div>
+          <p>
+            My work sits between software architecture, game development, visual interaction, and music.
+          </p>
+        </div>
+
+        <div class="about-grid">
+          <div class="panel about-copy reveal">
+            <h3>I care about systems that feel clear, responsive, and intentional.</h3>
+            <p>
+              I am a Computer Engineering graduate from Balıkesir University with experience building mobile and desktop games in <strong>Unity</strong>, enterprise-oriented tools with <strong>C# and .NET</strong>, and cross-platform products with <strong>Flutter</strong>.
+            </p>
+            <p>
+              I am currently developing my skills in <strong>Unreal Engine 5, C++, and Blueprints</strong>. My longer-term direction is gameplay systems, interactive experiences, and technical work where code and sound can reinforce each other.
+            </p>
+            <p>
+              Outside software, I am a guitarist and musician. That background shapes how I think about rhythm, feedback, pacing, and emotional tone in interactive products.
+            </p>
+          </div>
+
+          <div class="panel experience-list reveal">
+            <article class="experience-card">
+              <header>
+                <h3>Professional Game Development</h3>
+                <time>Experience</time>
+              </header>
+              <p>
+                Built mobile and desktop game systems with Unity for company-owned projects. The source repositories are not publicly available because the work belongs to the company.
+              </p>
+            </article>
+
+            <article class="experience-card">
+              <header>
+                <h3>Application & Product Development</h3>
+                <time>Current</time>
+              </header>
+              <p>
+                Designed, shipped, documented, and automated the release workflow for Habitto, a local-first Flutter application.
+              </p>
+            </article>
+
+            <article class="experience-card">
+              <header>
+                <h3>Enterprise Software</h3>
+                <time>Background</time>
+              </header>
+              <p>
+                Worked with C#, .NET, SQLite, database-oriented workflows, and custom business software requirements.
+              </p>
+            </article>
+
+            <article class="experience-card">
+              <header>
+                <h3>Music & Audio</h3>
+                <time>Ongoing</time>
+              </header>
+              <p>
+                Guitar, music production, Cubase, sound design, and a continuing interest in interactive audio systems.
+              </p>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="now">
+      <div class="container">
+        <div class="section-heading reveal">
+          <div>
+            <span class="eyebrow">What I am building now</span>
+            <h2>Learning in public, shipping when the work is ready.</h2>
+          </div>
+          <p>
+            I do not publish half-finished repositories just to fill a profile. These are the areas currently moving forward.
+          </p>
+        </div>
+
+        <div class="now-grid">
+          <article class="now-card reveal">
+            <span class="now-card-number">01</span>
+            <h3>Unreal Engine 5</h3>
+            <p>
+              Deepening my understanding of UE5, C++, Blueprints, gameplay architecture, and reusable gameplay systems.
+            </p>
+          </article>
+
+          <article class="now-card reveal">
+            <span class="now-card-number">02</span>
+            <h3>Taskbar Idle Game</h3>
+            <p>
+              Preparing a collaborative taskbar idle game project that will become my next public game-development repository.
+            </p>
+          </article>
+
+          <article class="now-card reveal">
+            <span class="now-card-number">03</span>
+            <h3>Habitto Improvements</h3>
+            <p>
+              Expanding automated test coverage and planning future accessibility, localization, and backup improvements.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="skills">
+      <div class="container">
+        <div class="section-heading reveal">
+          <div>
+            <span class="eyebrow">Core capabilities</span>
+            <h2>Tools are useful. The ability to finish is more useful.</h2>
+          </div>
+          <p>
+            My strongest public proof is currently application development; my active growth area is Unreal Engine gameplay development.
+          </p>
+        </div>
+
+        <div class="skills-grid">
+          <article class="skill-group reveal">
+            <h3>Game Development</h3>
+            <div class="tag-list">
+              <span class="tag">Unreal Engine 5</span>
+              <span class="tag">Unity</span>
+              <span class="tag">C++</span>
+              <span class="tag">C#</span>
+              <span class="tag">Blueprints</span>
+              <span class="tag">Gameplay Systems</span>
+            </div>
+          </article>
+
+          <article class="skill-group reveal">
+            <h3>Application Development</h3>
+            <div class="tag-list">
+              <span class="tag">Flutter</span>
+              <span class="tag">Dart</span>
+              <span class="tag">.NET</span>
+              <span class="tag">Hive</span>
+              <span class="tag">SQLite</span>
+              <span class="tag">Local-first Apps</span>
+            </div>
+          </article>
+
+          <article class="skill-group reveal">
+            <h3>Engineering Workflow</h3>
+            <div class="tag-list">
+              <span class="tag">Git</span>
+              <span class="tag">GitHub</span>
+              <span class="tag">GitHub Actions</span>
+              <span class="tag">Automated Tests</span>
+              <span class="tag">Release Signing</span>
+              <span class="tag">Technical Documentation</span>
+            </div>
+          </article>
+
+          <article class="skill-group reveal">
+            <h3>Creative Practice</h3>
+            <div class="tag-list">
+              <span class="tag">Guitar</span>
+              <span class="tag">Cubase</span>
+              <span class="tag">Music Production</span>
+              <span class="tag">Audio Design</span>
+              <span class="tag">Interactive Storytelling</span>
+              <span class="tag">Worldbuilding</span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="contact">
+      <div class="container">
+        <div class="contact-card reveal">
+          <span class="eyebrow">Contact</span>
+          <h2>Have a product, game, or system worth building?</h2>
+          <p>
+            I am open to software-development and game-development opportunities where engineering quality and creative problem solving both matter.
+          </p>
+
+          <div class="button-row">
+            <a class="button button-primary" href="mailto:nurikagankurubas@gmail.com">Send an email</a>
+            <a class="button button-secondary" href="https://linkedin.com/in/nuri-kağan-kurubas-b512b7217/" target="_blank" rel="noreferrer">LinkedIn ↗</a>
+          </div>
+
+          <div class="contact-links">
+            <a class="contact-link" href="mailto:nurikagankurubas@gmail.com">nurikagankurubas@gmail.com</a>
+            <a class="contact-link" href="https://github.com/kagankurubas" target="_blank" rel="noreferrer">github.com/kagankurubas ↗</a>
+            <span class="contact-link">Bursa, Türkiye</span>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-inner">
+      <span>© <span id="year"></span> Nuri Kağan Kurubaş.</span>
+      <span class="mono">Built with HTML, CSS & JavaScript.</span>
     </div>
+  </footer>
 
-    <!-- Executive Summary -->
-    <div class="content-block">
-      <h2 class="section-title">EXECUTIVE SUMMARY</h2>
-      <p class="bullet-item">&gt; Computer Engineering graduate from Balıkesir University, focused on game development, audio design, and system architecture.</p>
-      <p class="bullet-item">&gt; Experienced in developing mobile and desktop games with <span class="badge">Unity</span>; currently deep-diving into <span class="badge">Unreal Engine 5</span> & <span class="badge">C++</span>.</p>
-      <p class="bullet-item">&gt; Hands-on experience with <span class="badge">C#</span>, <span class="badge">.NET</span>, and <span class="badge">SQLite</span> for custom enterprise database & ERP solutions.</p>
-      <p class="bullet-item">&gt; Lifelong musician and guitarist, combining technical programming logic with creative sound design.</p>
-      <p class="bullet-item">&gt; <strong>Status:</strong> Open to work (Remote / Hybrid / On-site opportunities).</p>
-    </div>
+  <script>
+    const siteHeader = document.getElementById('siteHeader');
+    const menuButton = document.getElementById('menuButton');
+    const navLinks = document.getElementById('navLinks');
 
-    <!-- Information & Core Stack -->
-    <div>
-      <h2 class="section-title">INFORMATION & SKILLS</h2>
-      <p class="bullet-item">&gt; <strong>education:</strong> B.S. in Computer Engineering — Balıkesir University</p>
-      <p class="bullet-item">&gt; <strong>game dev:</strong> Unreal Engine 5, Unity, C++, C#, Blueprints</p>
-      <p class="bullet-item">&gt; <strong>software & db:</strong> .NET, SQLite, Git, GitHub</p>
-      <p class="bullet-item">&gt; <strong>audio & music:</strong> Guitarist, Cubase, Audio Design</p>
-      <p class="bullet-item">&gt; <strong>github:</strong> <a href="https://github.com/kagankurubas" target="_blank">github.com/kagankurubas</a></p>
-    </div>
-  </div>
+    const updateHeader = () => {
+      siteHeader.classList.toggle('scrolled', window.scrollY > 18);
+    };
 
+    updateHeader();
+    window.addEventListener('scroll', updateHeader, { passive: true });
+
+    menuButton.addEventListener('click', () => {
+      const isOpen = navLinks.classList.toggle('open');
+      menuButton.setAttribute('aria-expanded', String(isOpen));
+      menuButton.innerHTML = isOpen ? '<span aria-hidden="true">✕</span>' : '<span aria-hidden="true">☰</span>';
+    });
+
+    navLinks.querySelectorAll('a').forEach((link) => {
+      link.addEventListener('click', () => {
+        navLinks.classList.remove('open');
+        menuButton.setAttribute('aria-expanded', 'false');
+        menuButton.innerHTML = '<span aria-hidden="true">☰</span>';
+      });
+    });
+
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    const revealObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            revealObserver.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.12 }
+    );
+
+    document.querySelectorAll('.reveal').forEach((element) => revealObserver.observe(element));
+  </script>
 </body>
 </html>
