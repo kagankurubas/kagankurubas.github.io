@@ -9,14 +9,14 @@
 .project-top {
   display: grid;
   grid-template-columns: minmax(0, 0.86fr) minmax(0, 1.14fr);
-  min-height: 560px;
+  min-height: 480px;
 }
 
 .project-copy {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: clamp(32px, 5vw, 62px);
+  padding: clamp(24px, 4vw, 42px);
 }
 
 .project-label {
@@ -43,15 +43,15 @@
 }
 
 .project-copy > p {
-  margin: 22px 0 24px;
+  margin: 16px 0 20px;
   color: var(--text-muted);
   font-size: 1rem;
 }
 
 .feature-list {
   display: grid;
-  gap: 12px;
-  margin-bottom: 26px;
+  gap: 10px;
+  margin-bottom: 20px;
   list-style: none;
 }
 
@@ -73,7 +73,7 @@
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
-  margin-bottom: 30px;
+  margin-bottom: 20px;
 }
 
 .tag {
