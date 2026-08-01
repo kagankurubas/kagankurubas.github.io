@@ -109,7 +109,7 @@
 .phone {
   position: absolute;
   top: 50%;
-  width: min(26%, 160px);
+  width: min(28%, 180px);
   padding: 7px;
   border: 1px solid rgba(255, 255, 255, 0.18);
   border-radius: 27px;
@@ -140,7 +140,7 @@
 .phone-center {
   left: 50%;
   z-index: 3;
-  width: min(30%, 180px);
+  width: min(34%, 200px);
   transform: translate(-50%, -50%);
 }
 
