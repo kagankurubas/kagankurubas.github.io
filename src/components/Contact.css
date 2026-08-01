@@ -1,0 +1,53 @@
+.contact-card {
+  position: relative;
+  overflow: hidden;
+  padding: clamp(34px, 7vw, 78px);
+  border: 1px solid var(--border-strong);
+  border-radius: 32px;
+  background:
+    radial-gradient(circle at 85% 20%, rgba(244, 185, 66, 0.1), transparent 25%),
+    radial-gradient(circle at 20% 85%, rgba(155, 124, 255, 0.2), transparent 32%),
+    linear-gradient(145deg, #161d2e, #0d111b);
+  box-shadow: var(--shadow);
+}
+
+.contact-card h2 {
+  max-width: 840px;
+  margin: 16px 0 20px;
+  font-size: clamp(2.45rem, 6vw, 5.5rem);
+  line-height: 0.98;
+  letter-spacing: -0.06em;
+}
+
+.contact-card > p {
+  max-width: 690px;
+  margin-bottom: 30px;
+  color: var(--text-muted);
+  font-size: 1rem;
+}
+
+.contact-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 32px;
+}
+
+.contact-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  padding: 11px 14px;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  color: var(--text-soft);
+  font-size: 0.82rem;
+  font-weight: 600;
+  transition: border-color 160ms ease, color 160ms ease, transform 160ms ease;
+}
+
+.contact-link:hover {
+  transform: translateY(-2px);
+  border-color: rgba(182, 156, 255, 0.58);
+  color: white;
+}

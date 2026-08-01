@@ -1,0 +1,114 @@
+.site-header {
+  position: fixed;
+  inset: 0 0 auto;
+  z-index: 50;
+  padding: 18px 0;
+  transition: background 180ms ease, border-color 180ms ease, backdrop-filter 180ms ease;
+}
+
+.site-header.scrolled {
+  border-bottom: 1px solid var(--border);
+  background: rgba(8, 11, 18, 0.82);
+  backdrop-filter: blur(20px);
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 11px;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.brand-mark {
+  display: grid;
+  width: 34px;
+  height: 34px;
+  place-items: center;
+  border: 1px solid rgba(182, 156, 255, 0.36);
+  border-radius: 11px;
+  background: rgba(155, 124, 255, 0.12);
+  color: var(--purple-bright);
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 26px;
+  list-style: none;
+}
+
+.nav-links a {
+  color: var(--text-muted);
+  font-size: 0.88rem;
+  font-weight: 600;
+  transition: color 160ms ease;
+}
+
+.nav-links a:hover {
+  color: white;
+}
+
+.nav-menu-button {
+  display: none;
+  width: 42px;
+  height: 42px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: var(--surface);
+  color: white;
+  cursor: pointer;
+}
+
+@media (max-width: 760px) {
+  .site-header {
+    padding: 13px 0;
+  }
+
+  .nav-menu-button {
+    display: grid;
+    place-items: center;
+  }
+
+  .nav-links {
+    position: absolute;
+    top: 68px;
+    right: 14px;
+    left: 14px;
+    display: none;
+    align-items: stretch;
+    flex-direction: column;
+    gap: 0;
+    padding: 12px;
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    background: rgba(10, 14, 23, 0.96);
+    box-shadow: var(--shadow);
+    backdrop-filter: blur(18px);
+  }
+
+  .nav-links.open {
+    display: flex;
+  }
+
+  .nav-links li:last-child {
+    margin-top: 7px;
+  }
+
+  .nav-links a {
+    display: block;
+    padding: 12px;
+  }
+
+  .nav-links .button {
+    text-align: center;
+  }
+}

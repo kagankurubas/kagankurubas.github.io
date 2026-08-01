@@ -1,0 +1,45 @@
+.now-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+}
+
+.now-card {
+  min-height: 252px;
+  padding: 26px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  background: linear-gradient(150deg, rgba(20, 27, 42, 0.82), rgba(11, 15, 24, 0.86));
+}
+
+.now-card-number {
+  display: grid;
+  width: 40px;
+  height: 40px;
+  margin-bottom: 34px;
+  place-items: center;
+  border: 1px solid rgba(182, 156, 255, 0.26);
+  border-radius: 12px;
+  background: rgba(155, 124, 255, 0.08);
+  color: var(--purple-bright);
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.78rem;
+  font-weight: 700;
+}
+
+.now-card h3 {
+  margin-bottom: 10px;
+  font-size: 1.2rem;
+  letter-spacing: -0.02em;
+}
+
+.now-card p {
+  color: var(--text-muted);
+  font-size: 0.88rem;
+}
+
+@media (max-width: 980px) {
+  .now-grid {
+    grid-template-columns: 1fr;
+  }
+}
