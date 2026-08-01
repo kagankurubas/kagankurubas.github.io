@@ -89,7 +89,7 @@
 .project-showcase {
   position: relative;
   display: grid;
-  min-height: 600px;
+  min-height: 480px;
   padding: 30px 28px;
   place-items: center;
   overflow: hidden;
@@ -103,7 +103,7 @@
 .phone-stage {
   position: relative;
   width: min(100%, 680px);
-  height: 560px;
+  height: 440px;
 }
 
 .phone {
