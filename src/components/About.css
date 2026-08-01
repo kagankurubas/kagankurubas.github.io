@@ -34,6 +34,31 @@
   color: var(--text-soft);
 }
 
+.about-focus-areas {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-top: 28px;
+  padding-top: 24px;
+  border-top: 1px solid var(--border);
+}
+
+.focus-area {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.focus-area strong {
+  font-size: 0.9rem;
+  color: var(--text);
+}
+
+.focus-area span {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
 .experience-list {
   display: grid;
   gap: 14px;

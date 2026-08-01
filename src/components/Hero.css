@@ -183,31 +183,6 @@
   box-shadow: 0 0 17px rgba(57, 217, 138, 0.85);
 }
 
-.profile-meta {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  border-top: 1px solid var(--border);
-}
-
-.profile-meta div {
-  padding: 18px 14px;
-  text-align: center;
-}
-
-.profile-meta div + div {
-  border-left: 1px solid var(--border);
-}
-
-.profile-meta strong {
-  display: block;
-  font-size: 0.85rem;
-}
-
-.profile-meta span {
-  color: var(--text-muted);
-  font-size: 0.71rem;
-}
-
 @media (max-width: 980px) {
   .hero-grid {
     display: flex;
@@ -233,13 +208,6 @@
   .profile-visual,
   .profile-visual img {
     min-height: 360px;
-  }
-  .profile-meta {
-    grid-template-columns: 1fr;
-  }
-  .profile-meta div + div {
-    border-top: 1px solid var(--border);
-    border-left: 0;
   }
 }
 

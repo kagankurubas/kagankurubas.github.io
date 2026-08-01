@@ -29,11 +29,6 @@ export const siteData = {
       statusSubtitle: 'Remote · Hybrid · On-site',
       email: 'nurikagankurubas@gmail.com',
       location: 'Bursa, Türkiye',
-      meta: [
-        { title: 'Flutter', subtitle: 'Product development' },
-        { title: 'UE5', subtitle: 'Current focus' },
-        { title: 'Audio', subtitle: 'Creative practice' },
-      ],
     },
   },
   selectedWork: {
@@ -68,6 +63,11 @@ export const siteData = {
     eyebrow: 'About me',
     title: 'Engineering discipline with a creative point of view.',
     description: 'My work sits between software architecture, game development, visual interaction, and music.',
+    focusAreas: [
+      { title: 'Flutter', subtitle: 'Product development' },
+      { title: 'UE5', subtitle: 'Current focus' },
+      { title: 'Audio', subtitle: 'Creative practice' },
+    ],
     bio: [
       'I am a Computer Engineering graduate from Balıkesir University with experience building mobile and desktop games in **Unity**, enterprise-oriented tools with **C# and .NET**, and cross-platform products with **Flutter**.',
       'I am currently developing my skills in **Unreal Engine 5, C++, and Blueprints**. My longer-term direction is gameplay systems, interactive experiences, and technical work where code and sound can reinforce each other.',

@@ -73,15 +73,6 @@ export const Hero: React.FC = () => {
                 </div>
                 <span className="status-dot" aria-hidden="true"></span>
               </div>
-            </div>
-            <div className="profile-meta">
-              {hero.profile.meta.map((metaItem, index) => (
-                <div key={index}>
-                  <strong>{metaItem.title}</strong>
-                  <span>{metaItem.subtitle}</span>
-                </div>
-              ))}
-            </div>
           </div>
         </aside>
       </div>

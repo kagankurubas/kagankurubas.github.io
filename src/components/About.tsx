@@ -36,6 +36,15 @@ export const About: React.FC = () => {
             {about.bio.map((paragraph, index) => (
               <p key={index}>{renderBioText(paragraph)}</p>
             ))}
+            
+            <div className="about-focus-areas">
+              {about.focusAreas.map((area, index) => (
+                <div key={index} className="focus-area">
+                  <strong>{area.title}</strong>
+                  <span>{area.subtitle}</span>
+                </div>
+              ))}
+            </div>
           </div>
 
           <div className="panel experience-list reveal" ref={revealExperience}>
