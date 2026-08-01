@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useRef } from 'react';
 import { useScrollReveal } from '../hooks/useScrollReveal';
 import { siteData } from '../data/portfolioData';
 import { Check } from 'lucide-react';
@@ -10,6 +10,25 @@ export const SelectedWork: React.FC = () => {
 
   const { selectedWork } = siteData;
   const { project } = selectedWork;
+  const images = project.screenshots;
+
+  const [activeIndex, setActiveIndex] = useState(1);
+  const touchStartX = useRef(0);
+
+  const handleTouchStart = (e: React.TouchEvent) => {
+    touchStartX.current = e.touches[0].clientX;
+  };
+
+  const handleTouchEnd = (e: React.TouchEvent) => {
+    const touchEndX = e.changedTouches[0].clientX;
+    const diff = touchStartX.current - touchEndX;
+    
+    if (diff > 40) {
+      setActiveIndex((prev) => (prev + 1) % images.length);
+    } else if (diff < -40) {
+      setActiveIndex((prev) => (prev === 0 ? images.length - 1 : prev - 1));
+    }
+  };
 
   return (
     <section className="section" id="work">
@@ -55,16 +74,33 @@ export const SelectedWork: React.FC = () => {
             </div>
 
             <div className="project-showcase" aria-label={`${project.title} application screenshots`}>
-              <div className="phone-stage">
-                <figure className="phone phone-left">
-                  <img src={project.screenshots[0]} alt={`${project.title} screenshot 1`} />
-                </figure>
-                <figure className="phone phone-center">
-                  <img src={project.screenshots[1]} alt={`${project.title} screenshot 2`} />
-                </figure>
-                <figure className="phone phone-right">
-                  <img src={project.screenshots[2]} alt={`${project.title} screenshot 3`} />
-                </figure>
+              <div 
+                className="phone-stage"
+                onTouchStart={handleTouchStart}
+                onTouchEnd={handleTouchEnd}
+              >
+                {images.map((src, index) => {
+                  let positionClass = '';
+                  if (index === activeIndex) {
+                    positionClass = 'phone-center';
+                  } else if (index === (activeIndex - 1 + images.length) % images.length) {
+                    positionClass = 'phone-left';
+                  } else if (index === (activeIndex + 1) % images.length) {
+                    positionClass = 'phone-right';
+                  } else {
+                    positionClass = 'phone-hidden';
+                  }
+
+                  return (
+                    <figure 
+                      className={`phone ${positionClass}`} 
+                      key={index}
+                      onClick={() => setActiveIndex(index)}
+                    >
+                      <img src={src} alt={`${project.title} screenshot ${index + 1}`} />
+                    </figure>
+                  );
+                })}
               </div>
             </div>
           </div>
