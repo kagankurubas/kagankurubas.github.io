@@ -125,6 +125,15 @@ img {
   font-size: 1rem;
 }
 
+@media (max-width: 820px) {
+  .section-heading {
+    grid-template-columns: 1fr;
+    gap: 16px;
+    align-items: start;
+    margin-bottom: 32px;
+  }
+}
+
 .muted {
   color: var(--text-muted);
 }
