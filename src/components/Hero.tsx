@@ -64,18 +64,22 @@ export const Hero: React.FC = () => {
               <img src={hero.profile.image} alt="Illustrated portrait of Nuri Kağan Kurubaş" />
               <div className="profile-status">
                 <div className="profile-status-details">
-                  <strong>{hero.profile.statusTitle}</strong>
+                  <div className="profile-status-header">
+                    <strong>{hero.profile.statusTitle}</strong>
+                    <span className="status-dot" aria-hidden="true"></span>
+                  </div>
                   <span>{hero.profile.statusSubtitle}</span>
                   <span className="profile-contact-info">
                     <a href={`mailto:${hero.profile.email}`}>{hero.profile.email}</a>
                     <span>{hero.profile.location}</span>
                   </span>
                 </div>
-                <span className="status-dot" aria-hidden="true"></span>
               </div>
+            </div>
           </div>
         </aside>
       </div>
     </section>
   );
 };
+
