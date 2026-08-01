@@ -28,9 +28,9 @@ export const siteData = {
       statusTitle: 'Open to opportunities',
       statusSubtitle: 'Remote · Hybrid · On-site',
       meta: [
-        { title: 'Flutter', subtitle: 'Product development' },
-        { title: 'UE5', subtitle: 'Current focus' },
-        { title: 'Audio', subtitle: 'Creative practice' },
+        { title: 'Email', subtitle: 'nurikagankurubas@gmail.com' },
+        { title: 'Location', subtitle: 'Bursa, Türkiye' },
+        { title: 'Role', subtitle: 'Computer Engineer' },
       ],
     },
   },
@@ -106,9 +106,7 @@ export const siteData = {
     primaryButton: { label: 'Send an email', href: 'mailto:nurikagankurubas@gmail.com' },
     secondaryButton: { label: 'LinkedIn ↗', href: 'https://linkedin.com/in/nuri-kağan-kurubas-b512b7217/' },
     links: [
-      { label: 'nurikagankurubas@gmail.com', href: 'mailto:nurikagankurubas@gmail.com' },
       { label: 'github.com/kagankurubas ↗', href: 'https://github.com/kagankurubas' },
-      { label: 'Bursa, Türkiye', href: null },
     ],
   },
   footer: {
