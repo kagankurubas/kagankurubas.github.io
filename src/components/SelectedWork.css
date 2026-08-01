@@ -89,7 +89,7 @@
 .project-showcase {
   position: relative;
   display: grid;
-  min-height: 560px;
+  min-height: 600px;
   padding: 30px 28px;
   place-items: center;
   overflow: hidden;
@@ -103,13 +103,13 @@
 .phone-stage {
   position: relative;
   width: min(100%, 680px);
-  height: 500px;
+  height: 560px;
 }
 
 .phone {
   position: absolute;
   top: 50%;
-  width: min(29%, 172px);
+  width: min(26%, 160px);
   padding: 7px;
   border: 1px solid rgba(255, 255, 255, 0.18);
   border-radius: 27px;
@@ -140,7 +140,7 @@
 .phone-center {
   left: 50%;
   z-index: 3;
-  width: min(32%, 190px);
+  width: min(30%, 180px);
   transform: translate(-50%, -50%);
 }
 
@@ -208,11 +208,11 @@
   .phone-stage {
     position: relative;
     width: 100%;
-    height: 520px;
+    height: 560px;
   }
   .phone {
-    width: 72%;
-    max-width: 280px;
+    width: 60%;
+    max-width: 220px;
     padding: 6px;
     border-radius: 24px;
   }
@@ -221,7 +221,8 @@
     transform: translate(-50%, -50%);
     opacity: 1;
     z-index: 3;
-    width: 76%;
+    width: 65%;
+    max-width: 240px;
   }
   .phone-left {
     left: -28%;
@@ -252,15 +253,15 @@
 
 @media (max-width: 520px) {
   .phone-stage {
-    height: 440px;
+    height: 480px;
   }
   .phone {
-    width: 76%;
+    width: 64%;
     padding: 5px;
     border-radius: 20px;
   }
   .phone-center {
-    width: 80%;
+    width: 68%;
   }
   .phone img {
     border-radius: 15px;
