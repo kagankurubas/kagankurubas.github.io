@@ -21,7 +21,6 @@ export const siteData = {
     proofs: [
       'Habitto v1.0.0 released',
       'Automated Flutter CI',
-      'Based in Bursa, Türkiye',
     ],
     profile: {
       image: 'avatar.png',
