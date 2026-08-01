@@ -51,9 +51,9 @@ export const siteData = {
       primaryButton: { label: 'Download Android APK ↗', href: 'https://github.com/kagankurubas/habitto/releases/latest' },
       secondaryButton: { label: 'View source ↗', href: 'https://github.com/kagankurubas/habitto' },
       screenshots: [
-        'https://raw.githubusercontent.com/kagankurubas/habitto/main/assets/readme/home2.jpg',
-        'https://raw.githubusercontent.com/kagankurubas/habitto/main/assets/readme/home1.jpg',
-        'https://raw.githubusercontent.com/kagankurubas/habitto/main/assets/readme/statistics.jpg',
+        'create_habit.jpg',
+        'home1.jpg',
+        'statistics.jpg',
       ],
       metrics: [
         { title: 'Local-first', subtitle: 'No account and no automatic personal-data upload' },
