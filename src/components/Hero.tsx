@@ -33,7 +33,6 @@ export const Hero: React.FC = () => {
     <section className="hero">
       <div className="container hero-grid">
         <div className="hero-copy reveal" ref={revealRef}>
-          <span className="eyebrow">{hero.eyebrow}</span>
           <h1>
             {hero.titleMain}
             <span>{hero.titleAccent}</span>
@@ -52,14 +51,15 @@ export const Hero: React.FC = () => {
           </div>
 
 
-        </div>
-
-        <aside className="profile-panel reveal" ref={revealRefProfile} aria-label="Profile overview">
           <div className="hero-proof" aria-label="Current portfolio highlights">
             {hero.proofs.map((proof, index) => (
               <span className="proof-pill" key={index}>{proof}</span>
             ))}
           </div>
+        </div>
+
+        <aside className="profile-panel reveal" ref={revealRefProfile} aria-label="Profile overview">
+          <span className="eyebrow">{hero.eyebrow}</span>
           <div className="profile-card">
             <div className="profile-visual">
               <img src={hero.profile.image} alt="Illustrated portrait of Nuri Kağan Kurubaş" />
