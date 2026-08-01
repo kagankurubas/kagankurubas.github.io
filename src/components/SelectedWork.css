@@ -196,12 +196,13 @@
   }
   .phone-stage {
     display: flex;
+    align-items: center;
     gap: 20px;
     width: 100%;
     height: auto;
     overflow-x: auto;
     scroll-snap-type: x mandatory;
-    padding: 0 20px 20px;
+    padding: 20px;
     scroll-behavior: smooth;
     -webkit-overflow-scrolling: touch;
   }
@@ -210,7 +211,7 @@
   }
   .phone {
     position: static;
-    flex: 0 0 65%;
+    flex: 0 0 75%;
     width: auto;
     transform: none !important;
     scroll-snap-align: center;
@@ -238,10 +239,10 @@
 @media (max-width: 520px) {
   .phone-stage {
     gap: 16px;
-    padding: 0 16px 16px;
+    padding: 16px;
   }
   .phone {
-    flex: 0 0 75%;
+    flex: 0 0 82%;
     border-radius: 20px;
     padding: 5px;
   }
