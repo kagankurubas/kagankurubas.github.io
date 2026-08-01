@@ -101,6 +101,10 @@ img {
 }
 
 .section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 100svh;
   padding: 110px 0;
 }
 
