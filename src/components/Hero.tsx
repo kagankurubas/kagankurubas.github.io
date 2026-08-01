@@ -68,8 +68,7 @@ export const Hero: React.FC = () => {
                   <span>{hero.profile.statusSubtitle}</span>
                   <span className="profile-contact-info">
                     <a href={`mailto:${hero.profile.email}`}>{hero.profile.email}</a>
-                    <br />
-                    {hero.profile.location}
+                    <span>{hero.profile.location}</span>
                   </span>
                 </div>
                 <span className="status-dot" aria-hidden="true"></span>
