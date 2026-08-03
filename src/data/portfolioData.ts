@@ -19,7 +19,7 @@ export const siteData = {
     primaryButton: { label: 'View selected work', href: '#work' },
     secondaryButton: { label: 'GitHub profile ↗', href: 'https://github.com/kagankurubas' },
     proofs: [
-      'Habitto v1.1.0 released',
+      'Habitto v1.0.0 released',
       'Automated Flutter CI',
     ],
     profile: {
@@ -33,24 +33,17 @@ export const siteData = {
   selectedWork: {
     eyebrow: 'Selected work',
     title: 'One finished product says more than ten unfinished demos.',
-    description: 'Habitto is my current flagship public project: designed, developed, localized, tested, signed, and distributed as a real Android release.',
+    description: 'Habitto is my current flagship public project: designed, developed, tested, signed, and distributed as a real Android release.',
     project: {
-      label: 'Public Android release · v1.1.0',
+      label: 'Public Android release · v1.0.0',
       title: 'Habitto',
-      description: 'A bilingual, customizable, local-first habit and routine tracker built to make consistency visible, motivating, and private.',
+      description: 'A customizable, local-first habit and routine tracker built to make consistency visible, motivating, and private.',
       features: [
-        'Flexible scheduling, timezone-aware reminders, streaks, statistics, and achievements',
-        'English and Turkish localization with persistent language preferences',
-        'Versioned JSON backup and restore, automated tests, and signed Android releases',
+        'Flexible habit scheduling, reminders, streaks, and statistics',
+        'Achievement system, themes, local JSON backup, and restore',
+        'Automated formatting, analysis, tests, and Android build validation',
       ],
-      tags: [
-        'Flutter',
-        'Dart',
-        'Hive',
-        'Localization',
-        'Local Notifications',
-        'GitHub Actions',
-      ],
+      tags: ['Flutter', 'Dart', 'Hive', 'Local Notifications', 'GitHub Actions'],
       primaryButton: { label: 'Download Android APK ↗', href: 'https://github.com/kagankurubas/habitto/releases/latest' },
       secondaryButton: { label: 'View source ↗', href: 'https://github.com/kagankurubas/habitto' },
       screenshots: [
@@ -59,18 +52,9 @@ export const siteData = {
         'statistics.jpg',
       ],
       metrics: [
-        {
-          title: 'Local-first',
-          subtitle: 'No account and no automatic personal-data upload',
-        },
-        {
-          title: 'Release-ready',
-          subtitle: 'Signed Habitto v1.1.0 APK distributed through GitHub Releases',
-        },
-        {
-          title: 'Production-tested',
-          subtitle: 'Automated tests, CI validation, physical-device testing, and verified upgrades',
-        },
+        { title: 'Local-first', subtitle: 'No account and no automatic personal-data upload' },
+        { title: 'Release-ready', subtitle: 'Signed APK distributed through GitHub Releases' },
+        { title: 'Continuously verified', subtitle: 'Formatting, analysis, tests, and debug build in CI' },
       ],
     },
   },
@@ -102,11 +86,7 @@ export const siteData = {
     items: [
       { number: '01', title: 'Unreal Engine 5', description: 'Deepening my understanding of UE5, C++, Blueprints, gameplay architecture, and reusable gameplay systems.' },
       { number: '02', title: 'Taskbar Idle Game', description: 'Preparing a collaborative taskbar idle game project that will become my next public game-development repository.' },
-      {
-        number: '03',
-        title: 'Habitto Improvements',
-        description: 'Maintaining Habitto v1.1.0 while exploring future accessibility, usability, and product-quality improvements.',
-      },
+      { number: '03', title: 'Habitto Improvements', description: 'Expanding automated test coverage and planning future accessibility, localization, and backup improvements.' },
     ],
   },
   skills: {
