@@ -18,10 +18,7 @@ export const siteData = {
     description: 'I develop **gameplay systems** and **cross-platform applications**, combining software engineering, interaction design, and sound into focused digital experiences.',
     primaryButton: { label: 'View selected work', href: '#work' },
     secondaryButton: { label: 'GitHub profile ↗', href: 'https://github.com/kagankurubas' },
-    proofs: [
-      'Habitto v1.1.0 released',
-      'Automated Flutter CI',
-    ],
+    proofs: [],
     profile: {
       image: 'avatar.png',
       statusTitle: 'Open to opportunities',

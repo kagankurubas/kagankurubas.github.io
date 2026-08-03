@@ -51,11 +51,13 @@ export const Hero: React.FC = () => {
           </div>
 
 
-          <div className="hero-proof" aria-label="Current portfolio highlights">
-            {hero.proofs.map((proof, index) => (
-              <span className="proof-pill" key={index}>{proof}</span>
-            ))}
-          </div>
+          {hero.proofs && hero.proofs.length > 0 && (
+            <div className="hero-proof" aria-label="Current portfolio highlights">
+              {hero.proofs.map((proof, index) => (
+                <span className="proof-pill" key={index}>{proof}</span>
+              ))}
+            </div>
+          )}
         </div>
 
         <aside className="profile-panel reveal" ref={revealRefProfile} aria-label="Profile overview">
