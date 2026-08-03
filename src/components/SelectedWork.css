@@ -9,14 +9,14 @@
 .project-top {
   display: grid;
   grid-template-columns: minmax(0, 0.86fr) minmax(0, 1.14fr);
-  min-height: 480px;
+  min-height: 420px;
 }
 
 .project-copy {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: clamp(24px, 4vw, 42px);
+  padding: clamp(20px, 3vw, 32px);
 }
 
 .project-label {
@@ -37,15 +37,15 @@
 }
 
 .project-copy h3 {
-  font-size: clamp(2.3rem, 5vw, 4.8rem);
+  font-size: clamp(2rem, 4vw, 3.8rem);
   line-height: 0.98;
   letter-spacing: -0.055em;
 }
 
 .project-copy > p {
-  margin: 16px 0 20px;
+  margin: 12px 0 16px;
   color: var(--text-muted);
-  font-size: 1rem;
+  font-size: 0.9rem;
 }
 
 .feature-list {
@@ -58,9 +58,9 @@
 .feature-list li {
   display: flex;
   align-items: flex-start;
-  gap: 11px;
+  gap: 10px;
   color: var(--text-soft);
-  font-size: 0.9rem;
+  font-size: 0.85rem;
 }
 
 .feature-check {
@@ -77,20 +77,20 @@
 }
 
 .tag {
-  padding: 7px 10px;
+  padding: 6px 9px;
   border: 1px solid var(--border);
   border-radius: 999px;
   background: rgba(255, 255, 255, 0.024);
   color: var(--text-muted);
   font-family: "JetBrains Mono", monospace;
-  font-size: 0.72rem;
+  font-size: 0.65rem;
 }
 
 .project-showcase {
   position: relative;
   display: grid;
-  min-height: 480px;
-  padding: 30px 28px;
+  min-height: 420px;
+  padding: 24px 20px;
   place-items: center;
   overflow: hidden;
   border-left: 1px solid var(--border);
@@ -103,16 +103,16 @@
 .phone-stage {
   position: relative;
   width: min(100%, 680px);
-  height: 500px;
+  height: 400px;
 }
 
 .phone {
   position: absolute;
   top: 50%;
-  width: min(30%, 195px);
-  padding: 7px;
+  width: min(30%, 170px);
+  padding: 6px;
   border: 1px solid rgba(255, 255, 255, 0.18);
-  border-radius: 27px;
+  border-radius: 24px;
   background: #090b10;
   box-shadow: 0 28px 55px rgba(0, 0, 0, 0.42);
   transform: translateY(-50%);
@@ -140,7 +140,7 @@
 .phone-center {
   left: 50%;
   z-index: 3;
-  width: min(36%, 225px);
+  width: min(36%, 190px);
   transform: translate(-50%, -50%);
 }
 
@@ -168,7 +168,7 @@
 }
 
 .project-metric {
-  padding: 24px 28px;
+  padding: 16px 20px;
 }
 
 .project-metric + .project-metric {
