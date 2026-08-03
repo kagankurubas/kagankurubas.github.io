@@ -18,6 +18,7 @@ export const siteData = {
     description: 'I develop **gameplay systems** and **cross-platform applications**, combining software engineering, interaction design, and sound into focused digital experiences.',
     primaryButton: { label: 'View selected work', href: '#work' },
     secondaryButton: { label: 'GitHub profile ↗', href: 'https://github.com/kagankurubas' },
+    tertiaryButton: { label: 'LinkedIn ↗', href: 'https://linkedin.com/in/nuri-kağan-kurubas-b512b7217/' },
     proofs: [],
     profile: {
       image: 'avatar.png',

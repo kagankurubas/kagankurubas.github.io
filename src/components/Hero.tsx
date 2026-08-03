@@ -48,6 +48,11 @@ export const Hero: React.FC = () => {
             <a className="button button-secondary" href={hero.secondaryButton.href} target="_blank" rel="noreferrer">
               {hero.secondaryButton.label}
             </a>
+            {hero.tertiaryButton && (
+              <a className="button button-secondary" href={hero.tertiaryButton.href} target="_blank" rel="noreferrer">
+                {hero.tertiaryButton.label}
+              </a>
+            )}
           </div>
 
 
