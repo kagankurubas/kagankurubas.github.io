@@ -1,0 +1,1239 @@
+/* ============================================================ */
+/* HABITTO CASE STUDY — LIGHT PRODUCT-ENGINEERING THEME         */
+/* ============================================================ */
+
+.habitto-case-study {
+  --habitto-bg-page: #F7F6F2;
+  --habitto-bg-surface: rgba(255, 255, 255, 0.68);
+  --habitto-bg-surface-elevated: rgba(255, 255, 255, 0.82);
+  --habitto-bg-subtle: rgba(255, 255, 255, 0.50);
+  --habitto-bg-tint-purple: rgba(245, 243, 249, 0.75);
+  --habitto-bg-tint-sage: rgba(242, 245, 240, 0.75);
+  
+  /* Softened dark artifact framing for screenshots */
+  --habitto-bg-media-canvas: #17171F;
+  --habitto-bg-media-inner: #15151C;
+  --habitto-bg-media-caption: #1D1D27;
+  --habitto-border-media: 1px solid rgba(106, 90, 224, 0.10);
+  --habitto-shadow-artifact: 0 24px 60px rgba(13, 19, 36, 0.12);
+
+  /* Retained deep dark technical panels for architecture & pipeline */
+  --habitto-bg-dark-panel: #0B0D12;
+  --habitto-bg-dark-card: #12151D;
+  
+  --habitto-text-primary: #0D1324;
+  --habitto-text-secondary: #525B6C;
+  --habitto-text-tertiary: #7D889A;
+  
+  --habitto-border: rgba(13, 19, 36, 0.08);
+  --habitto-border-strong: rgba(13, 19, 36, 0.14);
+  --habitto-border-dark: rgba(255, 255, 255, 0.08);
+  
+  --habitto-accent-purple: #6A5AE0;
+  --habitto-accent-purple-light: #7567E8;
+  --habitto-accent-purple-subtle: rgba(106, 90, 224, 0.08);
+  --habitto-accent-purple-border: rgba(106, 90, 224, 0.22);
+  
+  --habitto-accent-sage: #5A9E65;
+  --habitto-accent-sage-subtle: rgba(90, 158, 101, 0.09);
+  --habitto-accent-sage-border: rgba(90, 158, 101, 0.22);
+  
+  --habitto-shadow-sm: 0 2px 8px rgba(13, 19, 36, 0.04);
+  --habitto-shadow-md: 0 12px 32px -8px rgba(13, 19, 36, 0.07);
+
+  min-height: 100vh;
+  background-color: var(--habitto-bg-page);
+  /* Document-flowing, soft atmospheric radial gradients (no fixed attachment) */
+  background-image: 
+    /* Hero upper-right lavender atmosphere */
+    radial-gradient(circle at 86% 5%, rgba(106, 90, 224, 0.085) 0%, transparent 36%),
+    /* Hero lower-left sage atmosphere */
+    radial-gradient(circle at 10% 15%, rgba(90, 158, 101, 0.075) 0%, transparent 32%),
+    /* Product Experience right lavender atmosphere */
+    radial-gradient(circle at 88% 38%, rgba(106, 90, 224, 0.065) 0%, transparent 36%),
+    /* Local-First Engineering left sage atmosphere */
+    radial-gradient(circle at 8% 54%, rgba(90, 158, 101, 0.07) 0%, transparent 34%),
+    /* Insights & Analytics right lavender atmosphere */
+    radial-gradient(circle at 84% 74%, rgba(106, 90, 224, 0.055) 0%, transparent 36%),
+    /* Shipped Product lower-left sage atmosphere */
+    radial-gradient(circle at 16% 92%, rgba(90, 158, 101, 0.065) 0%, transparent 34%);
+  color: var(--habitto-text-primary);
+  padding-top: 60px;
+}
+
+/* Ensure all case study content is visible immediately without scroll blockage */
+.habitto-case-study .reveal {
+  opacity: 1;
+  transform: none;
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+/* ============================================================ */
+/* HEADER                                                       */
+/* ============================================================ */
+.habitto-case-study .case-study-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 60px;
+  background-color: rgba(247, 246, 242, 0.94);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--habitto-border);
+  z-index: 1000;
+}
+
+.habitto-case-study .case-nav-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 100%;
+}
+
+.habitto-case-study .back-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: transparent;
+  border: none;
+  color: var(--habitto-text-secondary);
+  font-family: var(--font-sans);
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+  padding: 8px 0;
+  transition: color 0.15s ease;
+}
+
+.habitto-case-study .back-button:hover {
+  color: var(--habitto-accent-purple);
+}
+
+.habitto-case-study .case-header-meta {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.habitto-case-study .case-brand-tag {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: var(--habitto-text-primary);
+}
+
+.habitto-case-study .case-version-pill {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--habitto-accent-purple);
+  background: var(--habitto-accent-purple-subtle);
+  border: 1px solid var(--habitto-accent-purple-border);
+  padding: 2px 8px;
+  border-radius: var(--radius-full);
+}
+
+/* ============================================================ */
+/* SECTIONS GENERAL                                             */
+/* ============================================================ */
+.habitto-case-study .case-section {
+  padding: 90px 0;
+  border-bottom: 1px solid var(--habitto-border);
+}
+
+.habitto-case-study .case-section:last-of-type {
+  border-bottom: none;
+}
+
+.habitto-case-study .eyebrow {
+  color: var(--habitto-accent-purple);
+  font-family: var(--font-mono);
+  font-size: 0.76rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.habitto-case-study .section-title {
+  font-size: clamp(2rem, 3.8vw, 2.75rem);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  color: var(--habitto-text-primary);
+  margin-top: 8px;
+  margin-bottom: 16px;
+}
+
+.habitto-case-study .section-lead {
+  font-size: 1.05rem;
+  color: var(--habitto-text-secondary);
+  line-height: 1.65;
+  max-width: 720px;
+  margin-bottom: 36px;
+}
+
+/* Shared Button Styles Scoped to Habitto */
+.habitto-case-study .button-primary {
+  background: #0D1324;
+  color: #ffffff;
+  border: 1px solid #0D1324;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+.habitto-case-study .button-primary:hover {
+  background: #1e2638;
+  border-color: #1e2638;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(13, 19, 36, 0.15);
+}
+
+.habitto-case-study .button-secondary {
+  background: rgba(255, 255, 255, 0.75);
+  color: var(--habitto-text-primary);
+  border: 1px solid var(--habitto-border-strong);
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+.habitto-case-study .button-secondary:hover {
+  background: #ffffff;
+  border-color: rgba(13, 19, 36, 0.25);
+  transform: translateY(-1px);
+  box-shadow: var(--habitto-shadow-sm);
+}
+
+/* ============================================================ */
+/* 01 — HERO                                                    */
+/* ============================================================ */
+.habitto-case-study .case-hero {
+  padding: 70px 0 90px;
+}
+
+.habitto-case-study .case-hero-content {
+  max-width: 860px;
+  margin-bottom: 44px;
+}
+
+.habitto-case-study .case-meta-row {
+  margin-bottom: 16px;
+}
+
+.habitto-case-study .case-hero-title {
+  font-size: clamp(3rem, 6vw, 4.75rem);
+  font-weight: 700;
+  letter-spacing: -0.035em;
+  line-height: 1.05;
+  margin-bottom: 20px;
+  color: var(--habitto-text-primary);
+}
+
+.habitto-case-study .case-hero-statement {
+  font-size: clamp(1.25rem, 2.5vw, 1.6rem);
+  color: var(--habitto-text-primary);
+  line-height: 1.35;
+  font-weight: 500;
+  margin-bottom: 16px;
+}
+
+.habitto-case-study .case-hero-lead {
+  font-size: 1.05rem;
+  color: var(--habitto-text-secondary);
+  line-height: 1.65;
+  margin-bottom: 28px;
+  max-width: 760px;
+}
+
+.habitto-case-study .case-tech-strip {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 36px;
+}
+
+.habitto-case-study .tech-chip {
+  background: rgba(255, 255, 255, 0.75);
+  border: 1px solid var(--habitto-border);
+  color: #2c3545;
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  padding: 4px 10px;
+  border-radius: var(--radius-sm);
+  box-shadow: var(--habitto-shadow-sm);
+}
+
+.habitto-case-study .case-metrics-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  padding: 20px 0;
+  border-top: 1px solid var(--habitto-border);
+  border-bottom: 1px solid var(--habitto-border);
+  margin-bottom: 36px;
+}
+
+.habitto-case-study .case-metric-item {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.habitto-case-study .metric-label {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  color: var(--habitto-text-tertiary);
+  letter-spacing: 0.08em;
+}
+
+.habitto-case-study .metric-val {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--habitto-text-primary);
+}
+
+.habitto-case-study .case-hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+}
+
+/* Hero Media Container — Softened Product Artifact Canvas */
+.habitto-case-study .case-hero-media {
+  margin-top: 36px;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.habitto-case-study .editorial-media-frame {
+  background: var(--habitto-bg-media-canvas);
+  border: var(--habitto-border-media);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 44px 32px 0;
+  box-shadow: var(--habitto-shadow-artifact);
+  max-width: 740px;
+  width: 100%;
+}
+
+.habitto-case-study .editorial-media-gif {
+  max-width: 320px;
+  max-height: 58vh;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  border-radius: var(--radius-sm) var(--radius-sm) 0 0;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+  cursor: zoom-in;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.habitto-case-study .editorial-media-gif:hover {
+  transform: scale(1.02);
+  box-shadow: 0 14px 40px rgba(0, 0, 0, 0.5);
+}
+
+.habitto-case-study .media-caption-bar {
+  width: 100%;
+  padding: 14px 20px;
+  background: var(--habitto-bg-media-caption);
+  border-top: 1px solid rgba(106, 90, 224, 0.08);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 28px;
+}
+
+.habitto-case-study .media-status-indicator {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: #a4b3c8;
+}
+
+.habitto-case-study .status-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #34d399;
+  box-shadow: 0 0 8px #34d399;
+}
+
+/* ============================================================ */
+/* 02 — PRODUCT EXPERIENCE                                      */
+/* ============================================================ */
+.habitto-case-study .scheduling-models-strip {
+  margin: 32px 0 38px;
+  padding: 16px 22px;
+  background: var(--habitto-bg-surface);
+  border: 1px solid var(--habitto-border);
+  border-radius: var(--radius-md);
+  box-shadow: var(--habitto-shadow-sm);
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.habitto-case-study .models-label {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  color: var(--habitto-text-tertiary);
+  letter-spacing: 0.08em;
+  white-space: nowrap;
+}
+
+.habitto-case-study .models-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.habitto-case-study .model-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  padding: 5px 12px;
+  background: rgba(255, 255, 255, 0.85);
+  border: 1px solid var(--habitto-border);
+  border-radius: var(--radius-sm);
+  color: #2c3545;
+}
+
+/* Asymmetric Product Grid with softened artifact canvas */
+.habitto-case-study .product-asymmetric-grid {
+  display: grid;
+  grid-template-columns: 1.22fr 1fr;
+  gap: 32px;
+  margin-bottom: 32px;
+  align-items: start;
+  max-width: 860px;
+}
+
+.habitto-case-study .product-visual-dominant,
+.habitto-case-study .product-visual-detail {
+  background: var(--habitto-bg-media-canvas);
+  border: var(--habitto-border-media);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  cursor: zoom-in;
+  position: relative;
+  box-shadow: var(--habitto-shadow-artifact);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.habitto-case-study .product-visual-dominant:hover,
+.habitto-case-study .product-visual-detail:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 28px 64px -12px rgba(13, 19, 36, 0.18);
+}
+
+.habitto-case-study .product-img {
+  width: 100%;
+  max-height: 440px;
+  object-fit: contain;
+  object-position: top center;
+  background: var(--habitto-bg-media-inner);
+  padding: 16px 16px 0;
+  display: block;
+  transition: transform 0.3s ease;
+}
+
+.habitto-case-study .product-visual-dominant:hover .product-img,
+.habitto-case-study .product-visual-detail:hover .product-img {
+  transform: scale(1.015);
+}
+
+.habitto-case-study .visual-overlay-caption {
+  padding: 14px 18px;
+  background: var(--habitto-bg-media-caption);
+  border-top: 1px solid rgba(106, 90, 224, 0.08);
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.habitto-case-study .visual-overlay-caption strong {
+  font-size: 0.88rem;
+  color: #f1f5f9;
+}
+
+.habitto-case-study .visual-overlay-caption span {
+  font-size: 0.76rem;
+  color: #a4b3c8;
+}
+
+.habitto-case-study .engineering-callout-box {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+  padding: 20px 24px;
+  background: var(--habitto-bg-tint-purple);
+  border-left: 3px solid var(--habitto-accent-purple);
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+  border-top: 1px solid var(--habitto-border);
+  border-right: 1px solid var(--habitto-border);
+  border-bottom: 1px solid var(--habitto-border);
+  box-shadow: var(--habitto-shadow-sm);
+  max-width: 860px;
+}
+
+.habitto-case-study .callout-icon-wrap {
+  color: var(--habitto-accent-purple);
+  margin-top: 2px;
+}
+
+.habitto-case-study .callout-text strong {
+  display: block;
+  font-size: 0.92rem;
+  color: var(--habitto-text-primary);
+  margin-bottom: 4px;
+}
+
+.habitto-case-study .callout-text p {
+  font-size: 0.86rem;
+  color: var(--habitto-text-secondary);
+  line-height: 1.55;
+  margin: 0;
+}
+
+/* ============================================================ */
+/* 03 — LOCAL-FIRST ENGINEERING (DARK TECHNICAL PANELS)         */
+/* ============================================================ */
+.habitto-case-study .architecture-showcase-box,
+.habitto-case-study .backup-pipeline-box {
+  background: var(--habitto-bg-dark-panel);
+  border: 1px solid var(--habitto-border-dark);
+  border-radius: var(--radius-md);
+  padding: 32px;
+  margin-bottom: 32px;
+  box-shadow: 0 20px 45px -10px rgba(0, 0, 0, 0.35), 0 0 0 1px rgba(13, 19, 36, 0.06);
+}
+
+.habitto-case-study .arch-box-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 26px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.habitto-case-study .arch-box-title {
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #f1f5f9;
+  letter-spacing: 0.04em;
+}
+
+.habitto-case-study .arch-box-badge {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: #c4b5fd;
+  background: rgba(196, 181, 253, 0.12);
+  border: 1px solid rgba(196, 181, 253, 0.25);
+  padding: 3px 10px;
+  border-radius: var(--radius-full);
+}
+
+.habitto-case-study .arch-layers-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 26px;
+}
+
+.habitto-case-study .arch-layer-card {
+  background: var(--habitto-bg-dark-card);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: var(--radius-sm);
+  padding: 16px 20px;
+}
+
+.habitto-case-study .layer-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 6px;
+}
+
+.habitto-case-study .layer-icon {
+  color: #a78bfa;
+}
+
+.habitto-case-study .layer-header strong {
+  font-size: 0.92rem;
+  color: #ffffff;
+}
+
+.habitto-case-study .arch-layer-card p {
+  font-size: 0.84rem;
+  color: #94a3b8;
+  line-height: 1.5;
+  margin: 0;
+}
+
+.habitto-case-study .arch-layer-card code {
+  font-family: var(--font-mono);
+  color: #c4b5fd;
+  background: rgba(196, 181, 253, 0.12);
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 0.8rem;
+}
+
+.habitto-case-study .arch-flow-divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: #64748b;
+  padding: 4px 0;
+}
+
+.habitto-case-study .privacy-callout-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+  padding-top: 20px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.habitto-case-study .privacy-pill {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  color: #cbd5e1;
+}
+
+.habitto-case-study .privacy-check {
+  color: #34d399;
+}
+
+/* Backup Pipeline Flow */
+.habitto-case-study .pipeline-flow-grid {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr auto 1fr auto 1.3fr;
+  gap: 14px;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.habitto-case-study .pipeline-step {
+  background: var(--habitto-bg-dark-card);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: var(--radius-sm);
+  padding: 16px;
+  min-height: 110px;
+  display: flex;
+  flex-direction: column;
+}
+
+.habitto-case-study .step-num {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  color: #a78bfa;
+  margin-bottom: 4px;
+}
+
+.habitto-case-study .pipeline-step strong {
+  font-size: 0.85rem;
+  color: #ffffff;
+  margin-bottom: 4px;
+}
+
+.habitto-case-study .pipeline-step p {
+  font-size: 0.76rem;
+  color: #94a3b8;
+  line-height: 1.4;
+  margin: 0;
+}
+
+.habitto-case-study .pipeline-arrow-wrap {
+  font-family: var(--font-mono);
+  color: #64748b;
+  font-size: 1.1rem;
+}
+
+.habitto-case-study .pipeline-branch-card {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.habitto-case-study .branch-item {
+  display: flex;
+  gap: 10px;
+  padding: 12px 14px;
+  border-radius: var(--radius-sm);
+  font-size: 0.78rem;
+}
+
+.habitto-case-study .branch-item strong {
+  display: block;
+  margin-bottom: 2px;
+}
+
+.habitto-case-study .branch-item span {
+  color: #94a3b8;
+  font-size: 0.72rem;
+}
+
+.habitto-case-study .branch-success {
+  background: rgba(16, 185, 129, 0.12);
+  border: 1px solid rgba(16, 185, 129, 0.3);
+  color: #34d399;
+}
+
+.habitto-case-study .branch-failure {
+  background: rgba(239, 68, 68, 0.12);
+  border: 1px solid rgba(239, 68, 68, 0.3);
+  color: #f87171;
+}
+
+.habitto-case-study .pipeline-note {
+  font-size: 0.84rem;
+  color: #94a3b8;
+  line-height: 1.55;
+  margin: 0;
+  padding-top: 14px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* Notification Card */
+.habitto-case-study .notification-callout-card {
+  background: var(--habitto-bg-tint-sage);
+  border: 1px solid var(--habitto-border);
+  border-radius: var(--radius-md);
+  padding: 26px 30px;
+  box-shadow: var(--habitto-shadow-sm);
+}
+
+.habitto-case-study .notif-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 18px;
+}
+
+.habitto-case-study .notif-icon {
+  color: var(--habitto-accent-sage);
+}
+
+.habitto-case-study .notif-header strong {
+  font-size: 1rem;
+  color: var(--habitto-text-primary);
+}
+
+.habitto-case-study .notif-details-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+.habitto-case-study .notif-point {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.habitto-case-study .notif-point strong {
+  font-size: 0.88rem;
+  color: var(--habitto-text-primary);
+}
+
+.habitto-case-study .notif-point span {
+  font-size: 0.82rem;
+  color: var(--habitto-text-secondary);
+  line-height: 1.5;
+}
+
+.habitto-case-study .notif-point code {
+  font-family: var(--font-mono);
+  color: var(--habitto-accent-sage);
+  background: var(--habitto-accent-sage-subtle);
+  padding: 1px 5px;
+  border-radius: 4px;
+  font-size: 0.78rem;
+}
+
+/* ============================================================ */
+/* 04 — INSIGHTS & GAMIFICATION                                 */
+/* ============================================================ */
+.habitto-case-study .stats-showcase-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 28px;
+  margin-bottom: 28px;
+  max-width: 940px;
+}
+
+.habitto-case-study .stats-visual-card {
+  background: var(--habitto-bg-media-canvas);
+  border: var(--habitto-border-media);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  cursor: zoom-in;
+  box-shadow: var(--habitto-shadow-artifact);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.habitto-case-study .stats-visual-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 28px 64px -12px rgba(13, 19, 36, 0.18);
+}
+
+.habitto-case-study .stats-img {
+  width: 100%;
+  max-height: 480px;
+  object-fit: contain;
+  object-position: top center;
+  background: var(--habitto-bg-media-inner);
+  padding: 16px 16px 0;
+  display: block;
+  transition: transform 0.3s ease;
+}
+
+.habitto-case-study .stats-visual-card:hover .stats-img {
+  transform: scale(1.015);
+}
+
+.habitto-case-study .stats-card-caption {
+  padding: 14px 18px;
+  background: var(--habitto-bg-media-caption);
+  border-top: 1px solid rgba(106, 90, 224, 0.08);
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.habitto-case-study .stats-card-caption strong {
+  font-size: 0.88rem;
+  color: #f1f5f9;
+}
+
+.habitto-case-study .stats-card-caption span {
+  font-size: 0.76rem;
+  color: #a4b3c8;
+}
+
+.habitto-case-study .analytics-capabilities-row {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  margin-bottom: 60px;
+  padding: 22px;
+  background: var(--habitto-bg-surface);
+  border: 1px solid var(--habitto-border);
+  border-radius: var(--radius-md);
+  box-shadow: var(--habitto-shadow-sm);
+}
+
+.habitto-case-study .cap-item {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.habitto-case-study .cap-item strong {
+  font-size: 0.86rem;
+  color: var(--habitto-text-primary);
+}
+
+.habitto-case-study .cap-item span {
+  font-size: 0.78rem;
+  color: var(--habitto-text-secondary);
+  line-height: 1.45;
+}
+
+/* Gamification */
+.habitto-case-study .gamification-sub-block {
+  padding-top: 44px;
+  border-top: 1px solid var(--habitto-border);
+}
+
+.habitto-case-study .achievements-showcase-card {
+  background: var(--habitto-bg-media-canvas);
+  border: var(--habitto-border-media);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  margin: 30px 0 26px;
+  max-width: 540px;
+  cursor: zoom-in;
+  box-shadow: var(--habitto-shadow-artifact);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.habitto-case-study .achievements-showcase-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 28px 64px -12px rgba(13, 19, 36, 0.18);
+}
+
+.habitto-case-study .achievements-img {
+  width: 100%;
+  max-height: 340px;
+  object-fit: cover;
+  object-position: center 13%;
+  display: block;
+  background: var(--habitto-bg-media-inner);
+  transition: transform 0.3s ease;
+}
+
+.habitto-case-study .achievements-showcase-card:hover .achievements-img {
+  transform: scale(1.01);
+}
+
+.habitto-case-study .achievements-caption-bar {
+  padding: 12px 18px;
+  background: var(--habitto-bg-media-caption);
+  border-top: 1px solid rgba(106, 90, 224, 0.08);
+  font-family: var(--font-mono);
+  font-size: 0.74rem;
+  color: #a4b3c8;
+}
+
+.habitto-case-study .badge-examples-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+}
+
+.habitto-case-study .badge-example-card {
+  background: var(--habitto-bg-surface);
+  border: 1px solid var(--habitto-border);
+  border-radius: var(--radius-sm);
+  padding: 18px;
+  box-shadow: var(--habitto-shadow-sm);
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.habitto-case-study .badge-type {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  color: var(--habitto-accent-purple);
+  letter-spacing: 0.06em;
+}
+
+.habitto-case-study .badge-example-card strong {
+  font-size: 0.88rem;
+  color: var(--habitto-text-primary);
+}
+
+.habitto-case-study .badge-example-card p {
+  font-size: 0.8rem;
+  color: var(--habitto-text-secondary);
+  line-height: 1.45;
+  margin: 0;
+}
+
+/* ============================================================ */
+/* 05 — ENGINEERING DECISIONS                                   */
+/* ============================================================ */
+.habitto-case-study .decisions-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+}
+
+.habitto-case-study .decision-card {
+  background: var(--habitto-bg-surface);
+  border: 1px solid var(--habitto-border);
+  border-radius: var(--radius-md);
+  padding: 26px 28px;
+  box-shadow: var(--habitto-shadow-sm);
+  display: flex;
+  flex-direction: column;
+}
+
+.habitto-case-study .decision-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 14px;
+}
+
+.habitto-case-study .decision-letter {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--habitto-accent-purple);
+  background: var(--habitto-accent-purple-subtle);
+  border: 1px solid var(--habitto-accent-purple-border);
+  width: 28px;
+  height: 28px;
+  border-radius: var(--radius-full);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.habitto-case-study .decision-header h3 {
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--habitto-text-primary);
+  margin: 0;
+}
+
+.habitto-case-study .decision-card p {
+  font-size: 0.88rem;
+  color: var(--habitto-text-secondary);
+  line-height: 1.6;
+  margin: 0;
+}
+
+.habitto-case-study .decision-card code {
+  font-family: var(--font-mono);
+  color: var(--habitto-accent-purple);
+  background: var(--habitto-accent-purple-subtle);
+  padding: 1px 5px;
+  border-radius: 4px;
+  font-size: 0.8rem;
+}
+
+.habitto-case-study .ci-pipeline-flow {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px;
+  margin: 12px 0 14px;
+  padding: 10px 12px;
+  background: rgba(13, 19, 36, 0.035);
+  border: 1px solid var(--habitto-border);
+  border-radius: var(--radius-sm);
+}
+
+.habitto-case-study .ci-node {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--habitto-text-primary);
+}
+
+.habitto-case-study .ci-arrow {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--habitto-text-tertiary);
+}
+
+.habitto-case-study .ci-desc {
+  font-size: 0.84rem !important;
+}
+
+/* ============================================================ */
+/* 06 — SHIPPED PRODUCT & LINKS                                 */
+/* ============================================================ */
+.habitto-case-study .release-closing-wrap {
+  max-width: 800px;
+}
+
+.habitto-case-study .release-headline {
+  font-size: clamp(2.2rem, 4vw, 3.25rem);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  margin: 12px 0 16px;
+  color: var(--habitto-text-primary);
+}
+
+.habitto-case-study .release-lead {
+  font-size: 1.05rem;
+  color: var(--habitto-text-secondary);
+  line-height: 1.6;
+  margin-bottom: 30px;
+}
+
+.habitto-case-study .release-spec-sheet {
+  background: var(--habitto-bg-surface);
+  border: 1px solid var(--habitto-border);
+  border-radius: var(--radius-md);
+  box-shadow: var(--habitto-shadow-sm);
+  margin-bottom: 34px;
+}
+
+.habitto-case-study .spec-row {
+  display: grid;
+  grid-template-columns: 180px 1fr;
+  padding: 14px 24px;
+  border-bottom: 1px solid var(--habitto-border);
+  align-items: center;
+  font-size: 0.88rem;
+}
+
+.habitto-case-study .spec-row:last-child {
+  border-bottom: none;
+}
+
+.habitto-case-study .spec-label {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--habitto-text-tertiary);
+  letter-spacing: 0.06em;
+}
+
+.habitto-case-study .spec-row strong {
+  color: var(--habitto-text-primary);
+}
+
+.habitto-case-study .spec-row span {
+  color: var(--habitto-text-secondary);
+}
+
+.habitto-case-study .release-actions-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+}
+
+/* ============================================================ */
+/* LIGHTBOX                                                     */
+/* ============================================================ */
+.habitto-case-study .case-lightbox-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(13, 19, 36, 0.88);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  z-index: 2000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 30px;
+  cursor: zoom-out;
+}
+
+.habitto-case-study .lightbox-content {
+  position: relative;
+  max-width: 90vw;
+  max-height: 90vh;
+  cursor: default;
+}
+
+.habitto-case-study .lightbox-img {
+  max-width: 100%;
+  max-height: 85vh;
+  object-fit: contain;
+  border-radius: var(--radius-md);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.6);
+}
+
+.habitto-case-study .lightbox-close {
+  position: absolute;
+  top: -16px;
+  right: -16px;
+  background: #0D1324;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #ffffff;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.habitto-case-study .lightbox-close:hover {
+  background: var(--habitto-accent-purple);
+  color: #ffffff;
+}
+
+/* ============================================================ */
+/* RESPONSIVE DESIGN                                            */
+/* ============================================================ */
+@media (max-width: 1024px) {
+  .habitto-case-study .case-metrics-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 18px;
+  }
+
+  .habitto-case-study .privacy-callout-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .habitto-case-study .pipeline-flow-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .habitto-case-study .pipeline-arrow-wrap {
+    transform: rotate(90deg);
+    text-align: center;
+    margin: 4px 0;
+  }
+
+  .habitto-case-study .analytics-capabilities-row {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .habitto-case-study .badge-examples-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .habitto-case-study .case-section {
+    padding: 60px 0;
+  }
+
+  .habitto-case-study .product-asymmetric-grid,
+  .habitto-case-study .stats-showcase-grid,
+  .habitto-case-study .decisions-grid,
+  .habitto-case-study .notif-details-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .habitto-case-study .editorial-media-frame {
+    padding: 28px 16px 0;
+  }
+
+  .habitto-case-study .editorial-media-gif {
+    max-width: 220px;
+    max-height: 48vh;
+  }
+
+  .habitto-case-study .product-img,
+  .habitto-case-study .stats-img {
+    max-height: 360px;
+  }
+
+  .habitto-case-study .achievements-img {
+    max-height: 280px;
+    object-position: center 10%;
+  }
+
+  .habitto-case-study .scheduling-models-strip {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .habitto-case-study .spec-row {
+    grid-template-columns: 1fr;
+    gap: 4px;
+  }
+
+  .habitto-case-study .analytics-capabilities-row {
+    grid-template-columns: 1fr;
+  }
+}

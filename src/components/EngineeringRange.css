@@ -1,0 +1,185 @@
+.section-range {
+  padding: 90px 0 100px;
+}
+
+.discipline-list {
+  display: flex;
+  flex-direction: column;
+  border-top: 1px solid var(--border);
+  margin-top: 16px;
+}
+
+.discipline-row {
+  display: grid;
+  grid-template-columns: 80px minmax(0, 1.8fr) minmax(200px, 0.9fr);
+  align-items: baseline;
+  gap: 40px;
+  padding: 48px 0;
+  border-bottom: 1px solid var(--border);
+  transition: background 180ms ease;
+}
+
+/* 1. NUMBER COLUMN WITH SYSTEM RAIL */
+.discipline-num-col {
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+}
+
+.discipline-num {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: var(--purple-bright);
+  letter-spacing: 0.04em;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.discipline-num::after {
+  content: "";
+  display: inline-block;
+  width: 16px;
+  height: 1px;
+  background: var(--border-strong);
+  opacity: 0.7;
+}
+
+.discipline-num-col::before {
+  content: "";
+  position: absolute;
+  top: 24px;
+  bottom: -48px;
+  left: 6px;
+  width: 1px;
+  background: linear-gradient(180deg, rgba(182, 156, 255, 0.25) 0%, rgba(182, 156, 255, 0.04) 100%);
+  pointer-events: none;
+}
+
+.discipline-row:last-child .discipline-num-col::before {
+  display: none;
+}
+
+/* 2. MAIN CONTENT COLUMN */
+.discipline-main-col {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  max-width: 640px;
+}
+
+.discipline-title {
+  font-size: clamp(1.5rem, 2.5vw, 2.1rem);
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  color: var(--text);
+  line-height: 1.15;
+}
+
+.discipline-desc {
+  font-size: 1rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+
+.discipline-tech {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.82rem;
+  color: var(--text-soft);
+  letter-spacing: -0.01em;
+  padding-top: 4px;
+}
+
+/* 3. PROOF COLUMN */
+.discipline-proof-col {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 6px;
+  padding-left: 20px;
+}
+
+.discipline-proof-label {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.discipline-proof-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--text);
+  letter-spacing: -0.01em;
+  transition: color 160ms ease;
+  cursor: pointer;
+}
+
+.proof-arrow {
+  color: var(--purple-bright);
+  transition: transform 160ms ease;
+}
+
+.discipline-proof-link:hover {
+  color: var(--purple-bright);
+}
+
+.discipline-proof-link:hover .proof-arrow {
+  transform: translate(2px, -2px);
+}
+
+/* ============================================================ */
+/* RESPONSIVE DESIGN                                            */
+/* ============================================================ */
+@media (max-width: 900px) {
+  .discipline-row {
+    grid-template-columns: 60px 1fr;
+    gap: 24px;
+    padding: 36px 0;
+  }
+
+  .discipline-proof-col {
+    grid-column: 2 / -1;
+    padding-left: 0;
+    padding-top: 8px;
+  }
+}
+
+@media (max-width: 600px) {
+  .section-range {
+    padding: 60px 0 80px;
+  }
+
+  .discipline-row {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding: 32px 0;
+  }
+
+  .discipline-num-col::before {
+    display: none;
+  }
+
+  .discipline-title {
+    font-size: 1.4rem;
+  }
+
+  .discipline-desc {
+    font-size: 0.94rem;
+  }
+
+  .discipline-tech {
+    font-size: 0.78rem;
+  }
+
+  .discipline-proof-col {
+    margin-top: 6px;
+  }
+}

@@ -26,9 +26,9 @@ export const Header: React.FC = () => {
   return (
     <header className={`site-header ${scrolled ? 'scrolled' : ''}`} id="siteHeader">
       <div className="container nav">
-        <a className="brand" href="#top" aria-label="Go to the top of the page" onClick={(e) => handleScrollClick(e, '#top')}>
+        <a className="brand" href="#top" aria-label="Kağan Kurubaş home" onClick={(e) => handleScrollClick(e, '#top')}>
           <span className="brand-mark">{siteData.header.brand.initials}</span>
-          <span>{siteData.header.brand.name}</span>
+          <span className="brand-name">{siteData.header.brand.name}</span>
         </a>
 
         <button 
@@ -41,18 +41,31 @@ export const Header: React.FC = () => {
           {menuOpen ? <X size={20} /> : <Menu size={20} />}
         </button>
 
-        <ul className={`nav-links ${menuOpen ? 'open' : ''}`}>
+        <nav className={`nav-links ${menuOpen ? 'open' : ''}`} aria-label="Main Navigation">
           {siteData.header.navLinks.map((link) => (
-            <li key={link.label}>
-              <a href={link.href} onClick={(e) => handleScrollClick(e, link.href)}>{link.label}</a>
-            </li>
+            link.external ? (
+              <a 
+                key={link.label}
+                href={link.href}
+                target="_blank"
+                rel="noreferrer"
+                className="nav-link nav-link-external"
+                onClick={closeMenu}
+              >
+                {link.label}
+              </a>
+            ) : (
+              <a 
+                key={link.label}
+                href={link.href}
+                className="nav-link"
+                onClick={(e) => handleScrollClick(e, link.href)}
+              >
+                {link.label}
+              </a>
+            )
           ))}
-          <li>
-            <a className="button button-secondary button-small" href="#contact" onClick={(e) => handleScrollClick(e, '#contact')}>
-              Contact
-            </a>
-          </li>
-        </ul>
+        </nav>
       </div>
     </header>
   );

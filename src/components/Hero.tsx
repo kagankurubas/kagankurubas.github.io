@@ -1,22 +1,14 @@
 import React from 'react';
 import { useScrollReveal } from '../hooks/useScrollReveal';
 import { siteData } from '../data/portfolioData';
+import { ArrowDownRight, ExternalLink } from 'lucide-react';
 import './Hero.css';
 
 export const Hero: React.FC = () => {
-  const revealRef = useScrollReveal();
-  const revealRefProfile = useScrollReveal(0.2);
+  const revealRef = useScrollReveal(0.05);
+  const revealPillars = useScrollReveal(0.15);
 
   const { hero } = siteData;
-
-  const renderDescription = (text: string) => {
-    return text.split('**').map((part, index) => {
-      if (index % 2 === 1) {
-        return <strong key={index}>{part}</strong>;
-      }
-      return part;
-    });
-  };
 
   const handleScrollClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
     if (href.startsWith('#')) {
@@ -30,64 +22,67 @@ export const Hero: React.FC = () => {
   };
 
   return (
-    <section className="hero">
-      <div className="container hero-grid">
-        <div className="hero-copy reveal" ref={revealRef}>
-          <h1>
-            {hero.titleMain}
-            <span>{hero.titleAccent}</span>
+    <section className="hero" id="hero">
+      {/* Background Rhythm & System Field */}
+      <div className="hero-system-motif" aria-hidden="true">
+        <span className="motif-node motif-node-1"></span>
+        <span className="motif-node motif-node-2"></span>
+        <span className="motif-track motif-track-1"></span>
+        <span className="motif-track motif-track-2"></span>
+      </div>
+
+      <div className="container hero-container">
+        <div className="hero-content reveal" ref={revealRef}>
+          <div className="hero-meta">
+            <span className="hero-name">{hero.name}</span>
+            <span className="hero-divider" aria-hidden="true">/</span>
+            <span className="hero-roles">{hero.eyebrow}</span>
+          </div>
+
+          <h1 className="hero-title">
+            I build products, systems, and interactive experiences{' '}
+            <span className="hero-title-accent">where engineering meets creativity.</span>
           </h1>
-          <p className="hero-description">
-            {renderDescription(hero.description)}
+
+          <p className="hero-lead">
+            {hero.description}
           </p>
 
-          <div className="button-row">
-            <a className="button button-primary" href={hero.primaryButton.href} onClick={(e) => handleScrollClick(e, hero.primaryButton.href)}>
-              {hero.primaryButton.label}
+          <div className="hero-actions">
+            <a 
+              className="button button-primary" 
+              href={hero.primaryButton.href} 
+              onClick={(e) => handleScrollClick(e, hero.primaryButton.href)}
+            >
+              <span>{hero.primaryButton.label}</span>
+              <ArrowDownRight size={16} className="btn-icon" />
             </a>
-            <a className="button button-secondary" href={hero.secondaryButton.href} target="_blank" rel="noreferrer">
-              {hero.secondaryButton.label}
+            <a 
+              className="button button-secondary" 
+              href={hero.secondaryButton.href} 
+              target="_blank" 
+              rel="noreferrer"
+            >
+              <span>{hero.secondaryButton.label}</span>
+              <ExternalLink size={14} className="btn-icon" />
             </a>
-            {hero.tertiaryButton && (
-              <a className="button button-secondary" href={hero.tertiaryButton.href} target="_blank" rel="noreferrer">
-                {hero.tertiaryButton.label}
-              </a>
-            )}
           </div>
-
-
-          {hero.proofs && hero.proofs.length > 0 && (
-            <div className="hero-proof" aria-label="Current portfolio highlights">
-              {hero.proofs.map((proof, index) => (
-                <span className="proof-pill" key={index}>{proof}</span>
-              ))}
-            </div>
-          )}
         </div>
 
-        <aside className="profile-panel reveal" ref={revealRefProfile} aria-label="Profile overview">
-          <span className="eyebrow">{hero.eyebrow}</span>
-          <div className="profile-card">
-            <div className="profile-visual">
-              <img src={hero.profile.image} alt="Illustrated portrait of Nuri Kağan Kurubaş" />
-              <div className="profile-status">
-                <div className="profile-status-details">
-                  <div className="profile-status-header">
-                    <strong>{hero.profile.statusTitle}</strong>
-                    <span className="status-dot" aria-hidden="true"></span>
-                  </div>
-                  <span>{hero.profile.statusSubtitle}</span>
-                  <span className="profile-contact-info">
-                    <a href={`mailto:${hero.profile.email}`}>{hero.profile.email}</a>
-                    <span>{hero.profile.location}</span>
-                  </span>
+        {hero.pillars && hero.pillars.length > 0 && (
+          <div className="hero-pillars reveal" ref={revealPillars} aria-label="Core Engineering Domains">
+            {hero.pillars.map((pillar) => (
+              <div className="hero-pillar-item" key={pillar.number}>
+                <span className="pillar-num">{pillar.number}</span>
+                <div className="pillar-text">
+                  <strong className="pillar-title">{pillar.title}</strong>
+                  <span className="pillar-desc">{pillar.desc}</span>
                 </div>
               </div>
-            </div>
+            ))}
           </div>
-        </aside>
+        )}
       </div>
     </section>
   );
 };
-

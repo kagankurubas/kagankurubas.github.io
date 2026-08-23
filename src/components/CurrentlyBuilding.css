@@ -1,0 +1,134 @@
+.section-building {
+  padding: 90px 0 100px;
+}
+
+.building-panel-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.building-panel {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  background: var(--surface-solid);
+  padding: 30px 26px;
+  min-height: 250px;
+  transition: border-color 200ms ease, transform 200ms ease, box-shadow 200ms ease;
+}
+
+.building-panel:hover {
+  border-color: var(--border-strong);
+  transform: translateY(-2px);
+  box-shadow: 0 12px 30px -15px rgba(0, 0, 0, 0.6);
+}
+
+.building-panel-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 18px;
+}
+
+.building-category {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--purple-bright);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.building-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.70rem;
+  font-weight: 600;
+  color: var(--text-soft);
+  letter-spacing: 0.04em;
+}
+
+.status-indicator {
+  width: 6px;
+  height: 6px;
+  border-radius: 999px;
+}
+
+.status-indicator-active {
+  background: var(--green);
+  box-shadow: 0 0 8px rgba(57, 217, 138, 0.7);
+}
+
+.status-indicator-planning {
+  background: #f59e0b;
+  box-shadow: 0 0 8px rgba(245, 158, 11, 0.7);
+}
+
+.status-indicator-prototype {
+  background: #60a5fa;
+  box-shadow: 0 0 8px rgba(96, 165, 250, 0.7);
+}
+
+.building-panel-body {
+  margin-bottom: 22px;
+}
+
+.building-panel-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--text);
+  margin-bottom: 10px;
+}
+
+.building-panel-desc {
+  font-size: 0.90rem;
+  color: var(--text-muted);
+  line-height: 1.58;
+}
+
+.building-panel-footer {
+  padding-top: 16px;
+  border-top: 1px solid var(--border);
+}
+
+.building-tech-line {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.75rem;
+  color: var(--text-soft);
+  letter-spacing: -0.01em;
+}
+
+/* RESPONSIVE */
+@media (max-width: 1024px) {
+  .building-panel-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+}
+
+@media (max-width: 720px) {
+  .building-panel-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .building-panel {
+    padding: 24px 20px;
+    min-height: auto;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .building-panel {
+    transition: none;
+  }
+  .building-panel:hover {
+    transform: none;
+  }
+}
