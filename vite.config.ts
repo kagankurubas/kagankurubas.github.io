@@ -6,7 +6,7 @@ export default defineConfig({
   plugins: [react()],
   server: {
     watch: {
-      ignored: ['**/public/og/**', '**/dist/**']
+      ignored: ['**/public/og/**', '**/dist/**', '**/*.pdf', '**/public/**/*.pdf']
     }
   }
 })

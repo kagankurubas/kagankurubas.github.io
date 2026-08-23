@@ -70,6 +70,8 @@ export const About: React.FC = () => {
             <a 
               className="about-resume-link" 
               href={about.resumeLink.href}
+              target="_blank"
+              rel="noreferrer"
               onClick={(e) => handleResumeClick(e, about.resumeLink.href)}
             >
               <span>{about.resumeLink.label}</span>

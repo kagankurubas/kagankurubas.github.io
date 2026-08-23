@@ -7,7 +7,7 @@ export const siteData = {
     navLinks: [
       { label: 'Work', href: '#work' },
       { label: 'About', href: '#about' },
-      { label: 'Resume', href: '#contact' },
+      { label: 'Resume ↗', href: '/resume.pdf', external: true },
       { label: 'GitHub ↗', href: 'https://github.com/kagankurubas', external: true },
     ],
   },
@@ -154,7 +154,7 @@ export const siteData = {
       { label: 'LOCATION', value: 'Bursa, Türkiye' },
       { label: 'AVAILABILITY', value: 'Remote / Hybrid' },
     ],
-    resumeLink: { label: 'Resume ↗', href: '#contact' },
+    resumeLink: { label: 'Resume ↗', href: '/resume.pdf' },
   },
   beyondEngineering: {
     eyebrow: 'BEYOND ENGINEERING',
