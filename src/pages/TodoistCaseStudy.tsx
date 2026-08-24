@@ -136,7 +136,7 @@ export const TodoistCaseStudy: React.FC<TodoistCaseStudyProps> = ({ onNavigate }
                 </div>
                 <div className="case-metric-item">
                   <span className="metric-label">TESTING</span>
-                  <strong className="metric-val">65 automated tests</strong>
+                  <strong className="metric-val">114 automated tests</strong>
                 </div>
                 <div className="case-metric-item">
                   <span className="metric-label">TRANSPORT</span>
@@ -866,7 +866,7 @@ export const TodoistCaseStudy: React.FC<TodoistCaseStudyProps> = ({ onNavigate }
             <div className="section-heading reveal">
               <div>
                 <span className="eyebrow">VERIFICATION</span>
-                <h2>65 automated tests around the bridge.</h2>
+                <h2>114 automated tests around the bridge.</h2>
               </div>
               <p>
                 Mock-based tests verify core behavior without requiring live Todoist network calls for the tested paths.
@@ -885,7 +885,7 @@ export const TodoistCaseStudy: React.FC<TodoistCaseStudyProps> = ({ onNavigate }
               <div className="test-suite-row">
                 <div className="suite-meta">
                   <code>tests/test_mcp.py</code>
-                  <span>FastMCP tool execution (create, list, complete), character constraints, error handling</span>
+                  <span>FastMCP tool execution (tasks, sections, comments, labels), character constraints, error handling</span>
                 </div>
                 <span className="suite-status"><Check size={14} /> Verified</span>
               </div>
@@ -983,7 +983,7 @@ export const TodoistCaseStudy: React.FC<TodoistCaseStudyProps> = ({ onNavigate }
                 </div>
                 <div className="spec-row">
                   <span className="spec-label">VERIFICATION</span>
-                  <span>65 Pytest automated unit and integration tests</span>
+                  <span>114 Pytest automated unit and integration tests</span>
                 </div>
                 <div className="spec-row">
                   <span className="spec-label">LICENSE</span>
