@@ -16,18 +16,18 @@ import { TodoistCaseStudy } from './pages/TodoistCaseStudy';
 import { NotFoundPage } from './pages/NotFoundPage';
 
 const homepageMetadata: PageMetadataConfig = {
-  title: 'Kağan Kurubaş — Computer Engineer & Game Developer',
+  title: 'Kağan Kurubaş — Computer Engineer | Product, AI & Game Development',
   description: 'Computer engineer building products, AI/backend systems, and interactive experiences across Flutter, Python, Unity, and C#.',
   canonical: 'https://kagankurubas.github.io/',
   robots: 'index, follow',
   ogType: 'website',
-  ogTitle: 'Kağan Kurubaş — Computer Engineer & Game Developer',
+  ogTitle: 'Kağan Kurubaş — Computer Engineer | Product, AI & Game Development',
   ogDescription: 'Computer engineer building products, AI/backend systems, and interactive experiences across Flutter, Python, Unity, and C#.',
   ogUrl: 'https://kagankurubas.github.io/',
   ogImage: 'https://kagankurubas.github.io/og/home.png',
   ogImageAlt: 'Kağan Kurubaş — Computer Engineer & Game Developer Portfolio',
   twitterCard: 'summary_large_image',
-  twitterTitle: 'Kağan Kurubaş — Computer Engineer & Game Developer',
+  twitterTitle: 'Kağan Kurubaş — Computer Engineer | Product, AI & Game Development',
   twitterDescription: 'Computer engineer building products, AI/backend systems, and interactive experiences across Flutter, Python, Unity, and C#.',
   twitterImage: 'https://kagankurubas.github.io/og/home.png',
   twitterImageAlt: 'Kağan Kurubaş — Computer Engineer & Game Developer Portfolio',

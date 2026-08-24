@@ -29,18 +29,18 @@ interface TodoistCaseStudyProps {
 export const TodoistCaseStudy: React.FC<TodoistCaseStudyProps> = ({ onNavigate }) => {
   usePageMetadata({
     title: 'Todoist Gemini Bridge — MCP & Automation System | Kağan Kurubaş',
-    description: 'Engineering case study of a Python automation bridge connecting AI assistants, Google Tasks, and Todoist through MCP, FastAPI, validation, and local synchronization.',
+    description: 'Engineering case study of a local MCP server connecting AI assistants with Todoist through structured tools, validated API interactions, and a tested Python backend.',
     canonical: 'https://kagankurubas.github.io/projects/todoist',
     robots: 'index, follow',
     ogType: 'article',
     ogTitle: 'Todoist Gemini Bridge — MCP & Automation System | Kağan Kurubaş',
-    ogDescription: 'Engineering case study of a Python automation bridge connecting AI assistants, Google Tasks, and Todoist through MCP, FastAPI, validation, and local synchronization.',
+    ogDescription: 'Engineering case study of a local MCP server connecting AI assistants with Todoist through structured tools, validated API interactions, and a tested Python backend.',
     ogUrl: 'https://kagankurubas.github.io/projects/todoist',
     ogImage: 'https://kagankurubas.github.io/og/todoist.png',
     ogImageAlt: 'Todoist Gemini Bridge — MCP & Automation Infrastructure Case Study',
     twitterCard: 'summary_large_image',
     twitterTitle: 'Todoist Gemini Bridge — MCP & Automation System | Kağan Kurubaş',
-    twitterDescription: 'Engineering case study of a Python automation bridge connecting AI assistants, Google Tasks, and Todoist through MCP, FastAPI, validation, and local synchronization.',
+    twitterDescription: 'Engineering case study of a local MCP server connecting AI assistants with Todoist through structured tools, validated API interactions, and a tested Python backend.',
     twitterImage: 'https://kagankurubas.github.io/og/todoist.png',
     twitterImageAlt: 'Todoist Gemini Bridge — MCP & Automation Infrastructure Case Study',
     structuredData: {

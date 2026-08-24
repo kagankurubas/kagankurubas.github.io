@@ -160,6 +160,10 @@ const publicOgDir = path.resolve(__dirname, '../public/og');
 fs.mkdirSync(publicOgDir, { recursive: true });
 
 const targetFile = path.join(publicOgDir, 'home.png');
+if (fs.existsSync(targetFile) && !process.argv.includes('--force')) {
+  console.log(`[generate-og-home] Preserving approved manual file at: ${targetFile}`);
+  process.exit(0);
+}
 fs.writeFileSync(targetFile, pngBuffer);
 
 // Also copy to artifacts directory for visual inspection
