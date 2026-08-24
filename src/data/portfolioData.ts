@@ -51,7 +51,7 @@ export const siteData = {
         headline: 'MCP & Automation Infrastructure',
         description: 'A local Model Context Protocol server and automation bridge that lets AI assistants securely manage Todoist tasks, sections (kanban), labels, and comments through validated tools and backend integrations.',
         tags: ['Python', 'MCP', 'FastMCP', 'FastAPI', 'Pydantic', 'OAuth 2.0', 'Docker', 'Pytest'],
-        highlight: '114 automated tests',
+        highlight: '126 automated tests',
         primaryLink: { label: 'Explore Project', href: '/projects/todoist' },
         secondaryLink: { label: 'GitHub Repository ↗', href: 'https://github.com/kagankurubas/Todoist-Gemini-Bridge' },
       },
