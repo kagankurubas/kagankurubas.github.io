@@ -10,9 +10,7 @@ import {
   Workflow,
   ShieldCheck,
   Layers,
-  ArrowDown,
-  ScanLine,
-  Sparkles
+  ArrowDown
 } from 'lucide-react';
 import './SelectedWork.css';
 
@@ -56,6 +54,39 @@ export const SelectedWork: React.FC<SelectedWorkProps> = ({ onNavigate }) => {
 
   const handleNextScreen = () => {
     setActiveHabittoScreen((prev) => (prev + 1) % habittoScreens.length);
+  };
+
+  const [activeBookshelfScreen, setActiveBookshelfScreen] = React.useState(0);
+
+  const bookshelfScreens = [
+    {
+      id: 'shelf',
+      label: 'Shelf',
+      src: '/bookshelf/shelf-view.jpg',
+      alt: 'BookShelf dynamic wooden bookshelf view'
+    },
+    {
+      id: 'cards',
+      label: 'Cards',
+      src: '/bookshelf/cards-view.jpg',
+      alt: 'BookShelf card grid view of a library'
+    },
+    {
+      id: 'table',
+      label: 'Table',
+      src: '/bookshelf/table-view.jpg',
+      alt: 'BookShelf filterable table view'
+    },
+    {
+      id: 'chat',
+      label: 'AI Chat',
+      src: '/bookshelf/ai-chat.jpg',
+      alt: 'BookShelf AI Book Assistant chat panel'
+    }
+  ];
+
+  const handleNextBookshelfScreen = () => {
+    setActiveBookshelfScreen((prev) => (prev + 1) % bookshelfScreens.length);
   };
 
   const handleHabittoClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
@@ -404,78 +435,51 @@ export const SelectedWork: React.FC<SelectedWorkProps> = ({ onNavigate }) => {
             </div>
 
             <div className="showcase-visual showcase-visual-bookshelf">
-              <div className="architecture-canvas" aria-label="BookShelf AI Reading Assistant Flow Preview">
-                <div className="arch-header">
-                  <div className="arch-header-left">
+              <div className="bs-browser-mockup">
+                <div className="bs-browser-topbar">
+                  <div className="bs-browser-dots">
                     <span className="arch-dot red"></span>
                     <span className="arch-dot yellow"></span>
                     <span className="arch-dot green"></span>
-                    <span className="arch-title">bookshelf · v1.0.0 · netlify</span>
                   </div>
-                  <span className="arch-tag">AI Assistant Flow</span>
+                  <span className="bs-browser-url">yourbookshelf-app.netlify.app</span>
                 </div>
 
-                <div className="arch-flow">
-                  {/* Layer 1: Fast Add */}
-                  <div className="arch-node arch-node-client">
-                    <div className="arch-node-icon">
-                      <ScanLine size={16} />
-                    </div>
-                    <div className="arch-node-meta">
-                      <strong>Camera Barcode Scan</strong>
-                      <span>html5-qrcode · Open Library API lookup</span>
-                    </div>
-                  </div>
-
-                  <div className="arch-connector arch-connector-1">
-                    <ArrowDown size={14} className="connector-arrow" />
-                    <span className="connector-label">Validated book record</span>
-                  </div>
-
-                  {/* Layer 2: App Core */}
-                  <div className="arch-node arch-node-server">
-                    <div className="arch-node-icon">
-                      <Cpu size={16} />
-                    </div>
-                    <div className="arch-node-meta">
-                      <div className="arch-node-heading">
-                        <strong>BookShelf Web App</strong>
-                        <span className="arch-badge-live">React 19 · Supabase</span>
-                      </div>
-                      <div className="arch-tool-chips">
-                        <code>shelves</code>
-                        <code>dashboard</code>
-                        <code>ai_chat</code>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div className="arch-connector arch-connector-2">
-                    <ArrowDown size={14} className="connector-arrow" />
-                    <span className="connector-label">Supabase Edge Function</span>
-                  </div>
-
-                  {/* Layer 3: AI Assistant */}
-                  <div className="arch-node arch-node-api">
-                    <div className="arch-node-icon">
-                      <Sparkles size={16} />
-                    </div>
-                    <div className="arch-node-meta">
-                      <strong>Gemini API — Reading Assistant</strong>
-                      <span>Answers about your library in TR/EN</span>
-                    </div>
-                  </div>
+                <div
+                  className="bs-browser-screen"
+                  onClick={handleNextBookshelfScreen}
+                  title="Click to view next screen"
+                >
+                  <img
+                    key={bookshelfScreens[activeBookshelfScreen].id}
+                    src={bookshelfScreens[activeBookshelfScreen].src}
+                    alt={bookshelfScreens[activeBookshelfScreen].alt}
+                    className="bs-browser-img"
+                    loading="lazy"
+                  />
                 </div>
 
-                <div className="arch-footer">
-                  <div className="arch-footer-item">
-                    <CheckCircle2 size={13} className="check-icon" />
-                    <span>65 Vitest + RTL Automated Tests</span>
-                  </div>
-                  <div className="arch-footer-item">
-                    <ShieldCheck size={13} className="check-icon" />
-                    <span>Supabase Row Level Security</span>
-                  </div>
+                <div className="bs-browser-tabs" role="tablist" aria-label="BookShelf screen preview selector">
+                  {bookshelfScreens.map((screen, idx) => (
+                    <button
+                      key={screen.id}
+                      type="button"
+                      role="tab"
+                      aria-selected={activeBookshelfScreen === idx}
+                      className={`bs-browser-tab ${activeBookshelfScreen === idx ? 'active' : ''}`}
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        setActiveBookshelfScreen(idx);
+                      }}
+                    >
+                      {screen.label}
+                    </button>
+                  ))}
+                </div>
+
+                <div className="bs-browser-badge">
+                  <span className="bs-browser-status-dot"></span>
+                  <span>65 tests · Supabase RLS</span>
                 </div>
               </div>
             </div>

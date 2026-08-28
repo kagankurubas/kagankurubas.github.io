@@ -1,32 +1,70 @@
 /* ============================================================ */
-/* BOOKSHELF CASE STUDY STYLING                                  */
+/* BOOKSHELF CASE STUDY — WARM READING-ROOM THEME                */
 /* ============================================================ */
 
 .bookshelf-case-study {
+  --bs-bg-page: #FAF6EE;
+  --bs-bg-surface: #FFFFFF;
+  --bs-bg-surface-soft: rgba(255, 255, 255, 0.72);
+  --bs-bg-tint: #F2EADA;
+
+  /* Warm dark media frame — lets light screenshots pop */
+  --bs-media-frame: #241C14;
+  --bs-media-topbar: #2E241A;
+
+  --bs-text-primary: #2B2114;
+  --bs-text-secondary: #6C6152;
+  --bs-text-tertiary: #948A78;
+
+  --bs-border: rgba(43, 33, 20, 0.10);
+  --bs-border-strong: rgba(43, 33, 20, 0.18);
+
+  --bs-accent: #1F9D6B;
+  --bs-accent-strong: #167F57;
+  --bs-accent-subtle: rgba(31, 157, 107, 0.10);
+  --bs-accent-border: rgba(31, 157, 107, 0.28);
+
+  --bs-wood: #B9793F;
+  --bs-wood-subtle: rgba(185, 121, 63, 0.14);
+  --bs-wood-border: rgba(185, 121, 63, 0.3);
+
+  --bs-shadow-sm: 0 2px 10px rgba(43, 33, 20, 0.05);
+  --bs-shadow-md: 0 18px 44px -14px rgba(43, 33, 20, 0.16);
+
+  --bs-radius-lg: 28px;
+  --bs-radius-md: 20px;
+  --bs-radius-sm: 13px;
+
   min-height: 100vh;
-  background-color: var(--bg);
-  color: var(--text);
+  background-color: var(--bs-bg-page);
+  background-image:
+    radial-gradient(circle at 88% 6%, rgba(31, 157, 107, 0.07) 0%, transparent 34%),
+    radial-gradient(circle at 8% 18%, rgba(185, 121, 63, 0.09) 0%, transparent 32%),
+    radial-gradient(circle at 90% 62%, rgba(31, 157, 107, 0.05) 0%, transparent 34%);
+  color: var(--bs-text-primary);
   padding-top: 60px;
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
 }
 
-/* Ensure all case study content is visible immediately */
 .bookshelf-case-study .reveal {
   opacity: 1;
   transform: none;
   transition: opacity 0.4s ease, transform 0.4s ease;
 }
 
-/* Navigation Header */
+/* ============================================================ */
+/* NAVIGATION HEADER                                             */
+/* ============================================================ */
 .bookshelf-case-study .case-study-header {
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
   height: 60px;
-  background-color: rgba(8, 11, 18, 0.92);
+  background-color: rgba(250, 246, 238, 0.88);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-  border-bottom: 1px solid var(--border);
+  border-bottom: 1px solid var(--bs-border);
   z-index: 1000;
 }
 
@@ -43,8 +81,7 @@
   gap: 8px;
   background: transparent;
   border: none;
-  color: var(--text-muted);
-  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  color: var(--bs-text-secondary);
   font-size: 0.875rem;
   font-weight: 500;
   cursor: pointer;
@@ -53,7 +90,7 @@
 }
 
 .bookshelf-case-study .back-button:hover {
-  color: var(--purple-bright);
+  color: var(--bs-accent-strong);
 }
 
 .bookshelf-case-study .case-header-meta {
@@ -67,312 +104,508 @@
   font-size: 0.8rem;
   font-weight: 600;
   letter-spacing: 0.04em;
-  color: var(--text);
+  color: var(--bs-text-primary);
 }
 
 .bookshelf-case-study .case-version-pill {
   font-family: "JetBrains Mono", monospace;
   font-size: 0.72rem;
-  color: var(--purple-bright);
-  background: rgba(155, 124, 255, 0.08);
-  border: 1px solid rgba(182, 156, 255, 0.2);
-  padding: 2px 8px;
+  color: var(--bs-accent-strong);
+  background: var(--bs-accent-subtle);
+  border: 1px solid var(--bs-accent-border);
+  padding: 2px 10px;
   border-radius: 999px;
 }
 
 /* ============================================================ */
-/* HERO SECTION & METRICS                                        */
+/* SECTIONS GENERAL                                              */
 /* ============================================================ */
 .bookshelf-case-study .case-section {
   padding: 90px 0;
-  border-bottom: 1px solid var(--border);
 }
 
+.bookshelf-case-study .bs-section-tint {
+  background: var(--bs-bg-tint);
+}
+
+.bookshelf-case-study .eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--bs-accent-strong);
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.74rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.bookshelf-case-study .eyebrow::before {
+  content: "";
+  width: 6px;
+  height: 6px;
+  border-radius: 999px;
+  background: var(--bs-accent);
+  box-shadow: 0 0 8px rgba(31, 157, 107, 0.5);
+}
+
+.bookshelf-case-study .section-heading {
+  display: block;
+  max-width: 680px;
+  margin-bottom: 40px;
+}
+
+.bookshelf-case-study .section-title {
+  font-size: clamp(1.9rem, 3.6vw, 2.6rem);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1.15;
+  color: var(--bs-text-primary);
+  margin: 12px 0 14px;
+}
+
+.bookshelf-case-study .section-lead {
+  font-size: 1.02rem;
+  color: var(--bs-text-secondary);
+  line-height: 1.65;
+  margin: 0;
+}
+
+/* ============================================================ */
+/* BUTTONS — SCOPED WARM OVERRIDE                                */
+/* ============================================================ */
+.bookshelf-case-study .button-primary {
+  background: var(--bs-accent);
+  color: #ffffff;
+  box-shadow: 0 10px 24px rgba(31, 157, 107, 0.22);
+}
+
+.bookshelf-case-study .button-primary:hover {
+  background: var(--bs-accent-strong);
+  box-shadow: 0 12px 28px rgba(31, 157, 107, 0.28);
+}
+
+.bookshelf-case-study .button-secondary {
+  border-color: var(--bs-border-strong);
+  background: rgba(255, 255, 255, 0.6);
+  color: var(--bs-text-primary);
+}
+
+.bookshelf-case-study .button-secondary:hover {
+  border-color: var(--bs-accent-border);
+  color: var(--bs-accent-strong);
+  background: #ffffff;
+}
+
+/* ============================================================ */
+/* HERO                                                          */
+/* ============================================================ */
 .bookshelf-case-study .case-hero {
-  padding: 70px 0 90px;
+  padding: 72px 0 90px;
 }
 
-.bookshelf-case-study .case-hero-content {
-  max-width: 860px;
-}
-
-.bookshelf-case-study .case-meta-row {
-  margin-bottom: 16px;
+.bookshelf-case-study .case-hero-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  align-items: center;
+  gap: 56px;
 }
 
 .bookshelf-case-study .case-hero-title {
-  font-size: clamp(3rem, 6vw, 4.75rem);
+  font-size: clamp(2.75rem, 5.5vw, 4.25rem);
   font-weight: 700;
   letter-spacing: -0.035em;
   line-height: 1.05;
-  margin-bottom: 20px;
-  color: var(--text);
+  margin: 16px 0 18px;
+  color: var(--bs-text-primary);
 }
 
 .bookshelf-case-study .case-hero-statement {
-  font-size: clamp(1.25rem, 2.5vw, 1.6rem);
-  color: var(--text);
-  line-height: 1.35;
+  font-size: clamp(1.15rem, 2.2vw, 1.4rem);
+  color: var(--bs-text-primary);
+  line-height: 1.4;
   font-weight: 500;
-  margin-bottom: 16px;
+  margin-bottom: 14px;
 }
 
 .bookshelf-case-study .case-hero-lead {
-  font-size: 1.05rem;
-  color: var(--text-muted);
+  font-size: 1.02rem;
+  color: var(--bs-text-secondary);
   line-height: 1.65;
-  margin-bottom: 28px;
-  max-width: 760px;
+  margin-bottom: 26px;
+  max-width: 520px;
 }
 
 .bookshelf-case-study .case-tech-strip {
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
-  margin-bottom: 36px;
+  margin-bottom: 22px;
 }
 
 .bookshelf-case-study .tech-chip {
-  background: var(--surface-solid);
-  border: 1px solid var(--border);
-  color: var(--text-soft);
+  background: var(--bs-bg-surface);
+  border: 1px solid var(--bs-border);
+  color: var(--bs-text-secondary);
   font-family: "JetBrains Mono", monospace;
-  font-size: 0.78rem;
-  padding: 4px 10px;
-  border-radius: var(--radius-sm);
+  font-size: 0.76rem;
+  padding: 5px 12px;
+  border-radius: 999px;
+  box-shadow: var(--bs-shadow-sm);
 }
 
-.bookshelf-case-study .case-metrics-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 20px;
-  padding: 24px 0;
-  margin-bottom: 36px;
-  border-top: 1px solid var(--border);
-  border-bottom: 1px solid var(--border);
+.bookshelf-case-study .case-stat-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 32px;
 }
 
-.bookshelf-case-study .case-metric-item {
+.bookshelf-case-study .case-stat-chip {
   display: flex;
   flex-direction: column;
-  gap: 4px;
+  gap: 2px;
+  padding: 10px 16px;
+  background: var(--bs-bg-surface);
+  border: 1px solid var(--bs-border);
+  border-radius: var(--bs-radius-sm);
+  box-shadow: var(--bs-shadow-sm);
 }
 
-.bookshelf-case-study .metric-label {
-  font-family: "JetBrains Mono", monospace;
-  font-size: 0.68rem;
-  color: var(--text-muted);
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-}
-
-.bookshelf-case-study .metric-val {
-  font-family: "JetBrains Mono", monospace;
+.bookshelf-case-study .case-stat-chip strong {
   font-size: 0.92rem;
-  color: var(--text);
-  font-weight: 600;
+  color: var(--bs-text-primary);
+  font-weight: 700;
+}
+
+.bookshelf-case-study .case-stat-chip span {
+  font-size: 0.72rem;
+  color: var(--bs-text-tertiary);
 }
 
 .bookshelf-case-study .case-hero-actions {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  gap: 16px;
-  margin-top: 32px;
+  gap: 14px;
+}
+
+/* Hero Media — warm dark frame housing the live-demo GIF */
+.bookshelf-case-study .case-hero-media {
+  display: flex;
+  justify-content: center;
+}
+
+.bookshelf-case-study .bs-media-frame {
+  width: 100%;
+  background: var(--bs-media-frame);
+  border-radius: var(--bs-radius-md);
+  overflow: hidden;
+  box-shadow: var(--bs-shadow-md);
+  border: 1px solid rgba(185, 121, 63, 0.18);
+}
+
+.bookshelf-case-study .bs-media-topbar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 16px;
+  background: var(--bs-media-topbar);
+}
+
+.bookshelf-case-study .bs-media-dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.18);
+}
+
+.bookshelf-case-study .bs-media-url {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.72rem;
+  color: rgba(255, 255, 255, 0.5);
+  margin-left: 8px;
+}
+
+.bookshelf-case-study .bs-media-img {
+  display: block;
+  width: 100%;
+  height: auto;
+  cursor: zoom-in;
+  transition: opacity 0.2s ease;
+}
+
+.bookshelf-case-study .bs-media-img:hover {
+  opacity: 0.94;
+}
+
+/* ============================================================ */
+/* PRODUCT TOUR — REAL SCREENSHOTS                                */
+/* ============================================================ */
+.bookshelf-case-study .bs-tour-dominant {
+  border-radius: var(--bs-radius-md);
+  overflow: hidden;
+  background: var(--bs-media-frame);
+  box-shadow: var(--bs-shadow-md);
+  border: 1px solid rgba(185, 121, 63, 0.18);
+  cursor: zoom-in;
+  margin-bottom: 20px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.bookshelf-case-study .bs-tour-dominant:hover {
+  transform: translateY(-3px);
+}
+
+.bookshelf-case-study .bs-tour-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.bookshelf-case-study .bs-tour-card {
+  border-radius: var(--bs-radius-md);
+  overflow: hidden;
+  background: var(--bs-media-frame);
+  box-shadow: var(--bs-shadow-sm);
+  border: 1px solid rgba(185, 121, 63, 0.18);
+  cursor: zoom-in;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.bookshelf-case-study .bs-tour-card:hover,
+.bookshelf-case-study .bs-tour-dominant:hover {
+  box-shadow: 0 24px 54px -16px rgba(43, 33, 20, 0.24);
+}
+
+.bookshelf-case-study .bs-tour-img {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.bookshelf-case-study .bs-tour-card:hover .bs-tour-img,
+.bookshelf-case-study .bs-tour-dominant:hover .bs-tour-img {
+  transform: scale(1.02);
+}
+
+.bookshelf-case-study .bs-tour-caption {
+  padding: 14px 18px;
+  background: var(--bs-media-topbar);
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.bookshelf-case-study .bs-tour-caption strong {
+  font-size: 0.88rem;
+  color: #F7F1E6;
+}
+
+.bookshelf-case-study .bs-tour-caption span {
+  font-size: 0.76rem;
+  color: rgba(247, 241, 230, 0.6);
 }
 
 /* ============================================================ */
 /* PRODUCT FEATURE GRID                                          */
 /* ============================================================ */
-.bs-feature-grid {
+.bookshelf-case-study .bs-feature-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
   gap: 18px;
 }
 
-.bs-feature-card {
-  background: var(--surface-solid);
-  border: 1px solid var(--border);
-  border-radius: var(--radius-sm);
-  padding: 22px;
+.bookshelf-case-study .bs-feature-card {
+  background: var(--bs-bg-surface);
+  border: 1px solid var(--bs-border);
+  border-radius: var(--bs-radius-md);
+  padding: 24px;
   display: flex;
   flex-direction: column;
   gap: 8px;
-  transition: border-color 200ms ease, transform 200ms ease;
+  box-shadow: var(--bs-shadow-sm);
+  transition: transform 200ms ease, box-shadow 200ms ease;
 }
 
-.bs-feature-card:hover {
-  border-color: rgba(182, 156, 255, 0.3);
-  transform: translateY(-2px);
+.bookshelf-case-study .bs-feature-card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--bs-shadow-md);
 }
 
-.bs-feature-icon {
-  width: 36px;
-  height: 36px;
-  border-radius: 8px;
-  background: rgba(155, 124, 255, 0.08);
-  border: 1px solid rgba(182, 156, 255, 0.18);
+.bookshelf-case-study .bs-feature-icon {
+  width: 38px;
+  height: 38px;
+  border-radius: 12px;
+  background: var(--bs-accent-subtle);
+  border: 1px solid var(--bs-accent-border);
   display: grid;
   place-items: center;
-  color: var(--purple-bright);
+  color: var(--bs-accent-strong);
   margin-bottom: 4px;
 }
 
-.bs-feature-card strong {
+.bookshelf-case-study .bs-feature-card strong {
   font-size: 0.98rem;
-  color: var(--text);
-  font-weight: 600;
+  color: var(--bs-text-primary);
+  font-weight: 700;
 }
 
-.bs-feature-card p {
-  font-size: 0.85rem;
-  color: var(--text-muted);
+.bookshelf-case-study .bs-feature-card p {
+  font-size: 0.86rem;
+  color: var(--bs-text-secondary);
   line-height: 1.55;
   margin: 0;
 }
 
 /* ============================================================ */
-/* AI ASSISTANT FLOW                                              */
+/* AI ASSISTANT SECTION                                           */
 /* ============================================================ */
-.bs-flow-canvas {
-  background: #08080a;
-  border: 1px solid var(--border);
-  border-radius: var(--radius-md);
-  padding: 28px;
+.bookshelf-case-study .bs-assistant-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 0.9fr);
+  align-items: center;
+  gap: 48px;
 }
 
-.bs-flow-bar {
+.bookshelf-case-study .bs-flow-row {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  gap: 12px;
+  gap: 10px;
+  margin-top: 28px;
 }
 
-.bs-flow-step {
-  display: flex;
+.bookshelf-case-study .bs-flow-pill {
+  display: inline-flex;
   align-items: center;
-  gap: 8px;
-  background: var(--surface-solid);
-  border: 1px solid var(--border);
-  border-radius: var(--radius-sm);
-  padding: 10px 14px;
-  font-family: "JetBrains Mono", monospace;
-  font-size: 0.78rem;
-  color: var(--text-soft);
+  gap: 6px;
+  background: var(--bs-bg-surface);
+  border: 1px solid var(--bs-border);
+  border-radius: 999px;
+  padding: 8px 16px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--bs-text-secondary);
+  box-shadow: var(--bs-shadow-sm);
 }
 
-.bs-flow-step-highlight {
-  border-color: rgba(182, 156, 255, 0.32);
-  background: rgba(155, 124, 255, 0.06);
-  color: var(--purple-bright);
+.bookshelf-case-study .bs-flow-pill-accent {
+  background: var(--bs-accent-subtle);
+  border-color: var(--bs-accent-border);
+  color: var(--bs-accent-strong);
 }
 
-.bs-flow-arrow {
-  color: var(--text-muted);
+.bookshelf-case-study .bs-flow-arrow {
+  color: var(--bs-text-tertiary);
   flex-shrink: 0;
 }
 
-.bs-flow-note {
-  margin-top: 20px;
-  color: var(--text-muted);
-  font-size: 0.88rem;
-  line-height: 1.6;
-  max-width: 760px;
+.bookshelf-case-study .bs-assistant-visual {
+  border-radius: var(--bs-radius-md);
+  overflow: hidden;
+  background: var(--bs-media-frame);
+  box-shadow: var(--bs-shadow-md);
+  border: 1px solid rgba(185, 121, 63, 0.18);
+  cursor: zoom-in;
+  transition: transform 0.2s ease;
+}
+
+.bookshelf-case-study .bs-assistant-visual:hover {
+  transform: translateY(-3px);
 }
 
 /* ============================================================ */
 /* DATA & ACCESS                                                  */
 /* ============================================================ */
-.bs-security-grid {
+.bookshelf-case-study .bs-security-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
   gap: 18px;
 }
 
-.bs-security-card {
+.bookshelf-case-study .bs-security-card {
+  background: var(--bs-bg-surface);
+  border: 1px solid var(--bs-border);
+  border-radius: var(--bs-radius-md);
+  padding: 24px;
+  box-shadow: var(--bs-shadow-sm);
   display: flex;
-  align-items: flex-start;
-  gap: 14px;
-  background: var(--surface-solid);
-  border: 1px solid var(--border);
-  border-radius: var(--radius-sm);
-  padding: 20px;
+  flex-direction: column;
+  gap: 8px;
 }
 
-.bs-security-icon {
-  color: var(--purple-bright);
-  flex-shrink: 0;
-  margin-top: 2px;
-}
-
-.bs-security-card strong {
-  display: block;
-  font-size: 0.94rem;
-  color: var(--text);
+.bookshelf-case-study .bs-security-icon {
+  color: var(--bs-wood);
   margin-bottom: 4px;
 }
 
-.bs-security-card p {
-  font-size: 0.85rem;
-  color: var(--text-muted);
+.bookshelf-case-study .bs-security-card strong {
+  font-size: 0.94rem;
+  color: var(--bs-text-primary);
+}
+
+.bookshelf-case-study .bs-security-card p {
+  font-size: 0.86rem;
+  color: var(--bs-text-secondary);
   line-height: 1.55;
   margin: 0;
 }
 
 /* ============================================================ */
-/* VERIFICATION MATRIX                                            */
+/* VERIFICATION LIST                                              */
 /* ============================================================ */
-.bs-test-matrix {
+.bookshelf-case-study .bs-test-list {
   display: flex;
   flex-direction: column;
   gap: 10px;
 }
 
-.bs-test-row {
+.bookshelf-case-study .bs-test-row {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  gap: 16px;
-  background: var(--surface-solid);
-  border: 1px solid var(--border);
-  border-radius: var(--radius-sm);
+  gap: 14px;
+  background: var(--bs-bg-surface);
+  border: 1px solid var(--bs-border);
+  border-radius: var(--bs-radius-sm);
   padding: 14px 18px;
+  box-shadow: var(--bs-shadow-sm);
 }
 
-.bs-test-meta {
+.bookshelf-case-study .bs-test-check {
+  display: grid;
+  place-items: center;
+  width: 26px;
+  height: 26px;
+  border-radius: 999px;
+  background: var(--bs-accent-subtle);
+  color: var(--bs-accent-strong);
+  flex-shrink: 0;
+}
+
+.bookshelf-case-study .bs-test-meta {
   display: flex;
   align-items: baseline;
-  gap: 12px;
+  gap: 10px;
   flex-wrap: wrap;
 }
 
-.bs-test-meta code {
-  font-family: "JetBrains Mono", monospace;
-  font-size: 0.82rem;
-  color: var(--purple-bright);
-  flex-shrink: 0;
+.bookshelf-case-study .bs-test-meta strong {
+  font-size: 0.9rem;
+  color: var(--bs-text-primary);
 }
 
-.bs-test-meta span {
+.bookshelf-case-study .bs-test-meta span {
   font-size: 0.84rem;
-  color: var(--text-muted);
-}
-
-.bs-test-status {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  font-family: "JetBrains Mono", monospace;
-  font-size: 0.76rem;
-  color: var(--green);
-  flex-shrink: 0;
+  color: var(--bs-text-secondary);
 }
 
 /* ============================================================ */
 /* CLOSING SPEC SHEET                                             */
 /* ============================================================ */
 .bookshelf-case-study .case-release {
-  border-bottom: none;
   padding-bottom: 110px;
 }
 
@@ -383,18 +616,18 @@
 }
 
 .bookshelf-case-study .release-headline {
-  font-size: clamp(2.25rem, 4.5vw, 3.25rem);
+  font-size: clamp(2.1rem, 4.2vw, 3rem);
   font-weight: 700;
   letter-spacing: -0.035em;
   margin: 14px 0 16px;
-  color: var(--text);
+  color: var(--bs-text-primary);
 }
 
 .bookshelf-case-study .release-lead {
   font-size: 1.02rem;
-  color: var(--text-muted);
+  color: var(--bs-text-secondary);
   line-height: 1.6;
-  margin-bottom: 36px;
+  margin-bottom: 32px;
 }
 
 .bookshelf-case-study .release-spec-sheet {
@@ -402,10 +635,12 @@
   flex-direction: column;
   gap: 14px;
   text-align: left;
-  border-top: 1px solid var(--border);
-  border-bottom: 1px solid var(--border);
-  padding: 24px 0;
-  margin-bottom: 36px;
+  background: var(--bs-bg-surface);
+  border: 1px solid var(--bs-border);
+  border-radius: var(--bs-radius-md);
+  padding: 26px 28px;
+  margin-bottom: 32px;
+  box-shadow: var(--bs-shadow-sm);
 }
 
 .bookshelf-case-study .spec-row {
@@ -418,7 +653,7 @@
 .bookshelf-case-study .spec-label {
   font-family: "JetBrains Mono", monospace;
   font-size: 0.7rem;
-  color: var(--text-muted);
+  color: var(--bs-text-tertiary);
   letter-spacing: 0.08em;
   text-transform: uppercase;
 }
@@ -426,7 +661,7 @@
 .bookshelf-case-study .spec-row strong,
 .bookshelf-case-study .spec-row span {
   font-size: 0.92rem;
-  color: var(--text-soft);
+  color: var(--bs-text-primary);
 }
 
 .bookshelf-case-study .release-actions-row {
@@ -438,34 +673,90 @@
 }
 
 /* ============================================================ */
+/* LIGHTBOX                                                       */
+/* ============================================================ */
+.bookshelf-case-study .bs-lightbox-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(20, 15, 8, 0.82);
+  backdrop-filter: blur(4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px;
+  z-index: 2000;
+  cursor: zoom-out;
+}
+
+.bookshelf-case-study .bs-lightbox-content {
+  position: relative;
+  max-width: min(1100px, 100%);
+  max-height: 100%;
+  cursor: default;
+}
+
+.bookshelf-case-study .bs-lightbox-img {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: 84vh;
+  object-fit: contain;
+  border-radius: var(--bs-radius-sm);
+  box-shadow: 0 30px 70px rgba(0, 0, 0, 0.5);
+}
+
+.bookshelf-case-study .bs-lightbox-close {
+  position: absolute;
+  top: -18px;
+  right: -18px;
+  width: 36px;
+  height: 36px;
+  border-radius: 999px;
+  background: var(--bs-bg-surface);
+  border: 1px solid var(--bs-border-strong);
+  color: var(--bs-text-primary);
+  font-size: 1.3rem;
+  line-height: 1;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  box-shadow: var(--bs-shadow-md);
+}
+
+.bookshelf-case-study .bs-lightbox-close:hover {
+  color: var(--bs-accent-strong);
+}
+
+/* ============================================================ */
 /* RESPONSIVE BEHAVIOR                                            */
 /* ============================================================ */
+@media (max-width: 960px) {
+  .bookshelf-case-study .case-hero-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .bookshelf-case-study .bs-assistant-grid {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  .bookshelf-case-study .bs-tour-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
 @media (max-width: 860px) {
   .bookshelf-case-study .case-section {
     padding: 64px 0;
   }
 
   .bookshelf-case-study .case-hero {
-    padding: 90px 0 64px;
+    padding: 88px 0 60px;
   }
 
-  .bookshelf-case-study .case-metrics-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .bs-flow-bar {
-    flex-direction: column;
-    align-items: stretch;
-  }
-
-  .bs-flow-arrow {
-    transform: rotate(90deg);
-    align-self: center;
-  }
-
-  .bs-test-row {
-    flex-direction: column;
-    align-items: flex-start;
+  .bookshelf-case-study .bs-test-row {
+    flex-wrap: wrap;
   }
 
   .bookshelf-case-study .spec-row {
@@ -475,25 +766,23 @@
 }
 
 @media (max-width: 560px) {
-  .bookshelf-case-study .case-metrics-grid {
+  .bookshelf-case-study .bs-tour-grid {
     grid-template-columns: 1fr;
   }
 
-  .bookshelf-case-study .case-hero-actions {
-    flex-direction: column;
-    align-items: stretch;
-  }
-
-  .bookshelf-case-study .case-hero-actions .button {
-    width: 100%;
-  }
-
+  .bookshelf-case-study .case-hero-actions,
   .bookshelf-case-study .release-actions-row {
     flex-direction: column;
     align-items: stretch;
   }
 
+  .bookshelf-case-study .case-hero-actions .button,
   .bookshelf-case-study .release-actions-row .button {
     width: 100%;
+  }
+
+  .bookshelf-case-study .bs-lightbox-close {
+    top: -14px;
+    right: 0;
   }
 }

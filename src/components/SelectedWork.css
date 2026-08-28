@@ -665,7 +665,7 @@
   color: var(--green);
 }
 
-/* 03: BOOKSHELF ARCHITECTURE VISUAL (shares .architecture-canvas layout) */
+/* 03: BOOKSHELF BROWSER MOCKUP VISUAL (real product screenshots) */
 .showcase-visual-bookshelf {
   background: #0b0f19;
   padding: 28px;
@@ -674,6 +674,120 @@
 
 .showcase-visual-bookshelf:hover {
   border-color: rgba(182, 156, 255, 0.22);
+}
+
+.bs-browser-mockup {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.bs-browser-topbar {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 14px;
+  background: rgba(18, 24, 38, 0.9);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm) var(--radius-sm) 0 0;
+}
+
+.bs-browser-dots {
+  display: flex;
+  gap: 6px;
+  flex-shrink: 0;
+}
+
+.bs-browser-url {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 3px 12px;
+  flex: 1;
+  text-align: center;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.bs-browser-screen {
+  position: relative;
+  border: 1px solid var(--border);
+  border-top: none;
+  overflow: hidden;
+  cursor: pointer;
+  background: #05070a;
+  line-height: 0;
+}
+
+.bs-browser-img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1568 / 699;
+  object-fit: cover;
+  object-position: top;
+  animation: fadeInScreen 220ms ease-out;
+  transition: transform 300ms ease;
+}
+
+.bs-browser-screen:hover .bs-browser-img {
+  transform: scale(1.015);
+}
+
+.bs-browser-tabs {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.bs-browser-tab {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.7rem;
+  font-weight: 600;
+  padding: 6px 12px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: rgba(255, 255, 255, 0.02);
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: all 180ms ease;
+}
+
+.bs-browser-tab:hover {
+  color: var(--text);
+  border-color: var(--border-strong);
+}
+
+.bs-browser-tab.active {
+  background: rgba(182, 156, 255, 0.15);
+  color: var(--purple-bright);
+  border-color: rgba(182, 156, 255, 0.32);
+}
+
+.bs-browser-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  align-self: flex-start;
+  padding: 6px 14px;
+  border-radius: 999px;
+  background: rgba(14, 19, 32, 0.92);
+  border: 1px solid var(--border-strong);
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.72rem;
+  color: var(--text-soft);
+}
+
+.bs-browser-status-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 999px;
+  background: var(--green);
+  box-shadow: 0 0 8px rgba(57, 217, 138, 0.7);
 }
 
 /* ============================================================ */
