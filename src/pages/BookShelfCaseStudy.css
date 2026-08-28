@@ -765,6 +765,20 @@
   }
 }
 
+@media (max-width: 640px) {
+  .bookshelf-case-study .back-button span {
+    display: none;
+  }
+
+  .bookshelf-case-study .case-version-pill {
+    display: none;
+  }
+
+  .bookshelf-case-study .case-header-meta {
+    gap: 8px;
+  }
+}
+
 @media (max-width: 560px) {
   .bookshelf-case-study .bs-tour-grid {
     grid-template-columns: 1fr;
