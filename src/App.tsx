@@ -13,6 +13,7 @@ import { Contact } from './components/Contact';
 import { Footer } from './components/Footer';
 import { HabittoCaseStudy } from './pages/HabittoCaseStudy';
 import { TodoistCaseStudy } from './pages/TodoistCaseStudy';
+import { BookShelfCaseStudy } from './pages/BookShelfCaseStudy';
 import { NotFoundPage } from './pages/NotFoundPage';
 
 const homepageMetadata: PageMetadataConfig = {
@@ -110,6 +111,10 @@ function App() {
 
   if (currentPath === '/projects/todoist') {
     return <TodoistCaseStudy onNavigate={navigate} />;
+  }
+
+  if (currentPath === '/projects/bookshelf') {
+    return <BookShelfCaseStudy onNavigate={navigate} />;
   }
 
   if (currentPath === '/') {

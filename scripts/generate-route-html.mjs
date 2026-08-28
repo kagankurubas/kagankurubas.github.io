@@ -74,6 +74,35 @@ const routes = [
         'url': 'https://kagankurubas.github.io/'
       }
     }
+  },
+  {
+    path: 'projects/bookshelf',
+    title: 'BookShelf — Personal Library & AI Reading Assistant | Kağan Kurubaş',
+    description: 'Engineering case study of BookShelf, a personal book cataloging app with barcode-scan adding, a Gemini-powered AI reading assistant, and Supabase-backed accounts.',
+    canonical: 'https://kagankurubas.github.io/projects/bookshelf',
+    ogType: 'article',
+    ogTitle: 'BookShelf — Personal Library & AI Reading Assistant | Kağan Kurubaş',
+    ogDescription: 'Engineering case study of BookShelf, a personal book cataloging app with barcode-scan adding, a Gemini-powered AI reading assistant, and Supabase-backed accounts.',
+    ogUrl: 'https://kagankurubas.github.io/projects/bookshelf',
+    ogImage: 'https://kagankurubas.github.io/og/bookshelf.png',
+    ogImageAlt: 'BookShelf — Personal Library & AI Reading Assistant Case Study',
+    twitterTitle: 'BookShelf — Personal Library & AI Reading Assistant | Kağan Kurubaş',
+    twitterDescription: 'Engineering case study of BookShelf, a personal book cataloging app with barcode-scan adding, a Gemini-powered AI reading assistant, and Supabase-backed accounts.',
+    twitterImage: 'https://kagankurubas.github.io/og/bookshelf.png',
+    twitterImageAlt: 'BookShelf — Personal Library & AI Reading Assistant Case Study',
+    structuredData: {
+      '@context': 'https://schema.org',
+      '@type': 'SoftwareSourceCode',
+      'name': 'BookShelf',
+      'programmingLanguage': 'TypeScript',
+      'codeRepository': 'https://github.com/kagankurubas/bookshelf',
+      'description': 'A personal book cataloging app with barcode scanning, a Gemini-powered AI reading assistant, and a bilingual (Turkish/English) interface.',
+      'author': {
+        '@type': 'Person',
+        'name': 'Kağan Kurubaş',
+        'url': 'https://kagankurubas.github.io/'
+      }
+    }
   }
 ];
 

@@ -6,23 +6,35 @@ Personal portfolio website for Nuri Kağan Kurubaş, a Computer Engineer, Game D
 
 The portfolio is published with GitHub Pages.
 
-## Featured Project
+## Selected Work
 
-The site currently highlights [Habitto](https://github.com/kagankurubas/habitto), a customizable and local-first habit tracker built with Flutter.
+The site's Selected Work section highlights three flagship engineering projects:
+
+- [Habitto](https://github.com/kagankurubas/habitto) — a customizable, local-first habit tracker built with Flutter.
+- [Todoist Gemini Bridge](https://github.com/kagankurubas/Todoist-Gemini-Bridge) — a Model Context Protocol server and automation bridge connecting AI assistants to Todoist.
+- [BookShelf](https://github.com/kagankurubas/bookshelf) — a personal book cataloging app with barcode-scan adding and a Gemini-powered AI reading assistant.
+
+## Currently Building
+
+Active projects in progress, shown on the site's Currently Building section:
+
+- **ZombieBarricadeIdle** — a 3D low-poly idle game built with Unity and C#.
+- **Smart Home Systems** — ESP32-based smart home devices, environmental sensing, and local automation (planning stage).
 
 ## Technology
 
-- Semantic HTML
-- Responsive CSS
-- Vanilla JavaScript
+- React + TypeScript
+- Vite
+- CSS
 - GitHub Pages
 
 ## Local Preview
 
-Open `index.html` directly in a browser, or start a local server:
+Install dependencies and start the dev server:
 
 ```bash
-python -m http.server 8000
+npm install
+npm run dev
 ```
 
-Then open `http://localhost:8000`.
+Then open the local URL Vite prints (defaults to `http://localhost:5173`).

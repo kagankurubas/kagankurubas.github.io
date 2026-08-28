@@ -1,16 +1,18 @@
 import React from 'react';
 import { useScrollReveal } from '../hooks/useScrollReveal';
 import { siteData } from '../data/portfolioData';
-import { 
-  ArrowRight, 
-  ExternalLink, 
-  Terminal, 
-  Cpu, 
-  CheckCircle2, 
-  Workflow, 
-  ShieldCheck, 
+import {
+  ArrowRight,
+  ExternalLink,
+  Terminal,
+  Cpu,
+  CheckCircle2,
+  Workflow,
+  ShieldCheck,
   Layers,
-  ArrowDown
+  ArrowDown,
+  ScanLine,
+  Sparkles
 } from 'lucide-react';
 import './SelectedWork.css';
 
@@ -22,10 +24,12 @@ export const SelectedWork: React.FC<SelectedWorkProps> = ({ onNavigate }) => {
   const revealHeader = useScrollReveal();
   const revealHabitto = useScrollReveal(0.1);
   const revealTodoist = useScrollReveal(0.1);
+  const revealBookshelf = useScrollReveal(0.1);
 
   const { selectedWork } = siteData;
   const habitto = selectedWork.projects[0];
   const todoist = selectedWork.projects[1];
+  const bookshelf = selectedWork.projects[2];
 
   const [activeHabittoScreen, setActiveHabittoScreen] = React.useState(1);
 
@@ -65,6 +69,13 @@ export const SelectedWork: React.FC<SelectedWorkProps> = ({ onNavigate }) => {
     if (onNavigate && todoist.primaryLink.href.startsWith('/')) {
       e.preventDefault();
       onNavigate(todoist.primaryLink.href);
+    }
+  };
+
+  const handleBookshelfClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    if (onNavigate && bookshelf.primaryLink.href.startsWith('/')) {
+      e.preventDefault();
+      onNavigate(bookshelf.primaryLink.href);
     }
   };
 
@@ -328,6 +339,142 @@ export const SelectedWork: React.FC<SelectedWorkProps> = ({ onNavigate }) => {
                   <div className="arch-footer-item">
                     <Workflow size={13} className="check-icon" />
                     <span>Strict Pydantic Validation</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          {/* ============================================================ */}
+          {/* 03 — BOOKSHELF SHOWCASE (Full-Stack Product & AI Assistant)  */}
+          {/* ============================================================ */}
+          <article className="showcase-item showcase-bookshelf reveal" ref={revealBookshelf}>
+            <div className="showcase-content">
+              <div className="showcase-meta">
+                <span className="showcase-label">{bookshelf.label}</span>
+                <span className="showcase-category">{bookshelf.category}</span>
+              </div>
+
+              <h3 className="showcase-headline">{bookshelf.headline}</h3>
+              <p className="showcase-description">{bookshelf.description}</p>
+
+              {bookshelf.highlight && (
+                <div className="showcase-highlight-pill">
+                  <ShieldCheck size={15} className="highlight-icon" />
+                  <span>{bookshelf.highlight}</span>
+                </div>
+              )}
+
+              <div className="tag-list" aria-label="BookShelf technologies">
+                {bookshelf.tags.map((tag, idx) => (
+                  <span className="tag" key={idx}>{tag}</span>
+                ))}
+              </div>
+
+              <div className="showcase-actions">
+                <a
+                  className="button button-primary"
+                  href={bookshelf.primaryLink.href}
+                  onClick={handleBookshelfClick}
+                >
+                  <span>{bookshelf.primaryLink.label}</span>
+                  <ArrowRight size={16} className="cta-arrow" />
+                </a>
+                <a
+                  className="button button-secondary"
+                  href={bookshelf.secondaryLink.href}
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  <span>{bookshelf.secondaryLink.label}</span>
+                  <ExternalLink size={14} />
+                </a>
+                {bookshelf.demoLink && (
+                  <a
+                    className="button button-secondary"
+                    href={bookshelf.demoLink.href}
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    <span>{bookshelf.demoLink.label}</span>
+                    <ExternalLink size={14} />
+                  </a>
+                )}
+              </div>
+            </div>
+
+            <div className="showcase-visual showcase-visual-bookshelf">
+              <div className="architecture-canvas" aria-label="BookShelf AI Reading Assistant Flow Preview">
+                <div className="arch-header">
+                  <div className="arch-header-left">
+                    <span className="arch-dot red"></span>
+                    <span className="arch-dot yellow"></span>
+                    <span className="arch-dot green"></span>
+                    <span className="arch-title">bookshelf · v1.0.0 · netlify</span>
+                  </div>
+                  <span className="arch-tag">AI Assistant Flow</span>
+                </div>
+
+                <div className="arch-flow">
+                  {/* Layer 1: Fast Add */}
+                  <div className="arch-node arch-node-client">
+                    <div className="arch-node-icon">
+                      <ScanLine size={16} />
+                    </div>
+                    <div className="arch-node-meta">
+                      <strong>Camera Barcode Scan</strong>
+                      <span>html5-qrcode · Open Library API lookup</span>
+                    </div>
+                  </div>
+
+                  <div className="arch-connector arch-connector-1">
+                    <ArrowDown size={14} className="connector-arrow" />
+                    <span className="connector-label">Validated book record</span>
+                  </div>
+
+                  {/* Layer 2: App Core */}
+                  <div className="arch-node arch-node-server">
+                    <div className="arch-node-icon">
+                      <Cpu size={16} />
+                    </div>
+                    <div className="arch-node-meta">
+                      <div className="arch-node-heading">
+                        <strong>BookShelf Web App</strong>
+                        <span className="arch-badge-live">React 19 · Supabase</span>
+                      </div>
+                      <div className="arch-tool-chips">
+                        <code>shelves</code>
+                        <code>dashboard</code>
+                        <code>ai_chat</code>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="arch-connector arch-connector-2">
+                    <ArrowDown size={14} className="connector-arrow" />
+                    <span className="connector-label">Supabase Edge Function</span>
+                  </div>
+
+                  {/* Layer 3: AI Assistant */}
+                  <div className="arch-node arch-node-api">
+                    <div className="arch-node-icon">
+                      <Sparkles size={16} />
+                    </div>
+                    <div className="arch-node-meta">
+                      <strong>Gemini API — Reading Assistant</strong>
+                      <span>Answers about your library in TR/EN</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="arch-footer">
+                  <div className="arch-footer-item">
+                    <CheckCircle2 size={13} className="check-icon" />
+                    <span>65 Vitest + RTL Automated Tests</span>
+                  </div>
+                  <div className="arch-footer-item">
+                    <ShieldCheck size={13} className="check-icon" />
+                    <span>Supabase Row Level Security</span>
                   </div>
                 </div>
               </div>

@@ -6,6 +6,7 @@ import { useState, useEffect, useCallback } from 'react';
  *   - '/'
  *   - '/projects/habitto'
  *   - '/projects/todoist'
+ *   - '/projects/bookshelf'
  */
 function getNormalizedPath(): string {
   // Normalize single or multiple trailing slashes to canonical form (e.g. '/projects/habitto/' -> '/projects/habitto')
@@ -20,6 +21,9 @@ function getNormalizedPath(): string {
   if (hash === '#/projects/todoist' || hash === '#projects/todoist' || hash === '#/projects/todoist/') {
     return '/projects/todoist';
   }
+  if (hash === '#/projects/bookshelf' || hash === '#projects/bookshelf' || hash === '#/projects/bookshelf/') {
+    return '/projects/bookshelf';
+  }
 
   // Exact canonical match
   if (cleanPath === '/projects/habitto') {
@@ -27,6 +31,9 @@ function getNormalizedPath(): string {
   }
   if (cleanPath === '/projects/todoist') {
     return '/projects/todoist';
+  }
+  if (cleanPath === '/projects/bookshelf') {
+    return '/projects/bookshelf';
   }
   if (cleanPath === '/') {
     return '/';

@@ -665,6 +665,17 @@
   color: var(--green);
 }
 
+/* 03: BOOKSHELF ARCHITECTURE VISUAL (shares .architecture-canvas layout) */
+.showcase-visual-bookshelf {
+  background: #0b0f19;
+  padding: 28px;
+  transition: border-color 220ms ease, box-shadow 220ms ease;
+}
+
+.showcase-visual-bookshelf:hover {
+  border-color: rgba(182, 156, 255, 0.22);
+}
+
 /* ============================================================ */
 /* RESPONSIVE BEHAVIOR                                          */
 /* ============================================================ */
