@@ -889,6 +889,32 @@
   }
 }
 
+@media (max-width: 640px) {
+  /* bs-browser-img is a desktop-width screenshot — crop in on the legible
+     focal area per screen instead of shrinking the whole frame down. */
+  .bs-browser-img {
+    aspect-ratio: 4 / 3;
+    height: auto;
+  }
+
+  .bs-browser-img-shelf {
+    object-position: 28% 60%;
+  }
+
+  .bs-browser-img-cards {
+    object-position: 50% 12%;
+  }
+
+  .bs-browser-img-table {
+    object-position: 3% 30%;
+  }
+
+  .bs-browser-img-chat {
+    aspect-ratio: 3 / 4;
+    object-position: 100% 50%;
+  }
+}
+
 @media (max-width: 560px) {
   .showcase-headline {
     font-size: 1.75rem;

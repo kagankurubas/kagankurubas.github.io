@@ -343,6 +343,7 @@
 /* PRODUCT TOUR — REAL SCREENSHOTS                                */
 /* ============================================================ */
 .bookshelf-case-study .bs-tour-dominant {
+  position: relative;
   border-radius: var(--bs-radius-md);
   overflow: hidden;
   background: var(--bs-media-frame);
@@ -364,6 +365,7 @@
 }
 
 .bookshelf-case-study .bs-tour-card {
+  position: relative;
   border-radius: var(--bs-radius-md);
   overflow: hidden;
   background: var(--bs-media-frame);
@@ -407,6 +409,23 @@
 .bookshelf-case-study .bs-tour-caption span {
   font-size: 0.76rem;
   color: rgba(247, 241, 230, 0.6);
+}
+
+.bookshelf-case-study .bs-zoom-badge {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  z-index: 2;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 999px;
+  background: rgba(36, 28, 20, 0.72);
+  backdrop-filter: blur(4px);
+  color: #F7F1E6;
+  pointer-events: none;
 }
 
 /* ============================================================ */
@@ -504,6 +523,7 @@
 }
 
 .bookshelf-case-study .bs-assistant-visual {
+  position: relative;
   border-radius: var(--bs-radius-md);
   overflow: hidden;
   background: var(--bs-media-frame);
@@ -776,6 +796,37 @@
 
   .bookshelf-case-study .case-header-meta {
     gap: 8px;
+  }
+
+  /* Screenshots are desktop-width captures — on narrow screens, crop in on
+     the legible focal area instead of shrinking the whole frame. Full detail
+     is still one tap away via the lightbox (see .bs-zoom-badge). */
+  .bookshelf-case-study .bs-tour-img,
+  .bookshelf-case-study .bs-tour-dominant .bs-tour-img {
+    aspect-ratio: 4 / 3;
+    height: auto;
+  }
+
+  .bookshelf-case-study .bs-tour-img-shelf {
+    object-position: 28% 60%;
+  }
+
+  .bookshelf-case-study .bs-tour-img-cards {
+    object-position: 50% 12%;
+  }
+
+  .bookshelf-case-study .bs-tour-img-table {
+    object-position: 3% 30%;
+  }
+
+  .bookshelf-case-study .bs-tour-img-chat {
+    aspect-ratio: 3 / 4;
+    object-position: 100% 50%;
+  }
+
+  .bookshelf-case-study .bs-zoom-badge {
+    width: 26px;
+    height: 26px;
   }
 }
 

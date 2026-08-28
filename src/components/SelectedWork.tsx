@@ -454,7 +454,7 @@ export const SelectedWork: React.FC<SelectedWorkProps> = ({ onNavigate }) => {
                     key={bookshelfScreens[activeBookshelfScreen].id}
                     src={bookshelfScreens[activeBookshelfScreen].src}
                     alt={bookshelfScreens[activeBookshelfScreen].alt}
-                    className="bs-browser-img"
+                    className={`bs-browser-img bs-browser-img-${bookshelfScreens[activeBookshelfScreen].id}`}
                     loading="lazy"
                   />
                 </div>

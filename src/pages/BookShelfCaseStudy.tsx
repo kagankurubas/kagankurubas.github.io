@@ -13,7 +13,8 @@ import {
   Languages,
   Check,
   ArrowRight,
-  Lock
+  Lock,
+  ZoomIn
 } from 'lucide-react';
 import './BookShelfCaseStudy.css';
 
@@ -185,7 +186,8 @@ export const BookShelfCaseStudy: React.FC<BookShelfCaseStudyProps> = ({ onNaviga
             </div>
 
             <div className="bs-tour-dominant reveal" onClick={() => setLightboxImg('/bookshelf/shelf-view.jpg')}>
-              <img src="/bookshelf/shelf-view.jpg" alt="BookShelf dynamic wooden bookshelf view with drag-and-drop spines" className="bs-tour-img" loading="lazy" />
+              <span className="bs-zoom-badge"><ZoomIn size={13} /></span>
+              <img src="/bookshelf/shelf-view.jpg" alt="BookShelf dynamic wooden bookshelf view with drag-and-drop spines" className="bs-tour-img bs-tour-img-shelf" loading="lazy" />
               <div className="bs-tour-caption">
                 <strong>Dynamic Bookshelf</strong>
                 <span>Category-colored spines, shelves that grow to fit your books, drag-and-drop reordering</span>
@@ -194,21 +196,24 @@ export const BookShelfCaseStudy: React.FC<BookShelfCaseStudyProps> = ({ onNaviga
 
             <div className="bs-tour-grid reveal">
               <div className="bs-tour-card" onClick={() => setLightboxImg('/bookshelf/cards-view.jpg')}>
-                <img src="/bookshelf/cards-view.jpg" alt="BookShelf card grid view of a library" className="bs-tour-img" loading="lazy" />
+                <span className="bs-zoom-badge"><ZoomIn size={13} /></span>
+                <img src="/bookshelf/cards-view.jpg" alt="BookShelf card grid view of a library" className="bs-tour-img bs-tour-img-cards" loading="lazy" />
                 <div className="bs-tour-caption">
                   <strong>Cards View</strong>
                   <span>Covers, ratings, and status at a glance</span>
                 </div>
               </div>
               <div className="bs-tour-card" onClick={() => setLightboxImg('/bookshelf/table-view.jpg')}>
-                <img src="/bookshelf/table-view.jpg" alt="BookShelf filterable table view" className="bs-tour-img" loading="lazy" />
+                <span className="bs-zoom-badge"><ZoomIn size={13} /></span>
+                <img src="/bookshelf/table-view.jpg" alt="BookShelf filterable table view" className="bs-tour-img bs-tour-img-table" loading="lazy" />
                 <div className="bs-tour-caption">
                   <strong>Table View</strong>
                   <span>Search and filter by title, author, category, status</span>
                 </div>
               </div>
               <div className="bs-tour-card" onClick={() => setLightboxImg('/bookshelf/ai-chat.jpg')}>
-                <img src="/bookshelf/ai-chat.jpg" alt="BookShelf AI Book Assistant chat panel" className="bs-tour-img" loading="lazy" />
+                <span className="bs-zoom-badge"><ZoomIn size={13} /></span>
+                <img src="/bookshelf/ai-chat.jpg" alt="BookShelf AI Book Assistant chat panel" className="bs-tour-img bs-tour-img-chat" loading="lazy" />
                 <div className="bs-tour-caption">
                   <strong>Book Assistant</strong>
                   <span>Recommendations grounded in the user's own shelf</span>
@@ -299,7 +304,8 @@ export const BookShelfCaseStudy: React.FC<BookShelfCaseStudyProps> = ({ onNaviga
               className="bs-assistant-visual reveal"
               onClick={() => setLightboxImg('/bookshelf/ai-chat.jpg')}
             >
-              <img src="/bookshelf/ai-chat.jpg" alt="BookShelf AI Book Assistant chat panel recommending a book" className="bs-tour-img" loading="lazy" />
+              <span className="bs-zoom-badge"><ZoomIn size={13} /></span>
+              <img src="/bookshelf/ai-chat.jpg" alt="BookShelf AI Book Assistant chat panel recommending a book" className="bs-tour-img bs-tour-img-chat" loading="lazy" />
             </div>
           </div>
         </section>
