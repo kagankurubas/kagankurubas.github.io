@@ -6,7 +6,6 @@ import './Hero.css';
 
 export const Hero: React.FC = () => {
   const revealRef = useScrollReveal(0.05);
-  const revealPillars = useScrollReveal(0.15);
 
   const { hero } = siteData;
 
@@ -60,20 +59,6 @@ export const Hero: React.FC = () => {
             </a>
           </div>
         </div>
-
-        {hero.pillars && hero.pillars.length > 0 && (
-          <div className="hero-pillars reveal" ref={revealPillars} aria-label="Core Engineering Domains">
-            {hero.pillars.map((pillar) => (
-              <div className="hero-pillar-item" key={pillar.number}>
-                <span className="pillar-num">{pillar.number}</span>
-                <div className="pillar-text">
-                  <strong className="pillar-title">{pillar.title}</strong>
-                  <span className="pillar-desc">{pillar.desc}</span>
-                </div>
-              </div>
-            ))}
-          </div>
-        )}
       </div>
     </section>
   );

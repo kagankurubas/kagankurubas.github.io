@@ -19,11 +19,6 @@ export const siteData = {
     description: 'Open to software engineering, AI/systems engineering, and game development opportunities.',
     primaryButton: { label: 'View Selected Work', href: '#work' },
     secondaryButton: { label: 'GitHub ↗', href: 'https://github.com/kagankurubas' },
-    pillars: [
-      { number: '01', title: 'Product Engineering', desc: 'Client apps & offline-first systems' },
-      { number: '02', title: 'Systems & AI Engineering', desc: 'AI bridges, backend & automation' },
-      { number: '03', title: 'Game Development', desc: 'Unity & C# gameplay systems' },
-    ],
   },
   selectedWork: {
     eyebrow: 'Selected Work',
