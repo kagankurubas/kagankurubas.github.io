@@ -10,7 +10,8 @@ import {
   Workflow,
   ShieldCheck,
   Layers,
-  ArrowDown
+  ArrowDown,
+  ChevronDown
 } from 'lucide-react';
 import './SelectedWork.css';
 
@@ -20,14 +21,15 @@ interface SelectedWorkProps {
 
 export const SelectedWork: React.FC<SelectedWorkProps> = ({ onNavigate }) => {
   const revealHeader = useScrollReveal();
-  const revealHabitto = useScrollReveal(0.1);
-  const revealTodoist = useScrollReveal(0.1);
-  const revealBookshelf = useScrollReveal(0.1);
+  const revealList = useScrollReveal(0.1);
 
   const { selectedWork } = siteData;
   const habitto = selectedWork.projects[0];
   const todoist = selectedWork.projects[1];
   const bookshelf = selectedWork.projects[2];
+
+  const [expanded, setExpanded] = React.useState<string | null>(null);
+  const toggle = (id: string) => setExpanded((prev) => (prev === id ? null : id));
 
   const [activeHabittoScreen, setActiveHabittoScreen] = React.useState(1);
 
@@ -121,130 +123,142 @@ export const SelectedWork: React.FC<SelectedWorkProps> = ({ onNavigate }) => {
           <p>{selectedWork.description}</p>
         </div>
 
-        <div className="showcase-stack">
+        <div className="project-index reveal" ref={revealList}>
           {/* ============================================================ */}
-          {/* 01 — HABITTO SHOWCASE (Product-oriented & Visual)            */}
+          {/* 01 — HABITTO                                                  */}
           {/* ============================================================ */}
-          <article className="showcase-item showcase-habitto reveal" ref={revealHabitto}>
-            <div className="showcase-content">
-              <div className="showcase-meta">
-                <span className="showcase-label">{habitto.label}</span>
-                <span className="showcase-category">{habitto.category}</span>
-              </div>
+          <article className={`project-row ${expanded === 'habitto' ? 'open' : ''}`}>
+            <button
+              type="button"
+              className="project-row-header"
+              onClick={() => toggle('habitto')}
+              aria-expanded={expanded === 'habitto'}
+              aria-controls="panel-habitto"
+            >
+              <span className="project-row-num">{habitto.index}</span>
+              <span className="project-row-name">{habitto.title}</span>
+              <span className="project-row-leader" aria-hidden="true"></span>
+              <span className="project-row-category">{habitto.category}</span>
+              <ChevronDown size={18} className="project-row-chevron" aria-hidden="true" />
+            </button>
 
-              <h3 className="showcase-headline">{habitto.headline}</h3>
-              <p className="showcase-description">{habitto.description}</p>
+            <div className={`project-row-panel ${expanded === 'habitto' ? 'open' : ''}`} id="panel-habitto">
+              <div className="project-row-panel-inner">
+                <div className="project-row-grid">
+                  <div className="showcase-content">
+                    <h3 className="showcase-headline">{habitto.headline}</h3>
+                    <p className="showcase-description">{habitto.description}</p>
 
-              <div className="tag-list" aria-label="Habitto technologies">
-                {habitto.tags.map((tag, idx) => (
-                  <span className="tag" key={idx}>{tag}</span>
-                ))}
-              </div>
-
-              <div className="showcase-actions">
-                <a 
-                  className="button button-primary" 
-                  href={habitto.primaryLink.href}
-                  onClick={handleHabittoClick}
-                >
-                  <span>{habitto.primaryLink.label}</span>
-                  <ArrowRight size={16} className="cta-arrow" />
-                </a>
-                <a 
-                  className="button button-secondary" 
-                  href={habitto.secondaryLink.href} 
-                  target="_blank" 
-                  rel="noreferrer"
-                >
-                  <span>{habitto.secondaryLink.label}</span>
-                  <ExternalLink size={14} />
-                </a>
-              </div>
-            </div>
-
-            <div className="showcase-visual showcase-visual-habitto">
-              <div className="habitto-visual-container">
-                {/* Left Flank: 3 Engineering Annotations Stack */}
-                <div className="habitto-annotations-stack" aria-hidden="true">
-                  <div className="habitto-annotation">
-                    <div className="annot-indicator">
-                      <span className="annot-node"></span>
-                      <span className="annot-line annot-line-h"></span>
+                    <div className="tag-list" aria-label="Habitto technologies">
+                      {habitto.tags.map((tag, idx) => (
+                        <span className="tag" key={idx}>{tag}</span>
+                      ))}
                     </div>
-                    <div className="annot-text">
-                      <span className="annot-label">LOCAL-FIRST</span>
-                      <span className="annot-meta">Hive · On-device</span>
+
+                    <div className="showcase-actions">
+                      <a
+                        className="button button-primary"
+                        href={habitto.primaryLink.href}
+                        onClick={handleHabittoClick}
+                      >
+                        <span>{habitto.primaryLink.label}</span>
+                        <ArrowRight size={16} className="cta-arrow" />
+                      </a>
+                      <a
+                        className="button button-secondary"
+                        href={habitto.secondaryLink.href}
+                        target="_blank"
+                        rel="noreferrer"
+                      >
+                        <span>{habitto.secondaryLink.label}</span>
+                        <ExternalLink size={14} />
+                      </a>
                     </div>
                   </div>
 
-                  <div className="habitto-annotation">
-                    <div className="annot-indicator">
-                      <span className="annot-node"></span>
-                      <span className="annot-line annot-line-h"></span>
-                    </div>
-                    <div className="annot-text">
-                      <span className="annot-label">PRIVACY</span>
-                      <span className="annot-meta">No account · No cloud</span>
-                    </div>
-                  </div>
+                  <div className="showcase-visual showcase-visual-habitto">
+                    <div className="habitto-visual-container">
+                      <div className="habitto-annotations-stack" aria-hidden="true">
+                        <div className="habitto-annotation">
+                          <div className="annot-indicator">
+                            <span className="annot-node"></span>
+                            <span className="annot-line annot-line-h"></span>
+                          </div>
+                          <div className="annot-text">
+                            <span className="annot-label">LOCAL-FIRST</span>
+                            <span className="annot-meta">Hive · On-device</span>
+                          </div>
+                        </div>
 
-                  <div className="habitto-annotation">
-                    <div className="annot-indicator">
-                      <span className="annot-node"></span>
-                      <span className="annot-line annot-line-h"></span>
-                    </div>
-                    <div className="annot-text">
-                      <span className="annot-label">SCHEDULING</span>
-                      <span className="annot-meta">5 recurrence models</span>
-                    </div>
-                  </div>
-                </div>
+                        <div className="habitto-annotation">
+                          <div className="annot-indicator">
+                            <span className="annot-node"></span>
+                            <span className="annot-line annot-line-h"></span>
+                          </div>
+                          <div className="annot-text">
+                            <span className="annot-label">PRIVACY</span>
+                            <span className="annot-meta">No account · No cloud</span>
+                          </div>
+                        </div>
 
-                {/* Right Flank: Vertical Module Switcher */}
-                <div className="habitto-screen-tabs-v" role="tablist" aria-label="Habitto screen preview selector">
-                  <span className="tabs-v-title" aria-hidden="true">MODULES</span>
-                  {habittoScreens.map((screen, idx) => (
-                    <button
-                      key={screen.id}
-                      type="button"
-                      role="tab"
-                      aria-selected={activeHabittoScreen === idx}
-                      className={`habitto-screen-tab-v ${activeHabittoScreen === idx ? 'active' : ''}`}
-                      onClick={(e) => {
-                        e.stopPropagation();
-                        setActiveHabittoScreen(idx);
-                      }}
-                    >
-                      <span className="tab-v-indicator"></span>
-                      <span>{screen.label}</span>
-                    </button>
-                  ))}
-                </div>
+                        <div className="habitto-annotation">
+                          <div className="annot-indicator">
+                            <span className="annot-node"></span>
+                            <span className="annot-line annot-line-h"></span>
+                          </div>
+                          <div className="annot-text">
+                            <span className="annot-label">SCHEDULING</span>
+                            <span className="annot-meta">5 recurrence models</span>
+                          </div>
+                        </div>
+                      </div>
 
-                {/* Center: Sleek Phone Mockup */}
-                <div className="habitto-mockup-frame">
-                  <div 
-                    className="habitto-phone-frame"
-                    onClick={handleNextScreen}
-                    title="Click to view next screen"
-                  >
-                    <div className="phone-top-bar" aria-hidden="true">
-                      <span className="phone-camera-dot"></span>
-                    </div>
-                    <div className="phone-inner-screen">
-                      <img 
-                        key={habittoScreens[activeHabittoScreen].id}
-                        src={habittoScreens[activeHabittoScreen].src} 
-                        alt={habittoScreens[activeHabittoScreen].alt} 
-                        className="habitto-app-img"
-                        loading="lazy"
-                      />
-                    </div>
-                  </div>
+                      <div className="habitto-screen-tabs-v" role="tablist" aria-label="Habitto screen preview selector">
+                        <span className="tabs-v-title" aria-hidden="true">MODULES</span>
+                        {habittoScreens.map((screen, idx) => (
+                          <button
+                            key={screen.id}
+                            type="button"
+                            role="tab"
+                            aria-selected={activeHabittoScreen === idx}
+                            className={`habitto-screen-tab-v ${activeHabittoScreen === idx ? 'active' : ''}`}
+                            onClick={(e) => {
+                              e.stopPropagation();
+                              setActiveHabittoScreen(idx);
+                            }}
+                          >
+                            <span className="tab-v-indicator"></span>
+                            <span>{screen.label}</span>
+                          </button>
+                        ))}
+                      </div>
 
-                  <div className="habitto-badge">
-                    <span className="habitto-status-dot"></span>
-                    <span>Android Release v1.1.0</span>
+                      <div className="habitto-mockup-frame">
+                        <div
+                          className="habitto-phone-frame"
+                          onClick={handleNextScreen}
+                          title="Click to view next screen"
+                        >
+                          <div className="phone-top-bar" aria-hidden="true">
+                            <span className="phone-camera-dot"></span>
+                          </div>
+                          <div className="phone-inner-screen">
+                            <img
+                              key={habittoScreens[activeHabittoScreen].id}
+                              src={habittoScreens[activeHabittoScreen].src}
+                              alt={habittoScreens[activeHabittoScreen].alt}
+                              className="habitto-app-img"
+                              loading="lazy"
+                            />
+                          </div>
+                        </div>
+
+                        <div className="habitto-badge">
+                          <span className="habitto-status-dot"></span>
+                          <span>Android Release v1.1.0</span>
+                        </div>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -252,124 +266,136 @@ export const SelectedWork: React.FC<SelectedWorkProps> = ({ onNavigate }) => {
           </article>
 
           {/* ============================================================ */}
-          {/* 02 — TODOIST SHOWCASE (System-oriented & Architectural)      */}
+          {/* 02 — TODOIST MCP BRIDGE                                       */}
           {/* ============================================================ */}
-          <article className="showcase-item showcase-todoist reveal" ref={revealTodoist}>
-            <div className="showcase-content">
-              <div className="showcase-meta">
-                <span className="showcase-label">{todoist.label}</span>
-                <span className="showcase-category">{todoist.category}</span>
-              </div>
+          <article className={`project-row ${expanded === 'todoist' ? 'open' : ''}`}>
+            <button
+              type="button"
+              className="project-row-header"
+              onClick={() => toggle('todoist')}
+              aria-expanded={expanded === 'todoist'}
+              aria-controls="panel-todoist"
+            >
+              <span className="project-row-num">{todoist.index}</span>
+              <span className="project-row-name">{todoist.title}</span>
+              <span className="project-row-leader" aria-hidden="true"></span>
+              <span className="project-row-category">{todoist.category}</span>
+              <ChevronDown size={18} className="project-row-chevron" aria-hidden="true" />
+            </button>
 
-              <h3 className="showcase-headline">{todoist.headline}</h3>
-              <p className="showcase-description">{todoist.description}</p>
+            <div className={`project-row-panel ${expanded === 'todoist' ? 'open' : ''}`} id="panel-todoist">
+              <div className="project-row-panel-inner">
+                <div className="project-row-grid">
+                  <div className="showcase-content">
+                    <h3 className="showcase-headline">{todoist.headline}</h3>
+                    <p className="showcase-description">{todoist.description}</p>
 
-              {todoist.highlight && (
-                <div className="showcase-highlight-pill">
-                  <ShieldCheck size={15} className="highlight-icon" />
-                  <span>{todoist.highlight}</span>
-                </div>
-              )}
-
-              <div className="tag-list" aria-label="Todoist Bridge technologies">
-                {todoist.tags.map((tag, idx) => (
-                  <span className="tag" key={idx}>{tag}</span>
-                ))}
-              </div>
-
-              <div className="showcase-actions">
-                <a 
-                  className="button button-primary" 
-                  href={todoist.primaryLink.href}
-                  onClick={handleTodoistClick}
-                >
-                  <span>{todoist.primaryLink.label}</span>
-                  <ArrowRight size={16} className="cta-arrow" />
-                </a>
-                <a 
-                  className="button button-secondary" 
-                  href={todoist.secondaryLink.href} 
-                  target="_blank" 
-                  rel="noreferrer"
-                >
-                  <span>{todoist.secondaryLink.label}</span>
-                  <ExternalLink size={14} />
-                </a>
-              </div>
-            </div>
-
-            <div className="showcase-visual showcase-visual-todoist">
-              <div className="architecture-canvas" aria-label="MCP Architecture Diagram Preview">
-                <div className="arch-header">
-                  <div className="arch-header-left">
-                    <span className="arch-dot red"></span>
-                    <span className="arch-dot yellow"></span>
-                    <span className="arch-dot green"></span>
-                    <span className="arch-title">mcp-server-todoist · local stdio</span>
-                  </div>
-                  <span className="arch-tag">Protocol Flow</span>
-                </div>
-
-                <div className="arch-flow">
-                  {/* Layer 1: Client Host */}
-                  <div className="arch-node arch-node-client">
-                    <div className="arch-node-icon">
-                      <Terminal size={16} />
-                    </div>
-                    <div className="arch-node-meta">
-                      <strong>Claude Desktop / AI Host</strong>
-                      <span>Model Context Protocol Client</span>
-                    </div>
-                  </div>
-
-                  <div className="arch-connector arch-connector-1">
-                    <ArrowDown size={14} className="connector-arrow" />
-                    <span className="connector-label">Local stdio / JSON-RPC 2.0</span>
-                  </div>
-
-                  {/* Layer 2: MCP Core Bridge */}
-                  <div className="arch-node arch-node-server">
-                    <div className="arch-node-icon">
-                      <Cpu size={16} />
-                    </div>
-                    <div className="arch-node-meta">
-                      <div className="arch-node-heading">
-                        <strong>Todoist MCP Server</strong>
-                        <span className="arch-badge-live">FastMCP Core</span>
+                    {todoist.highlight && (
+                      <div className="showcase-highlight-pill">
+                        <ShieldCheck size={15} className="highlight-icon" />
+                        <span>{todoist.highlight}</span>
                       </div>
-                      <div className="arch-tool-chips">
-                        <code>create_task</code>
-                        <code>list_tasks</code>
-                        <code>complete_task</code>
+                    )}
+
+                    <div className="tag-list" aria-label="Todoist Bridge technologies">
+                      {todoist.tags.map((tag, idx) => (
+                        <span className="tag" key={idx}>{tag}</span>
+                      ))}
+                    </div>
+
+                    <div className="showcase-actions">
+                      <a
+                        className="button button-primary"
+                        href={todoist.primaryLink.href}
+                        onClick={handleTodoistClick}
+                      >
+                        <span>{todoist.primaryLink.label}</span>
+                        <ArrowRight size={16} className="cta-arrow" />
+                      </a>
+                      <a
+                        className="button button-secondary"
+                        href={todoist.secondaryLink.href}
+                        target="_blank"
+                        rel="noreferrer"
+                      >
+                        <span>{todoist.secondaryLink.label}</span>
+                        <ExternalLink size={14} />
+                      </a>
+                    </div>
+                  </div>
+
+                  <div className="showcase-visual showcase-visual-todoist">
+                    <div className="architecture-canvas" aria-label="MCP Architecture Diagram Preview">
+                      <div className="arch-header">
+                        <div className="arch-header-left">
+                          <span className="arch-dot red"></span>
+                          <span className="arch-dot yellow"></span>
+                          <span className="arch-dot green"></span>
+                          <span className="arch-title">mcp-server-todoist · local stdio</span>
+                        </div>
+                        <span className="arch-tag">Protocol Flow</span>
+                      </div>
+
+                      <div className="arch-flow">
+                        <div className="arch-node arch-node-client">
+                          <div className="arch-node-icon">
+                            <Terminal size={16} />
+                          </div>
+                          <div className="arch-node-meta">
+                            <strong>Claude Desktop / AI Host</strong>
+                            <span>Model Context Protocol Client</span>
+                          </div>
+                        </div>
+
+                        <div className="arch-connector arch-connector-1">
+                          <ArrowDown size={14} className="connector-arrow" />
+                          <span className="connector-label">Local stdio / JSON-RPC 2.0</span>
+                        </div>
+
+                        <div className="arch-node arch-node-server">
+                          <div className="arch-node-icon">
+                            <Cpu size={16} />
+                          </div>
+                          <div className="arch-node-meta">
+                            <div className="arch-node-heading">
+                              <strong>Todoist MCP Server</strong>
+                              <span className="arch-badge-live">FastMCP Core</span>
+                            </div>
+                            <div className="arch-tool-chips">
+                              <code>create_task</code>
+                              <code>list_tasks</code>
+                              <code>complete_task</code>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div className="arch-connector arch-connector-2">
+                          <ArrowDown size={14} className="connector-arrow" />
+                          <span className="connector-label">REST API v2 / OAuth 2.0</span>
+                        </div>
+
+                        <div className="arch-node arch-node-api">
+                          <div className="arch-node-icon">
+                            <Layers size={16} />
+                          </div>
+                          <div className="arch-node-meta">
+                            <strong>Todoist Cloud API</strong>
+                            <span>Projects · Tasks · Labels · Webhooks</span>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div className="arch-footer">
+                        <div className="arch-footer-item">
+                          <CheckCircle2 size={13} className="check-icon" />
+                          <span>168 Pytest Automated Tests</span>
+                        </div>
+                        <div className="arch-footer-item">
+                          <Workflow size={13} className="check-icon" />
+                          <span>Strict Pydantic Validation</span>
+                        </div>
                       </div>
                     </div>
-                  </div>
-
-                  <div className="arch-connector arch-connector-2">
-                    <ArrowDown size={14} className="connector-arrow" />
-                    <span className="connector-label">REST API v2 / OAuth 2.0</span>
-                  </div>
-
-                  {/* Layer 3: Target System */}
-                  <div className="arch-node arch-node-api">
-                    <div className="arch-node-icon">
-                      <Layers size={16} />
-                    </div>
-                    <div className="arch-node-meta">
-                      <strong>Todoist Cloud API</strong>
-                      <span>Projects · Tasks · Labels · Webhooks</span>
-                    </div>
-                  </div>
-                </div>
-
-                <div className="arch-footer">
-                  <div className="arch-footer-item">
-                    <CheckCircle2 size={13} className="check-icon" />
-                    <span>168 Pytest Automated Tests</span>
-                  </div>
-                  <div className="arch-footer-item">
-                    <Workflow size={13} className="check-icon" />
-                    <span>Strict Pydantic Validation</span>
                   </div>
                 </div>
               </div>
@@ -377,109 +403,124 @@ export const SelectedWork: React.FC<SelectedWorkProps> = ({ onNavigate }) => {
           </article>
 
           {/* ============================================================ */}
-          {/* 03 — BOOKSHELF SHOWCASE (Full-Stack Product & AI Assistant)  */}
+          {/* 03 — BOOKSHELF                                                */}
           {/* ============================================================ */}
-          <article className="showcase-item showcase-bookshelf reveal" ref={revealBookshelf}>
-            <div className="showcase-content">
-              <div className="showcase-meta">
-                <span className="showcase-label">{bookshelf.label}</span>
-                <span className="showcase-category">{bookshelf.category}</span>
-              </div>
+          <article className={`project-row ${expanded === 'bookshelf' ? 'open' : ''}`}>
+            <button
+              type="button"
+              className="project-row-header"
+              onClick={() => toggle('bookshelf')}
+              aria-expanded={expanded === 'bookshelf'}
+              aria-controls="panel-bookshelf"
+            >
+              <span className="project-row-num">{bookshelf.index}</span>
+              <span className="project-row-name">{bookshelf.title}</span>
+              <span className="project-row-leader" aria-hidden="true"></span>
+              <span className="project-row-category">{bookshelf.category}</span>
+              <ChevronDown size={18} className="project-row-chevron" aria-hidden="true" />
+            </button>
 
-              <h3 className="showcase-headline">{bookshelf.headline}</h3>
-              <p className="showcase-description">{bookshelf.description}</p>
+            <div className={`project-row-panel ${expanded === 'bookshelf' ? 'open' : ''}`} id="panel-bookshelf">
+              <div className="project-row-panel-inner">
+                <div className="project-row-grid">
+                  <div className="showcase-content">
+                    <h3 className="showcase-headline">{bookshelf.headline}</h3>
+                    <p className="showcase-description">{bookshelf.description}</p>
 
-              {bookshelf.highlight && (
-                <div className="showcase-highlight-pill">
-                  <ShieldCheck size={15} className="highlight-icon" />
-                  <span>{bookshelf.highlight}</span>
-                </div>
-              )}
+                    {bookshelf.highlight && (
+                      <div className="showcase-highlight-pill">
+                        <ShieldCheck size={15} className="highlight-icon" />
+                        <span>{bookshelf.highlight}</span>
+                      </div>
+                    )}
 
-              <div className="tag-list" aria-label="BookShelf technologies">
-                {bookshelf.tags.map((tag, idx) => (
-                  <span className="tag" key={idx}>{tag}</span>
-                ))}
-              </div>
+                    <div className="tag-list" aria-label="BookShelf technologies">
+                      {bookshelf.tags.map((tag, idx) => (
+                        <span className="tag" key={idx}>{tag}</span>
+                      ))}
+                    </div>
 
-              <div className="showcase-actions">
-                <a
-                  className="button button-primary"
-                  href={bookshelf.primaryLink.href}
-                  onClick={handleBookshelfClick}
-                >
-                  <span>{bookshelf.primaryLink.label}</span>
-                  <ArrowRight size={16} className="cta-arrow" />
-                </a>
-                <a
-                  className="button button-secondary"
-                  href={bookshelf.secondaryLink.href}
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  <span>{bookshelf.secondaryLink.label}</span>
-                  <ExternalLink size={14} />
-                </a>
-                {bookshelf.demoLink && (
-                  <a
-                    className="button button-secondary"
-                    href={bookshelf.demoLink.href}
-                    target="_blank"
-                    rel="noreferrer"
-                  >
-                    <span>{bookshelf.demoLink.label}</span>
-                    <ExternalLink size={14} />
-                  </a>
-                )}
-              </div>
-            </div>
-
-            <div className="showcase-visual showcase-visual-bookshelf">
-              <div className="bs-browser-mockup">
-                <div className="bs-browser-topbar">
-                  <div className="bs-browser-dots">
-                    <span className="arch-dot red"></span>
-                    <span className="arch-dot yellow"></span>
-                    <span className="arch-dot green"></span>
+                    <div className="showcase-actions">
+                      <a
+                        className="button button-primary"
+                        href={bookshelf.primaryLink.href}
+                        onClick={handleBookshelfClick}
+                      >
+                        <span>{bookshelf.primaryLink.label}</span>
+                        <ArrowRight size={16} className="cta-arrow" />
+                      </a>
+                      <a
+                        className="button button-secondary"
+                        href={bookshelf.secondaryLink.href}
+                        target="_blank"
+                        rel="noreferrer"
+                      >
+                        <span>{bookshelf.secondaryLink.label}</span>
+                        <ExternalLink size={14} />
+                      </a>
+                      {bookshelf.demoLink && (
+                        <a
+                          className="button button-secondary"
+                          href={bookshelf.demoLink.href}
+                          target="_blank"
+                          rel="noreferrer"
+                        >
+                          <span>{bookshelf.demoLink.label}</span>
+                          <ExternalLink size={14} />
+                        </a>
+                      )}
+                    </div>
                   </div>
-                  <span className="bs-browser-url">yourbookshelf-app.netlify.app</span>
-                </div>
 
-                <div
-                  className="bs-browser-screen"
-                  onClick={handleNextBookshelfScreen}
-                  title="Click to view next screen"
-                >
-                  <img
-                    key={bookshelfScreens[activeBookshelfScreen].id}
-                    src={bookshelfScreens[activeBookshelfScreen].src}
-                    alt={bookshelfScreens[activeBookshelfScreen].alt}
-                    className={`bs-browser-img bs-browser-img-${bookshelfScreens[activeBookshelfScreen].id}`}
-                    loading="lazy"
-                  />
-                </div>
+                  <div className="showcase-visual showcase-visual-bookshelf">
+                    <div className="bs-browser-mockup">
+                      <div className="bs-browser-topbar">
+                        <div className="bs-browser-dots">
+                          <span className="arch-dot red"></span>
+                          <span className="arch-dot yellow"></span>
+                          <span className="arch-dot green"></span>
+                        </div>
+                        <span className="bs-browser-url">yourbookshelf-app.netlify.app</span>
+                      </div>
 
-                <div className="bs-browser-tabs" role="tablist" aria-label="BookShelf screen preview selector">
-                  {bookshelfScreens.map((screen, idx) => (
-                    <button
-                      key={screen.id}
-                      type="button"
-                      role="tab"
-                      aria-selected={activeBookshelfScreen === idx}
-                      className={`bs-browser-tab ${activeBookshelfScreen === idx ? 'active' : ''}`}
-                      onClick={(e) => {
-                        e.stopPropagation();
-                        setActiveBookshelfScreen(idx);
-                      }}
-                    >
-                      {screen.label}
-                    </button>
-                  ))}
-                </div>
+                      <div
+                        className="bs-browser-screen"
+                        onClick={handleNextBookshelfScreen}
+                        title="Click to view next screen"
+                      >
+                        <img
+                          key={bookshelfScreens[activeBookshelfScreen].id}
+                          src={bookshelfScreens[activeBookshelfScreen].src}
+                          alt={bookshelfScreens[activeBookshelfScreen].alt}
+                          className={`bs-browser-img bs-browser-img-${bookshelfScreens[activeBookshelfScreen].id}`}
+                          loading="lazy"
+                        />
+                      </div>
 
-                <div className="bs-browser-badge">
-                  <span className="bs-browser-status-dot"></span>
-                  <span>65 tests · Supabase RLS</span>
+                      <div className="bs-browser-tabs" role="tablist" aria-label="BookShelf screen preview selector">
+                        {bookshelfScreens.map((screen, idx) => (
+                          <button
+                            key={screen.id}
+                            type="button"
+                            role="tab"
+                            aria-selected={activeBookshelfScreen === idx}
+                            className={`bs-browser-tab ${activeBookshelfScreen === idx ? 'active' : ''}`}
+                            onClick={(e) => {
+                              e.stopPropagation();
+                              setActiveBookshelfScreen(idx);
+                            }}
+                          >
+                            {screen.label}
+                          </button>
+                        ))}
+                      </div>
+
+                      <div className="bs-browser-badge">
+                        <span className="bs-browser-status-dot"></span>
+                        <span>65 tests · Supabase RLS</span>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>

@@ -6,57 +6,6 @@
   padding: 160px 0 80px;
 }
 
-/* Abstract System / Rhythm Background Field */
-.hero-system-motif {
-  position: absolute;
-  top: 18%;
-  right: 6%;
-  width: 360px;
-  height: 280px;
-  pointer-events: none;
-  z-index: 0;
-  opacity: 0.85;
-}
-
-.motif-node {
-  position: absolute;
-  width: 4px;
-  height: 4px;
-  border-radius: 999px;
-  background: var(--purple-bright);
-  box-shadow: 0 0 10px rgba(182, 156, 255, 0.4);
-  opacity: 0.28;
-}
-
-.motif-node-1 {
-  top: 48px;
-  left: 96px;
-}
-
-.motif-node-2 {
-  top: 144px;
-  left: 240px;
-}
-
-.motif-track {
-  position: absolute;
-  background: linear-gradient(90deg, rgba(155, 124, 255, 0.14), transparent);
-  height: 1px;
-}
-
-.motif-track-1 {
-  top: 49px;
-  left: 96px;
-  width: 144px;
-}
-
-.motif-track-2 {
-  top: 145px;
-  left: 120px;
-  width: 120px;
-  background: linear-gradient(90deg, transparent, rgba(155, 124, 255, 0.14));
-}
-
 .hero-container {
   display: flex;
   flex-direction: column;
@@ -65,7 +14,7 @@
 }
 
 .hero-content {
-  max-width: 980px;
+  max-width: 900px;
 }
 
 .hero-meta {
@@ -74,7 +23,7 @@
   align-items: center;
   gap: 12px;
   margin-bottom: 28px;
-  font-family: "JetBrains Mono", monospace;
+  font-family: var(--font-mono);
   font-size: 0.82rem;
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -82,8 +31,8 @@
 
 .hero-name {
   color: var(--text);
-  font-weight: 700;
-  letter-spacing: 0.12em;
+  font-weight: 600;
+  letter-spacing: 0.1em;
 }
 
 .hero-divider {
@@ -92,36 +41,35 @@
 }
 
 .hero-roles {
-  color: var(--purple-bright);
+  color: var(--accent-ink);
   font-weight: 500;
   letter-spacing: 0.04em;
   text-transform: none;
 }
 
 .hero-title {
-  font-size: clamp(2.6rem, 5.5vw, 4.4rem);
-  font-weight: 800;
-  line-height: 1.08;
-  letter-spacing: -0.045em;
+  font-size: clamp(2.4rem, 5vw, 3.8rem);
+  font-weight: 500;
+  line-height: 1.18;
+  letter-spacing: -0.01em;
   color: var(--text);
   margin-bottom: 28px;
 }
 
 .hero-title-accent {
-  display: inline;
-  color: transparent;
-  background: linear-gradient(120deg, #f5f7fb 20%, #c4b5fd 70%, #9b7cff 100%);
-  -webkit-background-clip: text;
-  background-clip: text;
+  font-style: italic;
+  color: var(--accent-ink);
 }
 
 .hero-lead {
-  max-width: 720px;
+  max-width: 620px;
   color: var(--text-muted);
-  font-size: clamp(1.05rem, 1.8vw, 1.25rem);
+  font-size: clamp(1.05rem, 1.8vw, 1.2rem);
   line-height: 1.6;
   font-weight: 400;
   margin-bottom: 40px;
+  padding-left: 20px;
+  border-left: 2px solid var(--accent);
 }
 
 .hero-actions {
@@ -155,10 +103,10 @@
 }
 
 .pillar-num {
-  font-family: "JetBrains Mono", monospace;
+  font-family: var(--font-mono);
   font-size: 0.76rem;
-  font-weight: 600;
-  color: var(--purple-bright);
+  font-weight: 500;
+  color: var(--accent-ink);
   padding-top: 2px;
 }
 
@@ -172,7 +120,7 @@
   font-size: 0.95rem;
   font-weight: 600;
   color: var(--text);
-  letter-spacing: -0.01em;
+  letter-spacing: -0.005em;
 }
 
 .pillar-desc {
@@ -215,8 +163,8 @@
   }
 
   .hero-title {
-    font-size: clamp(2.1rem, 9vw, 2.9rem);
-    line-height: 1.14;
+    font-size: clamp(2rem, 9vw, 2.7rem);
+    line-height: 1.2;
     margin-bottom: 20px;
   }
 

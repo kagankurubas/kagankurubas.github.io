@@ -14,9 +14,9 @@
 
 .contact-headline {
   font-size: clamp(2.4rem, 4.8vw, 3.8rem);
-  font-weight: 800;
-  line-height: 1.08;
-  letter-spacing: -0.04em;
+  font-weight: 500;
+  line-height: 1.12;
+  letter-spacing: -0.01em;
   color: var(--text);
   margin-bottom: 20px;
 }

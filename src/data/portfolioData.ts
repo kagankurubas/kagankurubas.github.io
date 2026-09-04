@@ -14,8 +14,9 @@ export const siteData = {
   hero: {
     name: 'KAĞAN KURUBAŞ',
     eyebrow: 'Computer Engineer · Game Developer · Musician',
-    title: 'I build products, systems, and interactive experiences where engineering meets creativity.',
-    description: 'Computer engineer working across product development, AI/backend systems, and game development.',
+    titleLead: 'Computer engineer in Bursa. I build Flutter apps, wire up AI systems,',
+    titleAccent: "and make games when nobody's asking me to.",
+    description: 'Open to software engineering, AI/systems engineering, and game development opportunities.',
     primaryButton: { label: 'View Selected Work', href: '#work' },
     secondaryButton: { label: 'GitHub ↗', href: 'https://github.com/kagankurubas' },
     pillars: [

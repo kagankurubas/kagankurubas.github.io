@@ -5,7 +5,7 @@ import './CurrentlyBuilding.css';
 
 export const CurrentlyBuilding: React.FC = () => {
   const revealHeader = useScrollReveal();
-  const revealGrid = useScrollReveal(0.12);
+  const revealList = useScrollReveal(0.12);
 
   const { currentlyBuilding } = siteData;
 
@@ -20,40 +20,28 @@ export const CurrentlyBuilding: React.FC = () => {
           <p>{currentlyBuilding.description}</p>
         </div>
 
-        <div className="building-panel-grid reveal" ref={revealGrid}>
+        <div className="index-list reveal" ref={revealList} role="list">
           {currentlyBuilding.items.map((item, index) => {
-            const statusClass = 
-              item.status === 'PLANNING' 
-                ? 'status-indicator-planning' 
-                : item.status === 'PROTOTYPE' 
-                  ? 'status-indicator-prototype' 
-                  : 'status-indicator-active';
+            const statusClass =
+              item.status === 'PLANNING'
+                ? 'status-dot-planning'
+                : item.status === 'PROTOTYPE'
+                  ? 'status-dot-prototype'
+                  : 'status-dot-active';
 
             return (
-              <article 
-                className={`building-panel ${index === 0 ? 'building-panel-featured' : ''}`} 
-                key={index}
-              >
-                <div className="building-panel-header">
-                  <span className="building-category">{item.category}</span>
-                  <span className="building-status">
-                    <span 
-                      className={`status-indicator ${statusClass}`} 
-                      aria-hidden="true"
-                    />
+              <div className="index-row" key={index} role="listitem">
+                <div className="index-row-top">
+                  <span className="index-row-label">{item.category}</span>
+                  <span className="index-row-status">
+                    <span className={`status-dot ${statusClass}`} aria-hidden="true" />
                     <span>{item.status}</span>
                   </span>
                 </div>
-
-                <div className="building-panel-body">
-                  <h3 className="building-panel-title">{item.title}</h3>
-                  <p className="building-panel-desc">{item.description}</p>
-                </div>
-
-                <div className="building-panel-footer">
-                  <span className="building-tech-line">{item.tech}</span>
-                </div>
-              </article>
+                <h3 className="index-row-title">{item.title}</h3>
+                <p className="index-row-desc">{item.description}</p>
+                <span className="index-row-tech">{item.tech}</span>
+              </div>
             );
           })}
         </div>

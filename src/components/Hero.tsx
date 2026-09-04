@@ -23,14 +23,6 @@ export const Hero: React.FC = () => {
 
   return (
     <section className="hero" id="hero">
-      {/* Background Rhythm & System Field */}
-      <div className="hero-system-motif" aria-hidden="true">
-        <span className="motif-node motif-node-1"></span>
-        <span className="motif-node motif-node-2"></span>
-        <span className="motif-track motif-track-1"></span>
-        <span className="motif-track motif-track-2"></span>
-      </div>
-
       <div className="container hero-container">
         <div className="hero-content reveal" ref={revealRef}>
           <div className="hero-meta">
@@ -40,8 +32,8 @@ export const Hero: React.FC = () => {
           </div>
 
           <h1 className="hero-title">
-            I build products, systems, and interactive experiences{' '}
-            <span className="hero-title-accent">where engineering meets creativity.</span>
+            {hero.titleLead}{' '}
+            <span className="hero-title-accent">{hero.titleAccent}</span>
           </h1>
 
           <p className="hero-lead">

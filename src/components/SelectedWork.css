@@ -2,26 +2,107 @@
   padding: 90px 0 110px;
 }
 
-.showcase-stack {
-  display: flex;
-  flex-direction: column;
-  gap: 120px;
+/* ============================================================ */
+/* PROJECT INDEX — LIST OF ROWS                                 */
+/* ============================================================ */
+.project-index {
+  border-top: 1px solid var(--border);
 }
 
-/* ============================================================ */
-/* BASE SHOWCASE ITEM                                           */
-/* ============================================================ */
-.showcase-item {
+.project-row {
+  border-bottom: 1px solid var(--border);
+}
+
+.project-row-header {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  width: 100%;
+  padding: 26px 0;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font: inherit;
+  color: inherit;
+  text-align: left;
+  transition: background 160ms ease;
+}
+
+.project-row-header:hover {
+  background: var(--bg-tint);
+}
+
+.project-row-num {
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--accent-ink);
+  flex-shrink: 0;
+  width: 26px;
+}
+
+.project-row-name {
+  font-family: var(--font-serif);
+  font-size: clamp(1.35rem, 2.3vw, 1.7rem);
+  font-weight: 500;
+  color: var(--text);
+  flex-shrink: 0;
+  transition: color 160ms ease;
+}
+
+.project-row.open .project-row-name {
+  color: var(--accent-ink);
+}
+
+.project-row-leader {
+  flex: 1;
+  min-width: 24px;
+  align-self: center;
+  border-bottom: 2px dotted var(--border-strong);
+}
+
+.project-row-category {
+  font-family: var(--font-mono);
+  font-size: 0.76rem;
+  font-weight: 500;
+  color: var(--text-muted);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  flex-shrink: 0;
+  white-space: nowrap;
+}
+
+.project-row-chevron {
+  flex-shrink: 0;
+  color: var(--text-muted);
+  transition: transform 220ms ease, color 220ms ease;
+}
+
+.project-row.open .project-row-chevron {
+  transform: rotate(180deg);
+  color: var(--accent-ink);
+}
+
+.project-row-panel {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 320ms ease;
+}
+
+.project-row-panel.open {
+  grid-template-rows: 1fr;
+}
+
+.project-row-panel-inner {
+  overflow: hidden;
+  min-height: 0;
+}
+
+.project-row-grid {
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr);
-  align-items: center;
-  gap: 64px;
-  position: relative;
-}
-
-.showcase-item + .showcase-item {
-  padding-top: 100px;
-  border-top: 1px solid var(--border);
+  gap: 48px;
+  padding: 8px 0 44px;
 }
 
 /* LEFT: TEXT CONTENT */
@@ -31,45 +112,20 @@
   max-width: 520px;
 }
 
-.showcase-meta {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 12px;
-  margin-bottom: 16px;
-}
-
-.showcase-label {
-  font-family: "JetBrains Mono", monospace;
-  font-size: 0.82rem;
-  font-weight: 700;
-  color: var(--purple-bright);
-  letter-spacing: 0.04em;
-}
-
-.showcase-category {
-  font-family: "JetBrains Mono", monospace;
-  font-size: 0.76rem;
-  font-weight: 500;
-  color: var(--text-muted);
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
-}
-
 .showcase-headline {
-  font-size: clamp(2rem, 3.4vw, 2.75rem);
-  font-weight: 800;
-  line-height: 1.12;
-  letter-spacing: -0.035em;
+  font-size: clamp(1.5rem, 2.4vw, 1.9rem);
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: -0.005em;
   color: var(--text);
-  margin-bottom: 18px;
+  margin-bottom: 14px;
 }
 
 .showcase-description {
   color: var(--text-muted);
-  font-size: 1.02rem;
+  font-size: 1rem;
   line-height: 1.65;
-  margin-bottom: 24px;
+  margin-bottom: 20px;
 }
 
 .showcase-highlight-pill {
@@ -77,22 +133,17 @@
   align-items: center;
   gap: 8px;
   align-self: flex-start;
-  padding: 6px 12px;
-  border-radius: 999px;
-  background: rgba(57, 217, 138, 0.08);
-  border: 1px solid rgba(57, 217, 138, 0.25);
+  padding: 5px 12px;
+  border: 1px solid var(--border-strong);
   color: var(--green);
-  font-family: "JetBrains Mono", monospace;
-  font-size: 0.78rem;
-  font-weight: 600;
-  margin-bottom: 24px;
+  font-family: var(--font-mono);
+  font-size: 0.76rem;
+  font-weight: 500;
+  margin-bottom: 20px;
 }
 
 .showcase-content .tag-list {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  margin-bottom: 36px;
+  margin-bottom: 30px;
 }
 
 .showcase-actions {
@@ -116,25 +167,14 @@
 .showcase-visual {
   position: relative;
   width: 100%;
-  border-radius: var(--radius-lg);
   overflow: hidden;
-  background: var(--surface-solid);
+  background: var(--bg-tint);
   border: 1px solid var(--border);
-  transition: border-color 200ms ease-out, transform 200ms ease-out, box-shadow 200ms ease-out;
 }
 
-.showcase-visual:hover {
-  border-color: rgba(182, 156, 255, 0.35);
-  transform: translateY(-2px);
-  box-shadow: 0 20px 45px -10px rgba(0, 0, 0, 0.5), 0 0 24px rgba(155, 124, 255, 0.04);
-}
-
-/* 01: HABITTO PRODUCT & ENGINEERING ARTIFACT VISUAL */
+/* 01: HABITTO */
 .showcase-visual-habitto {
-  min-height: 520px;
-  background:
-    radial-gradient(ellipse at 50% 35%, rgba(155, 124, 255, 0.12), transparent 65%),
-    linear-gradient(180deg, #0e1320 0%, #080b12 100%);
+  min-height: 500px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -159,31 +199,23 @@
   z-index: 1;
 }
 
-/* Phone Frame (Sleek, modern & subtle) */
 .habitto-phone-frame {
   position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
   padding: 5px 5px 7px;
-  background: #0d1017;
-  border-radius: 26px;
-  border: 1.5px solid rgba(255, 255, 255, 0.16);
-  box-shadow:
-    0 24px 60px rgba(0, 0, 0, 0.75),
-    0 0 40px rgba(155, 124, 255, 0.08),
-    inset 0 0 0 1px rgba(0, 0, 0, 0.6);
+  background: var(--ink);
+  border-radius: 22px;
+  border: 1.5px solid var(--ink);
+  box-shadow: 0 18px 36px -18px rgba(26, 26, 26, 0.4);
   cursor: pointer;
-  transition: transform 260ms ease, box-shadow 260ms ease, border-color 260ms ease;
+  transition: transform 220ms ease;
   user-select: none;
 }
 
 .habitto-phone-frame:hover {
-  transform: translateY(-3px) scale(1.01);
-  border-color: rgba(182, 156, 255, 0.38);
-  box-shadow:
-    0 28px 70px rgba(0, 0, 0, 0.82),
-    0 0 50px rgba(155, 124, 255, 0.14);
+  transform: translateY(-3px);
 }
 
 .phone-top-bar {
@@ -199,12 +231,11 @@
   height: 3.5px;
   border-radius: 999px;
   background: #05070a;
-  border: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 .phone-inner-screen {
   position: relative;
-  border-radius: 20px;
+  border-radius: 17px;
   overflow: hidden;
   display: flex;
   align-items: center;
@@ -223,15 +254,12 @@
 @keyframes fadeInScreen {
   from {
     opacity: 0.5;
-    transform: scale(0.99);
   }
   to {
     opacity: 1;
-    transform: scale(1);
   }
 }
 
-/* Right Flank: Vertical Module Switcher */
 .habitto-screen-tabs-v {
   position: absolute;
   top: 50%;
@@ -241,18 +269,15 @@
   flex-direction: column;
   gap: 5px;
   z-index: 5;
-  background: rgba(14, 19, 32, 0.88);
+  background: var(--bg);
   border: 1px solid var(--border-strong);
-  border-radius: 14px;
   padding: 8px 6px;
-  backdrop-filter: blur(12px);
-  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.45);
 }
 
 .tabs-v-title {
-  font-family: "JetBrains Mono", monospace;
+  font-family: var(--font-mono);
   font-size: 0.62rem;
-  font-weight: 700;
+  font-weight: 500;
   color: var(--text-muted);
   letter-spacing: 0.1em;
   padding: 0 10px 4px;
@@ -266,12 +291,11 @@
   gap: 8px;
   background: transparent;
   border: 1px solid transparent;
-  font-family: "JetBrains Mono", monospace;
+  font-family: var(--font-mono);
   font-size: 0.68rem;
   font-weight: 500;
   color: var(--text-muted);
   padding: 5px 10px;
-  border-radius: 8px;
   cursor: pointer;
   transition: all 180ms ease;
   text-align: left;
@@ -282,31 +306,23 @@
   height: 4px;
   border-radius: 999px;
   background: var(--text-muted);
-  opacity: 0.5;
   transition: all 180ms ease;
 }
 
 .habitto-screen-tab-v:hover {
   color: var(--text);
-  background: rgba(255, 255, 255, 0.06);
-}
-
-.habitto-screen-tab-v:hover .tab-v-indicator {
-  background: var(--text);
-  opacity: 0.8;
+  background: var(--bg-tint);
 }
 
 .habitto-screen-tab-v.active {
-  background: rgba(182, 156, 255, 0.15);
-  color: var(--purple-bright);
+  background: var(--bg-tint);
+  color: var(--accent-ink);
   font-weight: 600;
-  border-color: rgba(182, 156, 255, 0.32);
+  border-color: var(--border-strong);
 }
 
 .habitto-screen-tab-v.active .tab-v-indicator {
-  background: var(--purple-bright);
-  box-shadow: 0 0 8px rgba(182, 156, 255, 0.8);
-  opacity: 1;
+  background: var(--accent);
 }
 
 .habitto-badge {
@@ -315,15 +331,12 @@
   gap: 8px;
   margin-top: 22px;
   padding: 6px 14px;
-  border-radius: 999px;
-  background: rgba(14, 19, 32, 0.92);
+  background: var(--bg);
   border: 1px solid var(--border-strong);
-  backdrop-filter: blur(10px);
-  font-family: "JetBrains Mono", monospace;
+  font-family: var(--font-mono);
   font-size: 0.75rem;
   color: var(--text-soft);
   font-weight: 500;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
 }
 
 .habitto-status-dot {
@@ -331,10 +344,8 @@
   height: 7px;
   border-radius: 999px;
   background: var(--green);
-  box-shadow: 0 0 10px rgba(57, 217, 138, 0.8);
 }
 
-/* Left Flank: Stacked Engineering Annotations */
 .habitto-annotations-stack {
   position: absolute;
   left: 24px;
@@ -350,13 +361,7 @@
   display: flex;
   flex-direction: column;
   gap: 3px;
-  opacity: 0.78;
-  transition: opacity 200ms ease-out;
   pointer-events: none;
-}
-
-.showcase-visual-habitto:hover .habitto-annotation {
-  opacity: 0.95;
 }
 
 .annot-indicator {
@@ -369,13 +374,12 @@
   width: 4px;
   height: 4px;
   border-radius: 999px;
-  background: var(--purple-bright);
-  box-shadow: 0 0 8px rgba(182, 156, 255, 0.6);
+  background: var(--accent);
   flex-shrink: 0;
 }
 
 .annot-line {
-  background: linear-gradient(90deg, rgba(182, 156, 255, 0.35), transparent);
+  background: var(--border-strong);
   height: 1px;
 }
 
@@ -390,34 +394,23 @@
 }
 
 .annot-label {
-  font-family: "JetBrains Mono", monospace;
+  font-family: var(--font-mono);
   font-size: 0.68rem;
-  font-weight: 700;
-  color: var(--purple-bright);
+  font-weight: 600;
+  color: var(--accent-ink);
   letter-spacing: 0.08em;
 }
 
 .annot-meta {
   font-size: 0.73rem;
   color: var(--text-muted);
-  opacity: 0.65;
   white-space: nowrap;
-  transition: opacity 200ms ease-out;
-}
-
-.showcase-visual-habitto:hover .annot-meta {
-  opacity: 0.85;
 }
 
 /* 02: TODOIST ARCHITECTURE VISUAL */
 .showcase-visual-todoist {
-  background: #0b0f19;
+  background: var(--bg);
   padding: 28px;
-  transition: border-color 220ms ease, box-shadow 220ms ease;
-}
-
-.showcase-visual-todoist:hover {
-  border-color: rgba(182, 156, 255, 0.22);
 }
 
 .architecture-canvas {
@@ -447,25 +440,23 @@
   border-radius: 999px;
 }
 
-.arch-dot.red { background: #ff5f56; }
-.arch-dot.yellow { background: #ffbd2e; }
-.arch-dot.green { background: #27c93f; }
+.arch-dot.red { background: #c1665c; }
+.arch-dot.yellow { background: var(--accent); }
+.arch-dot.green { background: var(--green); }
 
 .arch-title {
-  font-family: "JetBrains Mono", monospace;
+  font-family: var(--font-mono);
   font-size: 0.76rem;
   color: var(--text-muted);
   margin-left: 6px;
 }
 
 .arch-tag {
-  font-family: "JetBrains Mono", monospace;
+  font-family: var(--font-mono);
   font-size: 0.72rem;
-  color: var(--purple-bright);
-  background: rgba(155, 124, 255, 0.08);
+  color: var(--accent-ink);
   padding: 3px 8px;
-  border-radius: 4px;
-  border: 1px solid rgba(182, 156, 255, 0.2);
+  border: 1px solid var(--border-strong);
 }
 
 .arch-flow {
@@ -479,25 +470,20 @@
   align-items: center;
   gap: 14px;
   padding: 14px 18px;
-  border-radius: var(--radius-sm);
-  background: rgba(18, 24, 38, 0.7);
+  background: var(--bg-tint);
   border: 1px solid var(--border);
-  transition: border-color 200ms ease, background 200ms ease, box-shadow 200ms ease;
-  transition-delay: 0ms;
+  transition: border-color 200ms ease;
 }
 
 .arch-node-icon {
   width: 36px;
   height: 36px;
-  border-radius: 8px;
-  background: rgba(155, 124, 255, 0.08);
-  border: 1px solid rgba(182, 156, 255, 0.18);
+  background: var(--bg);
+  border: 1px solid var(--border-strong);
   display: grid;
   place-items: center;
-  color: var(--purple-bright);
+  color: var(--accent-ink);
   flex-shrink: 0;
-  transition: border-color 200ms ease, background 200ms ease, color 200ms ease;
-  transition-delay: 0ms;
 }
 
 .arch-node-meta {
@@ -511,13 +497,11 @@
   font-size: 0.9rem;
   color: var(--text);
   font-weight: 600;
-  transition: color 200ms ease;
 }
 
 .arch-node-meta span {
   font-size: 0.76rem;
   color: var(--text-muted);
-  transition: color 200ms ease;
 }
 
 .arch-node-heading {
@@ -528,13 +512,11 @@
 }
 
 .arch-badge-live {
-  font-family: "JetBrains Mono", monospace;
+  font-family: var(--font-mono);
   font-size: 0.68rem;
   color: var(--green);
-  background: rgba(57, 217, 138, 0.1);
   padding: 2px 6px;
-  border-radius: 4px;
-  border: 1px solid rgba(57, 217, 138, 0.2);
+  border: 1px solid var(--border-strong);
 }
 
 .arch-tool-chips {
@@ -545,12 +527,11 @@
 }
 
 .arch-tool-chips code {
-  font-family: "JetBrains Mono", monospace;
+  font-family: var(--font-mono);
   font-size: 0.72rem;
-  color: var(--purple-bright);
-  background: rgba(8, 11, 18, 0.6);
+  color: var(--accent-ink);
+  background: var(--bg);
   padding: 2px 6px;
-  border-radius: 4px;
   border: 1px solid var(--border);
 }
 
@@ -563,83 +544,20 @@
 }
 
 .connector-arrow {
-  color: var(--purple-bright);
-  transition: color 200ms ease, transform 200ms ease, filter 200ms ease;
-  transition-delay: 0ms;
+  color: var(--accent-ink);
 }
 
 .connector-label {
-  font-family: "JetBrains Mono", monospace;
+  font-family: var(--font-mono);
   font-size: 0.72rem;
   color: var(--text-muted);
   letter-spacing: 0.02em;
-  transition: color 200ms ease;
-  transition-delay: 0ms;
 }
 
-/* Sequential Flow Hover Emphasis (0ms -> 80ms -> 140ms -> 220ms -> 280ms) */
-.showcase-visual-todoist:hover .arch-node-client {
-  border-color: rgba(182, 156, 255, 0.28);
-  background: rgba(22, 29, 46, 0.85);
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
-  transition-delay: 0ms;
-}
-
-.showcase-visual-todoist:hover .arch-node-client .arch-node-icon {
-  border-color: rgba(182, 156, 255, 0.35);
-  background: rgba(155, 124, 255, 0.12);
-  transition-delay: 0ms;
-}
-
-.showcase-visual-todoist:hover .arch-connector-1 .connector-arrow {
-  color: #d8b4fe;
-  transform: translateY(1px);
-  filter: drop-shadow(0 0 6px rgba(182, 156, 255, 0.5));
-  transition-delay: 80ms;
-}
-
-.showcase-visual-todoist:hover .arch-connector-1 .connector-label {
-  color: var(--text-soft);
-  transition-delay: 80ms;
-}
-
-.showcase-visual-todoist:hover .arch-node-server {
-  border-color: rgba(182, 156, 255, 0.38);
-  background: rgba(24, 32, 50, 0.95);
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.35), 0 0 20px rgba(155, 124, 255, 0.06);
-  transition-delay: 140ms;
-}
-
-.showcase-visual-todoist:hover .arch-node-server .arch-node-icon {
-  border-color: rgba(182, 156, 255, 0.45);
-  background: rgba(155, 124, 255, 0.16);
-  transition-delay: 140ms;
-}
-
-.showcase-visual-todoist:hover .arch-connector-2 .connector-arrow {
-  color: #d8b4fe;
-  transform: translateY(1px);
-  filter: drop-shadow(0 0 6px rgba(182, 156, 255, 0.5));
-  transition-delay: 220ms;
-}
-
-.showcase-visual-todoist:hover .arch-connector-2 .connector-label {
-  color: var(--text-soft);
-  transition-delay: 220ms;
-}
-
+.showcase-visual-todoist:hover .arch-node-client,
+.showcase-visual-todoist:hover .arch-node-server,
 .showcase-visual-todoist:hover .arch-node-api {
-  border-color: rgba(57, 217, 138, 0.32);
-  background: rgba(20, 32, 44, 0.85);
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25), 0 0 16px rgba(57, 217, 138, 0.04);
-  transition-delay: 280ms;
-}
-
-.showcase-visual-todoist:hover .arch-node-api .arch-node-icon {
-  border-color: rgba(57, 217, 138, 0.38);
-  background: rgba(57, 217, 138, 0.12);
-  color: var(--green);
-  transition-delay: 280ms;
+  border-color: var(--border-strong);
 }
 
 .arch-footer {
@@ -656,7 +574,7 @@
   display: flex;
   align-items: center;
   gap: 6px;
-  font-family: "JetBrains Mono", monospace;
+  font-family: var(--font-mono);
   font-size: 0.75rem;
   color: var(--text-soft);
 }
@@ -665,15 +583,10 @@
   color: var(--green);
 }
 
-/* 03: BOOKSHELF BROWSER MOCKUP VISUAL (real product screenshots) */
+/* 03: BOOKSHELF BROWSER MOCKUP VISUAL */
 .showcase-visual-bookshelf {
-  background: #0b0f19;
+  background: var(--bg);
   padding: 28px;
-  transition: border-color 220ms ease, box-shadow 220ms ease;
-}
-
-.showcase-visual-bookshelf:hover {
-  border-color: rgba(182, 156, 255, 0.22);
 }
 
 .bs-browser-mockup {
@@ -687,9 +600,8 @@
   align-items: center;
   gap: 12px;
   padding: 10px 14px;
-  background: rgba(18, 24, 38, 0.9);
+  background: var(--bg-tint);
   border: 1px solid var(--border);
-  border-radius: var(--radius-sm) var(--radius-sm) 0 0;
 }
 
 .bs-browser-dots {
@@ -699,12 +611,11 @@
 }
 
 .bs-browser-url {
-  font-family: "JetBrains Mono", monospace;
+  font-family: var(--font-mono);
   font-size: 0.72rem;
   color: var(--text-muted);
-  background: rgba(255, 255, 255, 0.04);
+  background: var(--bg);
   border: 1px solid var(--border);
-  border-radius: 999px;
   padding: 3px 12px;
   flex: 1;
   text-align: center;
@@ -745,13 +656,12 @@
 }
 
 .bs-browser-tab {
-  font-family: "JetBrains Mono", monospace;
+  font-family: var(--font-mono);
   font-size: 0.7rem;
-  font-weight: 600;
+  font-weight: 500;
   padding: 6px 12px;
-  border-radius: 999px;
   border: 1px solid var(--border);
-  background: rgba(255, 255, 255, 0.02);
+  background: transparent;
   color: var(--text-muted);
   cursor: pointer;
   transition: all 180ms ease;
@@ -763,9 +673,9 @@
 }
 
 .bs-browser-tab.active {
-  background: rgba(182, 156, 255, 0.15);
-  color: var(--purple-bright);
-  border-color: rgba(182, 156, 255, 0.32);
+  background: var(--bg-tint);
+  color: var(--accent-ink);
+  border-color: var(--border-strong);
 }
 
 .bs-browser-badge {
@@ -774,10 +684,9 @@
   gap: 8px;
   align-self: flex-start;
   padding: 6px 14px;
-  border-radius: 999px;
-  background: rgba(14, 19, 32, 0.92);
+  background: var(--bg);
   border: 1px solid var(--border-strong);
-  font-family: "JetBrains Mono", monospace;
+  font-family: var(--font-mono);
   font-size: 0.72rem;
   color: var(--text-soft);
 }
@@ -787,22 +696,17 @@
   height: 7px;
   border-radius: 999px;
   background: var(--green);
-  box-shadow: 0 0 8px rgba(57, 217, 138, 0.7);
 }
 
 /* ============================================================ */
 /* RESPONSIVE BEHAVIOR                                          */
 /* ============================================================ */
 @media (max-width: 1024px) {
-  .showcase-item {
-    gap: 40px;
-  }
-  
   .showcase-visual-habitto {
     min-height: 440px;
     padding: 36px 20px;
   }
-  
+
   .habitto-app-img {
     max-height: 340px;
   }
@@ -822,21 +726,17 @@
     padding: 70px 0 90px;
   }
 
-  .showcase-stack {
-    gap: 80px;
-  }
-
-  .showcase-item {
+  .project-row-grid {
     grid-template-columns: 1fr;
-    gap: 36px;
-  }
-
-  .showcase-item + .showcase-item {
-    padding-top: 70px;
+    gap: 32px;
   }
 
   .showcase-content {
     max-width: 100%;
+  }
+
+  .project-row-category {
+    display: none;
   }
 
   .showcase-visual-habitto {
@@ -854,6 +754,10 @@
 }
 
 @media (max-width: 600px) {
+  .project-row-header {
+    gap: 12px;
+  }
+
   .habitto-annotations-stack {
     display: none;
   }
@@ -880,12 +784,12 @@
   }
 
   .habitto-phone-frame {
-    border-radius: 20px;
+    border-radius: 18px;
     padding: 4px 4px 6px;
   }
 
   .phone-inner-screen {
-    border-radius: 16px;
+    border-radius: 14px;
   }
 }
 
@@ -916,8 +820,12 @@
 }
 
 @media (max-width: 560px) {
-  .showcase-headline {
-    font-size: 1.75rem;
+  .project-row-name {
+    font-size: 1.15rem;
+  }
+
+  .project-row-leader {
+    display: none;
   }
 
   .showcase-actions {
@@ -937,18 +845,5 @@
     flex-direction: column;
     align-items: flex-start;
     gap: 8px;
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .showcase-visual-todoist,
-  .showcase-visual-todoist:hover .arch-node,
-  .showcase-visual-todoist:hover .arch-node-icon,
-  .showcase-visual-todoist:hover .connector-arrow,
-  .showcase-visual-todoist:hover .connector-label {
-    transition-delay: 0ms !important;
-    transition-duration: 0.01ms !important;
-    transform: none !important;
-    filter: none !important;
   }
 }

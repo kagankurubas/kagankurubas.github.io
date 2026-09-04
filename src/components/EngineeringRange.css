@@ -27,10 +27,10 @@
 }
 
 .discipline-num {
-  font-family: "JetBrains Mono", monospace;
+  font-family: var(--font-mono);
   font-size: 0.88rem;
-  font-weight: 700;
-  color: var(--purple-bright);
+  font-weight: 500;
+  color: var(--accent-ink);
   letter-spacing: 0.04em;
   display: inline-flex;
   align-items: center;
@@ -43,7 +43,6 @@
   width: 16px;
   height: 1px;
   background: var(--border-strong);
-  opacity: 0.7;
 }
 
 .discipline-num-col::before {
@@ -53,7 +52,7 @@
   bottom: -48px;
   left: 6px;
   width: 1px;
-  background: linear-gradient(180deg, rgba(182, 156, 255, 0.25) 0%, rgba(182, 156, 255, 0.04) 100%);
+  background: var(--border);
   pointer-events: none;
 }
 
@@ -71,10 +70,10 @@
 
 .discipline-title {
   font-size: clamp(1.5rem, 2.5vw, 2.1rem);
-  font-weight: 700;
-  letter-spacing: -0.025em;
+  font-weight: 500;
+  letter-spacing: -0.005em;
   color: var(--text);
-  line-height: 1.15;
+  line-height: 1.2;
 }
 
 .discipline-desc {
@@ -84,10 +83,10 @@
 }
 
 .discipline-tech {
-  font-family: "JetBrains Mono", monospace;
+  font-family: var(--font-mono);
   font-size: 0.82rem;
   color: var(--text-soft);
-  letter-spacing: -0.01em;
+  letter-spacing: -0.005em;
   padding-top: 4px;
 }
 
@@ -101,9 +100,9 @@
 }
 
 .discipline-proof-label {
-  font-family: "JetBrains Mono", monospace;
+  font-family: var(--font-mono);
   font-size: 0.72rem;
-  font-weight: 600;
+  font-weight: 500;
   color: var(--text-muted);
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -116,18 +115,18 @@
   font-size: 0.95rem;
   font-weight: 600;
   color: var(--text);
-  letter-spacing: -0.01em;
+  letter-spacing: -0.005em;
   transition: color 160ms ease;
   cursor: pointer;
 }
 
 .proof-arrow {
-  color: var(--purple-bright);
+  color: var(--accent-ink);
   transition: transform 160ms ease;
 }
 
 .discipline-proof-link:hover {
-  color: var(--purple-bright);
+  color: var(--accent-ink);
 }
 
 .discipline-proof-link:hover .proof-arrow {
