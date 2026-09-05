@@ -17,18 +17,13 @@
   --habitto-border-media: 1px solid rgba(106, 90, 224, 0.10);
   --habitto-shadow-artifact: 0 24px 60px rgba(13, 19, 36, 0.12);
 
-  /* Retained deep dark technical panels for architecture & pipeline */
-  --habitto-bg-dark-panel: #0B0D12;
-  --habitto-bg-dark-card: #12151D;
-  
   --habitto-text-primary: #0D1324;
   --habitto-text-secondary: #525B6C;
   --habitto-text-tertiary: #7D889A;
   
   --habitto-border: rgba(13, 19, 36, 0.08);
   --habitto-border-strong: rgba(13, 19, 36, 0.14);
-  --habitto-border-dark: rgba(255, 255, 255, 0.08);
-  
+
   --habitto-accent-purple: #6A5AE0;
   --habitto-accent-purple-light: #7567E8;
   --habitto-accent-purple-subtle: rgba(106, 90, 224, 0.08);
@@ -37,6 +32,10 @@
   --habitto-accent-sage: #5A9E65;
   --habitto-accent-sage-subtle: rgba(90, 158, 101, 0.09);
   --habitto-accent-sage-border: rgba(90, 158, 101, 0.22);
+
+  --habitto-accent-red: #B54A3F;
+  --habitto-accent-red-subtle: rgba(181, 74, 63, 0.09);
+  --habitto-accent-red-border: rgba(181, 74, 63, 0.24);
   
   --habitto-shadow-sm: 0 2px 8px rgba(13, 19, 36, 0.04);
   --habitto-shadow-md: 0 12px 32px -8px rgba(13, 19, 36, 0.07);
@@ -507,16 +506,16 @@
 }
 
 /* ============================================================ */
-/* 03 — LOCAL-FIRST ENGINEERING (DARK TECHNICAL PANELS)         */
+/* 03 — LOCAL-FIRST ENGINEERING (TECHNICAL PANELS)              */
 /* ============================================================ */
 .habitto-case-study .architecture-showcase-box,
 .habitto-case-study .backup-pipeline-box {
-  background: var(--habitto-bg-dark-panel);
-  border: 1px solid var(--habitto-border-dark);
+  background: var(--habitto-bg-surface-elevated);
+  border: 1px solid var(--habitto-border);
   border-radius: var(--radius-md);
   padding: 32px;
   margin-bottom: 32px;
-  box-shadow: 0 20px 45px -10px rgba(0, 0, 0, 0.35), 0 0 0 1px rgba(13, 19, 36, 0.06);
+  box-shadow: var(--habitto-shadow-md);
 }
 
 .habitto-case-study .arch-box-header {
@@ -525,25 +524,25 @@
   align-items: center;
   margin-bottom: 26px;
   padding-bottom: 14px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  border-bottom: 1px solid var(--habitto-border);
 }
 
 .habitto-case-study .arch-box-title {
   font-family: var(--font-mono);
   font-size: 0.85rem;
   font-weight: 600;
-  color: #f1f5f9;
+  color: var(--habitto-text-primary);
   letter-spacing: 0.04em;
 }
 
 .habitto-case-study .arch-box-badge {
   font-family: var(--font-mono);
   font-size: 0.72rem;
-  color: #c4b5fd;
-  background: rgba(196, 181, 253, 0.12);
-  border: 1px solid rgba(196, 181, 253, 0.25);
+  color: var(--habitto-accent-purple);
+  background: var(--habitto-accent-purple-subtle);
+  border: 1px solid var(--habitto-accent-purple-border);
   padding: 3px 10px;
-  border-radius: var(--radius-full);
+  border-radius: var(--radius-sm);
 }
 
 .habitto-case-study .arch-layers-stack {
@@ -554,8 +553,8 @@
 }
 
 .habitto-case-study .arch-layer-card {
-  background: var(--habitto-bg-dark-card);
-  border: 1px solid rgba(255, 255, 255, 0.07);
+  background: var(--habitto-bg-subtle);
+  border: 1px solid var(--habitto-border);
   border-radius: var(--radius-sm);
   padding: 16px 20px;
 }
@@ -568,25 +567,25 @@
 }
 
 .habitto-case-study .layer-icon {
-  color: #a78bfa;
+  color: var(--habitto-accent-purple);
 }
 
 .habitto-case-study .layer-header strong {
   font-size: 0.92rem;
-  color: #ffffff;
+  color: var(--habitto-text-primary);
 }
 
 .habitto-case-study .arch-layer-card p {
   font-size: 0.84rem;
-  color: #94a3b8;
+  color: var(--habitto-text-secondary);
   line-height: 1.5;
   margin: 0;
 }
 
 .habitto-case-study .arch-layer-card code {
   font-family: var(--font-mono);
-  color: #c4b5fd;
-  background: rgba(196, 181, 253, 0.12);
+  color: var(--habitto-accent-purple);
+  background: var(--habitto-accent-purple-subtle);
   padding: 2px 6px;
   border-radius: 4px;
   font-size: 0.8rem;
@@ -599,7 +598,7 @@
   gap: 8px;
   font-family: var(--font-mono);
   font-size: 0.72rem;
-  color: #64748b;
+  color: var(--habitto-text-tertiary);
   padding: 4px 0;
 }
 
@@ -608,7 +607,7 @@
   grid-template-columns: repeat(4, 1fr);
   gap: 12px;
   padding-top: 20px;
-  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  border-top: 1px solid var(--habitto-border);
 }
 
 .habitto-case-study .privacy-pill {
@@ -617,11 +616,11 @@
   gap: 8px;
   font-family: var(--font-mono);
   font-size: 0.78rem;
-  color: #cbd5e1;
+  color: var(--habitto-text-secondary);
 }
 
 .habitto-case-study .privacy-check {
-  color: #34d399;
+  color: var(--habitto-accent-sage);
 }
 
 /* Backup Pipeline Flow */
@@ -634,8 +633,8 @@
 }
 
 .habitto-case-study .pipeline-step {
-  background: var(--habitto-bg-dark-card);
-  border: 1px solid rgba(255, 255, 255, 0.07);
+  background: var(--habitto-bg-subtle);
+  border: 1px solid var(--habitto-border);
   border-radius: var(--radius-sm);
   padding: 16px;
   min-height: 110px;
@@ -646,26 +645,26 @@
 .habitto-case-study .step-num {
   font-family: var(--font-mono);
   font-size: 0.7rem;
-  color: #a78bfa;
+  color: var(--habitto-accent-purple);
   margin-bottom: 4px;
 }
 
 .habitto-case-study .pipeline-step strong {
   font-size: 0.85rem;
-  color: #ffffff;
+  color: var(--habitto-text-primary);
   margin-bottom: 4px;
 }
 
 .habitto-case-study .pipeline-step p {
   font-size: 0.76rem;
-  color: #94a3b8;
+  color: var(--habitto-text-secondary);
   line-height: 1.4;
   margin: 0;
 }
 
 .habitto-case-study .pipeline-arrow-wrap {
   font-family: var(--font-mono);
-  color: #64748b;
+  color: var(--habitto-text-tertiary);
   font-size: 1.1rem;
 }
 
@@ -689,29 +688,29 @@
 }
 
 .habitto-case-study .branch-item span {
-  color: #94a3b8;
+  color: var(--habitto-text-secondary);
   font-size: 0.72rem;
 }
 
 .habitto-case-study .branch-success {
-  background: rgba(16, 185, 129, 0.12);
-  border: 1px solid rgba(16, 185, 129, 0.3);
-  color: #34d399;
+  background: var(--habitto-accent-sage-subtle);
+  border: 1px solid var(--habitto-accent-sage-border);
+  color: var(--habitto-accent-sage);
 }
 
 .habitto-case-study .branch-failure {
-  background: rgba(239, 68, 68, 0.12);
-  border: 1px solid rgba(239, 68, 68, 0.3);
-  color: #f87171;
+  background: var(--habitto-accent-red-subtle);
+  border: 1px solid var(--habitto-accent-red-border);
+  color: var(--habitto-accent-red);
 }
 
 .habitto-case-study .pipeline-note {
   font-size: 0.84rem;
-  color: #94a3b8;
+  color: var(--habitto-text-secondary);
   line-height: 1.55;
   margin: 0;
   padding-top: 14px;
-  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  border-top: 1px solid var(--habitto-border);
 }
 
 /* Notification Card */

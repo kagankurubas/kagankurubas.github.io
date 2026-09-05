@@ -746,7 +746,7 @@ export const TodoistCaseStudy: React.FC<TodoistCaseStudyProps> = ({ onNavigate }
               </div>
             </div>
 
-            <p className="pipeline-note" style={{ textAlign: 'center', marginTop: '16px', fontSize: '0.8rem', color: 'var(--text-tertiary)' }}>
+            <p className="pipeline-note" style={{ textAlign: 'center', marginTop: '16px', fontSize: '0.8rem', color: 'var(--text-soft)' }}>
               When resolution yields no matching project ID (<code>None</code>), the downstream Todoist API defaults the task to the user's Inbox.
             </p>
           </div>
