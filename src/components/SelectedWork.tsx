@@ -587,15 +587,11 @@ export const SelectedWork: React.FC<SelectedWorkProps> = ({ onNavigate }) => {
                       <a
                         className="button button-primary"
                         href={zombie.primaryLink.href}
-                        onClick={(e) => {
-                          if (zombie.primaryLink.href.startsWith('#')) {
-                            e.preventDefault();
-                            document.getElementById(zombie.primaryLink.href.slice(1))?.scrollIntoView({ behavior: 'smooth' });
-                          }
-                        }}
+                        target="_blank"
+                        rel="noreferrer"
                       >
                         <span>{zombie.primaryLink.label}</span>
-                        <ArrowRight size={16} className="cta-arrow" />
+                        <ExternalLink size={14} />
                       </a>
                     </div>
                   </div>

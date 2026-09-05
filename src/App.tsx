@@ -5,7 +5,6 @@ import { Header } from './components/Header';
 import { Hero } from './components/Hero';
 import { SelectedWork } from './components/SelectedWork';
 import { About } from './components/About';
-import { CurrentlyBuilding } from './components/CurrentlyBuilding';
 import { Experiments } from './components/Experiments';
 import { BeyondEngineering } from './components/BeyondEngineering';
 import { Contact } from './components/Contact';
@@ -82,7 +81,6 @@ const HomePageView: React.FC<{ onNavigate: (path: string, hash?: string) => void
         <div className="section-divider-rhythm" aria-hidden="true">
           <span className="section-divider-node"></span>
         </div>
-        <CurrentlyBuilding />
         <Experiments />
         <div className="section-divider-rhythm" aria-hidden="true">
           <span className="section-divider-node"></span>

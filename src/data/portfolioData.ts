@@ -78,28 +78,7 @@ export const siteData = {
         description: 'A 2D idle game currently in development, focused on real-time gameplay mechanics, systems design, and interactive audio.',
         tags: ['Unity', 'C#', '2D', 'Idle Systems', 'Systems Design', 'Interactive Audio'],
         status: 'in-progress',
-        primaryLink: { label: 'See Active Development', href: '#building' },
-      },
-    ],
-  },
-  currentlyBuilding: {
-    eyebrow: 'CURRENTLY BUILDING',
-    title: 'Active Development',
-    description: 'Current software, systems, and game projects under active development.',
-    items: [
-      {
-        category: 'GAME DEVELOPMENT',
-        title: 'ZombieBarricadeIdle',
-        description: 'A 2D idle game currently in development with Unity and C#.',
-        tech: 'Unity · C# · 2D · Idle Systems',
-        status: 'IN DEVELOPMENT',
-      },
-      {
-        category: 'HARDWARE / IoT',
-        title: 'Smart Home Systems',
-        description: 'Exploring ESP32-based smart home devices, environmental sensing, and local automation.',
-        tech: 'ESP32 · Embedded · Sensors · IoT',
-        status: 'PLANNING',
+        primaryLink: { label: 'GitHub Profile ↗', href: 'https://github.com/kagankurubas' },
       },
     ],
   },
@@ -129,6 +108,7 @@ export const siteData = {
     bio: [
       'I approach software engineering through clean systems, intentional structure, and thoughtful interaction. My work spans user-facing products, AI-assisted systems, and gameplay engineering.',
       'Outside software, I am an active guitarist and musician. That background influences how I think about rhythm, responsiveness, pacing, and interaction in digital systems.',
+      "I'm also generally curious about embedded systems and IoT, and enjoy tinkering with microcontrollers and hardware in my own time.",
     ],
     metadata: [
       { label: 'DEGREE', value: 'B.S. Computer Engineering' },
