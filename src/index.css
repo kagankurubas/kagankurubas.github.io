@@ -300,6 +300,18 @@ img {
   border-radius: 999px;
 }
 
+.status-dot-active {
+  background: var(--green);
+}
+
+.status-dot-planning {
+  background: var(--accent);
+}
+
+.status-dot-prototype {
+  background: var(--secondary);
+}
+
 .reveal {
   opacity: 0;
   transform: translateY(16px);

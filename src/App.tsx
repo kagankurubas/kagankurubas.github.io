@@ -4,7 +4,6 @@ import { usePageMetadata, type PageMetadataConfig } from './hooks/usePageMetadat
 import { Header } from './components/Header';
 import { Hero } from './components/Hero';
 import { SelectedWork } from './components/SelectedWork';
-import { EngineeringRange } from './components/EngineeringRange';
 import { About } from './components/About';
 import { CurrentlyBuilding } from './components/CurrentlyBuilding';
 import { Experiments } from './components/Experiments';
@@ -80,10 +79,6 @@ const HomePageView: React.FC<{ onNavigate: (path: string, hash?: string) => void
       <main id="top">
         <Hero />
         <SelectedWork onNavigate={onNavigate} />
-        <div className="section-divider-rhythm" aria-hidden="true">
-          <span className="section-divider-node"></span>
-        </div>
-        <EngineeringRange onNavigate={onNavigate} />
         <div className="section-divider-rhythm" aria-hidden="true">
           <span className="section-divider-node"></span>
         </div>

@@ -1,15 +1,3 @@
 .section-building {
   padding: 90px 0 100px;
 }
-
-.status-dot-active {
-  background: var(--green);
-}
-
-.status-dot-planning {
-  background: var(--accent);
-}
-
-.status-dot-prototype {
-  background: var(--secondary);
-}

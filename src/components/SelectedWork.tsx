@@ -27,6 +27,10 @@ export const SelectedWork: React.FC<SelectedWorkProps> = ({ onNavigate }) => {
   const habitto = selectedWork.projects[0];
   const todoist = selectedWork.projects[1];
   const bookshelf = selectedWork.projects[2];
+  const zombie = selectedWork.projects[3];
+
+  const statusLabel = (status: string) => (status === 'shipped' ? 'Shipped' : 'In progress');
+  const statusDotClass = (status: string) => (status === 'shipped' ? 'status-dot-active' : 'status-dot-planning');
 
   const [expanded, setExpanded] = React.useState<string | null>(null);
   const toggle = (id: string) => setExpanded((prev) => (prev === id ? null : id));
@@ -139,6 +143,10 @@ export const SelectedWork: React.FC<SelectedWorkProps> = ({ onNavigate }) => {
               <span className="project-row-name">{habitto.title}</span>
               <span className="project-row-leader" aria-hidden="true"></span>
               <span className="project-row-category">{habitto.category}</span>
+              <span className="index-row-status project-row-status">
+                <span className={`status-dot ${statusDotClass(habitto.status)}`} aria-hidden="true" />
+                {statusLabel(habitto.status)}
+              </span>
               <ChevronDown size={18} className="project-row-chevron" aria-hidden="true" />
             </button>
 
@@ -164,15 +172,17 @@ export const SelectedWork: React.FC<SelectedWorkProps> = ({ onNavigate }) => {
                         <span>{habitto.primaryLink.label}</span>
                         <ArrowRight size={16} className="cta-arrow" />
                       </a>
-                      <a
-                        className="button button-secondary"
-                        href={habitto.secondaryLink.href}
-                        target="_blank"
-                        rel="noreferrer"
-                      >
-                        <span>{habitto.secondaryLink.label}</span>
-                        <ExternalLink size={14} />
-                      </a>
+                      {habitto.secondaryLink && (
+                        <a
+                          className="button button-secondary"
+                          href={habitto.secondaryLink.href}
+                          target="_blank"
+                          rel="noreferrer"
+                        >
+                          <span>{habitto.secondaryLink.label}</span>
+                          <ExternalLink size={14} />
+                        </a>
+                      )}
                     </div>
                   </div>
 
@@ -280,6 +290,10 @@ export const SelectedWork: React.FC<SelectedWorkProps> = ({ onNavigate }) => {
               <span className="project-row-name">{todoist.title}</span>
               <span className="project-row-leader" aria-hidden="true"></span>
               <span className="project-row-category">{todoist.category}</span>
+              <span className="index-row-status project-row-status">
+                <span className={`status-dot ${statusDotClass(todoist.status)}`} aria-hidden="true" />
+                {statusLabel(todoist.status)}
+              </span>
               <ChevronDown size={18} className="project-row-chevron" aria-hidden="true" />
             </button>
 
@@ -312,15 +326,17 @@ export const SelectedWork: React.FC<SelectedWorkProps> = ({ onNavigate }) => {
                         <span>{todoist.primaryLink.label}</span>
                         <ArrowRight size={16} className="cta-arrow" />
                       </a>
-                      <a
-                        className="button button-secondary"
-                        href={todoist.secondaryLink.href}
-                        target="_blank"
-                        rel="noreferrer"
-                      >
-                        <span>{todoist.secondaryLink.label}</span>
-                        <ExternalLink size={14} />
-                      </a>
+                      {todoist.secondaryLink && (
+                        <a
+                          className="button button-secondary"
+                          href={todoist.secondaryLink.href}
+                          target="_blank"
+                          rel="noreferrer"
+                        >
+                          <span>{todoist.secondaryLink.label}</span>
+                          <ExternalLink size={14} />
+                        </a>
+                      )}
                     </div>
                   </div>
 
@@ -417,6 +433,10 @@ export const SelectedWork: React.FC<SelectedWorkProps> = ({ onNavigate }) => {
               <span className="project-row-name">{bookshelf.title}</span>
               <span className="project-row-leader" aria-hidden="true"></span>
               <span className="project-row-category">{bookshelf.category}</span>
+              <span className="index-row-status project-row-status">
+                <span className={`status-dot ${statusDotClass(bookshelf.status)}`} aria-hidden="true" />
+                {statusLabel(bookshelf.status)}
+              </span>
               <ChevronDown size={18} className="project-row-chevron" aria-hidden="true" />
             </button>
 
@@ -449,15 +469,17 @@ export const SelectedWork: React.FC<SelectedWorkProps> = ({ onNavigate }) => {
                         <span>{bookshelf.primaryLink.label}</span>
                         <ArrowRight size={16} className="cta-arrow" />
                       </a>
-                      <a
-                        className="button button-secondary"
-                        href={bookshelf.secondaryLink.href}
-                        target="_blank"
-                        rel="noreferrer"
-                      >
-                        <span>{bookshelf.secondaryLink.label}</span>
-                        <ExternalLink size={14} />
-                      </a>
+                      {bookshelf.secondaryLink && (
+                        <a
+                          className="button button-secondary"
+                          href={bookshelf.secondaryLink.href}
+                          target="_blank"
+                          rel="noreferrer"
+                        >
+                          <span>{bookshelf.secondaryLink.label}</span>
+                          <ExternalLink size={14} />
+                        </a>
+                      )}
                       {bookshelf.demoLink && (
                         <a
                           className="button button-secondary"
@@ -519,6 +541,62 @@ export const SelectedWork: React.FC<SelectedWorkProps> = ({ onNavigate }) => {
                         <span className="bs-browser-status-dot"></span>
                         <span>65 tests · Supabase RLS</span>
                       </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          {/* ============================================================ */}
+          {/* 04 — ZOMBIEBARRICADEIDLE                                      */}
+          {/* ============================================================ */}
+          <article className={`project-row ${expanded === 'zombie' ? 'open' : ''}`}>
+            <button
+              type="button"
+              className="project-row-header"
+              onClick={() => toggle('zombie')}
+              aria-expanded={expanded === 'zombie'}
+              aria-controls="panel-zombie"
+            >
+              <span className="project-row-num">{zombie.index}</span>
+              <span className="project-row-name">{zombie.title}</span>
+              <span className="project-row-leader" aria-hidden="true"></span>
+              <span className="project-row-category">{zombie.category}</span>
+              <span className="index-row-status project-row-status">
+                <span className={`status-dot ${statusDotClass(zombie.status)}`} aria-hidden="true" />
+                {statusLabel(zombie.status)}
+              </span>
+              <ChevronDown size={18} className="project-row-chevron" aria-hidden="true" />
+            </button>
+
+            <div className={`project-row-panel ${expanded === 'zombie' ? 'open' : ''}`} id="panel-zombie">
+              <div className="project-row-panel-inner">
+                <div className="project-row-grid single-col">
+                  <div className="showcase-content">
+                    <h3 className="showcase-headline">{zombie.headline}</h3>
+                    <p className="showcase-description">{zombie.description}</p>
+
+                    <div className="tag-list" aria-label="ZombieBarricadeIdle technologies">
+                      {zombie.tags.map((tag, idx) => (
+                        <span className="tag" key={idx}>{tag}</span>
+                      ))}
+                    </div>
+
+                    <div className="showcase-actions">
+                      <a
+                        className="button button-primary"
+                        href={zombie.primaryLink.href}
+                        onClick={(e) => {
+                          if (zombie.primaryLink.href.startsWith('#')) {
+                            e.preventDefault();
+                            document.getElementById(zombie.primaryLink.href.slice(1))?.scrollIntoView({ behavior: 'smooth' });
+                          }
+                        }}
+                      >
+                        <span>{zombie.primaryLink.label}</span>
+                        <ArrowRight size={16} className="cta-arrow" />
+                      </a>
                     </div>
                   </div>
                 </div>
