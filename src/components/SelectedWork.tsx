@@ -404,7 +404,7 @@ export const SelectedWork: React.FC<SelectedWorkProps> = ({ onNavigate }) => {
                       <div className="arch-footer">
                         <div className="arch-footer-item">
                           <CheckCircle2 size={13} className="check-icon" />
-                          <span>168 Pytest Automated Tests</span>
+                          <span>172 Pytest Automated Tests</span>
                         </div>
                         <div className="arch-footer-item">
                           <Workflow size={13} className="check-icon" />
@@ -539,7 +539,7 @@ export const SelectedWork: React.FC<SelectedWorkProps> = ({ onNavigate }) => {
 
                       <div className="bs-browser-badge">
                         <span className="bs-browser-status-dot"></span>
-                        <span>65 tests · Supabase RLS</span>
+                        <span>132 tests · Supabase RLS</span>
                       </div>
                     </div>
                   </div>

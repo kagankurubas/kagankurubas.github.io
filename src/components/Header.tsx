@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { useHeaderScroll } from '../hooks/useHeaderScroll';
 import { siteData } from '../data/portfolioData';
 import { Menu, X } from 'lucide-react';
@@ -7,9 +7,31 @@ import './Header.css';
 export const Header: React.FC = () => {
   const scrolled = useHeaderScroll();
   const [menuOpen, setMenuOpen] = useState(false);
+  const headerRef = useRef<HTMLElement>(null);
 
   const toggleMenu = () => setMenuOpen(!menuOpen);
   const closeMenu = () => setMenuOpen(false);
+
+  useEffect(() => {
+    if (!menuOpen) return;
+
+    const handleOutsideInteraction = (e: MouseEvent | KeyboardEvent) => {
+      if (e instanceof KeyboardEvent) {
+        if (e.key === 'Escape') closeMenu();
+        return;
+      }
+      if (headerRef.current && !headerRef.current.contains(e.target as Node)) {
+        closeMenu();
+      }
+    };
+
+    document.addEventListener('mousedown', handleOutsideInteraction);
+    document.addEventListener('keydown', handleOutsideInteraction);
+    return () => {
+      document.removeEventListener('mousedown', handleOutsideInteraction);
+      document.removeEventListener('keydown', handleOutsideInteraction);
+    };
+  }, [menuOpen]);
 
   const handleScrollClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
     if (href.startsWith('#')) {
@@ -24,7 +46,7 @@ export const Header: React.FC = () => {
   };
 
   return (
-    <header className={`site-header ${scrolled ? 'scrolled' : ''}`} id="siteHeader">
+    <header className={`site-header ${scrolled ? 'scrolled' : ''}`} id="siteHeader" ref={headerRef}>
       <div className="container nav">
         <a className="brand" href="#top" aria-label="Kağan Kurubaş home" onClick={(e) => handleScrollClick(e, '#top')}>
           <span className="brand-mark">{siteData.header.brand.initials}</span>

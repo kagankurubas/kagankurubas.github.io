@@ -409,6 +409,7 @@
   display: flex;
   flex-direction: column;
   gap: 10px;
+  min-width: 0;
 }
 
 .trans-header {
@@ -1213,7 +1214,7 @@
   }
 
   .transformation-box {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
   }
 
   .security-pipeline-box {
@@ -1244,6 +1245,11 @@
   .privacy-comparison-grid,
   .decisions-grid {
     grid-template-columns: 1fr;
+  }
+
+  .todoist-case-study .case-metrics-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px 16px;
   }
 
   .shared-pipeline-bar {

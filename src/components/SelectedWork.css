@@ -779,6 +779,9 @@
     position: static;
     transform: none;
     flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    max-width: 100%;
     margin-bottom: 14px;
     gap: 3px;
   }
@@ -835,6 +838,11 @@
 @media (max-width: 560px) {
   .project-row-name {
     font-size: 1.15rem;
+    flex-shrink: 1;
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
   }
 
   .project-row-leader {

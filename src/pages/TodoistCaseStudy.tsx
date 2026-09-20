@@ -136,7 +136,7 @@ export const TodoistCaseStudy: React.FC<TodoistCaseStudyProps> = ({ onNavigate }
                 </div>
                 <div className="case-metric-item">
                   <span className="metric-label">TESTING</span>
-                  <strong className="metric-val">168 automated tests</strong>
+                  <strong className="metric-val">172 automated tests</strong>
                 </div>
                 <div className="case-metric-item">
                   <span className="metric-label">TRANSPORT</span>
@@ -866,7 +866,7 @@ export const TodoistCaseStudy: React.FC<TodoistCaseStudyProps> = ({ onNavigate }
             <div className="section-heading reveal">
               <div>
                 <span className="eyebrow">VERIFICATION</span>
-                <h2>168 automated tests around the bridge.</h2>
+                <h2>172 automated tests around the bridge.</h2>
               </div>
               <p>
                 Mock-based tests verify core behavior without requiring live Todoist network calls for the tested paths.
@@ -991,7 +991,7 @@ export const TodoistCaseStudy: React.FC<TodoistCaseStudyProps> = ({ onNavigate }
                 </div>
                 <div className="spec-row">
                   <span className="spec-label">VERIFICATION</span>
-                  <span>168 Pytest automated unit and integration tests</span>
+                  <span>172 Pytest automated unit and integration tests</span>
                 </div>
                 <div className="spec-row">
                   <span className="spec-label">LICENSE</span>
