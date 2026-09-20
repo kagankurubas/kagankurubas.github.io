@@ -82,25 +82,6 @@ export const siteData = {
       },
     ],
   },
-  experiments: {
-    eyebrow: 'EXPERIMENTS / LAB',
-    title: 'Technical explorations and smaller builds.',
-    description: 'Focused architectural prototypes, workflows, and experimental tooling.',
-    items: [
-      {
-        category: 'APPLICATION ARCHITECTURE',
-        title: 'Expense / Budget Tracker',
-        description: 'Exploring application structure, financial data modeling, and dashboard-oriented interfaces.',
-        tech: 'Data Modeling · Application Architecture · UI',
-      },
-      {
-        category: 'GENERATIVE AI',
-        title: 'ComfyUI Pipelines',
-        description: 'Building reusable visual-generation workflows for project and game concept exploration.',
-        tech: 'ComfyUI · LoRA · Custom Nodes · Visual Workflows',
-      },
-    ],
-  },
   about: {
     eyebrow: 'About',
     title: 'Engineering discipline with a creative point of view.',

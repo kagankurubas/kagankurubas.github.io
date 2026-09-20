@@ -5,7 +5,6 @@ import { Header } from './components/Header';
 import { Hero } from './components/Hero';
 import { SelectedWork } from './components/SelectedWork';
 import { About } from './components/About';
-import { Experiments } from './components/Experiments';
 import { BeyondEngineering } from './components/BeyondEngineering';
 import { Contact } from './components/Contact';
 import { Footer } from './components/Footer';
@@ -78,10 +77,6 @@ const HomePageView: React.FC<{ onNavigate: (path: string, hash?: string) => void
       <main id="top">
         <Hero />
         <SelectedWork onNavigate={onNavigate} />
-        <div className="section-divider-rhythm" aria-hidden="true">
-          <span className="section-divider-node"></span>
-        </div>
-        <Experiments />
         <div className="section-divider-rhythm" aria-hidden="true">
           <span className="section-divider-node"></span>
         </div>
