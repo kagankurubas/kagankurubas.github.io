@@ -124,7 +124,7 @@ export const BookShelfCaseStudy: React.FC<BookShelfCaseStudyProps> = ({ onNaviga
                   <span>Fully bilingual</span>
                 </div>
                 <div className="case-stat-chip">
-                  <strong>213 tests</strong>
+                  <strong>291 tests</strong>
                   <span>Vitest + RTL</span>
                 </div>
               </div>
@@ -350,7 +350,7 @@ export const BookShelfCaseStudy: React.FC<BookShelfCaseStudyProps> = ({ onNaviga
           <div className="container">
             <div className="section-heading reveal">
               <span className="eyebrow">VERIFICATION & DELIVERY</span>
-              <h2 className="section-title">213 automated tests, checked on every push.</h2>
+              <h2 className="section-title">291 automated tests, checked on every push.</h2>
               <p className="section-lead">
                 Vitest and React Testing Library cover the core hooks, drag-and-drop shelf logic, and the AI chat flow, run by GitHub Actions alongside lint and build.
               </p>
@@ -412,7 +412,7 @@ export const BookShelfCaseStudy: React.FC<BookShelfCaseStudyProps> = ({ onNaviga
                 </div>
                 <div className="spec-row">
                   <span className="spec-label">VERIFICATION</span>
-                  <span>213 Vitest + React Testing Library automated tests</span>
+                  <span>291 Vitest + React Testing Library automated tests</span>
                 </div>
                 <div className="spec-row">
                   <span className="spec-label">DEPLOYMENT</span>
