@@ -111,7 +111,7 @@ export const BookShelfCaseStudy: React.FC<BookShelfCaseStudyProps> = ({ onNaviga
                 <span className="tech-chip">Supabase</span>
                 <span className="tech-chip">Gemini API</span>
                 <span className="tech-chip">react-i18next</span>
-                <span className="tech-chip">html5-qrcode</span>
+                <span className="tech-chip">zxing-wasm</span>
               </div>
 
               <div className="case-stat-row">
@@ -124,7 +124,7 @@ export const BookShelfCaseStudy: React.FC<BookShelfCaseStudyProps> = ({ onNaviga
                   <span>Fully bilingual</span>
                 </div>
                 <div className="case-stat-chip">
-                  <strong>291 tests</strong>
+                  <strong>385 tests</strong>
                   <span>Vitest + RTL</span>
                 </div>
               </div>
@@ -350,9 +350,9 @@ export const BookShelfCaseStudy: React.FC<BookShelfCaseStudyProps> = ({ onNaviga
           <div className="container">
             <div className="section-heading reveal">
               <span className="eyebrow">VERIFICATION & DELIVERY</span>
-              <h2 className="section-title">291 automated tests, checked on every push.</h2>
+              <h2 className="section-title">385 automated tests, checked on every push.</h2>
               <p className="section-lead">
-                Vitest and React Testing Library cover the core hooks, drag-and-drop shelf logic, and the AI chat flow, run by GitHub Actions alongside lint and build.
+                Vitest and React Testing Library cover the core hooks, drag-and-drop shelf logic, and the AI chat flow, run by GitHub Actions alongside lint, build, static security checks, and RLS integration tests against a local Supabase.
               </p>
             </div>
 
@@ -382,7 +382,7 @@ export const BookShelfCaseStudy: React.FC<BookShelfCaseStudyProps> = ({ onNaviga
                 <span className="bs-test-check"><Check size={14} /></span>
                 <div className="bs-test-meta">
                   <strong>Continuous integration</strong>
-                  <span>Lint, test, and build run automatically on every push</span>
+                  <span>Lint, test, build, security checks, and RLS integration tests run on every push</span>
                 </div>
               </div>
             </div>
@@ -408,11 +408,11 @@ export const BookShelfCaseStudy: React.FC<BookShelfCaseStudyProps> = ({ onNaviga
                 </div>
                 <div className="spec-row">
                   <span className="spec-label">TECH STACK</span>
-                  <span>React 19 · Vite · Supabase · Gemini API · react-i18next · html5-qrcode</span>
+                  <span>React 19 · Vite · Supabase · Gemini API · react-i18next · zxing-wasm</span>
                 </div>
                 <div className="spec-row">
                   <span className="spec-label">VERIFICATION</span>
-                  <span>291 Vitest + React Testing Library automated tests</span>
+                  <span>385 Vitest + React Testing Library automated tests</span>
                 </div>
                 <div className="spec-row">
                   <span className="spec-label">DEPLOYMENT</span>
