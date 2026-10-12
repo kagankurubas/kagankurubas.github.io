@@ -123,7 +123,7 @@ const svg = `
       <circle cx="3" cy="-14" r="2.5" fill="#B69CFF" fill-opacity="0.7" />
       <text x="0" y="0" fill="#B69CFF" class="font-mono" font-size="12" font-weight="700" letter-spacing="1">01</text>
       <text x="28" y="0" fill="#F5F7FB" class="font-mono" font-size="13" font-weight="600" letter-spacing="1">PRODUCT ENGINEERING</text>
-      <text x="28" y="20" fill="#8E9BB0" class="font-sans" font-size="13" font-weight="400">Flutter · Dart · Local-First UX</text>
+      <text x="28" y="20" fill="#8E9BB0" class="font-sans" font-size="13" font-weight="400">React · Supabase · Gemini API</text>
     </g>
 
     <!-- Discipline 02 -->

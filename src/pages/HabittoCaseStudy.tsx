@@ -84,12 +84,18 @@ export const HabittoCaseStudy: React.FC<HabittoCaseStudyProps> = ({ onNavigate }
 
           <div className="case-header-meta">
             <span className="case-brand-tag">Habitto</span>
-            <span className="case-version-pill">Android v1.1.0</span>
+            <span className="case-version-pill">Archived · Android v1.1.0</span>
           </div>
         </div>
       </header>
 
       <main>
+        <div className="container">
+          <p className="habitto-archived-note" role="note">
+            <strong>No longer maintained.</strong> Habitto is archived and won't receive updates. The code and the last Android release stay available as they are.
+          </p>
+        </div>
+
         {/* ============================================================ */}
         {/* 01 — HERO                                                    */}
         {/* ============================================================ */}

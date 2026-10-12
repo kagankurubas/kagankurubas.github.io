@@ -8,9 +8,8 @@ The portfolio is published with GitHub Pages.
 
 ## Selected Work
 
-The site's Selected Work section highlights three flagship engineering projects:
+The site's Selected Work section highlights these engineering projects:
 
-- [Habitto](https://github.com/kagankurubas/habitto) — a customizable, local-first habit tracker built with Flutter.
 - [Todoist MCP Bridge](https://github.com/kagankurubas/Todoist-MCP-Bridge) — a Model Context Protocol server and automation bridge connecting AI assistants to Todoist.
 - [BookShelf](https://github.com/kagankurubas/bookshelf) — a personal book cataloging app with barcode-scan adding and a Gemini-powered AI reading assistant.
 
