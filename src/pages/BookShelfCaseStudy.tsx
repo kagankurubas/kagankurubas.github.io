@@ -83,7 +83,7 @@ export const BookShelfCaseStudy: React.FC<BookShelfCaseStudyProps> = ({ onNaviga
 
           <div className="case-header-meta">
             <span className="case-brand-tag">BookShelf</span>
-            <span className="case-version-pill">v1.0.0 · Live on Netlify</span>
+            <span className="case-version-pill">v1.1.0 · Live on Netlify</span>
           </div>
         </div>
       </header>
@@ -116,7 +116,7 @@ export const BookShelfCaseStudy: React.FC<BookShelfCaseStudyProps> = ({ onNaviga
 
               <div className="case-stat-row">
                 <div className="case-stat-chip">
-                  <strong>v1.0.0</strong>
+                  <strong>v1.1.0</strong>
                   <span>Shipped on Netlify</span>
                 </div>
                 <div className="case-stat-chip">
@@ -124,7 +124,7 @@ export const BookShelfCaseStudy: React.FC<BookShelfCaseStudyProps> = ({ onNaviga
                   <span>Fully bilingual</span>
                 </div>
                 <div className="case-stat-chip">
-                  <strong>385 tests</strong>
+                  <strong>610 tests</strong>
                   <span>Vitest + RTL</span>
                 </div>
               </div>
@@ -246,7 +246,7 @@ export const BookShelfCaseStudy: React.FC<BookShelfCaseStudyProps> = ({ onNaviga
               <div className="bs-feature-card">
                 <div className="bs-feature-icon"><Library size={18} /></div>
                 <strong>Multiple Libraries</strong>
-                <p>Books can be organized into separate libraries. The first one becomes a protected main library that always holds every book.</p>
+                <p>Books can be organized into separate libraries. The first one becomes a main library that can't be deleted, and every book the app adds or edits is linked to it.</p>
               </div>
 
               <div className="bs-feature-card">
@@ -264,13 +264,13 @@ export const BookShelfCaseStudy: React.FC<BookShelfCaseStudyProps> = ({ onNaviga
               <div className="bs-feature-card">
                 <div className="bs-feature-icon"><Sparkles size={18} /></div>
                 <strong>AI Reading Assistant</strong>
-                <p>A Gemini-powered chat panel that recommends books and answers questions grounded in the user's own library, in their app language.</p>
+                <p>A Gemini-powered chat panel that recommends books and answers questions grounded in the user's own library, replying in the language the user writes in.</p>
               </div>
 
               <div className="bs-feature-card">
                 <div className="bs-feature-icon"><Languages size={18} /></div>
                 <strong>Full TR / EN Localization</strong>
-                <p>Every screen, including the AI assistant's replies, is localized across Turkish and English via react-i18next.</p>
+                <p>Every screen is localized across Turkish and English via react-i18next, and the AI assistant replies in the language of each message.</p>
               </div>
             </div>
           </div>
@@ -332,7 +332,7 @@ export const BookShelfCaseStudy: React.FC<BookShelfCaseStudyProps> = ({ onNaviga
               <div className="bs-security-card">
                 <Library size={18} className="bs-security-icon" />
                 <strong>Protected Main Library</strong>
-                <p>The first library a user creates becomes a protected default that always holds every book, so nothing is orphaned if another library is deleted.</p>
+                <p>The first library a user creates becomes a main library the app won't delete, and every book the app adds or edits is linked to it, so deleting another library doesn't orphan those books.</p>
               </div>
               <div className="bs-security-card">
                 <Lock size={18} className="bs-security-icon" />
@@ -350,7 +350,7 @@ export const BookShelfCaseStudy: React.FC<BookShelfCaseStudyProps> = ({ onNaviga
           <div className="container">
             <div className="section-heading reveal">
               <span className="eyebrow">VERIFICATION & DELIVERY</span>
-              <h2 className="section-title">385 automated tests, checked on every push.</h2>
+              <h2 className="section-title">610 automated tests, checked on every push.</h2>
               <p className="section-lead">
                 Vitest and React Testing Library cover the core hooks, drag-and-drop shelf logic, and the AI chat flow, run by GitHub Actions alongside lint, build, static security checks, and RLS integration tests against a local Supabase.
               </p>
@@ -412,7 +412,7 @@ export const BookShelfCaseStudy: React.FC<BookShelfCaseStudyProps> = ({ onNaviga
                 </div>
                 <div className="spec-row">
                   <span className="spec-label">VERIFICATION</span>
-                  <span>385 Vitest + React Testing Library automated tests</span>
+                  <span>610 Vitest + React Testing Library automated tests</span>
                 </div>
                 <div className="spec-row">
                   <span className="spec-label">DEPLOYMENT</span>

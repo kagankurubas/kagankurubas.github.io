@@ -34,7 +34,7 @@ export const siteData = {
         headline: 'Personal Library, AI-Assisted Reading',
         description: 'A personal book cataloging app for logging, organizing, and browsing a home library, with fast barcode-scan adding, a Gemini-powered AI reading assistant, and a fully bilingual (Turkish/English) interface.',
         tags: ['React 19', 'Vite', 'Supabase', 'Gemini API', 'react-i18next', 'zxing-wasm'],
-        highlight: '385 automated tests',
+        highlight: '610 automated tests',
         status: 'shipped',
         primaryLink: { label: 'Explore Project', href: '/projects/bookshelf' },
         secondaryLink: { label: 'GitHub Repository ↗', href: 'https://github.com/kagankurubas/bookshelf' },

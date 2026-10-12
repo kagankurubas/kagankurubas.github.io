@@ -250,7 +250,7 @@ export const SelectedWork: React.FC<SelectedWorkProps> = ({ onNavigate }) => {
 
                       <div className="bs-browser-badge">
                         <span className="bs-browser-status-dot"></span>
-                        <span>385 tests · Supabase RLS</span>
+                        <span>610 tests · Supabase RLS</span>
                       </div>
                     </div>
                   </div>
