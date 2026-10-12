@@ -67,16 +67,19 @@ export const About: React.FC = () => {
           </div>
 
           <div className="about-resume-wrap">
-            <a 
-              className="about-resume-link" 
-              href={about.resumeLink.href}
-              target="_blank"
-              rel="noreferrer"
-              onClick={(e) => handleResumeClick(e, about.resumeLink.href)}
-            >
-              <span>{about.resumeLink.label}</span>
-              <ArrowUpRight size={14} className="resume-arrow" />
-            </a>
+            {about.resumeLinks.map((link) => (
+              <a
+                key={link.href}
+                className="about-resume-link"
+                href={link.href}
+                target="_blank"
+                rel="noreferrer"
+                onClick={(e) => handleResumeClick(e, link.href)}
+              >
+                <span>{link.label}</span>
+                <ArrowUpRight size={14} className="resume-arrow" />
+              </a>
+            ))}
           </div>
         </div>
       </div>

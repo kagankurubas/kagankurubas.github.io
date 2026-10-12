@@ -138,7 +138,9 @@
 
 .about-resume-wrap {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
+  gap: 8px 20px;
 }
 
 .about-resume-link {

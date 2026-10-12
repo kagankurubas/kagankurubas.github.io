@@ -96,7 +96,11 @@ export const siteData = {
       { label: 'LOCATION', value: 'Bursa, Türkiye' },
       { label: 'AVAILABILITY', value: 'Remote / Hybrid' },
     ],
-    resumeLink: { label: 'Resume ↗', href: '/resume.pdf' },
+    resumeLinks: [
+      { label: 'Resume · Software Engineer', href: '/cv/Kagan_Kurubas_CV_Product_Engineering.pdf' },
+      { label: 'Systems & AI', href: '/cv/Kagan_Kurubas_CV_Systems_AI.pdf' },
+      { label: 'Game Development', href: '/cv/Kagan_Kurubas_CV_Game_Development.pdf' },
+    ],
   },
   beyondEngineering: {
     eyebrow: 'BEYOND ENGINEERING',
