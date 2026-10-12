@@ -14,7 +14,10 @@ import {
   Check,
   ArrowRight,
   Lock,
-  ZoomIn
+  ZoomIn,
+  Share2,
+  WifiOff,
+  ArrowLeftRight
 } from 'lucide-react';
 import './BookShelfCaseStudy.css';
 
@@ -232,7 +235,7 @@ export const BookShelfCaseStudy: React.FC<BookShelfCaseStudyProps> = ({ onNaviga
               <span className="eyebrow">PRODUCT SURFACE</span>
               <h2 className="section-title">Cataloging that gets out of the way.</h2>
               <p className="section-lead">
-                Books can be added by camera scan, searched by title, or entered manually, then organized across libraries and shelves.
+                Books can be added by camera scan, searched by title, entered manually, or imported from Goodreads and StoryGraph, then organized across libraries and shelves.
               </p>
             </div>
 
@@ -259,6 +262,24 @@ export const BookShelfCaseStudy: React.FC<BookShelfCaseStudyProps> = ({ onNaviga
                 <div className="bs-feature-icon"><BarChart3 size={18} /></div>
                 <strong>Reading Dashboard</strong>
                 <p>Yearly and monthly reading trends, total books and pages read, average rating, and a category breakdown chart, filterable by year.</p>
+              </div>
+
+              <div className="bs-feature-card">
+                <div className="bs-feature-icon"><Share2 size={18} /></div>
+                <strong>Reading Recap</strong>
+                <p>A month or a year of finished books becomes a shareable image: a square shelf card or a calendar of the days each book was read, rendered in the browser.</p>
+              </div>
+
+              <div className="bs-feature-card">
+                <div className="bs-feature-icon"><WifiOff size={18} /></div>
+                <strong>Installable &amp; Offline</strong>
+                <p>A PWA that installs to the home screen and keeps working offline. Books added offline wait in a per-user queue and sync once the connection is back.</p>
+              </div>
+
+              <div className="bs-feature-card">
+                <div className="bs-feature-icon"><ArrowLeftRight size={18} /></div>
+                <strong>Import &amp; Export</strong>
+                <p>The whole library exports as CSV or JSON, and Goodreads or StoryGraph exports import with a preview before anything is added.</p>
               </div>
 
               <div className="bs-feature-card">

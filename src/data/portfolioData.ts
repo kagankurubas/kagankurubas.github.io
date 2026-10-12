@@ -32,7 +32,7 @@ export const siteData = {
         category: 'Full-Stack / AI Engineering',
         title: 'BookShelf',
         headline: 'Personal Library, AI-Assisted Reading',
-        description: 'A personal book cataloging app for logging, organizing, and browsing a home library, with fast barcode-scan adding, a Gemini-powered AI reading assistant, and a fully bilingual (Turkish/English) interface.',
+        description: 'A personal book cataloging app for logging, organizing, and browsing a home library, with fast barcode-scan adding, a Gemini-powered AI reading assistant, offline use as an installable app, and a fully bilingual (Turkish/English) interface.',
         tags: ['React 19', 'Vite', 'Supabase', 'Gemini API', 'react-i18next', 'zxing-wasm'],
         highlight: '610 automated tests',
         status: 'shipped',

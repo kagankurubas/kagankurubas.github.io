@@ -437,6 +437,12 @@
   gap: 18px;
 }
 
+@media (min-width: 900px) {
+  .bookshelf-case-study .bs-feature-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
 .bookshelf-case-study .bs-feature-card {
   background: var(--bs-bg-surface);
   border: 1px solid var(--bs-border);
