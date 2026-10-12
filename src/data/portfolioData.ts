@@ -123,7 +123,7 @@ export const siteData = {
     links: [
       { label: 'nurikagankurubas@gmail.com', href: 'mailto:nurikagankurubas@gmail.com', primary: true },
       { label: 'GitHub ↗', href: 'https://github.com/kagankurubas' },
-      { label: 'LinkedIn ↗', href: 'https://linkedin.com/in/nuri-kağan-kurubas-b512b7217/' },
+      { label: 'LinkedIn ↗', href: 'https://www.linkedin.com/in/kagankurubas/' },
     ],
   },
   footer: {
@@ -131,7 +131,7 @@ export const siteData = {
     role: 'Computer Engineer · Game Developer · Musician',
     links: [
       { label: 'GitHub ↗', href: 'https://github.com/kagankurubas', external: true },
-      { label: 'LinkedIn ↗', href: 'https://linkedin.com/in/nuri-kağan-kurubas-b512b7217/', external: true },
+      { label: 'LinkedIn ↗', href: 'https://www.linkedin.com/in/kagankurubas/', external: true },
       { label: 'Back to top ↑', href: '#top', external: false },
     ],
   },

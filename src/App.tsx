@@ -41,7 +41,7 @@ const homepageMetadata: PageMetadataConfig = {
         'url': 'https://kagankurubas.github.io/',
         'sameAs': [
           'https://github.com/kagankurubas',
-          'https://linkedin.com/in/nuri-ka%C4%9Fan-kurubas-b512b7217/'
+          'https://www.linkedin.com/in/kagankurubas/'
         ],
         'knowsAbout': [
           'React',
