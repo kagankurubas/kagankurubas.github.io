@@ -134,7 +134,7 @@ export const TodoistCaseStudy: React.FC<TodoistCaseStudyProps> = ({ onNavigate }
                 </div>
                 <div className="case-metric-item">
                   <span className="metric-label">TESTING</span>
-                  <strong className="metric-val">172 automated tests</strong>
+                  <strong className="metric-val">Offline test suite, CI on Python 3.10–3.14 and Windows</strong>
                 </div>
                 <div className="case-metric-item">
                   <span className="metric-label">TRANSPORT</span>
@@ -432,10 +432,10 @@ export const TodoistCaseStudy: React.FC<TodoistCaseStudyProps> = ({ onNavigate }
             <div className="section-heading reveal">
               <div>
                 <span className="eyebrow">MODEL CONTEXT PROTOCOL</span>
-                <h2>Todoist tools exposed directly to AI hosts.</h2>
+                <h2>Selected Todoist tools, exposed directly to AI hosts.</h2>
               </div>
               <p>
-                Using the FastMCP framework over local stdio, Claude Desktop interacts with Todoist via standardized JSON-RPC 2.0 tool definitions.
+                Using the FastMCP framework over local stdio, Claude Desktop interacts with Todoist via standardized JSON-RPC 2.0 tool definitions: 22 tools across tasks, projects, labels, sections and comments. Three of them are shown below.
               </p>
             </div>
 
@@ -864,7 +864,7 @@ export const TodoistCaseStudy: React.FC<TodoistCaseStudyProps> = ({ onNavigate }
             <div className="section-heading reveal">
               <div>
                 <span className="eyebrow">VERIFICATION</span>
-                <h2>172 automated tests around the bridge.</h2>
+                <h2>An offline test suite, run in CI on Python 3.10–3.14 and Windows.</h2>
               </div>
               <p>
                 Mock-based tests verify core behavior without requiring live Todoist network calls for the tested paths.
@@ -989,7 +989,7 @@ export const TodoistCaseStudy: React.FC<TodoistCaseStudyProps> = ({ onNavigate }
                 </div>
                 <div className="spec-row">
                   <span className="spec-label">VERIFICATION</span>
-                  <span>172 Pytest automated unit and integration tests</span>
+                  <span>Offline test suite, CI on Python 3.10–3.14 and Windows</span>
                 </div>
                 <div className="spec-row">
                   <span className="spec-label">LICENSE</span>

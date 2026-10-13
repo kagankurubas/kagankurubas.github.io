@@ -49,7 +49,7 @@ export const siteData = {
         headline: 'MCP & Automation Infrastructure',
         description: 'A local Model Context Protocol server and automation bridge that lets AI assistants securely manage Todoist tasks, sections, and labels, and add and read task comments, through validated tools and backend integrations.',
         tags: ['Python', 'MCP', 'FastMCP', 'FastAPI', 'Pydantic', 'Pytest'],
-        highlight: '172 automated tests',
+        highlight: 'Offline test suite, CI on Python 3.10–3.14 and Windows',
         status: 'shipped',
         primaryLink: { label: 'Explore Project', href: '/projects/todoist' },
         secondaryLink: { label: 'GitHub Repository ↗', href: 'https://github.com/kagankurubas/plugvan' },
