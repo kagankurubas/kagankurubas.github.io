@@ -166,9 +166,13 @@ if (fs.existsSync(targetFile) && !process.argv.includes('--force')) {
 }
 fs.writeFileSync(targetFile, pngBuffer);
 
-// Also copy to artifacts directory for visual inspection
-const artifactDir = 'C:/Users/Gaming/.gemini/antigravity-ide/brain/41cb3d4d-8d31-414e-aee0-880e0d207c2a';
-if (fs.existsSync(artifactDir)) {
+// Optionally copy a preview for visual inspection to OG_PREVIEW_DIR
+const artifactDir = process.env.OG_PREVIEW_DIR;
+if (artifactDir) {
+  if (!fs.existsSync(artifactDir)) {
+    console.error(`[generate-og-home] OG_PREVIEW_DIR does not exist: ${artifactDir}`);
+    process.exit(1);
+  }
   fs.writeFileSync(path.join(artifactDir, 'og_home_preview.png'), pngBuffer);
 }
 
