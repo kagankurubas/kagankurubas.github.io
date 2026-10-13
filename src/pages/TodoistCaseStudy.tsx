@@ -28,27 +28,27 @@ interface TodoistCaseStudyProps {
 
 export const TodoistCaseStudy: React.FC<TodoistCaseStudyProps> = ({ onNavigate }) => {
   usePageMetadata({
-    title: 'Todoist MCP Bridge — MCP & Automation System | Kağan Kurubaş',
+    title: 'Plugvan — MCP & Automation System | Kağan Kurubaş',
     description: 'Engineering case study of a local MCP server connecting AI assistants with Todoist through structured tools, validated API interactions, and a tested Python backend.',
     canonical: 'https://kagankurubas.github.io/projects/todoist',
     robots: 'index, follow',
     ogType: 'article',
-    ogTitle: 'Todoist MCP Bridge — MCP & Automation System | Kağan Kurubaş',
+    ogTitle: 'Plugvan — MCP & Automation System | Kağan Kurubaş',
     ogDescription: 'Engineering case study of a local MCP server connecting AI assistants with Todoist through structured tools, validated API interactions, and a tested Python backend.',
     ogUrl: 'https://kagankurubas.github.io/projects/todoist',
     ogImage: 'https://kagankurubas.github.io/og/todoist.png',
-    ogImageAlt: 'Todoist MCP Bridge — MCP & Automation Infrastructure Case Study',
+    ogImageAlt: 'Plugvan — MCP & Automation Infrastructure Case Study',
     twitterCard: 'summary_large_image',
-    twitterTitle: 'Todoist MCP Bridge — MCP & Automation System | Kağan Kurubaş',
+    twitterTitle: 'Plugvan — MCP & Automation System | Kağan Kurubaş',
     twitterDescription: 'Engineering case study of a local MCP server connecting AI assistants with Todoist through structured tools, validated API interactions, and a tested Python backend.',
     twitterImage: 'https://kagankurubas.github.io/og/todoist.png',
-    twitterImageAlt: 'Todoist MCP Bridge — MCP & Automation Infrastructure Case Study',
+    twitterImageAlt: 'Plugvan — MCP & Automation Infrastructure Case Study',
     structuredData: {
       '@context': 'https://schema.org',
       '@type': 'SoftwareSourceCode',
-      'name': 'Todoist MCP Bridge',
+      'name': 'Plugvan',
       'programmingLanguage': 'Python',
-      'codeRepository': 'https://github.com/kagankurubas/Todoist-MCP-Bridge',
+      'codeRepository': 'https://github.com/kagankurubas/plugvan',
       'license': 'https://opensource.org/licenses/MIT',
       'description': 'Model Context Protocol server and automation bridge connecting AI assistants and Google Tasks to Todoist.',
       'author': {
@@ -91,7 +91,7 @@ export const TodoistCaseStudy: React.FC<TodoistCaseStudyProps> = ({ onNavigate }
           </button>
 
           <div className="case-header-meta">
-            <span className="case-brand-tag">Todoist MCP Bridge</span>
+            <span className="case-brand-tag">Plugvan</span>
             <span className="case-version-pill">Python · FastMCP · REST</span>
           </div>
         </div>
@@ -108,7 +108,7 @@ export const TodoistCaseStudy: React.FC<TodoistCaseStudyProps> = ({ onNavigate }
                 <span className="eyebrow">CASE STUDY · SYSTEMS & AI ENGINEERING</span>
               </div>
 
-              <h1 className="case-hero-title">Todoist MCP Bridge</h1>
+              <h1 className="case-hero-title">Plugvan</h1>
               <p className="case-hero-statement">
                 One bridge between AI assistants, Google Tasks, and Todoist.
               </p>
@@ -147,7 +147,7 @@ export const TodoistCaseStudy: React.FC<TodoistCaseStudyProps> = ({ onNavigate }
               <div className="case-hero-actions">
                 <a 
                   className="button button-primary" 
-                  href="https://github.com/kagankurubas/Todoist-MCP-Bridge"
+                  href="https://github.com/kagankurubas/plugvan"
                   target="_blank" 
                   rel="noreferrer"
                 >
@@ -975,7 +975,7 @@ export const TodoistCaseStudy: React.FC<TodoistCaseStudyProps> = ({ onNavigate }
           <div className="container">
             <div className="release-closing-wrap reveal">
               <span className="eyebrow">SUMMARY</span>
-              <h2 className="release-headline">Todoist MCP Bridge</h2>
+              <h2 className="release-headline">Plugvan</h2>
               <p className="release-lead">
                 A modular Python bridge providing structured task validation and multi-interface execution for Todoist.
               </p>
@@ -1002,7 +1002,7 @@ export const TodoistCaseStudy: React.FC<TodoistCaseStudyProps> = ({ onNavigate }
               <div className="release-actions-row">
                 <a 
                   className="button button-primary" 
-                  href="https://github.com/kagankurubas/Todoist-MCP-Bridge" 
+                  href="https://github.com/kagankurubas/plugvan" 
                   target="_blank" 
                   rel="noreferrer"
                 >

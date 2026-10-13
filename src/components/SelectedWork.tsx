@@ -225,7 +225,7 @@ export const SelectedWork: React.FC<SelectedWorkProps> = ({ onNavigate }) => {
           </article>
 
           {/* ============================================================ */}
-          {/* 02 — TODOIST MCP BRIDGE                                       */}
+          {/* 02 — PLUGVAN                                                  */}
           {/* ============================================================ */}
           <article className={`project-row ${expanded === 'todoist' ? 'open' : ''}`}>
             <button
@@ -260,7 +260,7 @@ export const SelectedWork: React.FC<SelectedWorkProps> = ({ onNavigate }) => {
                       </div>
                     )}
 
-                    <div className="tag-list" aria-label="Todoist Bridge technologies">
+                    <div className="tag-list" aria-label="Plugvan technologies">
                       {todoist.tags.map((tag, idx) => (
                         <span className="tag" key={idx}>{tag}</span>
                       ))}
@@ -296,7 +296,7 @@ export const SelectedWork: React.FC<SelectedWorkProps> = ({ onNavigate }) => {
                           <span className="arch-dot red"></span>
                           <span className="arch-dot yellow"></span>
                           <span className="arch-dot green"></span>
-                          <span className="arch-title">mcp-server-todoist · local stdio</span>
+                          <span className="arch-title">plugvan.todoist · local stdio</span>
                         </div>
                         <span className="arch-tag">Protocol Flow</span>
                       </div>
