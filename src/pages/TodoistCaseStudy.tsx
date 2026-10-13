@@ -117,7 +117,7 @@ export const TodoistCaseStudy: React.FC<TodoistCaseStudyProps> = ({ onNavigate }
               </p>
 
               <div className="case-tech-strip">
-                <span className="tech-chip">Python 3.11+</span>
+                <span className="tech-chip">Python 3.10+</span>
                 <span className="tech-chip">FastMCP</span>
                 <span className="tech-chip">FastAPI</span>
                 <span className="tech-chip">Pydantic v2</span>
@@ -907,7 +907,7 @@ export const TodoistCaseStudy: React.FC<TodoistCaseStudyProps> = ({ onNavigate }
               <div className="test-suite-row">
                 <div className="suite-meta">
                   <code>tests/test_project_resolution.py</code>
-                  <span>Normalized project matching, case insensitivity, inbox alias fallbacks</span>
+                  <span>Project name map building, case-insensitive and whitespace-trimmed lookup, no match for unknown or empty names</span>
                 </div>
                 <span className="suite-status"><Check size={14} /> Verified</span>
               </div>
@@ -960,7 +960,7 @@ export const TodoistCaseStudy: React.FC<TodoistCaseStudyProps> = ({ onNavigate }
               <div className="delivery-card">
                 <span className="delivery-badge">CLI</span>
                 <strong>Terminal Runner</strong>
-                <p>Direct invocation via <code>python main.py --file tasks.json</code> for immediate one-off creation.</p>
+                <p>Direct invocation via <code>python main.py --file tasks_sample.json</code> for immediate one-off creation.</p>
               </div>
             </div>
           </div>
