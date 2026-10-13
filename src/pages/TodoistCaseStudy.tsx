@@ -28,27 +28,27 @@ interface TodoistCaseStudyProps {
 
 export const TodoistCaseStudy: React.FC<TodoistCaseStudyProps> = ({ onNavigate }) => {
   usePageMetadata({
-    title: 'Todoist MCP Bridge — MCP & Automation System | Kağan Kurubaş',
+    title: 'Plugvan — MCP & Automation System | Kağan Kurubaş',
     description: 'Engineering case study of a local MCP server connecting AI assistants with Todoist through structured tools, validated API interactions, and a tested Python backend.',
     canonical: 'https://kagankurubas.github.io/projects/todoist',
     robots: 'index, follow',
     ogType: 'article',
-    ogTitle: 'Todoist MCP Bridge — MCP & Automation System | Kağan Kurubaş',
+    ogTitle: 'Plugvan — MCP & Automation System | Kağan Kurubaş',
     ogDescription: 'Engineering case study of a local MCP server connecting AI assistants with Todoist through structured tools, validated API interactions, and a tested Python backend.',
     ogUrl: 'https://kagankurubas.github.io/projects/todoist',
     ogImage: 'https://kagankurubas.github.io/og/todoist.png',
-    ogImageAlt: 'Todoist MCP Bridge — MCP & Automation Infrastructure Case Study',
+    ogImageAlt: 'Plugvan — MCP & Automation Infrastructure Case Study',
     twitterCard: 'summary_large_image',
-    twitterTitle: 'Todoist MCP Bridge — MCP & Automation System | Kağan Kurubaş',
+    twitterTitle: 'Plugvan — MCP & Automation System | Kağan Kurubaş',
     twitterDescription: 'Engineering case study of a local MCP server connecting AI assistants with Todoist through structured tools, validated API interactions, and a tested Python backend.',
     twitterImage: 'https://kagankurubas.github.io/og/todoist.png',
-    twitterImageAlt: 'Todoist MCP Bridge — MCP & Automation Infrastructure Case Study',
+    twitterImageAlt: 'Plugvan — MCP & Automation Infrastructure Case Study',
     structuredData: {
       '@context': 'https://schema.org',
       '@type': 'SoftwareSourceCode',
-      'name': 'Todoist MCP Bridge',
+      'name': 'Plugvan',
       'programmingLanguage': 'Python',
-      'codeRepository': 'https://github.com/kagankurubas/Todoist-MCP-Bridge',
+      'codeRepository': 'https://github.com/kagankurubas/plugvan',
       'license': 'https://opensource.org/licenses/MIT',
       'description': 'Model Context Protocol server and automation bridge connecting AI assistants and Google Tasks to Todoist.',
       'author': {
@@ -91,7 +91,7 @@ export const TodoistCaseStudy: React.FC<TodoistCaseStudyProps> = ({ onNavigate }
           </button>
 
           <div className="case-header-meta">
-            <span className="case-brand-tag">Todoist MCP Bridge</span>
+            <span className="case-brand-tag">Plugvan</span>
             <span className="case-version-pill">Python · FastMCP · REST</span>
           </div>
         </div>
@@ -108,7 +108,7 @@ export const TodoistCaseStudy: React.FC<TodoistCaseStudyProps> = ({ onNavigate }
                 <span className="eyebrow">CASE STUDY · SYSTEMS & AI ENGINEERING</span>
               </div>
 
-              <h1 className="case-hero-title">Todoist MCP Bridge</h1>
+              <h1 className="case-hero-title">Plugvan</h1>
               <p className="case-hero-statement">
                 One bridge between AI assistants, Google Tasks, and Todoist.
               </p>
@@ -117,12 +117,10 @@ export const TodoistCaseStudy: React.FC<TodoistCaseStudyProps> = ({ onNavigate }
               </p>
 
               <div className="case-tech-strip">
-                <span className="tech-chip">Python 3.11+</span>
+                <span className="tech-chip">Python 3.10+</span>
                 <span className="tech-chip">FastMCP</span>
                 <span className="tech-chip">FastAPI</span>
                 <span className="tech-chip">Pydantic v2</span>
-                <span className="tech-chip">OAuth 2.0</span>
-                <span className="tech-chip">Docker</span>
               </div>
 
               <div className="case-metrics-grid">
@@ -136,18 +134,18 @@ export const TodoistCaseStudy: React.FC<TodoistCaseStudyProps> = ({ onNavigate }
                 </div>
                 <div className="case-metric-item">
                   <span className="metric-label">TESTING</span>
-                  <strong className="metric-val">172 automated tests</strong>
+                  <strong className="metric-val">Offline test suite, CI on Python 3.10–3.14 and Windows</strong>
                 </div>
                 <div className="case-metric-item">
                   <span className="metric-label">TRANSPORT</span>
-                  <strong className="metric-val">Local stdio / HTTP</strong>
+                  <strong className="metric-val">Local stdio</strong>
                 </div>
               </div>
 
               <div className="case-hero-actions">
                 <a 
                   className="button button-primary" 
-                  href="https://github.com/kagankurubas/Todoist-MCP-Bridge"
+                  href="https://github.com/kagankurubas/plugvan"
                   target="_blank" 
                   rel="noreferrer"
                 >
@@ -172,7 +170,7 @@ export const TodoistCaseStudy: React.FC<TodoistCaseStudyProps> = ({ onNavigate }
                   <span className="status-dot"></span>
                   <span>End-to-End System Pipeline</span>
                 </div>
-                <span className="canvas-tag">stdio & HTTP Bridge</span>
+                <span className="canvas-tag">Local stdio</span>
               </div>
 
               <div className="system-tier-grid">
@@ -282,7 +280,7 @@ export const TodoistCaseStudy: React.FC<TodoistCaseStudyProps> = ({ onNavigate }
                     <div className="tier-node destination-node">
                       <CheckCircle2 size={16} className="tier-icon-success" />
                       <div>
-                        <strong>Todoist REST API v2</strong>
+                        <strong>Todoist API v1</strong>
                         <span>Projects · Tasks · Priority · Due dates</span>
                       </div>
                     </div>
@@ -434,10 +432,10 @@ export const TodoistCaseStudy: React.FC<TodoistCaseStudyProps> = ({ onNavigate }
             <div className="section-heading reveal">
               <div>
                 <span className="eyebrow">MODEL CONTEXT PROTOCOL</span>
-                <h2>Todoist tools exposed directly to AI hosts.</h2>
+                <h2>Selected Todoist tools, exposed directly to AI hosts.</h2>
               </div>
               <p>
-                Using the FastMCP framework over local stdio, Claude Desktop interacts with Todoist via standardized JSON-RPC 2.0 tool definitions.
+                Using the FastMCP framework over local stdio, Claude Desktop interacts with Todoist via standardized JSON-RPC 2.0 tool definitions: 22 tools across tasks, projects, labels, sections and comments. Three of them are shown below.
               </p>
             </div>
 
@@ -459,7 +457,7 @@ export const TodoistCaseStudy: React.FC<TodoistCaseStudyProps> = ({ onNavigate }
                 </div>
                 <span className="flow-arrow">→</span>
                 <div className="flow-step-node">
-                  <span>Todoist API v2</span>
+                  <span>Todoist API v1</span>
                 </div>
               </div>
             </div>
@@ -544,7 +542,7 @@ export const TodoistCaseStudy: React.FC<TodoistCaseStudyProps> = ({ onNavigate }
                   <strong>MCP Server</strong>
                 </div>
                 <p>Provides AI-host tool execution over standard input/output streams.</p>
-                <span className="interface-meta">Entry: <code>todoist_mcp.py</code></span>
+                <span className="interface-meta">Entry: <code>python -m plugvan.todoist</code></span>
               </div>
 
               <div className="interface-card">
@@ -866,7 +864,7 @@ export const TodoistCaseStudy: React.FC<TodoistCaseStudyProps> = ({ onNavigate }
             <div className="section-heading reveal">
               <div>
                 <span className="eyebrow">VERIFICATION</span>
-                <h2>172 automated tests around the bridge.</h2>
+                <h2>An offline test suite, run in CI on Python 3.10–3.14 and Windows.</h2>
               </div>
               <p>
                 Mock-based tests verify core behavior without requiring live Todoist network calls for the tested paths.
@@ -884,7 +882,7 @@ export const TodoistCaseStudy: React.FC<TodoistCaseStudyProps> = ({ onNavigate }
 
               <div className="test-suite-row">
                 <div className="suite-meta">
-                  <code>tests/test_mcp.py</code>
+                  <code>tests/todoist/</code>
                   <span>FastMCP tool execution (tasks, sections, comments, labels), character constraints, error handling</span>
                 </div>
                 <span className="suite-status"><Check size={14} /> Verified</span>
@@ -909,7 +907,7 @@ export const TodoistCaseStudy: React.FC<TodoistCaseStudyProps> = ({ onNavigate }
               <div className="test-suite-row">
                 <div className="suite-meta">
                   <code>tests/test_project_resolution.py</code>
-                  <span>Normalized project matching, case insensitivity, inbox alias fallbacks</span>
+                  <span>Project name map building, case-insensitive and whitespace-trimmed lookup, no match for unknown or empty names</span>
                 </div>
                 <span className="suite-status"><Check size={14} /> Verified</span>
               </div>
@@ -962,7 +960,7 @@ export const TodoistCaseStudy: React.FC<TodoistCaseStudyProps> = ({ onNavigate }
               <div className="delivery-card">
                 <span className="delivery-badge">CLI</span>
                 <strong>Terminal Runner</strong>
-                <p>Direct invocation via <code>python main.py --file tasks.json</code> for immediate one-off creation.</p>
+                <p>Direct invocation via <code>python main.py --file tasks_sample.json</code> for immediate one-off creation.</p>
               </div>
             </div>
           </div>
@@ -975,7 +973,7 @@ export const TodoistCaseStudy: React.FC<TodoistCaseStudyProps> = ({ onNavigate }
           <div className="container">
             <div className="release-closing-wrap reveal">
               <span className="eyebrow">SUMMARY</span>
-              <h2 className="release-headline">Todoist MCP Bridge</h2>
+              <h2 className="release-headline">Plugvan</h2>
               <p className="release-lead">
                 A modular Python bridge providing structured task validation and multi-interface execution for Todoist.
               </p>
@@ -987,11 +985,11 @@ export const TodoistCaseStudy: React.FC<TodoistCaseStudyProps> = ({ onNavigate }
                 </div>
                 <div className="spec-row">
                   <span className="spec-label">TECH STACK</span>
-                  <span>Python · FastMCP · FastAPI · Pydantic v2 · OAuth 2.0 · Docker</span>
+                  <span>Python · FastMCP · FastAPI · Pydantic v2</span>
                 </div>
                 <div className="spec-row">
                   <span className="spec-label">VERIFICATION</span>
-                  <span>172 Pytest automated unit and integration tests</span>
+                  <span>Offline test suite, CI on Python 3.10–3.14 and Windows</span>
                 </div>
                 <div className="spec-row">
                   <span className="spec-label">LICENSE</span>
@@ -1002,7 +1000,7 @@ export const TodoistCaseStudy: React.FC<TodoistCaseStudyProps> = ({ onNavigate }
               <div className="release-actions-row">
                 <a 
                   className="button button-primary" 
-                  href="https://github.com/kagankurubas/Todoist-MCP-Bridge" 
+                  href="https://github.com/kagankurubas/plugvan" 
                   target="_blank" 
                   rel="noreferrer"
                 >
