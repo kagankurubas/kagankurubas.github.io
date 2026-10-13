@@ -121,8 +121,6 @@ export const TodoistCaseStudy: React.FC<TodoistCaseStudyProps> = ({ onNavigate }
                 <span className="tech-chip">FastMCP</span>
                 <span className="tech-chip">FastAPI</span>
                 <span className="tech-chip">Pydantic v2</span>
-                <span className="tech-chip">OAuth 2.0</span>
-                <span className="tech-chip">Docker</span>
               </div>
 
               <div className="case-metrics-grid">
@@ -140,7 +138,7 @@ export const TodoistCaseStudy: React.FC<TodoistCaseStudyProps> = ({ onNavigate }
                 </div>
                 <div className="case-metric-item">
                   <span className="metric-label">TRANSPORT</span>
-                  <strong className="metric-val">Local stdio / HTTP</strong>
+                  <strong className="metric-val">Local stdio</strong>
                 </div>
               </div>
 
@@ -172,7 +170,7 @@ export const TodoistCaseStudy: React.FC<TodoistCaseStudyProps> = ({ onNavigate }
                   <span className="status-dot"></span>
                   <span>End-to-End System Pipeline</span>
                 </div>
-                <span className="canvas-tag">stdio & HTTP Bridge</span>
+                <span className="canvas-tag">Local stdio</span>
               </div>
 
               <div className="system-tier-grid">
@@ -282,7 +280,7 @@ export const TodoistCaseStudy: React.FC<TodoistCaseStudyProps> = ({ onNavigate }
                     <div className="tier-node destination-node">
                       <CheckCircle2 size={16} className="tier-icon-success" />
                       <div>
-                        <strong>Todoist REST API v2</strong>
+                        <strong>Todoist API v1</strong>
                         <span>Projects · Tasks · Priority · Due dates</span>
                       </div>
                     </div>
@@ -459,7 +457,7 @@ export const TodoistCaseStudy: React.FC<TodoistCaseStudyProps> = ({ onNavigate }
                 </div>
                 <span className="flow-arrow">→</span>
                 <div className="flow-step-node">
-                  <span>Todoist API v2</span>
+                  <span>Todoist API v1</span>
                 </div>
               </div>
             </div>
@@ -544,7 +542,7 @@ export const TodoistCaseStudy: React.FC<TodoistCaseStudyProps> = ({ onNavigate }
                   <strong>MCP Server</strong>
                 </div>
                 <p>Provides AI-host tool execution over standard input/output streams.</p>
-                <span className="interface-meta">Entry: <code>todoist_mcp.py</code></span>
+                <span className="interface-meta">Entry: <code>python -m plugvan.todoist</code></span>
               </div>
 
               <div className="interface-card">
@@ -884,7 +882,7 @@ export const TodoistCaseStudy: React.FC<TodoistCaseStudyProps> = ({ onNavigate }
 
               <div className="test-suite-row">
                 <div className="suite-meta">
-                  <code>tests/test_mcp.py</code>
+                  <code>tests/todoist/</code>
                   <span>FastMCP tool execution (tasks, sections, comments, labels), character constraints, error handling</span>
                 </div>
                 <span className="suite-status"><Check size={14} /> Verified</span>
@@ -987,7 +985,7 @@ export const TodoistCaseStudy: React.FC<TodoistCaseStudyProps> = ({ onNavigate }
                 </div>
                 <div className="spec-row">
                   <span className="spec-label">TECH STACK</span>
-                  <span>Python · FastMCP · FastAPI · Pydantic v2 · OAuth 2.0 · Docker</span>
+                  <span>Python · FastMCP · FastAPI · Pydantic v2</span>
                 </div>
                 <div className="spec-row">
                   <span className="spec-label">VERIFICATION</span>

@@ -336,7 +336,7 @@ export const SelectedWork: React.FC<SelectedWorkProps> = ({ onNavigate }) => {
 
                         <div className="arch-connector arch-connector-2">
                           <ArrowDown size={14} className="connector-arrow" />
-                          <span className="connector-label">REST API v2 / OAuth 2.0</span>
+                          <span className="connector-label">Todoist API v1 / API token auth</span>
                         </div>
 
                         <div className="arch-node arch-node-api">
@@ -345,7 +345,7 @@ export const SelectedWork: React.FC<SelectedWorkProps> = ({ onNavigate }) => {
                           </div>
                           <div className="arch-node-meta">
                             <strong>Todoist Cloud API</strong>
-                            <span>Projects · Tasks · Labels · Webhooks</span>
+                            <span>Projects · Tasks · Labels</span>
                           </div>
                         </div>
                       </div>
