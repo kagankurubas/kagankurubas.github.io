@@ -83,9 +83,9 @@ export const siteData = {
       { label: 'AVAILABILITY', value: 'Remote / Hybrid' },
     ],
     resumeLinks: [
-      { label: 'Resume · Software Engineer', href: '/cv/Kagan_Kurubas_CV_Product_Engineering.pdf' },
-      { label: 'Systems & AI', href: '/cv/Kagan_Kurubas_CV_Systems_AI.pdf' },
-      { label: 'Game Development', href: '/cv/Kagan_Kurubas_CV_Game_Development.pdf' },
+      { label: 'Full-Stack', href: '/cv/Kagan_Kurubas_CV_Product_Engineering.pdf' },
+      { label: 'Backend & AI', href: '/cv/Kagan_Kurubas_CV_Systems_AI.pdf' },
+      { label: 'Game Dev', href: '/cv/Kagan_Kurubas_CV_Game_Development.pdf' },
     ],
   },
   beyondEngineering: {
