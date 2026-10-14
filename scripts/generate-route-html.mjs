@@ -67,7 +67,7 @@ const routes = [
       'programmingLanguage': 'Python',
       'codeRepository': 'https://github.com/kagankurubas/plugvan',
       'license': 'https://opensource.org/licenses/MIT',
-      'description': 'Model Context Protocol server and automation bridge connecting AI assistants and Google Tasks to Todoist.',
+      'description': 'An open-source MCP server giving AI assistants validated access to the Todoist API.',
       'author': {
         '@type': 'Person',
         'name': 'Kağan Kurubaş',
