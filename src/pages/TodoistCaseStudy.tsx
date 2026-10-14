@@ -1,24 +1,20 @@
 import React from 'react';
 import { useScrollReveal } from '../hooks/useScrollReveal';
 import { usePageMetadata } from '../hooks/usePageMetadata';
-import { 
-  ArrowLeft, 
-  ExternalLink, 
-  ShieldCheck, 
-  Check, 
-  ArrowDown, 
+import {
+  ArrowLeft,
+  ExternalLink,
+  ShieldCheck,
+  ArrowDown,
   ArrowRight,
-  Terminal, 
-  Cpu, 
-  Layers, 
-  Lock, 
-  FileCode, 
-  Workflow, 
-  RotateCw,
+  Terminal,
+  Cpu,
+  Workflow,
   Server,
   KeyRound,
   CheckCircle2,
-  FolderGit2
+  Languages,
+  FileText
 } from 'lucide-react';
 import './TodoistCaseStudy.css';
 
@@ -50,7 +46,7 @@ export const TodoistCaseStudy: React.FC<TodoistCaseStudyProps> = ({ onNavigate }
       'programmingLanguage': 'Python',
       'codeRepository': 'https://github.com/kagankurubas/plugvan',
       'license': 'https://opensource.org/licenses/MIT',
-      'description': 'Model Context Protocol server and automation bridge connecting AI assistants and Google Tasks to Todoist.',
+      'description': 'An open-source MCP server giving AI assistants validated access to the Todoist API.',
       'author': {
         '@type': 'Person',
         'name': 'Kağan Kurubaş',
@@ -61,16 +57,13 @@ export const TodoistCaseStudy: React.FC<TodoistCaseStudyProps> = ({ onNavigate }
 
   const revealHero = useScrollReveal(0.05);
   const revealProblem = useScrollReveal(0.08);
-  const revealValidation = useScrollReveal(0.08);
+  const revealResolution = useScrollReveal(0.08);
   const revealMcp = useScrollReveal(0.08);
-  const revealInterfaces = useScrollReveal(0.08);
-  const revealSecurity = useScrollReveal(0.08);
   const revealPrivacy = useScrollReveal(0.08);
-  const revealRouting = useScrollReveal(0.08);
-  const revealSync = useScrollReveal(0.08);
-  const revealDecisions = useScrollReveal(0.08);
+  const revealLanguage = useScrollReveal(0.08);
   const revealTesting = useScrollReveal(0.08);
-  const revealDelivery = useScrollReveal(0.08);
+  const revealDecisions = useScrollReveal(0.08);
+  const revealOrigin = useScrollReveal(0.08);
   const revealClosing = useScrollReveal(0.08);
 
   return (
@@ -80,8 +73,8 @@ export const TodoistCaseStudy: React.FC<TodoistCaseStudyProps> = ({ onNavigate }
       {/* ============================================================ */}
       <header className="case-study-header">
         <div className="container case-nav-inner">
-          <button 
-            type="button" 
+          <button
+            type="button"
             className="back-button"
             onClick={() => onNavigate('/', '#work')}
             aria-label="Back to Selected Work"
@@ -92,7 +85,7 @@ export const TodoistCaseStudy: React.FC<TodoistCaseStudyProps> = ({ onNavigate }
 
           <div className="case-header-meta">
             <span className="case-brand-tag">Plugvan</span>
-            <span className="case-version-pill">Python · FastMCP · REST</span>
+            <span className="case-version-pill">Python · FastMCP · Pydantic v2</span>
           </div>
         </div>
       </header>
@@ -110,31 +103,30 @@ export const TodoistCaseStudy: React.FC<TodoistCaseStudyProps> = ({ onNavigate }
 
               <h1 className="case-hero-title">Plugvan</h1>
               <p className="case-hero-statement">
-                One bridge between AI assistants, Google Tasks, and Todoist.
+                Validated Todoist tools for AI assistants, built to fail loudly instead of falling back silently.
               </p>
               <p className="case-hero-lead">
-                A Python automation system that validates structured task data, resolves Todoist projects, and exposes task workflows through MCP, REST, CLI, and Google Tasks synchronization.
+                An open-source Model Context Protocol server in Python that lets AI assistants operate on the Todoist API through hand-written, validated tools. It started as a bridge between Gemini and Todoist and was rebuilt around one rule: never silently guess.
               </p>
 
               <div className="case-tech-strip">
                 <span className="tech-chip">Python 3.10+</span>
                 <span className="tech-chip">FastMCP</span>
-                <span className="tech-chip">FastAPI</span>
                 <span className="tech-chip">Pydantic v2</span>
               </div>
 
               <div className="case-metrics-grid">
                 <div className="case-metric-item">
-                  <span className="metric-label">INTERFACES</span>
-                  <strong className="metric-val">MCP · REST · CLI · Sync</strong>
+                  <span className="metric-label">INTERFACE</span>
+                  <strong className="metric-val">MCP</strong>
                 </div>
                 <div className="case-metric-item">
                   <span className="metric-label">VALIDATION</span>
-                  <strong className="metric-val">Pydantic v2</strong>
+                  <strong className="metric-val">Pydantic field constraints</strong>
                 </div>
                 <div className="case-metric-item">
                   <span className="metric-label">TESTING</span>
-                  <strong className="metric-val">Offline test suite, CI on Python 3.10–3.14 and Windows</strong>
+                  <strong className="metric-val">Hermetic pytest suite, CI on Python 3.10–3.14 and Windows</strong>
                 </div>
                 <div className="case-metric-item">
                   <span className="metric-label">TRANSPORT</span>
@@ -143,17 +135,17 @@ export const TodoistCaseStudy: React.FC<TodoistCaseStudyProps> = ({ onNavigate }
               </div>
 
               <div className="case-hero-actions">
-                <a 
-                  className="button button-primary" 
+                <a
+                  className="button button-primary"
                   href="https://github.com/kagankurubas/plugvan"
-                  target="_blank" 
+                  target="_blank"
                   rel="noreferrer"
                 >
                   <span>GitHub Repository</span>
                   <ExternalLink size={14} />
                 </a>
-                <button 
-                  type="button" 
+                <button
+                  type="button"
                   className="button button-secondary"
                   onClick={() => onNavigate('/', '#work')}
                 >
@@ -174,29 +166,15 @@ export const TodoistCaseStudy: React.FC<TodoistCaseStudyProps> = ({ onNavigate }
               </div>
 
               <div className="system-tier-grid">
-                {/* Tier 1: Input Sources */}
+                {/* Tier 1: MCP Host */}
                 <div className="system-tier-column">
-                  <span className="tier-label">01 · INPUT SOURCES</span>
+                  <span className="tier-label">01 · MCP HOST</span>
                   <div className="tier-node-stack">
                     <div className="tier-node">
                       <Terminal size={15} className="tier-icon" />
                       <div>
                         <strong>Claude Desktop</strong>
-                        <span>Model Context Protocol Host</span>
-                      </div>
-                    </div>
-                    <div className="tier-node">
-                      <FileCode size={15} className="tier-icon" />
-                      <div>
-                        <strong>LLM / JSON Payloads</strong>
-                        <span>Structured task definitions</span>
-                      </div>
-                    </div>
-                    <div className="tier-node">
-                      <RotateCw size={15} className="tier-icon" />
-                      <div>
-                        <strong>Google Tasks</strong>
-                        <span>OAuth 2.0 API source</span>
+                        <span>MCP host</span>
                       </div>
                     </div>
                   </div>
@@ -207,62 +185,41 @@ export const TodoistCaseStudy: React.FC<TodoistCaseStudyProps> = ({ onNavigate }
                   <ArrowDown size={18} className="arrow-mobile" />
                 </div>
 
-                {/* Tier 2: Bridge Core */}
-                <div className="system-tier-column highlight-tier">
-                  <span className="tier-label">02 · BRIDGE CORE</span>
+                {/* Tier 2: Server */}
+                <div className="system-tier-column">
+                  <span className="tier-label">02 · SERVER</span>
                   <div className="tier-node-stack">
-                    <div className="tier-node core-node">
-                      <Cpu size={15} className="tier-icon" />
+                    <div className="tier-node">
+                      <Server size={15} className="tier-icon" />
                       <div>
-                        <strong>Parse & Clean</strong>
-                        <span>Markdown fence stripping</span>
+                        <strong>FastMCP server</strong>
+                        <span>Local stdio</span>
                       </div>
                     </div>
+                  </div>
+                </div>
+
+                <div className="tier-flow-arrow">
+                  <ArrowRight size={18} className="arrow-desktop" />
+                  <ArrowDown size={18} className="arrow-mobile" />
+                </div>
+
+                {/* Tier 3: Tool Boundary */}
+                <div className="system-tier-column highlight-tier">
+                  <span className="tier-label">03 · TOOL BOUNDARY</span>
+                  <div className="tier-node-stack">
                     <div className="tier-node core-node">
                       <ShieldCheck size={15} className="tier-icon" />
                       <div>
-                        <strong>Pydantic v2 Validate</strong>
-                        <span>Strict field & batch limits (≤ 50)</span>
+                        <strong>Validate</strong>
+                        <span>Field constraints</span>
                       </div>
                     </div>
                     <div className="tier-node core-node">
                       <Workflow size={15} className="tier-icon" />
                       <div>
-                        <strong>Resolve & Route</strong>
-                        <span>Normalized project matching</span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                <div className="tier-flow-arrow">
-                  <ArrowRight size={18} className="arrow-desktop" />
-                  <ArrowDown size={18} className="arrow-mobile" />
-                </div>
-
-                {/* Tier 3: Interfaces */}
-                <div className="system-tier-column">
-                  <span className="tier-label">03 · INTERFACES</span>
-                  <div className="tier-node-stack">
-                    <div className="tier-node">
-                      <Server size={15} className="tier-icon" />
-                      <div>
-                        <strong>FastMCP Server</strong>
-                        <span>Local stdio (JSON-RPC)</span>
-                      </div>
-                    </div>
-                    <div className="tier-node">
-                      <Lock size={15} className="tier-icon" />
-                      <div>
-                        <strong>FastAPI Webhook</strong>
-                        <span>Authenticated HTTP (/tasks)</span>
-                      </div>
-                    </div>
-                    <div className="tier-node">
-                      <Layers size={15} className="tier-icon" />
-                      <div>
-                        <strong>Sync Worker / CLI</strong>
-                        <span>Google Tasks & local JSON</span>
+                        <strong>Resolve</strong>
+                        <span>Names to IDs</span>
                       </div>
                     </div>
                   </div>
@@ -281,7 +238,7 @@ export const TodoistCaseStudy: React.FC<TodoistCaseStudyProps> = ({ onNavigate }
                       <CheckCircle2 size={16} className="tier-icon-success" />
                       <div>
                         <strong>Todoist API v1</strong>
-                        <span>Projects · Tasks · Priority · Due dates</span>
+                        <span>Tasks · Projects · Labels · Sections · Comments</span>
                       </div>
                     </div>
                   </div>
@@ -299,143 +256,164 @@ export const TodoistCaseStudy: React.FC<TodoistCaseStudyProps> = ({ onNavigate }
             <div className="section-heading reveal">
               <div>
                 <span className="eyebrow">THE PROBLEM</span>
-                <h2>Different inputs. One task model.</h2>
+                <h2>Assistants speak in names. Task managers need IDs.</h2>
               </div>
               <p>
-                The bridge accepts task data from multiple entry points, but each path ultimately needs to produce the same validated Todoist task representation.
+                AI assistants refer to projects, sections and labels by name. A naive integration falls back to a default project or the first partial match, so a task lands in the wrong place or the wrong project is deleted.
               </p>
             </div>
 
-            <div className="problem-sources-grid reveal">
+            <div className="problem-sources-grid cols-3 reveal">
               <div className="source-card">
-                <span className="source-tag">INPUT 01</span>
-                <strong>AI-Generated Structured JSON</strong>
-                <p>Chat model responses formatted as raw JSON or enclosed in Markdown code blocks (<code>```json ... ```</code>).</p>
+                <span className="source-tag">RISK 01</span>
+                <strong>Names are ambiguous</strong>
+                <p>"Work" can match several projects.</p>
               </div>
               <div className="source-card">
-                <span className="source-tag">INPUT 02</span>
-                <strong>MCP Tool Invocations</strong>
-                <p>Direct function calling parameter payloads passed over local stdio via Claude Desktop.</p>
+                <span className="source-tag">RISK 02</span>
+                <strong>Defaults hide mistakes</strong>
+                <p>A silent fallback to Inbox looks like success.</p>
               </div>
               <div className="source-card">
-                <span className="source-tag">INPUT 03</span>
-                <strong>HTTP Webhook Requests</strong>
-                <p>Automated incoming POST requests containing single or batched task dictionaries.</p>
-              </div>
-              <div className="source-card">
-                <span className="source-tag">INPUT 04</span>
-                <strong>CLI & Google Tasks Sync</strong>
-                <p>Terminal arguments, sample files, and polled Google Tasks with hashtag and priority annotations.</p>
+                <span className="source-tag">RISK 03</span>
+                <strong>Failures look like absence</strong>
+                <p>An API error reported as "not found" misleads both the assistant and the user.</p>
               </div>
             </div>
 
             {/* Shared Pipeline Flow */}
-            <div className="shared-pipeline-bar reveal">
+            <div className="shared-pipeline-bar stages-3 reveal">
               <div className="pipe-stage">
                 <span className="pipe-num">01</span>
-                <strong>Parse</strong>
-                <span>Extract JSON / Text</span>
+                <strong>Validate</strong>
+                <span>Field constraints</span>
               </div>
               <span className="pipe-sep">→</span>
               <div className="pipe-stage">
                 <span className="pipe-num">02</span>
-                <strong>Validate</strong>
-                <span>Pydantic v2 Schema</span>
+                <strong>Resolve</strong>
+                <span>Names to IDs</span>
               </div>
               <span className="pipe-sep">→</span>
               <div className="pipe-stage">
                 <span className="pipe-num">03</span>
-                <strong>Resolve</strong>
-                <span>Project Name to ID</span>
-              </div>
-              <span className="pipe-sep">→</span>
-              <div className="pipe-stage">
-                <span className="pipe-num">04</span>
                 <strong>Dispatch</strong>
-                <span>Todoist REST Client</span>
+                <span>Todoist API v1</span>
               </div>
             </div>
           </div>
         </section>
 
         {/* ============================================================ */}
-        {/* 03 — NORMALIZATION & VALIDATION                              */}
+        {/* 03 — NAME RESOLUTION                                         */}
         {/* ============================================================ */}
-        <section className="case-section" id="validation" ref={revealValidation}>
+        <section className="case-section" id="resolution" ref={revealResolution}>
           <div className="container">
             <div className="section-heading reveal">
               <div>
-                <span className="eyebrow">INPUT BOUNDARY</span>
-                <h2>Normalize first. Validate before dispatch.</h2>
+                <span className="eyebrow">NAME RESOLUTION</span>
+                <h2>Four outcomes. No silent fallback.</h2>
               </div>
               <p>
-                Incoming payloads are stripped of code fences, checked against strict structural models, and bounded by batch size constraints before hitting the network.
+                Every lookup of a project, section or label by name or ID ends in exactly one of four explicit results, and each one is reported to the assistant as itself.
               </p>
             </div>
 
-            {/* Transformation Visual */}
-            <div className="transformation-box reveal">
-              <div className="trans-col trans-input">
-                <span className="trans-header">RAW INPUT PAYLOAD</span>
-                <pre className="code-block">
-{`{
-  "content": "Prepare portfolio review",
-  "project_name": "Work",
-  "due_string": "tomorrow at 14:00",
-  "priority": 2
-}`}
-                </pre>
-                <span className="code-subtext">Accepts single objects, direct arrays, or <code>{"{tasks: [...]}"}</code></span>
+            <div className="resolution-flow-card reveal">
+              <div className="res-step">
+                <span className="res-label">INPUT NAME</span>
+                <strong>"Work"</strong>
               </div>
-
-              <div className="trans-col trans-pipeline">
-                <div className="pipeline-pill">clean_json_text()</div>
-                <ArrowDown size={14} className="pill-arrow" />
-                <div className="pipeline-pill">Pydantic TaskPayload</div>
-                <ArrowDown size={14} className="pill-arrow" />
-                <div className="pipeline-pill">Batch Limit (≤ 50)</div>
-                <ArrowDown size={14} className="pill-arrow" />
-                <div className="pipeline-pill">Normalized Resolver</div>
+              <span className="res-arrow">↓</span>
+              <div className="res-step">
+                <span className="res-label">01 · ID</span>
+                <span>Matches the Todoist ID exactly</span>
               </div>
+              <span className="res-arrow">↓ if no match</span>
+              <div className="res-step">
+                <span className="res-label">02 · INBOX ALIAS</span>
+                <span>Resolves an Inbox alias to the Inbox project</span>
+              </div>
+              <span className="res-arrow">↓ if no match</span>
+              <div className="res-step">
+                <span className="res-label">03 · EXACT NAME</span>
+                <span>Normalized for case, whitespace and Turkish characters</span>
+              </div>
+              <span className="res-arrow">↓ if no match</span>
+              <div className="res-step">
+                <span className="res-label">04 · SINGLE PARTIAL MATCH</span>
+                <span>Only where allowed</span>
+              </div>
+            </div>
 
-              <div className="trans-col trans-output">
-                <span className="trans-header">VALIDATED TASK ENTITY</span>
-                <div className="validated-entity-card">
-                  <div className="entity-row">
-                    <span className="entity-key">content</span>
-                    <span className="entity-val">"Prepare portfolio review"</span>
-                  </div>
-                  <div className="entity-row">
-                    <span className="entity-key">project_id</span>
-                    <span className="entity-val">"23489102" (resolved)</span>
-                  </div>
-                  <div className="entity-row">
-                    <span className="entity-key">due_string</span>
-                    <span className="entity-val">"tomorrow at 14:00"</span>
-                  </div>
-                  <div className="entity-row">
-                    <span className="entity-key">priority</span>
-                    <span className="entity-val">2 (Normal to Urgent: 1–4)</span>
-                  </div>
+            <div className="problem-sources-grid reveal" style={{ marginTop: '36px' }}>
+              <div className="source-card">
+                <span className="source-tag">RESULT</span>
+                <strong>Found</strong>
+                <p>Exactly one match.</p>
+              </div>
+              <div className="source-card">
+                <span className="source-tag">RESULT</span>
+                <strong>NotFound</strong>
+                <p>No candidate matched the name.</p>
+              </div>
+              <div className="source-card">
+                <span className="source-tag">RESULT</span>
+                <strong>Ambiguous</strong>
+                <p>More than one match; up to 5 candidates are listed.</p>
+              </div>
+              <div className="source-card">
+                <span className="source-tag">RESULT</span>
+                <strong>LookupFailed</strong>
+                <p>Carries only the exception class name; an API failure is never reported as "not found".</p>
+              </div>
+            </div>
+
+            <div className="security-details-grid cols-3 reveal">
+              <div className="sec-detail-card">
+                <ShieldCheck size={16} className="sec-icon" />
+                <div>
+                  <strong>Destructive operations</strong>
+                  <p>Destructive operations (delete or update of projects, sections and labels) accept only an ID or an exact name.</p>
                 </div>
-                <span className="code-subtext">Verified type safety with sanitized error feedback</span>
               </div>
+              <div className="sec-detail-card">
+                <CheckCircle2 size={16} className="sec-icon" />
+                <div>
+                  <strong>Inbox on request only</strong>
+                  <p>Inbox is used only when asked for (the default value is 'Inbox'), never as a silent fallback.</p>
+                </div>
+              </div>
+              <div className="sec-detail-card">
+                <Workflow size={16} className="sec-icon" />
+                <div>
+                  <strong>Sections and labels</strong>
+                  <p>Sections and labels match by ID or exact name only.</p>
+                </div>
+              </div>
+            </div>
+
+            <div className="reveal" style={{ marginTop: '20px' }}>
+              <pre className="code-block">
+{`⚠️ Multiple projects found for '{query}'; please use the project ID:
+⚠️ Project not found: '{name}'.`}
+              </pre>
             </div>
           </div>
         </section>
 
         {/* ============================================================ */}
-        {/* 04 — MODEL CONTEXT PROTOCOL (MCP)                            */}
+        {/* 04 — TOOLS                                                   */}
         {/* ============================================================ */}
         <section className="case-section" id="mcp" ref={revealMcp}>
           <div className="container">
             <div className="section-heading reveal">
               <div>
-                <span className="eyebrow">MODEL CONTEXT PROTOCOL</span>
-                <h2>Selected Todoist tools, exposed directly to AI hosts.</h2>
+                <span className="eyebrow">TOOLS</span>
+                <h2>Tools across tasks, projects, labels, sections and comments.</h2>
               </div>
               <p>
-                Using the FastMCP framework over local stdio, Claude Desktop interacts with Todoist via standardized JSON-RPC 2.0 tool definitions: 22 tools across tasks, projects, labels, sections and comments. Three of them are shown below.
+                Using the FastMCP framework over local stdio, Claude Desktop calls hand-written Todoist tools whose arguments are checked against field constraints before the tool does any work. Three of them are shown below.
               </p>
             </div>
 
@@ -448,7 +426,7 @@ export const TodoistCaseStudy: React.FC<TodoistCaseStudyProps> = ({ onNavigate }
                 </div>
                 <span className="flow-arrow">→</span>
                 <div className="flow-step-node">
-                  <span>Local stdio (JSON-RPC)</span>
+                  <span>Local stdio</span>
                 </div>
                 <span className="flow-arrow">→</span>
                 <div className="flow-step-node highlight-step">
@@ -521,128 +499,7 @@ export const TodoistCaseStudy: React.FC<TodoistCaseStudyProps> = ({ onNavigate }
         </section>
 
         {/* ============================================================ */}
-        {/* 05 — SHARED CORE & MULTIPLE INTERFACES                       */}
-        {/* ============================================================ */}
-        <section className="case-section" id="interfaces" ref={revealInterfaces}>
-          <div className="container">
-            <div className="section-heading reveal">
-              <div>
-                <span className="eyebrow">SHARED CORE</span>
-                <h2>Different entry points, shared integration logic.</h2>
-              </div>
-              <p>
-                Whether invoked from an AI tool call, an authenticated webhook, or a background synchronization worker, all entry points converge on the same validation and client layer.
-              </p>
-            </div>
-
-            <div className="interfaces-grid reveal">
-              <div className="interface-card">
-                <div className="interface-header">
-                  <Server size={16} className="interface-icon" />
-                  <strong>MCP Server</strong>
-                </div>
-                <p>Provides AI-host tool execution over standard input/output streams.</p>
-                <span className="interface-meta">Entry: <code>python -m plugvan.todoist</code></span>
-              </div>
-
-              <div className="interface-card">
-                <div className="interface-header">
-                  <Lock size={16} className="interface-icon" />
-                  <strong>REST API</strong>
-                </div>
-                <p>FastAPI webhook endpoint for authenticated external HTTP payloads.</p>
-                <span className="interface-meta">Entry: <code>app.py</code></span>
-              </div>
-
-              <div className="interface-card">
-                <div className="interface-header">
-                  <RotateCw size={16} className="interface-icon" />
-                  <strong>Sync Worker</strong>
-                </div>
-                <p>Google Tasks polling worker extracting hashtags, priority, and due dates.</p>
-                <span className="interface-meta">Entry: <code>sync_worker.py</code></span>
-              </div>
-
-              <div className="interface-card">
-                <div className="interface-header">
-                  <Terminal size={16} className="interface-icon" />
-                  <strong>CLI Runner</strong>
-                </div>
-                <p>Direct terminal executor supporting files, JSON strings, and interactive stdin.</p>
-                <span className="interface-meta">Entry: <code>main.py</code></span>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* ============================================================ */}
-        {/* 06 — REST & SECURITY BOUNDARY                                */}
-        {/* ============================================================ */}
-        <section className="case-section" id="security" ref={revealSecurity}>
-          <div className="container">
-            <div className="section-heading reveal">
-              <div>
-                <span className="eyebrow">API BOUNDARY</span>
-                <h2>External input is validated before reaching Todoist.</h2>
-              </div>
-              <p>
-                The FastAPI service enforces token validation, origin filtering, and batch thresholds before allowing requests into the pipeline.
-              </p>
-            </div>
-
-            <div className="security-pipeline-box reveal">
-              <div className="sec-step">
-                <span className="sec-step-num">01</span>
-                <strong>HTTP POST</strong>
-                <span>Incoming request to <code>/tasks</code></span>
-              </div>
-              <span className="sec-arrow">→</span>
-              <div className="sec-step">
-                <span className="sec-step-num">02</span>
-                <strong>X-Bridge-Token</strong>
-                <span>Header extracted</span>
-              </div>
-              <span className="sec-arrow">→</span>
-              <div className="sec-step">
-                <span className="sec-step-num">03</span>
-                <strong>Constant-Time Check</strong>
-                <span><code>secrets.compare_digest</code></span>
-              </div>
-              <span className="sec-arrow">→</span>
-              <div className="sec-step">
-                <span className="sec-step-num">04</span>
-                <strong>Pydantic Batch (≤ 50)</strong>
-                <span>Type validation</span>
-              </div>
-              <span className="sec-arrow">→</span>
-              <div className="sec-step">
-                <span className="sec-step-num">05</span>
-                <strong>Project Resolver</strong>
-                <span>Dispatch to API</span>
-              </div>
-            </div>
-
-            <div className="security-details-grid reveal">
-              <div className="sec-detail-card">
-                <KeyRound size={16} className="sec-icon" />
-                <div>
-                  <strong>Endpoint Security & CORS</strong>
-                  <p><code>/health</code> is public. Operational endpoints (<code>/projects</code>, <code>/tasks</code>) require token authentication. CORS origins are configurable via environment variables.</p>
-                </div>
-              </div>
-              <div className="sec-detail-card">
-                <ShieldCheck size={16} className="sec-icon" />
-                <div>
-                  <strong>Constant-Time Verification</strong>
-                  <p>Uses <code>secrets.compare_digest</code> for header evaluation rather than standard string comparison operators.</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* ============================================================ */}
-        {/* 07 — ERROR & PRIVACY DESIGN                                  */}
+        {/* 05 — FAILURE BOUNDARIES                                      */}
         {/* ============================================================ */}
         <section className="case-section" id="privacy" ref={revealPrivacy}>
           <div className="container">
@@ -652,7 +509,7 @@ export const TodoistCaseStudy: React.FC<TodoistCaseStudyProps> = ({ onNavigate }
                 <h2>Errors should be useful without exposing internals.</h2>
               </div>
               <p>
-                The bridge separates internal diagnostic logging from client-facing responses to reduce accidental secret and payload exposure.
+                Internal diagnostic logging is kept separate from the plain-text results the assistant receives.
               </p>
             </div>
 
@@ -665,36 +522,28 @@ export const TodoistCaseStudy: React.FC<TodoistCaseStudyProps> = ({ onNavigate }
                 <div className="priv-list">
                   <div className="priv-item">
                     <span className="priv-key">error_type</span>
-                    <span>Logs exception class name (e.g. <code>TodoistAuthError</code>)</span>
+                    <span>The exception class name is logged, not the message.</span>
                   </div>
                   <div className="priv-item">
-                    <span className="priv-key">status_code</span>
-                    <span>Captures HTTP status from downstream calls</span>
-                  </div>
-                  <div className="priv-item">
-                    <span className="priv-key">sanitization</span>
-                    <span>Avoids printing raw token strings or payload contents into logs</span>
+                    <span className="priv-key">tokens</span>
+                    <span>Tokens are never logged.</span>
                   </div>
                 </div>
               </div>
 
               <div className="privacy-card client-card">
                 <div className="priv-header">
-                  <span className="priv-badge client-badge">CLIENT RESPONSE</span>
+                  <span className="priv-badge client-badge">TOOL RESULT</span>
                   <strong>Sanitized Output</strong>
                 </div>
                 <div className="priv-list">
                   <div className="priv-item">
-                    <span className="priv-key">401 Unauthorized</span>
-                    <span>"Invalid or missing X-Bridge-Token authentication header."</span>
+                    <span className="priv-key">messages</span>
+                    <span>Controlled plain-text messages in the configured language.</span>
                   </div>
                   <div className="priv-item">
-                    <span className="priv-key">422 Unprocessable</span>
-                    <span>Structured validation details highlighting invalid fields</span>
-                  </div>
-                  <div className="priv-item">
-                    <span className="priv-key">502 Bad Gateway</span>
-                    <span>Controlled message when downstream Todoist API fails</span>
+                    <span className="priv-key">no internals</span>
+                    <span>No tracebacks, exception text or tokens reach the assistant.</span>
                   </div>
                 </div>
               </div>
@@ -703,94 +552,94 @@ export const TodoistCaseStudy: React.FC<TodoistCaseStudyProps> = ({ onNavigate }
         </section>
 
         {/* ============================================================ */}
-        {/* 08 — PROJECT RESOLUTION                                      */}
+        {/* 06 — OUTPUT LANGUAGE                                         */}
         {/* ============================================================ */}
-        <section className="case-section" id="routing" ref={revealRouting}>
+        <section className="case-section" id="language" ref={revealLanguage}>
           <div className="container">
             <div className="section-heading reveal">
               <div>
-                <span className="eyebrow">PROJECT ROUTING</span>
-                <h2>Human-readable project names, resolved before dispatch.</h2>
+                <span className="eyebrow">OUTPUT LANGUAGE</span>
+                <h2>One catalog, two languages, no silent gaps.</h2>
               </div>
               <p>
-                Users and AI models reference projects by name (e.g. "Work", "Odak & Gelişim"). The resolver normalizes names and matches active Todoist projects before dispatching.
+                All user-facing messages live in one strict catalog.
               </p>
             </div>
 
-            <div className="resolution-flow-card reveal">
-              <div className="res-step">
-                <span className="res-label">INPUT NAME</span>
-                <strong>"Work"</strong>
+            <div className="security-details-grid cols-3 reveal">
+              <div className="sec-detail-card">
+                <Languages size={16} className="sec-icon" />
+                <div>
+                  <strong>Language selection</strong>
+                  <p><code>PLUGVAN_LANG</code> selects English (default) or Turkish; an unsupported value falls back to English with a single logged warning.</p>
+                </div>
               </div>
-              <span className="res-arrow">↓</span>
-              <div className="res-step">
-                <span className="res-label">NORMALIZATION & ALIASES</span>
-                <span>Lowercasing, whitespace stripping, Turkish/Unicode character mapping, and Inbox alias check</span>
+              <div className="sec-detail-card">
+                <KeyRound size={16} className="sec-icon" />
+                <div>
+                  <strong>No silent gaps</strong>
+                  <p>A missing message key raises an error instead of falling back, and tests enforce identical keys and placeholders in both languages.</p>
+                </div>
               </div>
-              <span className="res-arrow">↓</span>
-              <div className="res-step">
-                <span className="res-label">NORMALIZED EXACT MATCH</span>
-                <span>Matches active project name against normalized target</span>
-              </div>
-              <span className="res-arrow">↓ if no match</span>
-              <div className="res-step">
-                <span className="res-label">SUBSTRING MATCH</span>
-                <span>Matches substring within active project names</span>
-              </div>
-              <span className="res-arrow">↓ if no match</span>
-              <div className="res-step success-step">
-                <span className="res-label">RESOLUTION OUTPUT</span>
-                <strong>Resolved Project ID (or None if no match)</strong>
+              <div className="sec-detail-card">
+                <FileText size={16} className="sec-icon" />
+                <div>
+                  <strong>Tool descriptions</strong>
+                  <p>Tool descriptions stay in English.</p>
+                </div>
               </div>
             </div>
-
-            <p className="pipeline-note" style={{ textAlign: 'center', marginTop: '16px', fontSize: '0.8rem', color: 'var(--text-soft)' }}>
-              When resolution yields no matching project ID (<code>None</code>), the downstream Todoist API defaults the task to the user's Inbox.
-            </p>
           </div>
         </section>
 
         {/* ============================================================ */}
-        {/* 09 — GOOGLE TASKS SYNC                                       */}
+        {/* 07 — VERIFICATION                                            */}
         {/* ============================================================ */}
-        <section className="case-section" id="sync" ref={revealSync}>
+        <section className="case-section" id="testing" ref={revealTesting}>
           <div className="container">
             <div className="section-heading reveal">
               <div>
-                <span className="eyebrow">AUTOMATION</span>
-                <h2>Google Tasks can act as another ingestion source.</h2>
+                <span className="eyebrow">VERIFICATION</span>
+                <h2>Hermetic by construction.</h2>
               </div>
               <p>
-                The background sync worker queries open Google Tasks via OAuth 2.0, extracts metadata tags from titles and notes, pushes them to Todoist, and deletes successfully transferred tasks. Current synchronization is one-way.
+                The test suite runs without a network, real credentials or the developer's shell environment, so a green run means the same thing locally and in CI.
               </p>
             </div>
 
-            <div className="sync-flow-box reveal">
-              <div className="sync-node">
-                <FolderGit2 size={16} className="sync-icon" />
-                <div>
-                  <strong>Google Tasks (OAuth 2.0)</strong>
-                  <span>Fetches uncompleted items across task lists; deletes transferred tasks</span>
+            <div className="test-suites-matrix reveal">
+              <div className="test-suite-row">
+                <div className="suite-meta">
+                  <code>Network guard</code>
+                  <span>Every non-loopback connection is rejected during tests.</span>
                 </div>
               </div>
 
-              <div className="sync-arrow-wrap">→</div>
-
-              <div className="sync-node">
-                <Workflow size={16} className="sync-icon" />
-                <div>
-                  <strong>Tag Parser</strong>
-                  <span>Extracts <code>#Project</code>, <code>p[1-4]</code>, and <code>@Date</code> / time from notes</span>
+              <div className="test-suite-row">
+                <div className="suite-meta">
+                  <code>Credential and language isolation</code>
+                  <span>A fake token is injected; the real shell environment cannot leak in.</span>
                 </div>
               </div>
 
-              <div className="sync-arrow-wrap">→</div>
+              <div className="test-suite-row">
+                <div className="suite-meta">
+                  <code>Tool surface snapshot</code>
+                  <span>Published tool names, descriptions and schemas are compared with a fixture; an intentional change needs an explicit label.</span>
+                </div>
+              </div>
 
-              <div className="sync-node">
-                <CheckCircle2 size={16} className="sync-icon" />
-                <div>
-                  <strong>Todoist Dispatch</strong>
-                  <span>Batch creates tasks via Todoist client; preserves unmigrated failed tasks</span>
+              <div className="test-suite-row">
+                <div className="suite-meta">
+                  <code>Python-version parity</code>
+                  <span>Tool descriptions are identical on 3.10–3.14.</span>
+                </div>
+              </div>
+
+              <div className="test-suite-row">
+                <div className="suite-meta">
+                  <code>CI matrix</code>
+                  <span>Linux on Python 3.10–3.14, plus Windows; actions pinned to commit SHAs.</span>
                 </div>
               </div>
             </div>
@@ -798,17 +647,17 @@ export const TodoistCaseStudy: React.FC<TodoistCaseStudyProps> = ({ onNavigate }
         </section>
 
         {/* ============================================================ */}
-        {/* 10 — ENGINEERING DECISIONS                                   */}
+        {/* 08 — ENGINEERING DECISIONS                                   */}
         {/* ============================================================ */}
         <section className="case-section" id="decisions" ref={revealDecisions}>
           <div className="container">
             <div className="section-heading reveal">
               <div>
                 <span className="eyebrow">ENGINEERING DECISIONS</span>
-                <h2>Small boundaries that make the bridge easier to reason about.</h2>
+                <h2>Small boundaries that make the server easier to reason about.</h2>
               </div>
               <p>
-                Architectural choices focused on input sanitization, controlled failure modes, and clear integration boundaries.
+                Architectural choices focused on validated input, explicit results and controlled failure modes.
               </p>
             </div>
 
@@ -816,20 +665,20 @@ export const TodoistCaseStudy: React.FC<TodoistCaseStudyProps> = ({ onNavigate }
               <article className="decision-card">
                 <div className="decision-header">
                   <span className="decision-letter">A</span>
-                  <h3>Structured Validation at Boundaries</h3>
+                  <h3>Validate at the Tool Boundary</h3>
                 </div>
                 <p>
-                  Pydantic models sit at every entry point. Whether data arrives as raw text, tool parameters, or HTTP bodies, fields are validated and bounded before reaching business logic.
+                  Every tool argument is checked against field constraints and documented API limits before the Todoist API is called.
                 </p>
               </article>
 
               <article className="decision-card">
                 <div className="decision-header">
                   <span className="decision-letter">B</span>
-                  <h3>Shared Integration Logic</h3>
+                  <h3>Explicit over Implicit</h3>
                 </div>
                 <p>
-                  Rather than implementing separate Todoist interaction logic for MCP, REST, and sync workers, all four interfaces converge on a common Todoist client and project resolver.
+                  No silent fallbacks: an unknown name is reported as not found, and ambiguity is a result the assistant has to resolve rather than a guess.
                 </p>
               </article>
 
@@ -846,10 +695,10 @@ export const TodoistCaseStudy: React.FC<TodoistCaseStudyProps> = ({ onNavigate }
               <article className="decision-card">
                 <div className="decision-header">
                   <span className="decision-letter">D</span>
-                  <h3>Local MCP Transport</h3>
+                  <h3>Local stdio Only</h3>
                 </div>
                 <p>
-                  The MCP server runs over standard input/output (stdio) locally alongside Claude Desktop, avoiding the need for hosted proxy infrastructure or remote credential relays.
+                  The MCP server runs over standard input/output (stdio) locally alongside Claude Desktop: no hosted proxy and no remote credentials.
                 </p>
               </article>
             </div>
@@ -857,117 +706,24 @@ export const TodoistCaseStudy: React.FC<TodoistCaseStudyProps> = ({ onNavigate }
         </section>
 
         {/* ============================================================ */}
-        {/* 11 — VERIFICATION                                            */}
+        {/* 09 — ORIGIN                                                  */}
         {/* ============================================================ */}
-        <section className="case-section" id="testing" ref={revealTesting}>
+        <section className="case-section" id="origin" ref={revealOrigin}>
           <div className="container">
             <div className="section-heading reveal">
               <div>
-                <span className="eyebrow">VERIFICATION</span>
-                <h2>An offline test suite, run in CI on Python 3.10–3.14 and Windows.</h2>
+                <span className="eyebrow">ORIGIN</span>
+                <h2>From a bridge to a server.</h2>
               </div>
               <p>
-                Mock-based tests verify core behavior without requiring live Todoist network calls for the tested paths.
+                Plugvan began as a Gemini-to-Todoist bridge with a FastAPI webhook, a CLI and a Google Tasks sync. As the MCP path proved its value, the other surfaces were removed and the repository was narrowed to a single, well-tested MCP server. The final state of the original bridge is preserved in the repository's <code>legacy-bridge-final</code> tag.
               </p>
-            </div>
-
-            <div className="test-suites-matrix reveal">
-              <div className="test-suite-row">
-                <div className="suite-meta">
-                  <code>tests/test_api.py</code>
-                  <span>FastAPI endpoints, auth token validation, CORS headers, batch error responses</span>
-                </div>
-                <span className="suite-status"><Check size={14} /> Verified</span>
-              </div>
-
-              <div className="test-suite-row">
-                <div className="suite-meta">
-                  <code>tests/todoist/</code>
-                  <span>FastMCP tool execution (tasks, sections, comments, labels), character constraints, error handling</span>
-                </div>
-                <span className="suite-status"><Check size={14} /> Verified</span>
-              </div>
-
-              <div className="test-suite-row">
-                <div className="suite-meta">
-                  <code>tests/test_models.py</code>
-                  <span>TaskPayload/BatchTaskPayload validation, priority bounds, default values</span>
-                </div>
-                <span className="suite-status"><Check size={14} /> Verified</span>
-              </div>
-
-              <div className="test-suite-row">
-                <div className="suite-meta">
-                  <code>tests/test_parser.py</code>
-                  <span>JSON decoding, Markdown fence stripping, batch model validation (≤ 50 items)</span>
-                </div>
-                <span className="suite-status"><Check size={14} /> Verified</span>
-              </div>
-
-              <div className="test-suite-row">
-                <div className="suite-meta">
-                  <code>tests/test_project_resolution.py</code>
-                  <span>Project name map building, case-insensitive and whitespace-trimmed lookup, no match for unknown or empty names</span>
-                </div>
-                <span className="suite-status"><Check size={14} /> Verified</span>
-              </div>
-
-              <div className="test-suite-row">
-                <div className="suite-meta">
-                  <code>tests/test_todoist_client.py</code>
-                  <span>Error mapping hierarchy (auth, validation, server error), request formatting</span>
-                </div>
-                <span className="suite-status"><Check size={14} /> Verified</span>
-              </div>
             </div>
           </div>
         </section>
 
         {/* ============================================================ */}
-        {/* 12 — DELIVERY & EXECUTION                                    */}
-        {/* ============================================================ */}
-        <section className="case-section" id="delivery" ref={revealDelivery}>
-          <div className="container">
-            <div className="section-heading reveal">
-              <div>
-                <span className="eyebrow">DELIVERY</span>
-                <h2>Designed to run locally, directly, or in a container.</h2>
-              </div>
-              <p>
-                The repository provides execution targets depending on whether the bridge is running interactively, as an MCP tool, or as a background service.
-              </p>
-            </div>
-
-            <div className="delivery-grid reveal">
-              <div className="delivery-card">
-                <span className="delivery-badge">MCP</span>
-                <strong>Claude Desktop</strong>
-                <p>Registered via <code>claude_desktop_config.json</code> as a local STDIO subprocess.</p>
-              </div>
-
-              <div className="delivery-card">
-                <span className="delivery-badge">REST</span>
-                <strong>FastAPI / Uvicorn</strong>
-                <p>Run via <code>uvicorn app:app --port 8000</code> with Swagger documentation at <code>/docs</code>.</p>
-              </div>
-
-              <div className="delivery-card">
-                <span className="delivery-badge">DOCKER</span>
-                <strong>Docker Container</strong>
-                <p>Containerized environment (<code>python:3.11-slim</code>) configured to run synchronization workers.</p>
-              </div>
-
-              <div className="delivery-card">
-                <span className="delivery-badge">CLI</span>
-                <strong>Terminal Runner</strong>
-                <p>Direct invocation via <code>python main.py --file tasks_sample.json</code> for immediate one-off creation.</p>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* ============================================================ */}
-        {/* 13 — CLOSING SPEC SHEET                                      */}
+        {/* 10 — CLOSING SPEC SHEET                                      */}
         {/* ============================================================ */}
         <section className="case-section case-release" id="closing" ref={revealClosing}>
           <div className="container">
@@ -975,7 +731,7 @@ export const TodoistCaseStudy: React.FC<TodoistCaseStudyProps> = ({ onNavigate }
               <span className="eyebrow">SUMMARY</span>
               <h2 className="release-headline">Plugvan</h2>
               <p className="release-lead">
-                A modular Python bridge providing structured task validation and multi-interface execution for Todoist.
+                A validated, tested MCP server for Todoist.
               </p>
 
               <div className="release-spec-sheet">
@@ -985,11 +741,11 @@ export const TodoistCaseStudy: React.FC<TodoistCaseStudyProps> = ({ onNavigate }
                 </div>
                 <div className="spec-row">
                   <span className="spec-label">TECH STACK</span>
-                  <span>Python · FastMCP · FastAPI · Pydantic v2</span>
+                  <span>Python · FastMCP · Pydantic v2 · Todoist API v1</span>
                 </div>
                 <div className="spec-row">
                   <span className="spec-label">VERIFICATION</span>
-                  <span>Offline test suite, CI on Python 3.10–3.14 and Windows</span>
+                  <span>Hermetic pytest suite, CI on Python 3.10–3.14 and Windows</span>
                 </div>
                 <div className="spec-row">
                   <span className="spec-label">LICENSE</span>
@@ -998,17 +754,17 @@ export const TodoistCaseStudy: React.FC<TodoistCaseStudyProps> = ({ onNavigate }
               </div>
 
               <div className="release-actions-row">
-                <a 
-                  className="button button-primary" 
-                  href="https://github.com/kagankurubas/plugvan" 
-                  target="_blank" 
+                <a
+                  className="button button-primary"
+                  href="https://github.com/kagankurubas/plugvan"
+                  target="_blank"
                   rel="noreferrer"
                 >
                   <span>GitHub Repository</span>
                   <ExternalLink size={14} />
                 </a>
-                <button 
-                  type="button" 
+                <button
+                  type="button"
                   className="button button-secondary"
                   onClick={() => onNavigate('/', '#work')}
                 >

@@ -10,7 +10,7 @@ The portfolio is published with GitHub Pages.
 
 The site's Selected Work section highlights these engineering projects:
 
-- [Plugvan](https://github.com/kagankurubas/plugvan) — a Model Context Protocol server and automation bridge connecting AI assistants to Todoist.
+- [Plugvan](https://github.com/kagankurubas/plugvan) — an open-source MCP server giving AI assistants validated access to the Todoist API.
 - [BookShelf](https://github.com/kagankurubas/bookshelf) — a personal book cataloging app with barcode-scan adding and a Gemini-powered AI reading assistant.
 
 ## Currently Building
