@@ -49,7 +49,7 @@ export const siteData = {
         headline: 'MCP & Automation Infrastructure',
         description: 'An open-source MCP server giving AI assistants validated access to the Todoist API.',
         tags: ['Python', 'MCP', 'FastMCP', 'Pydantic', 'Pytest'],
-        highlight: 'Offline test suite, CI on Python 3.10–3.14 and Windows',
+        highlight: 'Hermetic pytest suite, CI on Python 3.10–3.14 and Windows',
         status: 'shipped',
         primaryLink: { label: 'Explore Project', href: '/projects/todoist' },
         secondaryLink: { label: 'GitHub Repository ↗', href: 'https://github.com/kagankurubas/plugvan' },

@@ -413,7 +413,7 @@ export const TodoistCaseStudy: React.FC<TodoistCaseStudyProps> = ({ onNavigate }
                 <h2>Tools across tasks, projects, labels, sections and comments.</h2>
               </div>
               <p>
-                Using the FastMCP framework over local stdio, Claude Desktop calls hand-written Todoist tools whose arguments are checked against field constraints before any API call. Three of them are shown below.
+                Using the FastMCP framework over local stdio, Claude Desktop calls hand-written Todoist tools whose arguments are checked against field constraints before the tool does any work. Three of them are shown below.
               </p>
             </div>
 
@@ -603,7 +603,7 @@ export const TodoistCaseStudy: React.FC<TodoistCaseStudyProps> = ({ onNavigate }
                 <h2>Hermetic by construction.</h2>
               </div>
               <p>
-                The test suite runs without a network, real credentials or the developer's shell environment, so a green run means the same thing on every machine.
+                The test suite runs without a network, real credentials or the developer's shell environment, so a green run means the same thing locally and in CI.
               </p>
             </div>
 
@@ -678,7 +678,7 @@ export const TodoistCaseStudy: React.FC<TodoistCaseStudyProps> = ({ onNavigate }
                   <h3>Explicit over Implicit</h3>
                 </div>
                 <p>
-                  No silent defaults: an unknown name is reported as not found, and ambiguity is a result the assistant has to resolve rather than a guess.
+                  No silent fallbacks: an unknown name is reported as not found, and ambiguity is a result the assistant has to resolve rather than a guess.
                 </p>
               </article>
 
