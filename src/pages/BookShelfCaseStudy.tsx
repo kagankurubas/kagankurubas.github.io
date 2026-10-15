@@ -127,8 +127,8 @@ export const BookShelfCaseStudy: React.FC<BookShelfCaseStudyProps> = ({ onNaviga
                   <span>Turkish and English UI; a test fails if the two locale files drift apart.</span>
                 </div>
                 <div className="case-stat-chip">
-                  <strong>Tested at three levels: components and hooks, RLS integration tests, static security checks</strong>
-                  <span>Vitest, React Testing Library, GitHub Actions</span>
+                  <strong>Layered tests</strong>
+                  <span>components, RLS integration, security checks</span>
                 </div>
               </div>
 
@@ -196,7 +196,7 @@ export const BookShelfCaseStudy: React.FC<BookShelfCaseStudyProps> = ({ onNaviga
               <span className="eyebrow">PRODUCT TOUR</span>
               <h2 className="section-title">Three ways to browse the same library.</h2>
               <p className="section-lead">
-                Three ways to browse the same library. The shelf, card, and table views all read from the same book data.
+                The shelf, card, and table views all read from the same book data.
               </p>
             </div>
 
@@ -337,7 +337,7 @@ export const BookShelfCaseStudy: React.FC<BookShelfCaseStudyProps> = ({ onNaviga
               </div>
 
               <p className="section-lead" style={{ marginTop: '20px' }}>
-                If Gemini never answers, the quota unit is refunded, and a busy state reaches the UI as its own status rather than a raw error. The quota table has RLS enabled and no policies on purpose: its counters are reachable only through security-definer functions granted to the service role.
+                Gemini calls are attempted up to three times with jittered backoff on 429 and 503 responses, honoring the API&apos;s retry hint on 429. If Gemini never answers, the quota unit is refunded, and a busy state reaches the UI as its own status rather than a raw error. The quota table has RLS enabled and no policies on purpose: its counters are reachable only through security-definer functions granted to the service role.
               </p>
             </div>
 
@@ -383,7 +383,7 @@ export const BookShelfCaseStudy: React.FC<BookShelfCaseStudyProps> = ({ onNaviga
             </div>
 
             <p className="section-lead reveal" style={{ marginTop: '28px' }}>
-              Service-role clients exist in exactly two Edge Functions: AI quota accounting and account deletion.
+              Service-role clients exist in exactly two Edge Functions: AI quota accounting and account deletion. Account deletion needs explicit confirmation in the UI. The function verifies the caller&apos;s JWT, deletes the auth user with the service role, and the data cascades.
             </p>
             <p className="section-lead reveal" style={{ marginTop: '12px' }}>
               Per-user accounts arrived through a staged three-step migration (003 to 005) on top of the original single-user schema.
@@ -398,9 +398,9 @@ export const BookShelfCaseStudy: React.FC<BookShelfCaseStudyProps> = ({ onNaviga
           <div className="container">
             <div className="section-heading reveal">
               <span className="eyebrow">VERIFICATION & DELIVERY</span>
-              <h2 className="section-title">Tests are layered by what they protect. CI runs on pushes to main and on pull requests that target main.</h2>
+              <h2 className="section-title">Layered tests, run in CI</h2>
               <p className="section-lead">
-                Vitest and React Testing Library cover the core hooks, drag-and-drop shelf logic, and the AI chat flow, run by GitHub Actions alongside lint, build, static security checks, and RLS integration tests against a local Supabase.
+                Vitest and React Testing Library cover the core hooks, drag-and-drop shelf logic, and the AI chat flow, run by GitHub Actions alongside lint, build, static security checks, and RLS integration tests against a local Supabase. CI runs on pushes to main and on pull requests that target main.
               </p>
             </div>
 
@@ -416,7 +416,7 @@ export const BookShelfCaseStudy: React.FC<BookShelfCaseStudyProps> = ({ onNaviga
                 <span className="bs-test-check"><Check size={14} /></span>
                 <div className="bs-test-meta">
                   <strong>RLS integration tests</strong>
-                  <span>A second CI job boots a local Supabase stack, serves the Edge Functions against a fake Gemini server, and runs tests that prove cross-user isolation for libraries, books, book-library links, notes, AI chat, quota and book writes, including the Gemini retry path. Credentials come from that run&apos;s own status output; no repository secrets are used.</span>
+                  <span>A second CI job boots a local Supabase stack and serves the Edge Functions against a fake Gemini server. The tests prove cross-user isolation for libraries, books, book-library links, notes and AI chat, check that the quota functions are callable only by the service role, and cover book-write integrity and the Gemini retry path. Credentials come from that run&apos;s own status output; no repository secrets are used.</span>
                 </div>
               </div>
               <div className="bs-test-row">
