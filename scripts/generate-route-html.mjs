@@ -94,7 +94,7 @@ const routes = [
       '@context': 'https://schema.org',
       '@type': 'SoftwareSourceCode',
       'name': 'BookShelf',
-      'programmingLanguage': 'TypeScript',
+      'programmingLanguage': 'JavaScript',
       'codeRepository': 'https://github.com/kagankurubas/bookshelf',
       'description': 'A personal book cataloging app with barcode scanning, a Gemini-powered AI reading assistant, and a bilingual (Turkish/English) interface.',
       'author': {

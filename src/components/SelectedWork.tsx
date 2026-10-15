@@ -42,7 +42,7 @@ export const SelectedWork: React.FC<SelectedWorkProps> = ({ onNavigate }) => {
       id: 'shelf',
       label: 'Shelf',
       src: '/bookshelf/shelf-view.jpg',
-      alt: 'BookShelf dynamic wooden bookshelf view'
+      alt: 'BookShelf dynamic bookshelf-style view'
     },
     {
       id: 'cards',
@@ -215,7 +215,7 @@ export const SelectedWork: React.FC<SelectedWorkProps> = ({ onNavigate }) => {
 
                       <div className="bs-browser-badge">
                         <span className="bs-browser-status-dot"></span>
-                        <span>610 tests · Supabase RLS</span>
+                        <span>Tested in CI · Supabase RLS</span>
                       </div>
                     </div>
                   </div>
@@ -353,7 +353,7 @@ export const SelectedWork: React.FC<SelectedWorkProps> = ({ onNavigate }) => {
                       <div className="arch-footer">
                         <div className="arch-footer-item">
                           <CheckCircle2 size={13} className="check-icon" />
-                          <span>Offline test suite, CI on Python 3.10–3.14 and Windows</span>
+                          <span>Hermetic pytest suite, CI on Python 3.10–3.14 and Windows</span>
                         </div>
                         <div className="arch-footer-item">
                           <Workflow size={13} className="check-icon" />
