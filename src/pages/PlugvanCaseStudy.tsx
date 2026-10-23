@@ -16,13 +16,13 @@ import {
   Languages,
   FileText
 } from 'lucide-react';
-import './TodoistCaseStudy.css';
+import './PlugvanCaseStudy.css';
 
-interface TodoistCaseStudyProps {
+interface PlugvanCaseStudyProps {
   onNavigate: (path: string, hash?: string) => void;
 }
 
-export const TodoistCaseStudy: React.FC<TodoistCaseStudyProps> = ({ onNavigate }) => {
+export const PlugvanCaseStudy: React.FC<PlugvanCaseStudyProps> = ({ onNavigate }) => {
   usePageMetadata({
     title: 'Plugvan — Validated MCP Integrations | Kağan Kurubaş',
     description: 'Engineering case study of a local MCP server connecting AI assistants with Todoist through structured tools, validated API interactions, and a tested Python backend.',
@@ -69,7 +69,7 @@ export const TodoistCaseStudy: React.FC<TodoistCaseStudyProps> = ({ onNavigate }
   const revealClosing = useScrollReveal(0.08);
 
   return (
-    <div className="case-study-page todoist-case-study">
+    <div className="case-study-page plugvan-case-study">
       {/* ============================================================ */}
       {/* CASE STUDY NAVIGATION HEADER                                 */}
       {/* ============================================================ */}

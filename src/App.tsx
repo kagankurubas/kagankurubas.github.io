@@ -9,7 +9,7 @@ import { BeyondEngineering } from './components/BeyondEngineering';
 import { Contact } from './components/Contact';
 import { Footer } from './components/Footer';
 import { HabittoCaseStudy } from './pages/HabittoCaseStudy';
-import { TodoistCaseStudy } from './pages/TodoistCaseStudy';
+import { PlugvanCaseStudy } from './pages/PlugvanCaseStudy';
 import { BookShelfCaseStudy } from './pages/BookShelfCaseStudy';
 import { NotFoundPage } from './pages/NotFoundPage';
 
@@ -98,7 +98,7 @@ function App() {
   }
 
   if (currentPath === '/projects/plugvan') {
-    return <TodoistCaseStudy onNavigate={navigate} />;
+    return <PlugvanCaseStudy onNavigate={navigate} />;
   }
 
   if (currentPath === '/projects/bookshelf') {

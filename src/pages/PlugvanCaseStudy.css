@@ -2,7 +2,7 @@
 /* PLUGVAN CASE STUDY STYLING                                    */
 /* ============================================================ */
 
-.todoist-case-study {
+.plugvan-case-study {
   --accent-tint: rgba(232, 168, 0, 0.08);
   --accent-tint-border: rgba(232, 168, 0, 0.28);
   --success-tint: rgba(75, 107, 69, 0.1);
@@ -15,7 +15,7 @@
 }
 
 /* Navigation Header */
-.todoist-case-study .case-study-header {
+.plugvan-case-study .case-study-header {
   position: fixed;
   top: 0;
   left: 0;
@@ -28,14 +28,14 @@
   z-index: 1000;
 }
 
-.todoist-case-study .case-nav-inner {
+.plugvan-case-study .case-nav-inner {
   display: flex;
   align-items: center;
   justify-content: space-between;
   height: 100%;
 }
 
-.todoist-case-study .back-button {
+.plugvan-case-study .back-button {
   display: inline-flex;
   align-items: center;
   gap: 8px;
@@ -50,17 +50,17 @@
   transition: color 0.15s ease;
 }
 
-.todoist-case-study .back-button:hover {
+.plugvan-case-study .back-button:hover {
   color: var(--accent-ink);
 }
 
-.todoist-case-study .case-header-meta {
+.plugvan-case-study .case-header-meta {
   display: flex;
   align-items: center;
   gap: 12px;
 }
 
-.todoist-case-study .case-brand-tag {
+.plugvan-case-study .case-brand-tag {
   font-family: var(--font-mono);
   font-size: 0.8rem;
   font-weight: 600;
@@ -68,7 +68,7 @@
   color: var(--text);
 }
 
-.todoist-case-study .case-version-pill {
+.plugvan-case-study .case-version-pill {
   font-family: var(--font-mono);
   font-size: 0.72rem;
   color: var(--accent-ink);
@@ -79,25 +79,25 @@
 }
 
 /* Hero Section & Metrics */
-.todoist-case-study .case-section {
+.plugvan-case-study .case-section {
   padding: 90px 0;
   border-bottom: 1px solid var(--border);
 }
 
-.todoist-case-study .case-hero {
+.plugvan-case-study .case-hero {
   padding: 70px 0 90px;
 }
 
-.todoist-case-study .case-hero-content {
+.plugvan-case-study .case-hero-content {
   max-width: 860px;
   margin-bottom: 44px;
 }
 
-.todoist-case-study .case-meta-row {
+.plugvan-case-study .case-meta-row {
   margin-bottom: 16px;
 }
 
-.todoist-case-study .case-hero-title {
+.plugvan-case-study .case-hero-title {
   font-size: clamp(3rem, 6vw, 4.75rem);
   font-weight: 700;
   letter-spacing: -0.035em;
@@ -106,7 +106,7 @@
   color: var(--text);
 }
 
-.todoist-case-study .case-hero-statement {
+.plugvan-case-study .case-hero-statement {
   font-size: clamp(1.25rem, 2.5vw, 1.6rem);
   color: var(--text);
   line-height: 1.35;
@@ -114,7 +114,7 @@
   margin-bottom: 16px;
 }
 
-.todoist-case-study .case-hero-lead {
+.plugvan-case-study .case-hero-lead {
   font-size: 1.05rem;
   color: var(--text-muted);
   line-height: 1.65;
@@ -122,14 +122,14 @@
   max-width: 760px;
 }
 
-.todoist-case-study .case-tech-strip {
+.plugvan-case-study .case-tech-strip {
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
   margin-bottom: 36px;
 }
 
-.todoist-case-study .tech-chip {
+.plugvan-case-study .tech-chip {
   background: var(--bg-tint);
   border: 1px solid var(--border);
   color: var(--text-muted);
@@ -139,7 +139,7 @@
   border-radius: var(--radius-sm);
 }
 
-.todoist-case-study .case-metrics-grid {
+.plugvan-case-study .case-metrics-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
   gap: 20px 16px;
@@ -149,17 +149,17 @@
   border-bottom: 1px solid var(--border);
 }
 
-.todoist-case-study .case-metric-item {
+.plugvan-case-study .case-metric-item {
   display: flex;
   flex-direction: column;
   gap: 4px;
 }
 
-.todoist-case-study .case-metric-wide {
+.plugvan-case-study .case-metric-wide {
   grid-column: 1 / -1;
 }
 
-.todoist-case-study .metric-label {
+.plugvan-case-study .metric-label {
   font-family: var(--font-mono);
   font-size: 0.68rem;
   color: var(--text-soft);
@@ -167,32 +167,32 @@
   text-transform: uppercase;
 }
 
-.todoist-case-study .metric-val {
+.plugvan-case-study .metric-val {
   font-family: var(--font-mono);
   font-size: 0.92rem;
   color: var(--text);
   font-weight: 600;
 }
 
-.todoist-case-study .metric-link {
+.plugvan-case-study .metric-link {
   color: var(--accent-ink);
   text-decoration: underline;
   text-underline-offset: 3px;
 }
 
-.todoist-case-study .install-note,
-.todoist-case-study .release-note {
+.plugvan-case-study .install-note,
+.plugvan-case-study .release-note {
   font-size: 0.82rem;
   color: var(--text-muted);
   line-height: 1.5;
   margin: 14px 0 0;
 }
 
-.todoist-case-study .release-note {
+.plugvan-case-study .release-note {
   margin-top: 20px;
 }
 
-.todoist-case-study .case-hero-actions {
+.plugvan-case-study .case-hero-actions {
   display: flex;
   align-items: center;
   gap: 16px;
@@ -200,7 +200,7 @@
 }
 
 /* Ensure all case study content is visible immediately */
-.todoist-case-study .reveal {
+.plugvan-case-study .reveal {
   opacity: 1;
   transform: none;
   transition: opacity 0.4s ease, transform 0.4s ease;

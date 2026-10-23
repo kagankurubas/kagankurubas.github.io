@@ -281,8 +281,8 @@
   white-space: nowrap;
 }
 
-/* 02: TODOIST ARCHITECTURE VISUAL */
-.showcase-visual-todoist {
+/* 02: PLUGVAN ARCHITECTURE VISUAL */
+.showcase-visual-plugvan {
   background: var(--bg);
   padding: 28px;
 }
@@ -428,9 +428,9 @@
   letter-spacing: 0.02em;
 }
 
-.showcase-visual-todoist:hover .arch-node-client,
-.showcase-visual-todoist:hover .arch-node-server,
-.showcase-visual-todoist:hover .arch-node-api {
+.showcase-visual-plugvan:hover .arch-node-client,
+.showcase-visual-plugvan:hover .arch-node-server,
+.showcase-visual-plugvan:hover .arch-node-api {
   border-color: var(--border-strong);
 }
 
@@ -593,7 +593,7 @@
     display: none;
   }
 
-  .showcase-visual-todoist {
+  .showcase-visual-plugvan {
     padding: 20px;
   }
 }
