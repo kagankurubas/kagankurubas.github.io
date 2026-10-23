@@ -25,7 +25,7 @@ export const SelectedWork: React.FC<SelectedWorkProps> = ({ onNavigate }) => {
 
   const { selectedWork } = siteData;
   const byId = (id: string) => selectedWork.projects.find((project) => project.id === id)!;
-  const todoist = byId('todoist');
+  const plugvan = byId('plugvan');
   const bookshelf = byId('bookshelf');
   const zombie = byId('zombie');
 
@@ -68,10 +68,10 @@ export const SelectedWork: React.FC<SelectedWorkProps> = ({ onNavigate }) => {
     setActiveBookshelfScreen((prev) => (prev + 1) % bookshelfScreens.length);
   };
 
-  const handleTodoistClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
-    if (onNavigate && todoist.primaryLink.href.startsWith('/')) {
+  const handlePlugvanClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    if (onNavigate && plugvan.primaryLink.href.startsWith('/')) {
       e.preventDefault();
-      onNavigate(todoist.primaryLink.href);
+      onNavigate(plugvan.primaryLink.href);
     }
   };
 
@@ -227,41 +227,41 @@ export const SelectedWork: React.FC<SelectedWorkProps> = ({ onNavigate }) => {
           {/* ============================================================ */}
           {/* 02 — PLUGVAN                                                  */}
           {/* ============================================================ */}
-          <article className={`project-row ${expanded === 'todoist' ? 'open' : ''}`}>
+          <article className={`project-row ${expanded === 'plugvan' ? 'open' : ''}`}>
             <button
               type="button"
               className="project-row-header"
-              onClick={() => toggle('todoist')}
-              aria-expanded={expanded === 'todoist'}
-              aria-controls="panel-todoist"
+              onClick={() => toggle('plugvan')}
+              aria-expanded={expanded === 'plugvan'}
+              aria-controls="panel-plugvan"
             >
-              <span className="project-row-num">{todoist.index}</span>
-              <span className="project-row-name">{todoist.title}</span>
+              <span className="project-row-num">{plugvan.index}</span>
+              <span className="project-row-name">{plugvan.title}</span>
               <span className="project-row-leader" aria-hidden="true"></span>
-              <span className="project-row-category">{todoist.category}</span>
+              <span className="project-row-category">{plugvan.category}</span>
               <span className="index-row-status project-row-status">
-                <span className={`status-dot ${statusDotClass(todoist.status)}`} aria-hidden="true" />
-                {statusLabel(todoist.status)}
+                <span className={`status-dot ${statusDotClass(plugvan.status)}`} aria-hidden="true" />
+                {statusLabel(plugvan.status)}
               </span>
               <ChevronDown size={18} className="project-row-chevron" aria-hidden="true" />
             </button>
 
-            <div className={`project-row-panel ${expanded === 'todoist' ? 'open' : ''}`} id="panel-todoist">
+            <div className={`project-row-panel ${expanded === 'plugvan' ? 'open' : ''}`} id="panel-plugvan">
               <div className="project-row-panel-inner">
                 <div className="project-row-grid">
                   <div className="showcase-content">
-                    <h3 className="showcase-headline">{todoist.headline}</h3>
-                    <p className="showcase-description">{todoist.description}</p>
+                    <h3 className="showcase-headline">{plugvan.headline}</h3>
+                    <p className="showcase-description">{plugvan.description}</p>
 
-                    {todoist.highlight && (
+                    {plugvan.highlight && (
                       <div className="showcase-highlight-pill">
                         <ShieldCheck size={15} className="highlight-icon" />
-                        <span>{todoist.highlight}</span>
+                        <span>{plugvan.highlight}</span>
                       </div>
                     )}
 
                     <div className="tag-list" aria-label="Plugvan technologies">
-                      {todoist.tags.map((tag, idx) => (
+                      {plugvan.tags.map((tag, idx) => (
                         <span className="tag" key={idx}>{tag}</span>
                       ))}
                     </div>
@@ -269,27 +269,27 @@ export const SelectedWork: React.FC<SelectedWorkProps> = ({ onNavigate }) => {
                     <div className="showcase-actions">
                       <a
                         className="button button-primary"
-                        href={todoist.primaryLink.href}
-                        onClick={handleTodoistClick}
+                        href={plugvan.primaryLink.href}
+                        onClick={handlePlugvanClick}
                       >
-                        <span>{todoist.primaryLink.label}</span>
+                        <span>{plugvan.primaryLink.label}</span>
                         <ArrowRight size={16} className="cta-arrow" />
                       </a>
-                      {todoist.secondaryLink && (
+                      {plugvan.secondaryLink && (
                         <a
                           className="button button-secondary"
-                          href={todoist.secondaryLink.href}
+                          href={plugvan.secondaryLink.href}
                           target="_blank"
                           rel="noreferrer"
                         >
-                          <span>{todoist.secondaryLink.label}</span>
+                          <span>{plugvan.secondaryLink.label}</span>
                           <ExternalLink size={14} />
                         </a>
                       )}
                     </div>
                   </div>
 
-                  <div className="showcase-visual showcase-visual-todoist">
+                  <div className="showcase-visual showcase-visual-plugvan">
                     <div className="architecture-canvas" aria-label="MCP Architecture Diagram Preview">
                       <div className="arch-header">
                         <div className="arch-header-left">
@@ -314,7 +314,7 @@ export const SelectedWork: React.FC<SelectedWorkProps> = ({ onNavigate }) => {
 
                         <div className="arch-connector arch-connector-1">
                           <ArrowDown size={14} className="connector-arrow" />
-                          <span className="connector-label">Local stdio / JSON-RPC 2.0</span>
+                          <span className="connector-label">Local stdio</span>
                         </div>
 
                         <div className="arch-node arch-node-server">
@@ -323,7 +323,7 @@ export const SelectedWork: React.FC<SelectedWorkProps> = ({ onNavigate }) => {
                           </div>
                           <div className="arch-node-meta">
                             <div className="arch-node-heading">
-                              <strong>Todoist MCP Server</strong>
+                              <strong>Plugvan MCP Server</strong>
                               <span className="arch-badge-live">FastMCP Core</span>
                             </div>
                             <div className="arch-tool-chips">

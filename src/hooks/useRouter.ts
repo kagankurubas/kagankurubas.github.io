@@ -5,9 +5,24 @@ import { useState, useEffect, useCallback } from 'react';
  * Canonical routes:
  *   - '/'
  *   - '/projects/habitto'
- *   - '/projects/todoist'
+ *   - '/projects/plugvan'
  *   - '/projects/bookshelf'
+ * Legacy routes (renamed; kept so previously shared links keep working):
+ *   - '/projects/todoist' -> '/projects/plugvan'
  */
+const LEGACY_REDIRECTS: Record<string, string> = {
+  '/projects/todoist': '/projects/plugvan'
+};
+
+// Rewrites a legacy URL in place (no new history entry) so the address bar shows the canonical path.
+function replaceLegacyUrl(): void {
+  const cleanPath = window.location.pathname.replace(/\/+$/, '') || '/';
+  const target = LEGACY_REDIRECTS[cleanPath];
+  if (target) {
+    window.history.replaceState({}, '', target + window.location.search + window.location.hash);
+  }
+}
+
 function getNormalizedPath(): string {
   // Normalize single or multiple trailing slashes to canonical form (e.g. '/projects/habitto/' -> '/projects/habitto')
   const rawPath = window.location.pathname;
@@ -18,8 +33,11 @@ function getNormalizedPath(): string {
   if (hash === '#/projects/habitto' || hash === '#projects/habitto' || hash === '#/projects/habitto/') {
     return '/projects/habitto';
   }
+  if (hash === '#/projects/plugvan' || hash === '#projects/plugvan' || hash === '#/projects/plugvan/') {
+    return '/projects/plugvan';
+  }
   if (hash === '#/projects/todoist' || hash === '#projects/todoist' || hash === '#/projects/todoist/') {
-    return '/projects/todoist';
+    return '/projects/plugvan';
   }
   if (hash === '#/projects/bookshelf' || hash === '#projects/bookshelf' || hash === '#/projects/bookshelf/') {
     return '/projects/bookshelf';
@@ -29,8 +47,11 @@ function getNormalizedPath(): string {
   if (cleanPath === '/projects/habitto') {
     return '/projects/habitto';
   }
-  if (cleanPath === '/projects/todoist') {
-    return '/projects/todoist';
+  if (cleanPath === '/projects/plugvan') {
+    return '/projects/plugvan';
+  }
+  if (LEGACY_REDIRECTS[cleanPath]) {
+    return LEGACY_REDIRECTS[cleanPath];
   }
   if (cleanPath === '/projects/bookshelf') {
     return '/projects/bookshelf';
@@ -44,10 +65,14 @@ function getNormalizedPath(): string {
 }
 
 export function useRouter() {
-  const [currentPath, setCurrentPath] = useState<string>(getNormalizedPath);
+  const [currentPath, setCurrentPath] = useState<string>(() => {
+    replaceLegacyUrl();
+    return getNormalizedPath();
+  });
 
   useEffect(() => {
     const handleLocationChange = () => {
+      replaceLegacyUrl();
       setCurrentPath(getNormalizedPath());
     };
 

@@ -46,20 +46,20 @@ const routes = [
     }
   },
   {
-    path: 'projects/todoist',
-    title: 'Plugvan — MCP & Automation System | Kağan Kurubaş',
+    path: 'projects/plugvan',
+    title: 'Plugvan — Validated MCP Server | Kağan Kurubaş',
     description: 'Engineering case study of a local MCP server connecting AI assistants with Todoist through structured tools, validated API interactions, and a tested Python backend.',
-    canonical: 'https://kagankurubas.github.io/projects/todoist',
+    canonical: 'https://kagankurubas.github.io/projects/plugvan',
     ogType: 'article',
-    ogTitle: 'Plugvan — MCP & Automation System | Kağan Kurubaş',
+    ogTitle: 'Plugvan — Validated MCP Server | Kağan Kurubaş',
     ogDescription: 'Engineering case study of a local MCP server connecting AI assistants with Todoist through structured tools, validated API interactions, and a tested Python backend.',
-    ogUrl: 'https://kagankurubas.github.io/projects/todoist',
-    ogImage: 'https://kagankurubas.github.io/og/todoist.png',
-    ogImageAlt: 'Plugvan — MCP & Automation Infrastructure Case Study',
-    twitterTitle: 'Plugvan — MCP & Automation System | Kağan Kurubaş',
+    ogUrl: 'https://kagankurubas.github.io/projects/plugvan',
+    ogImage: 'https://kagankurubas.github.io/og/plugvan.png',
+    ogImageAlt: 'Plugvan — Validated MCP Server Case Study',
+    twitterTitle: 'Plugvan — Validated MCP Server | Kağan Kurubaş',
     twitterDescription: 'Engineering case study of a local MCP server connecting AI assistants with Todoist through structured tools, validated API interactions, and a tested Python backend.',
-    twitterImage: 'https://kagankurubas.github.io/og/todoist.png',
-    twitterImageAlt: 'Plugvan — MCP & Automation Infrastructure Case Study',
+    twitterImage: 'https://kagankurubas.github.io/og/plugvan.png',
+    twitterImageAlt: 'Plugvan — Validated MCP Server Case Study',
     structuredData: {
       '@context': 'https://schema.org',
       '@type': 'SoftwareSourceCode',
@@ -106,7 +106,13 @@ const routes = [
   }
 ];
 
-for (const route of routes) {
+// Renamed routes. GitHub Pages has no server-side redirects, so each legacy path gets a static page
+// with the target's metadata (canonical = target) that redirects in the browser.
+const legacyRoutes = [
+  { path: 'projects/todoist', target: 'projects/plugvan' }
+];
+
+function renderRoute(route) {
   let html = templateHtml;
 
   // 1. Replace Title
@@ -139,10 +145,35 @@ for (const route of routes) {
     `<script id="app-structured-data" type="application/ld+json">\n${structuredDataJson}\n    </script>`
   );
 
-  const targetDir = path.join(distDir, route.path);
-  fs.mkdirSync(targetDir, { recursive: true });
-  const targetFile = path.join(targetDir, 'index.html');
-  fs.writeFileSync(targetFile, html, 'utf-8');
+  return html;
+}
 
-  console.log(`[generate-route-html] Generated static entrypoint: dist/${route.path}/index.html`);
+function writeRoute(routePath, html, kind) {
+  const targetDir = path.join(distDir, routePath);
+  fs.mkdirSync(targetDir, { recursive: true });
+  fs.writeFileSync(path.join(targetDir, 'index.html'), html, 'utf-8');
+  console.log(`[generate-route-html] Generated ${kind}: dist/${routePath}/index.html`);
+}
+
+for (const route of routes) {
+  writeRoute(route.path, renderRoute(route), 'static entrypoint');
+}
+
+for (const legacy of legacyRoutes) {
+  const target = routes.find((route) => route.path === legacy.target);
+  if (!target) {
+    console.error(`Error: Legacy route ${legacy.path} points at unknown route ${legacy.target}.`);
+    process.exit(1);
+  }
+  const targetUrl = `/${legacy.target}`;
+  // The script keeps the query and hash; meta refresh is the no-JS fallback.
+  const redirect =
+    `<meta http-equiv="refresh" content="0; url=${targetUrl}" />\n` +
+    `    <script>location.replace('${targetUrl}' + location.search + location.hash);</script>`;
+  const html = renderRoute(target).replace(/<meta charset="UTF-8" \/>/i, (charset) => `${charset}\n    ${redirect}`);
+  if (!html.includes('http-equiv="refresh"')) {
+    console.error(`Error: Could not insert the redirect into ${legacy.path}.`);
+    process.exit(1);
+  }
+  writeRoute(legacy.path, html, `redirect ${legacy.path} -> ${legacy.target}`);
 }
