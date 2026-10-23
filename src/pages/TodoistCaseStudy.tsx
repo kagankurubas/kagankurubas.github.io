@@ -24,21 +24,21 @@ interface TodoistCaseStudyProps {
 
 export const TodoistCaseStudy: React.FC<TodoistCaseStudyProps> = ({ onNavigate }) => {
   usePageMetadata({
-    title: 'Plugvan — MCP & Automation System | Kağan Kurubaş',
+    title: 'Plugvan — Validated MCP Integrations | Kağan Kurubaş',
     description: 'Engineering case study of a local MCP server connecting AI assistants with Todoist through structured tools, validated API interactions, and a tested Python backend.',
     canonical: 'https://kagankurubas.github.io/projects/todoist',
     robots: 'index, follow',
     ogType: 'article',
-    ogTitle: 'Plugvan — MCP & Automation System | Kağan Kurubaş',
+    ogTitle: 'Plugvan — Validated MCP Integrations | Kağan Kurubaş',
     ogDescription: 'Engineering case study of a local MCP server connecting AI assistants with Todoist through structured tools, validated API interactions, and a tested Python backend.',
     ogUrl: 'https://kagankurubas.github.io/projects/todoist',
     ogImage: 'https://kagankurubas.github.io/og/todoist.png',
-    ogImageAlt: 'Plugvan — MCP & Automation Infrastructure Case Study',
+    ogImageAlt: 'Plugvan — Validated MCP Integrations Case Study',
     twitterCard: 'summary_large_image',
-    twitterTitle: 'Plugvan — MCP & Automation System | Kağan Kurubaş',
+    twitterTitle: 'Plugvan — Validated MCP Integrations | Kağan Kurubaş',
     twitterDescription: 'Engineering case study of a local MCP server connecting AI assistants with Todoist through structured tools, validated API interactions, and a tested Python backend.',
     twitterImage: 'https://kagankurubas.github.io/og/todoist.png',
-    twitterImageAlt: 'Plugvan — MCP & Automation Infrastructure Case Study',
+    twitterImageAlt: 'Plugvan — Validated MCP Integrations Case Study',
     structuredData: {
       '@context': 'https://schema.org',
       '@type': 'SoftwareSourceCode',
@@ -61,7 +61,9 @@ export const TodoistCaseStudy: React.FC<TodoistCaseStudyProps> = ({ onNavigate }
   const revealMcp = useScrollReveal(0.08);
   const revealPrivacy = useScrollReveal(0.08);
   const revealLanguage = useScrollReveal(0.08);
+  const revealInstall = useScrollReveal(0.08);
   const revealTesting = useScrollReveal(0.08);
+  const revealRelease = useScrollReveal(0.08);
   const revealDecisions = useScrollReveal(0.08);
   const revealOrigin = useScrollReveal(0.08);
   const revealClosing = useScrollReveal(0.08);
@@ -125,12 +127,23 @@ export const TodoistCaseStudy: React.FC<TodoistCaseStudyProps> = ({ onNavigate }
                   <strong className="metric-val">Pydantic field constraints</strong>
                 </div>
                 <div className="case-metric-item">
-                  <span className="metric-label">TESTING</span>
-                  <strong className="metric-val">Hermetic pytest suite, CI on Python 3.10–3.14 and Windows</strong>
-                </div>
-                <div className="case-metric-item">
                   <span className="metric-label">TRANSPORT</span>
                   <strong className="metric-val">Local stdio</strong>
+                </div>
+                <div className="case-metric-item">
+                  <span className="metric-label">DISTRIBUTION</span>
+                  <a
+                    className="metric-val metric-link"
+                    href="https://pypi.org/project/plugvan-mcp/"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    PyPI · plugvan-mcp
+                  </a>
+                </div>
+                <div className="case-metric-item case-metric-wide">
+                  <span className="metric-label">TESTING</span>
+                  <strong className="metric-val">Hermetic pytest suite, CI on Python 3.10–3.14 and Windows, and a gated release pipeline that publishes to PyPI with trusted publishing.</strong>
                 </div>
               </div>
 
@@ -593,7 +606,39 @@ export const TodoistCaseStudy: React.FC<TodoistCaseStudyProps> = ({ onNavigate }
         </section>
 
         {/* ============================================================ */}
-        {/* 07 — VERIFICATION                                            */}
+        {/* 07 — INSTALL                                                 */}
+        {/* ============================================================ */}
+        <section className="case-section" id="install" ref={revealInstall}>
+          <div className="container">
+            <div className="section-heading reveal">
+              <div>
+                <span className="eyebrow">INSTALL</span>
+                <h2>One command, from PyPI.</h2>
+              </div>
+              <p>
+                Runs the server over stdio. Setup for Claude Desktop is in the{' '}
+                <a
+                  href="https://github.com/kagankurubas/plugvan/blob/main/README.md"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  README on GitHub
+                </a>
+                .
+              </p>
+            </div>
+
+            <div className="reveal">
+              <pre className="code-block">{`uvx plugvan-mcp todoist`}</pre>
+              <p className="install-note">
+                Verified on Windows with Claude Desktop; macOS and Linux with Claude Desktop have not been verified.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        {/* ============================================================ */}
+        {/* 08 — VERIFICATION                                            */}
         {/* ============================================================ */}
         <section className="case-section" id="testing" ref={revealTesting}>
           <div className="container">
@@ -603,7 +648,7 @@ export const TodoistCaseStudy: React.FC<TodoistCaseStudyProps> = ({ onNavigate }
                 <h2>Hermetic by construction.</h2>
               </div>
               <p>
-                The test suite runs without a network, real credentials or the developer's shell environment, so a green run means the same thing locally and in CI.
+                The test suite runs without a network, real credentials or the developer's shell environment. CI additionally builds both packages and checks them against the release gates.
               </p>
             </div>
 
@@ -642,12 +687,84 @@ export const TodoistCaseStudy: React.FC<TodoistCaseStudyProps> = ({ onNavigate }
                   <span>Linux on Python 3.10–3.14, plus Windows; actions pinned to commit SHAs.</span>
                 </div>
               </div>
+
+              <div className="test-suite-row">
+                <div className="suite-meta">
+                  <code>Installed wheel</code>
+                  <span>Package jobs on Ubuntu and Windows install the built wheel into a clean venv and run the installed-mode tests.</span>
+                </div>
+              </div>
             </div>
           </div>
         </section>
 
         {/* ============================================================ */}
-        {/* 08 — ENGINEERING DECISIONS                                   */}
+        {/* 09 — RELEASE                                                 */}
+        {/* ============================================================ */}
+        <section className="case-section" id="release" ref={revealRelease}>
+          <div className="container">
+            <div className="section-heading reveal">
+              <div>
+                <span className="eyebrow">RELEASE</span>
+                <h2>Every release takes the same gated path.</h2>
+              </div>
+              <p>
+                A release is a tagged commit that has to pass the same checks every time before anything reaches PyPI.
+              </p>
+            </div>
+
+            <div className="test-suites-matrix reveal">
+              <div className="test-suite-row">
+                <div className="suite-meta">
+                  <code>Gates before publishing</code>
+                  <span>Only canonical versions (X.Y.Z or X.Y.ZrcN); the tag must equal the version in pyproject; the changelog needs a section for it; both archive names carry exactly that version; twine check --strict passes; the README renders as the PyPI description (tested).</span>
+                </div>
+              </div>
+
+              <div className="test-suite-row">
+                <div className="suite-meta">
+                  <code>Rehearsal</code>
+                  <span>Release candidates go to TestPyPI only, finals go to PyPI only. The two paths are mutually exclusive and a test pins that.</span>
+                </div>
+              </div>
+
+              <div className="test-suite-row">
+                <div className="suite-meta">
+                  <code>Trusted publishing</code>
+                  <span>No API token or secret is stored anywhere. GitHub Actions authenticates to PyPI with a short-lived OIDC identity, and the publish job waits for the maintainer's approval in the pypi environment (required reviewer, tags matching v*).</span>
+                </div>
+              </div>
+
+              <div className="test-suite-row">
+                <div className="suite-meta">
+                  <code>After upload</code>
+                  <span>A verify job checks that PyPI serves exactly the uploaded files, with the same names and sha256 digests, retrying within a fixed bound.</span>
+                </div>
+              </div>
+
+              <div className="test-suite-row">
+                <div className="suite-meta">
+                  <code>Provenance</code>
+                  <span>Both files carry PyPI attestations naming the repository, workflow, environment, tag and commit they were built from.</span>
+                </div>
+              </div>
+
+              <div className="test-suite-row">
+                <div className="suite-meta">
+                  <code>The workflow itself is tested</code>
+                  <span>Only the two publish jobs can request an id-token, only the release job can write repository contents, and release candidates and finals cannot reach each other's index. Each of these rules was checked by deliberately breaking it. Every action is pinned to a commit SHA.</span>
+                </div>
+              </div>
+            </div>
+
+            <p className="release-note reveal">
+              Files uploaded to PyPI cannot be deleted, only yanked, which is why the same path was rehearsed on TestPyPI first.
+            </p>
+          </div>
+        </section>
+
+        {/* ============================================================ */}
+        {/* 10 — ENGINEERING DECISIONS                                   */}
         {/* ============================================================ */}
         <section className="case-section" id="decisions" ref={revealDecisions}>
           <div className="container">
@@ -698,7 +815,7 @@ export const TodoistCaseStudy: React.FC<TodoistCaseStudyProps> = ({ onNavigate }
                   <h3>Local stdio Only</h3>
                 </div>
                 <p>
-                  The MCP server runs over standard input/output (stdio) locally alongside Claude Desktop: no hosted proxy and no remote credentials.
+                  The MCP server runs over standard input/output (stdio) locally alongside Claude Desktop. No hosted proxy: the server runs on your machine and talks to the Todoist API directly with your own token.
                 </p>
               </article>
             </div>
@@ -706,7 +823,7 @@ export const TodoistCaseStudy: React.FC<TodoistCaseStudyProps> = ({ onNavigate }
         </section>
 
         {/* ============================================================ */}
-        {/* 09 — ORIGIN                                                  */}
+        {/* 11 — ORIGIN                                                  */}
         {/* ============================================================ */}
         <section className="case-section" id="origin" ref={revealOrigin}>
           <div className="container">
@@ -716,14 +833,14 @@ export const TodoistCaseStudy: React.FC<TodoistCaseStudyProps> = ({ onNavigate }
                 <h2>From a bridge to a server.</h2>
               </div>
               <p>
-                Plugvan began as a Gemini-to-Todoist bridge with a FastAPI webhook, a CLI and a Google Tasks sync. As the MCP path proved its value, the other surfaces were removed and the repository was narrowed to a single, well-tested MCP server. The final state of the original bridge is preserved in the repository's <code>legacy-bridge-final</code> tag.
+                Plugvan began as a Gemini-to-Todoist bridge with a webhook service, a CLI and a task-sync integration. As the MCP path proved its value, the other surfaces were removed and the repository was narrowed to a single, well-tested MCP server. The final state of the original bridge is preserved in the repository's <code>legacy-bridge-final</code> tag.
               </p>
             </div>
           </div>
         </section>
 
         {/* ============================================================ */}
-        {/* 10 — CLOSING SPEC SHEET                                      */}
+        {/* 12 — CLOSING SPEC SHEET                                      */}
         {/* ============================================================ */}
         <section className="case-section case-release" id="closing" ref={revealClosing}>
           <div className="container">
@@ -745,7 +862,7 @@ export const TodoistCaseStudy: React.FC<TodoistCaseStudyProps> = ({ onNavigate }
                 </div>
                 <div className="spec-row">
                   <span className="spec-label">VERIFICATION</span>
-                  <span>Hermetic pytest suite, CI on Python 3.10–3.14 and Windows</span>
+                  <span>Hermetic pytest suite, CI on Python 3.10–3.14 and Windows, and a gated release pipeline that publishes to PyPI with trusted publishing.</span>
                 </div>
                 <div className="spec-row">
                   <span className="spec-label">LICENSE</span>

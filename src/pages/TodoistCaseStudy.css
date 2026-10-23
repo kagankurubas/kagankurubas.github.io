@@ -141,8 +141,8 @@
 
 .todoist-case-study .case-metrics-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 20px 16px;
   padding: 24px 0;
   margin-bottom: 36px;
   border-top: 1px solid var(--border);
@@ -153,6 +153,10 @@
   display: flex;
   flex-direction: column;
   gap: 4px;
+}
+
+.todoist-case-study .case-metric-wide {
+  grid-column: 1 / -1;
 }
 
 .todoist-case-study .metric-label {
@@ -168,6 +172,24 @@
   font-size: 0.92rem;
   color: var(--text);
   font-weight: 600;
+}
+
+.todoist-case-study .metric-link {
+  color: var(--accent-ink);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.todoist-case-study .install-note,
+.todoist-case-study .release-note {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  line-height: 1.5;
+  margin: 14px 0 0;
+}
+
+.todoist-case-study .release-note {
+  margin-top: 20px;
 }
 
 .todoist-case-study .case-hero-actions {
@@ -937,11 +959,6 @@
   .privacy-comparison-grid,
   .decisions-grid {
     grid-template-columns: 1fr;
-  }
-
-  .todoist-case-study .case-metrics-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 20px 16px;
   }
 
   .shared-pipeline-bar {

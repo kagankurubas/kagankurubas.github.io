@@ -314,7 +314,7 @@ export const SelectedWork: React.FC<SelectedWorkProps> = ({ onNavigate }) => {
 
                         <div className="arch-connector arch-connector-1">
                           <ArrowDown size={14} className="connector-arrow" />
-                          <span className="connector-label">Local stdio / JSON-RPC 2.0</span>
+                          <span className="connector-label">Local stdio</span>
                         </div>
 
                         <div className="arch-node arch-node-server">
@@ -323,7 +323,7 @@ export const SelectedWork: React.FC<SelectedWorkProps> = ({ onNavigate }) => {
                           </div>
                           <div className="arch-node-meta">
                             <div className="arch-node-heading">
-                              <strong>Todoist MCP Server</strong>
+                              <strong>Plugvan MCP Server</strong>
                               <span className="arch-badge-live">FastMCP Core</span>
                             </div>
                             <div className="arch-tool-chips">
