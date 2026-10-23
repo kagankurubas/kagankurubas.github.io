@@ -97,7 +97,7 @@ function App() {
     return <HabittoCaseStudy onNavigate={navigate} />;
   }
 
-  if (currentPath === '/projects/todoist') {
+  if (currentPath === '/projects/plugvan') {
     return <TodoistCaseStudy onNavigate={navigate} />;
   }
 

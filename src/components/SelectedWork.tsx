@@ -25,7 +25,7 @@ export const SelectedWork: React.FC<SelectedWorkProps> = ({ onNavigate }) => {
 
   const { selectedWork } = siteData;
   const byId = (id: string) => selectedWork.projects.find((project) => project.id === id)!;
-  const todoist = byId('todoist');
+  const todoist = byId('plugvan');
   const bookshelf = byId('bookshelf');
   const zombie = byId('zombie');
 

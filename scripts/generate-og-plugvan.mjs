@@ -139,9 +139,9 @@ const pngBuffer = pngData.asPng();
 const publicOgDir = path.resolve(__dirname, '../public/og');
 fs.mkdirSync(publicOgDir, { recursive: true });
 
-const targetFile = path.join(publicOgDir, 'todoist.png');
+const targetFile = path.join(publicOgDir, 'plugvan.png');
 if (fs.existsSync(targetFile) && !process.argv.includes('--force')) {
-  console.log(`[generate-og-todoist] Preserving approved manual file at: ${targetFile}`);
+  console.log(`[generate-og-plugvan] Preserving approved manual file at: ${targetFile}`);
   process.exit(0);
 }
 fs.writeFileSync(targetFile, pngBuffer);
@@ -150,10 +150,10 @@ fs.writeFileSync(targetFile, pngBuffer);
 const artifactDir = process.env.OG_PREVIEW_DIR;
 if (artifactDir) {
   if (!fs.existsSync(artifactDir)) {
-    console.error(`[generate-og-todoist] OG_PREVIEW_DIR does not exist: ${artifactDir}`);
+    console.error(`[generate-og-plugvan] OG_PREVIEW_DIR does not exist: ${artifactDir}`);
     process.exit(1);
   }
-  fs.writeFileSync(path.join(artifactDir, 'og_todoist_preview.png'), pngBuffer);
+  fs.writeFileSync(path.join(artifactDir, 'og_plugvan_preview.png'), pngBuffer);
 }
 
-console.log(`[generate-og-todoist] Successfully generated 1200x630 OG image at: ${targetFile} (${pngBuffer.length} bytes)`);
+console.log(`[generate-og-plugvan] Successfully generated 1200x630 OG image at: ${targetFile} (${pngBuffer.length} bytes)`);

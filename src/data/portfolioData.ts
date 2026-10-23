@@ -41,7 +41,7 @@ export const siteData = {
         demoLink: { label: 'Live Demo ↗', href: 'https://yourbookshelf-app.netlify.app' },
       },
       {
-        id: 'todoist',
+        id: 'plugvan',
         index: '02',
         label: '02 — Plugvan',
         category: 'Systems & AI Engineering',
@@ -51,7 +51,7 @@ export const siteData = {
         tags: ['Python', 'MCP', 'FastMCP', 'Pydantic', 'Pytest'],
         highlight: 'Hermetic pytest suite, CI on Python 3.10–3.14 and Windows, and a gated release pipeline that publishes to PyPI with trusted publishing.',
         status: 'shipped',
-        primaryLink: { label: 'Explore Project', href: '/projects/todoist' },
+        primaryLink: { label: 'Explore Project', href: '/projects/plugvan' },
         secondaryLink: { label: 'GitHub Repository ↗', href: 'https://github.com/kagankurubas/plugvan' },
       },
       {
