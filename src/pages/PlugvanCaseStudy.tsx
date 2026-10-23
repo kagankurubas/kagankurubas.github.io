@@ -24,21 +24,21 @@ interface PlugvanCaseStudyProps {
 
 export const PlugvanCaseStudy: React.FC<PlugvanCaseStudyProps> = ({ onNavigate }) => {
   usePageMetadata({
-    title: 'Plugvan — Validated MCP Integrations | Kağan Kurubaş',
+    title: 'Plugvan — Validated MCP Server | Kağan Kurubaş',
     description: 'Engineering case study of a local MCP server connecting AI assistants with Todoist through structured tools, validated API interactions, and a tested Python backend.',
     canonical: 'https://kagankurubas.github.io/projects/plugvan',
     robots: 'index, follow',
     ogType: 'article',
-    ogTitle: 'Plugvan — Validated MCP Integrations | Kağan Kurubaş',
+    ogTitle: 'Plugvan — Validated MCP Server | Kağan Kurubaş',
     ogDescription: 'Engineering case study of a local MCP server connecting AI assistants with Todoist through structured tools, validated API interactions, and a tested Python backend.',
     ogUrl: 'https://kagankurubas.github.io/projects/plugvan',
     ogImage: 'https://kagankurubas.github.io/og/plugvan.png',
-    ogImageAlt: 'Plugvan — Validated MCP Integrations Case Study',
+    ogImageAlt: 'Plugvan — Validated MCP Server Case Study',
     twitterCard: 'summary_large_image',
-    twitterTitle: 'Plugvan — Validated MCP Integrations | Kağan Kurubaş',
+    twitterTitle: 'Plugvan — Validated MCP Server | Kağan Kurubaş',
     twitterDescription: 'Engineering case study of a local MCP server connecting AI assistants with Todoist through structured tools, validated API interactions, and a tested Python backend.',
     twitterImage: 'https://kagankurubas.github.io/og/plugvan.png',
-    twitterImageAlt: 'Plugvan — Validated MCP Integrations Case Study',
+    twitterImageAlt: 'Plugvan — Validated MCP Server Case Study',
     structuredData: {
       '@context': 'https://schema.org',
       '@type': 'SoftwareSourceCode',
@@ -758,7 +758,7 @@ export const PlugvanCaseStudy: React.FC<PlugvanCaseStudyProps> = ({ onNavigate }
             </div>
 
             <p className="release-note reveal">
-              Files uploaded to PyPI cannot be deleted, only yanked, which is why the same path was rehearsed on TestPyPI first.
+              A version number published to PyPI can never be reused, even if the release is deleted, so a mistake means a new version. That is why the same path was rehearsed on TestPyPI first.
             </p>
           </div>
         </section>

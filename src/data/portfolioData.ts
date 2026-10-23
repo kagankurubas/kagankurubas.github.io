@@ -46,7 +46,7 @@ export const siteData = {
         label: '02 — Plugvan',
         category: 'Systems & AI Engineering',
         title: 'Plugvan',
-        headline: 'Validated MCP Integrations',
+        headline: 'Validated MCP Server',
         description: 'An open-source MCP server giving AI assistants validated access to the Todoist API.',
         tags: ['Python', 'MCP', 'FastMCP', 'Pydantic', 'Pytest'],
         highlight: 'Hermetic pytest suite, CI on Python 3.10–3.14 and Windows, and a gated release pipeline that publishes to PyPI with trusted publishing.',
