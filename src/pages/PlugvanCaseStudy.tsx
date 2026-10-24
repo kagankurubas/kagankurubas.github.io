@@ -487,7 +487,7 @@ export const PlugvanCaseStudy: React.FC<PlugvanCaseStudyProps> = ({ onNavigate }
                 <div className="tool-constraints-list">
                   <div className="constraint-item"><code>filter_query</code> ≤ 500 chars (defaults to "today")</div>
                   <div className="constraint-item">Priority color formatting in response output</div>
-                  <div className="constraint-item">Sanitized logging on query failure</div>
+                  <div className="constraint-item">Filter text and request URLs kept out of the default log (since 0.1.2)</div>
                 </div>
               </div>
 
